@@ -1,11 +1,7 @@
 package com.choa.member;
 
-<<<<<<< HEAD
 import org.springframework.stereotype.Service;
 
-@Service
-public class MemberService {
-=======
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +26,4 @@ public class MemberService {
 	public int memberDelete(MemberDTO memberDTO)throws Exception{
 		return memberDAO.memberDelete(memberDTO);
 	}
->>>>>>> refs/heads/namkyun
-
 }

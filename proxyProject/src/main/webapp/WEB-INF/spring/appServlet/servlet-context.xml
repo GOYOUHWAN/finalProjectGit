@@ -22,16 +22,10 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.choa.proxyProject" />
-<<<<<<< HEAD
-	<context:component-scan base-package="com.choa.member"></context:component-scan>
-=======
+
 	<context:component-scan base-package="com.choa.freeboard" />
 	<context:component-scan base-package="com.choa.member" />
 	
-	
-	
-	
->>>>>>> refs/heads/namkyun
 	
 	
 </beans:beans>

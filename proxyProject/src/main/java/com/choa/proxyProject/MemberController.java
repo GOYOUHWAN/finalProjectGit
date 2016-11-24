@@ -1,20 +1,6 @@
 package com.choa.proxyProject;
 
-<<<<<<< HEAD
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.choa.member.MemberService;
-
-@Controller
-public class MemberController {
-	@Autowired
-	private MemberService memberService;
-	@RequestMapping(value="/join", method=RequestMethod.GET)
-	public void memberJoin(){}
-=======
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,10 +34,10 @@ public class MemberController {
 		}
 		if(result>0){
 			path="redirect:/";
-			message="È¸¿ø °¡ÀÔ ¼º°ø";
+			message="È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
 		}else {
 			path="redirect:/";
-			message="È¸¿ø °¡ÀÔ ½ÇÆÐ";
+			message="È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
 		}
 		rd.addFlashAttribute("message", message);
 		return path;
@@ -81,7 +67,4 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
->>>>>>> refs/heads/namkyun
-	
-
 }
