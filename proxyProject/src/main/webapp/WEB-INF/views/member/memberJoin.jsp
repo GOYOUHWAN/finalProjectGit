@@ -224,6 +224,7 @@ table {
 	<!-- JavaScript 처리 끝 -->
 </head>
 <body>
+
 	<!-- Join 시작 -->
 	<div id="join_div">
 		<!-- 입력 부분 시작 -->
@@ -328,5 +329,20 @@ table {
 		</div>
 	</div>
 	<!-- Join 끝 -->
+
+	<h2>JOIN</h2>
+	<form action="memberJoin" method="post">
+		ID <input type="text" name="id"><br>
+		PW <input type="password" name="pw"><br>
+		NAME <input type="text" name="name"><br>
+		TEL <input type="text" name="tel"><br>
+		BIRTH  <input type="text" name="birth"><br>
+		EMAIL <input type="text" name="email"><br>
+		ADDRESS <input type="text" name="address"><br>
+		
+		<input type="submit" value="JOIN">	
+		
+		</form>
+
 </body>
 </html>

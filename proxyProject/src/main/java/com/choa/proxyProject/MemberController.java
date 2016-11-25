@@ -27,26 +27,7 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	//id중복확인
-	@RequestMapping(value="/checkID", produces="application/json; charset=utf-8")
-	@ResponseBody
-	public ResponseEntity<String> checkid(@RequestParam String id){
-		int result = 0;
-		String message="이미 있는 ID입니다.";
-		try {
-			result = memberService.checkid(id);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(result>0){
-			message="이미 있는 ID입니다.";
-		}else{
-			message="사용가능한 ID입니다.";
-		}
-		System.out.println("컨트롤러 : "+message);
-		return new ResponseEntity<String>(message, HttpStatus.OK);
-	}
+	
 	@ResponseBody
 	@RequestMapping(value = "checkID2", method = RequestMethod.POST)
 	public HashMap<String, Object> checkId(@RequestParam HashMap<String, Object> param, @RequestParam String id) {
