@@ -3,11 +3,7 @@
 <html>
 <head>
 	<title>Home</title>
-	<script type="text/javascript">
-		if(${message} != ' '){
-			alert('${message}')
-		}
-	</script>
+
 	
 	
 </head>
@@ -22,11 +18,11 @@
 		<!--  <a href="member/info.jsp">회원정보</a>-->
 	
 	
-
-		
+<h2>${member2.name }</h2>
+<h2>${member.name }</h2>
 		
 <!-- 일반 회원용 -->		
-<c:if test="${member.type ==1}"> 
+<c:if test="${member.type =='1'}"> 
 <a href="member/myPage?type=${member.type}">마이페이지</a>
 	</c:if>
 	

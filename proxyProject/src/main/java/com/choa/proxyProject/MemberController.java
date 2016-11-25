@@ -84,7 +84,7 @@ public class MemberController {
 	public void memberLogin(){}
 	
 	@RequestMapping(value="/memberLogin", method=RequestMethod.POST)
-	public String memberLogin(MemberDTO memberDTO, Model model){
+	public String memberLogin(MemberDTO memberDTO, Model model, HttpSession session){
 		System.out.println(memberDTO.getId()+"/"+memberDTO.getPw());
 		try {
 			memberDTO=memberService.memberLogin(memberDTO);	
@@ -96,7 +96,9 @@ public class MemberController {
 			e.printStackTrace();
 		}
 		model.addAttribute("member", memberDTO);
-		
+		model.addAttribute("member2",	memberDTO);
+		session.setAttribute("member2", memberDTO);
+		session.setAttribute("member", memberDTO);
 		return "redirect:/";
 		
 	}
