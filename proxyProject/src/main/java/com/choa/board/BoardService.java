@@ -26,7 +26,8 @@ public interface BoardService {
 	//list//
 	public void boardList(int curPage, int perPage, Model model) throws Exception;
 	
-	
+	//myBookList
+	public void myBookList(int curPage, int perPage, Model model) throws Exception;
 	
 	
 }

@@ -90,4 +90,18 @@ public class FreeboardService implements BoardService {
 		model.addAttribute("paging", pageMaker);
 	}
 
+	@Override
+	public void myBookList(int curPage, int perPage, Model model) throws Exception {
+		int totalCount = fDAO.boardCount();
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCurPage(curPage);
+		pageMaker.setPerPage(perPage);
+		pageMaker.makeRow();//startRow & lastRow
+		pageMaker.makePage(totalCount);
+		
+		model.addAttribute("list", fDAO.boardList(pageMaker));
+		model.addAttribute("paging", pageMaker);
+		
+	}
+	
 }

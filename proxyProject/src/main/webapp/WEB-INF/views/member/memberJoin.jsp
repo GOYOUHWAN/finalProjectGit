@@ -12,7 +12,11 @@
 		ID <input type="text" name="id"><br>
 		PW <input type="password" name="pw"><br>
 		NAME <input type="text" name="name"><br>
-		AGE <input type="text" name="age"><br>
+		TEL <input type="text" name="tel"><br>
+		BIRTH  <input type="text" name="birth"><br>
+		EMAIL <input type="text" name="email"><br>
+		ADDRESS <input type="text" name="address"><br>
+		
 		<input type="submit" value="JOIN">	
 		
 		</form>
