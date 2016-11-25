@@ -1,7 +1,7 @@
 package com.choa.member;
 
 import org.springframework.stereotype.Service;
-
+import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,8 +10,13 @@ public class MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
 	
+	//아이디중복확인
+	public int checkid(String id) throws Exception{
+		return memberDAO.checkid(id);
+	}
+	
 	//회원가입
-	public int memerberJoin(MemberDTO memberDTO) throws Exception {
+	public int memberJoin(MemberDTO memberDTO) throws Exception {
 		return memberDAO.memberJoin(memberDTO);
 	}
 	//로그인
@@ -26,4 +31,5 @@ public class MemberService {
 	public int memberDelete(MemberDTO memberDTO)throws Exception{
 		return memberDAO.memberDelete(memberDTO);
 	}
+
 }

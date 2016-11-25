@@ -5,11 +5,11 @@ public class MemberDTO {
 	private String pw;
 	private String name;
 	private String tel;
-	private String birth;
+	private String year;
 	private String email;
 	private String address;
 	private int type;
-	private String grade;
+	private int grade;
 	public String getId() {
 		return id;
 	}
@@ -34,11 +34,12 @@ public class MemberDTO {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public String getBirth() {
-		return birth;
+	
+	public String getYear() {
+		return year;
 	}
-	public void setBirth(String birth) {
-		this.birth = birth;
+	public void setYear(String year) {
+		this.year = year;
 	}
 	public String getEmail() {
 		return email;
@@ -58,12 +59,13 @@ public class MemberDTO {
 	public void setType(int type) {
 		this.type = type;
 	}
-	public String getGrade() {
+	public int getGrade() {
 		return grade;
 	}
-	public void setGrade(String grade) {
+	public void setGrade(int grade) {
 		this.grade = grade;
 	}
+	
 	
 
 }

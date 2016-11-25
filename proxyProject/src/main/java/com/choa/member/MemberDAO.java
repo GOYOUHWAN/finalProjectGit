@@ -39,5 +39,10 @@ public class MemberDAO {
 	public int memberDelete(MemberDTO memberDTO) throws Exception{
 		return sqlSession.delete(namespace+"memberDelete", memberDTO);
 	}
+	
+	//5.id중복확인
+	public int checkid(String id) throws Exception{
+		return sqlSession.selectOne(namespace+"checkID", id);
+	}
 
 }
