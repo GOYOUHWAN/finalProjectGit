@@ -9,7 +9,7 @@
 	<!-- 파일업로드를 같이 해보자!! -->
 	<insert id="boardWrite" parameterType="com.choa.freeboard.FreeboardDTO">
 		insert into freeboard
-		values(freeboard_seq.nextVal,#{writer},#{title},#{contents},#{category},sysdate,0,0,freeboard_seq.currVal,0,0)
+		values(freeboard_seq.nextVal,#{writer},#{title},#{contents},sysdate,0,0,freeboard_seq.currVal,0,0)
 	</insert>
 	<!-- files table에 등록하기 -->
 	<insert id="fileWrite" parameterType="java.util.HashMap">

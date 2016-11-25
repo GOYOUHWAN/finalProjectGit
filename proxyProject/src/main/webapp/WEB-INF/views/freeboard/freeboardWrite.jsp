@@ -5,10 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>WRITE</title>
-<link href="${pageContext.request.contextPath}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="${pageContext.request.contextPath}/resources/bootstrap/css/4-col-portfolio.css" rel="stylesheet">
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function(){
 		var f = '<input type="file" name="files" class="form-control">';
@@ -66,18 +63,9 @@
 						<td class="active">WRTIER</td>
 						<td>
 							<div class="form-group"> 
-								<input type="text" class="form-control" id="wri" name="writer" readonly="readonly" value="${sessionScope.member.name}">
+								<input type="text" class="form-control" id="wri" name="writer">
 							</div>
-						</td>
-						<td class="active">CATEGORY</td>
-						<td>
-							<div class="form-group"> 
-								<select class="form-control" name="category">
-									<option value="정보">정보</option>
-									<option value="질문">질문</option>
-								</select>
-							</div>						
-						</td>					
+						</td>			
 					</tr>
 				</thead>
 				<tbody>
@@ -91,12 +79,12 @@
 					</tr>
 					<tr>
 						<td colspan="4">
-							<button type="button" class="btn btn-default btn-sm" id="fileToggle">
-          						<span class="glyphicon glyphicon-chevron-down"></span> FLIE UP
+							<button type="button"  id="fileToggle">
+          						FLIE UP
         					</button>
 							<div id="fileSet" style="display: none;">
-								<a id="addFile" class="btn btn-default btn-sm" role="button">ADDFILE</a>
-								<a id="delFile" class="btn btn-default btn-sm" role="button">DELFILE</a>
+								<a id="addFile" role="button">ADDFILE</a>
+								<a id="delFile"  role="button">DELFILE</a>
 								<input type="file" name="files" id="firstFile" class="form-control">
 							</div>
 						</td>
@@ -104,8 +92,8 @@
 					<tr>
 						<td colspan="4">
 							<input type="hidden" name="board" value="2">
-							<a id="goList" class="btn btn-md btn-primary" role="button">LIST</a>
-							<a id="goWrite" class="btn btn-md btn-primary" role="button">SUBMIT</a>
+							<a id="goList"  role="button">LIST</a>
+							<a id="goWrite"  role="button">SUBMIT</a>
 							
 						</td>
 					</tr>
