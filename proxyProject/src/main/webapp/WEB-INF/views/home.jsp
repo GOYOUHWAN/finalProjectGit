@@ -10,6 +10,7 @@
 <body>
 <h1>
 </h1>
+
 	
 <%-- <c:choose>
 	<c:when test="${member !=null}">
@@ -43,6 +44,8 @@
 <%-- 	</c:otherwise> --%>
 <%-- </c:choose>	 --%>
 	<a href="freeboard/freeboardList">freeboard</a>
+
 <P>  The time on the server is ${serverTime}. </P>
+<a href="index">index</a>
 </body>
 </html>
