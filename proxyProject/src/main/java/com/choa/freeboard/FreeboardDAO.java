@@ -41,11 +41,11 @@ public class FreeboardDAO implements BoardDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(namespace+"boardList", pageMaker);
 	}
-	//자신이 게시한 글 list
+/*	//자신이 게시한 글 list
 	@Override
 	public List<BoardDTO> myBookList(PageMaker pageMaker) throws Exception {
 		return sqlSession.selectList(namespace+"myBookList", pageMaker);
-	}
+	}*/
 	//==========================================================
 	
 	//글쓰기//

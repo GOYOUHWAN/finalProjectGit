@@ -2,31 +2,46 @@ package com.choa.proxyProject;
 
 
 import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
+import com.choa.book.BookService;
 import com.choa.member.MemberDTO;
 import com.choa.member.MemberService;
+
 
 @Controller
 @RequestMapping(value="/member")
 public class MemberController {
+	
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private BookService bookService;
 	
+
+	@RequestMapping(value="/buyer/myBookList", method=RequestMethod.POST)
+	public String myBookList(@RequestParam String id,  Model model){
+	
+			try {
+				bookService.myBookList(id, model);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("id는 " +id);
+			System.out.println(model);
+		
+		return "/buyer/myBookList";
+
+	}
 	
 	@ResponseBody
 	@RequestMapping(value = "checkID2", method = RequestMethod.POST)
@@ -51,7 +66,7 @@ public class MemberController {
 	    	res="사용가능한 id입니다.";
 	    }
 	    hashmap.put("KEY", res);
-	     
+	    
 	    return hashmap;
 	}
 	//회원가입view
@@ -84,7 +99,7 @@ public class MemberController {
 	public void memberLogin(){}
 	
 	@RequestMapping(value="/memberLogin", method=RequestMethod.POST)
-	public String memberLogin(MemberDTO memberDTO, Model model, HttpSession session){
+	public String memberLogin(MemberDTO memberDTO, Model model){
 		System.out.println(memberDTO.getId()+"/"+memberDTO.getPw());
 		try {
 			memberDTO=memberService.memberLogin(memberDTO);	
@@ -95,10 +110,7 @@ public class MemberController {
 			System.out.println("로그인실패");
 			e.printStackTrace();
 		}
-		model.addAttribute("member", memberDTO);
-		model.addAttribute("member2",	memberDTO);
-		session.setAttribute("member2", memberDTO);
-		session.setAttribute("member", memberDTO);
+
 		return "redirect:/";
 		
 	}

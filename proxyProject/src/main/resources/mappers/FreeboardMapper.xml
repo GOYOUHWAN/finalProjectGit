@@ -55,13 +55,7 @@
 		where R between #{startRowNum} and #{lastLowNum}
 	</select>
 	
-	<!-- 게시물리스트 mypage에서 보기 -->
-	<select id="myBookList" resultType="com.choa.freeboard.FreeboardDTO" parameterType="com.choa.util.PageMaker">
-		select * from
-		(select Rownum R, F.* from
-		(select * from FREEBOARD order by ref desc, step asc) F)
-		where R between #{startRowNum} and #{lastLowNum} and id = #{member.id}
-	</select> 
+
 	
 	<select id="boardCount" resultType="int">
 		select count(*) from freeboard

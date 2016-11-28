@@ -45,6 +45,8 @@
 <%-- </c:choose>	 --%>
 	<a href="freeboard/freeboardList">freeboard</a>
 
+	<a href="member/buyer/myBookList?id=youhwan<%-- ${member.id } --%>"> myBookList</a>
+
 <P>  The time on the server is ${serverTime}. </P>
 <a href="index">index</a>
 </body>
