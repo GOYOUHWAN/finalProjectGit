@@ -1,0 +1,415 @@
+@CHARSET "UTF-8";
+* {
+	margin-top:0px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-family: 맑은 고딕;
+    border: none;
+	}
+img{
+	border-radius: 15px;
+}
+ a{
+	
+	 text-decoration: none; 
+}
+a:hover{
+	text-decoration: underline;
+}
+header a{
+	color: white;
+}
+#header_wrap {
+	width: 100%;
+	height: 190px;
+	background: rgba(0,230,230,0.8);
+	margin-top: 0px;
+	margin-left: 0px;
+	position: fixed;
+	z-index: 2;
+}
+#header_div_1{
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	color : white;
+	font-size: 18px;
+}
+#header_div_2{
+	width: 100%;
+	height: 50px;
+	color: white;
+	margin-top: 5px;
+	margin-bottom: 8px;
+	display: inline-block;
+	text-align: center;
+}
+#header_div_3{
+	width: 120px;
+	height: 50px;
+	float: right;
+	margin-top: 10px;
+	display: inline-block;
+}
+#header_div_4{
+	width: 350px;
+	height: 50px;
+	margin-top: 10px;
+	float: right;
+	margin : 0 auto;	
+}
+#header_div_4_1{
+	width : 200px;
+	float : right;
+	margin-top:20px;
+}
+
+#header_div_5{
+	width : 100%;
+	height : 30px;
+	display: inline-block;
+	text-align: center;
+	margin-bottom: 15px;
+}
+
+#header_button{
+	width: 50px;
+	height: 30px;
+	vertical-align:middle;
+}
+#header_button:HOVER{
+	background-color: #c0c0c0;
+}
+#header_text{
+	width: 200px;
+	height: 30px;
+	border-collapse: collapse;
+	font-size: 17px;
+	vertical-align:middle;
+}
+#a_header{
+	width: 100%;
+	height: 30px;
+	display: inline-block;
+	text-align: center;
+}
+body{
+	background-color: #f2f2f2;
+}
+#section_wrap{
+	width: 100%;
+	height: 900px;
+	margin-bottom: 0px;
+}
+
+#footer_wrap{
+	width: 100%;
+	height: 80px;
+	margin-top: 0px;
+	
+}
+#footer_submit{
+	width: 50px;
+	height: 30px;
+
+}
+
+
+#footer_div_1{
+	width: 80%;
+	height: 60%;
+	margin: 0 auto;
+	margin-top:20px;
+	font-size: 13px;
+}
+#section_div_1{
+	width: 100%;
+	height: 100%;
+	margin-top: 0px;
+	overflow: hidden;
+	background: rgba(0,230,230,0.5);
+	
+}
+#section_div_2{
+	width:250px;
+	height : 30px;
+	background-color: white;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+.button{
+	cursor: pointer;
+	background-color: #00e6e6;
+	border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+`    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    
+   
+}
+.button:active {
+  background-color: #00e6e6;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+#div_all{
+		width: 100%;
+		height: 700px;
+		margin-top: 0px;
+		border: 1px solid #f2f2f2;
+}
+
+#div_table{
+		margin: 0 auto;
+		height: 100%;
+		width: 80%;
+		border: 1px solid #f2f2f2;
+		/*테이블 바깥에 배경색이랑 똑같은 테두리 줬음. 지우면 테이블 아래로 내려감.   */
+}
+
+
+#a_link{
+	width: 300px;
+	float: right;
+	height: 30px;
+	
+}
+#a_link_box{
+	width: 100%;
+	height: 30px;
+	float: right;
+}
+
+.id, .pw {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;/* 상은씨 로그인폼의 테두리 색 */
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+   
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+    float:left;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px; 
+}
+   .psw {
+       display: block;
+       margin-right: 30px;
+       float: right;
+    }
+    .cancelbtn {
+       width: 80%;
+    }
+
+/* 로그인&회원가입 css */
+/* The Modal (backgrfound) */
+.login {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    padding-top: 60px;
+   
+}
+.closebtn{
+margin-left: 200px;
+color:black;
+font-size: xx-large;
+}
+
+.modal-content{
+margin:0 auto;
+background-color:#fff;
+position:relative;
+padding:0;
+outline:0;
+width:480px;
+}
+
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1 ;
+    
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {
+    background-color: #ddd ;
+}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+    
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+/*여기까지 */ 
+ .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px; 
+    font-size: 8px;
+    cursor: pointer;
+   
+} 
+
+.dropbtn:hover, .dropbtn:focus {
+     background-color: #3e8e41; 
+}
+
+.dropdown {
+	width : 200px;
+    position: static;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: inherit;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    overflow:visible;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #ddd}
+
+.show {display:block;}
+
+#section_wrap{
+	width: 100%;
+	height: 800px;
+	margin-bottom: 0px;
+}
+#nav_all{
+	width:100%;
+	height: 890px;
+	background-image: url("");
+	overflow: hidden;
+}
+#nav_1{
+	width: 600px;
+	height: 55%;
+	margin: 0 auto;
+	overflow: hidden;	
+}
+#section_div_1{
+	width: 100%;
+	height: 100%;
+	margin-top: 0px;
+	overflow: hidden;0
+	background: rgba(0,230,230,0.5);
+	
+}
+#section_div_2{
+	width:200px;
+	height : 30px;
+	background-color: white;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+#div_1{
+	width: 600px;
+	height: 300px;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+#logo{
+	margin-left: 0px;
+}
+#mdto{
+	width: inherit;
+	display: inline-block;
+}
+#tail_floor{
+	border: 1px solid #f2f2f2;
+	width: 100%;
+	height: 200px;
+	background-color: #f2f2f2;
+	color: #f2f2f2;
+}
