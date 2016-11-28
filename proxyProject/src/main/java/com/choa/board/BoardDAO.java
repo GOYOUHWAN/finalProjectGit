@@ -15,8 +15,8 @@ public interface BoardDAO {
 	//list//
 	public List<BoardDTO> boardList(PageMaker pageMaker) throws Exception;
 	
-	//myBookList  
-	public List<BoardDTO> myBookList(PageMaker pageMaker)throws Exception;
+/*	//myBookList  
+	public List<BoardDTO> myBookList(PageMaker pageMaker)throws Exception;*/
 	
 	//insert//
 	public int boardWrite(BoardDTO boardDTO,ArrayList<String> fileNames) throws Exception;

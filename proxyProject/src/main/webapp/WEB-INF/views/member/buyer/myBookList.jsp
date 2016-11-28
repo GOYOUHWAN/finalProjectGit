@@ -29,7 +29,7 @@ img, ul, li{
 </head>
 <body class="home">
 	<div class="container">
-		<h2>myBookList_for_member</h2>
+		<h2>myBookList_for_buyer</h2>
 
 		<form action="findList" method="post" role="search">
 			<div class="row">
@@ -58,6 +58,7 @@ img, ul, li{
 				<thead>
 					<tr>
 						<th>PRODUCT</th>
+						<th>WRITER</th>
 						<th>PRICE</th>
 					</tr>
 				</thead>
@@ -65,13 +66,14 @@ img, ul, li{
 					<c:forEach items="${booklist}" var="list">
 						<tr>
 							<td>${list.product}</td>
-							<td>${list.price}</td>
+							<td>${list.writer}</td>
+							<td>${list.price }</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-		<div class="center-block">
+	 	<div class="center-block">
 			<!-- PAGINATIOIN:S -->
 			<nav aria-label="Page navigation">
 				<ul class="pagination">
@@ -98,7 +100,7 @@ img, ul, li{
 				</ul>
 			</nav>
 			<!-- PAGINATIOIN:E -->
-		</div>
+		</div> 
 		<c:if test="${sessionScope.member ne null }">
 		<div class="col-md-4">
 			<input type="button" value="글쓰기" id="wrBtn" class="btn btn-info">

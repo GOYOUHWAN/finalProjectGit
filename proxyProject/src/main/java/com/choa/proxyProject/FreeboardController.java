@@ -21,14 +21,7 @@ public class FreeboardController {
 	@Autowired
 	private FreeboardService freeboardService;
 	
-/*	public String myBookList(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="10") int perPage, Model model){
-		try {
-			freeboardService.myBookList(curPage, perPage, model);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "member/myBookList";
-	}*/
+	
 	
 	@RequestMapping(value="/freeboardList")
 	public String boardList(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="10") int perPage, Model model){
