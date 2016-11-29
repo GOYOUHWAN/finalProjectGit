@@ -1,7 +1,9 @@
 package com.choa.proxyProject;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.choa.book.BookDTO;
 import com.choa.book.BookService;
 import com.choa.member.MemberDTO;
 import com.choa.member.MemberService;
@@ -27,9 +31,8 @@ public class MemberController {
 	private BookService bookService;
 	
 
-	@RequestMapping(value="/buyer/myBookList", method=RequestMethod.POST)
-	public String myBookList(@RequestParam String id,  Model model){
-	
+	@RequestMapping(value="/buyer/myBookList")
+	public String myBookList(@RequestParam String id, Model model){
 			try {
 				bookService.myBookList(id, model);
 			} catch (Exception e) {
@@ -37,10 +40,8 @@ public class MemberController {
 				e.printStackTrace();
 			}
 			System.out.println("id는 " +id);
-			System.out.println(model);
-		
-		return "/buyer/myBookList";
-
+			
+		return "/member/buyer/myBookList";
 	}
 	
 	@ResponseBody
