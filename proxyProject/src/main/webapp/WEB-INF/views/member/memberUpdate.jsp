@@ -1,12 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
+<!-- JavaScript 처리  시작 -->
+	<script type="text/javascript">
+		$(function() {
+			// 회원 수정 버튼
+			$("#btn4").click(function (){
+				$.post("memberUpdate", {
+					id : $("#id").val(),
+					pw : $("#pw2").val(),
+					name : $("#name").val(),
+					tel : "["+$("#tel").val()+"]"
+							+ $("#pFirst").val()+"-"
+							+ $("#pSecond").val()+"-"
+							+ $("#pThird").val(),
+					email : $("#email_1").val()+"@"
+							+ $("#email_2").val(),
+					address : $("#address").val()
+				}, function(data) {
+				});
+				
+			});
+			
+		});
+		
+		
+		// PW 일치, 불일치
+		function equalPW() {
+			var pw1 = $("#pw1").val();
+			var pw2 = $("#pw2").val();
+
+			if (pw1 == pw2) {
+				$("#true").css("display", "inline");
+				$("#false").css("display", "none");
+			} else {
+				$("#true").css("display", "none");
+				$("#false").css("display", "inline");
+			}
+		}
+
+		// 비밀번호 초기화
+		function rePW() {
+			$("#pw2").val("");
+			$("#true").css("display", "none");
+			$("#false").css("display", "none");
+		}
+	</script>
+	<!-- JavaScript 처리 끝 -->
+<style>
 #join_div {
 	width: 80%;
 	height: 800px;
@@ -128,94 +173,11 @@ table {
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- JavaScript 처리  시작 -->
-	<script type="text/javascript">
-		$(function() {
-			
-			var idck=0;
-			// 회원 가입 버튼
-			$("#btn4").click(function (){
-				if(idck!=0){
-				$.post("memberJoin", {
-					id : $("#id").val(),
-					pw : $("#pw2").val(),
-					name : $("#name").val(),
-					year : $("#year").val()+"."
-							+$("#month").val()+"."
-							+$("#day").val(),
-					tel : "["+$("#tel").val()+"]"
-							+ $("#pFirst").val()+"-"
-							+ $("#pSecond").val()+"-"
-							+ $("#pThird").val(),
-					email : $("#email_1").val()+"@"
-							+ $("#email_2").val(),
-					address : $("#address").val()
-				}, function(data) {
-					alert("가입성공");
-					location.href="../";
-				});
-				}
-				else{
-					alert("ID중복체크를 하세요.");
-				}
-			});
-			
-			//ID중복체크
-			$("#btn1").click(function () {
-				$("#useridspan").html("확인중입니다");
-				var idd= $("#id").val();
-				$.ajax({
-					url:"checkID2",
-					dataType : "json",
-					type:"POST",
-					data : {id:idd},
-					success:function(data) {
-						var d = data.KEY;
-						$("#useridspan").html(d);
-						if(d=="이미있는 id입니다."){
-							idck=0;
-						}else{
-							idck=1;
-						}
-					},
-				    error : function(jqXHR, textStatus, errorThrown) {
-				        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
-				    }
-				});
-			});
-		});
-		
-		// ID 얻기
-		function getId(getId) {
-			$("#id").val(getId);
-		}
 
-		// PW 일치, 불일치
-		function equalPW() {
-			var pw1 = $("#pw1").val();
-			var pw2 = $("#pw2").val();
-
-			if (pw1 == pw2) {
-				$("#true").css("display", "inline");
-				$("#false").css("display", "none");
-			} else {
-				$("#true").css("display", "none");
-				$("#false").css("display", "inline");
-			}
-		}
-
-		// 비밀번호 초기화
-		function rePW() {
-			$("#pw2").val("");
-			$("#true").css("display", "none");
-			$("#false").css("display", "none");
-		}
-	</script>
-	<!-- JavaScript 처리 끝 -->
 </head>
 <body>
-
-	<!-- Join 시작 -->
+<h2>회원수정</h2>
+<!-- Join 시작 -->
 	<div id="join_div">
 		<!-- 입력 부분 시작 -->
 		<div id="join_sub_1">
@@ -225,9 +187,7 @@ table {
 				<tr>
 					<td class="td_1">아이디</td>
 					<td>
-						<input type="text" name="id" class="categ1" id="id"> 
-						<button id="btn1">중복 확인</button>
-						<span id="useridspan"></span>
+						<input type="text" value="${member.id }" class="categ1" id="id" readonly="readonly"> 
 					</td>
 				</tr>
 				<!-- 비밀번호 -->
@@ -247,29 +207,9 @@ table {
 				<!-- 이름 -->
 				<tr>
 					<td class="td_1">이름</td>
-					<td><input type="text" class="categ1" name="name" id="name"></td>
+					<td><input type="text" class="categ1" value="${member.name }" id="name" readonly="readonly"></td>
 				</tr>
-				<!-- 나이 -->
-				<tr>
-					<td class="td_1">생년 월일</td>
-					<td>		
-						<select class="categ2" id="year" name="year">
-							<c:forEach begin="1" end="77" varStatus="status">
-								<option>${ 2017-status.count }</option>
-							</c:forEach>
-						</select> 년
-						<select class="categ3" id="month" name="month">
-							<c:forEach begin="1" end="12" varStatus="status">
-								<option>${ status.count }</option>
-							</c:forEach>
-						</select> 월
-						<select class="categ3" id="day" name="day">
-							<c:forEach begin="1" end="31" varStatus="status">
-								<option>${ status.count }</option>
-							</c:forEach>
-						</select> 일						
-					</td>
-				</tr>
+				
 				<!-- 휴대폰 번호 -->
 				<tr>
 					<td class="td_1">휴대폰 번호</td>
@@ -285,7 +225,7 @@ table {
 							<option>017</option>
 							<option>019</option>
 						</select> - 
-						<input type="text" class="categ3" id="pSecond" name="pSecond"> - 
+						<input type="text" class="categ3" id="pSecond" name="pSecond" > - 
 						<input type="text" class="categ3" id="pThird" name="pThird">
 					</td>
 				</tr>
@@ -306,7 +246,7 @@ table {
 				</tr>
 				<tr>
 					<td class="td_1">address</td>
-					<td><input type="text" name="address" id="address"></td>
+					<td><input type="text" name="address" id="address" value="${member.address }"></td>
 				</tr>
 			</table>
 			<!-- <input type="submit" class="btn2" id="btn4" value="JOIN">
@@ -315,11 +255,9 @@ table {
 		<!-- 버튼처리 부분 -->
 		<div id="join_sub_2">
 			<button class="btn2" id="btn3">HOME</button> 
-			<button class="btn2" id="btn4">가 입</button>
+			<button class="btn2" id="btn4">수정완료</button>
 		</div>
 	</div>
 	<!-- Join 끝 -->
-
-
 </body>
 </html>

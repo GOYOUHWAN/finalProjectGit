@@ -110,6 +110,11 @@ table {
 </style>
 <script type="text/javascript">
 	$(function() {
+		var message=${message};
+		if(message!=''){
+			alert("message");
+			alert(message);
+		}
 		$("#id").focus();
 
 		// 로그인
@@ -125,6 +130,28 @@ table {
 				$("#pw").focus();
 				return;
 			}
+			
+			$.ajax({
+				url : "memberLogin",
+				type : "POST",
+				data : {
+					id : $("#id").val(),
+					pw : $("#pw").val()
+				},
+				success : function(result){
+					/* var response = result.trim();
+					alert(response);
+					if(response == "로그인 완료!") {
+						location.href = "../home.jsp"
+					} else {
+						$("#id").focus();
+					}
+					$("#id").val("");
+					$("#pw").val("");
+					$("#id").css("placeholder", "ID 입력");
+					$("#pw").css("placeholder", "PW 입력"); */
+				}
+			});	
 		});
 
 		// ID 찾기

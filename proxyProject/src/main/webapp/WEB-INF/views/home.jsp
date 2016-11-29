@@ -1,5 +1,7 @@
+<jsp:useBean id="message" class="java.lang.String" scope="request" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <html>
 <head>
 	<title>Home</title>
@@ -12,11 +14,15 @@
 </h1>
 
 	
-<%-- <c:choose>
+ <c:choose>
 	<c:when test="${member !=null}">
-		${member.name}님 환영합니다 --%>
-		<!--  <a href="member/logout.mem">로그아웃</a>-->
-		<!--  <a href="member/info.jsp">회원정보</a>-->
+		
+${member.name}님 환영합니다 
+		 
+ <a href="memberLogout">로그아웃</a>
+		
+  <a href="member/memberView">회원정보</a>
+
 	
 	
 <h2>${member2.name }</h2>
@@ -37,12 +43,12 @@
 <a href="<%=application.getContextPath()%>member/sub/admin/myPage?id=${member.id}">마이페이지</a>
 	</c:if>
 	
-<%-- 	</c:when> --%>
-<%-- 	<c:otherwise> --%>
+	</c:when>
+	<c:otherwise>
 		<a href="member/memberLogin">Login</a>
 		<a href="member/memberJoin">SIGN UP</a>
-<%-- 	</c:otherwise> --%>
-<%-- </c:choose>	 --%>
+	</c:otherwise>
+</c:choose>	
 	<a href="freeboard/freeboardList">freeboard</a>
 
 	<a href="member/buyer/myBookList?id=youhwan<%-- ${member.id } --%>"> myBookList</a>

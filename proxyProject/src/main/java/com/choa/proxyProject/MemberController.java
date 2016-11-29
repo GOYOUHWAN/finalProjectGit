@@ -1,8 +1,11 @@
 package com.choa.proxyProject;
 
 
+import java.io.PrintWriter;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,82 +46,76 @@ public class MemberController {
 
 	}
 	
-	@ResponseBody
-	@RequestMapping(value = "checkID2", method = RequestMethod.POST)
-	public HashMap<String, Object> checkId(@RequestParam HashMap<String, Object> param, @RequestParam String id) {
-	     
-	    System.out.println(param);
-	    System.out.println("id is "+param.get("id"));
-	 
-	    //your logic
-	    int result=0;
-	    String res="";
-	    try {
-			result = memberService.checkid(id);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	//ID중복체크
+		@ResponseBody
+		@RequestMapping(value = "checkID2", method = RequestMethod.POST)
+		public HashMap<String, Object> checkId(@RequestParam HashMap<String, Object> param, @RequestParam String id) {
+		     
+		    System.out.println(param);
+		    System.out.println("id is "+param.get("id"));
+		 
+		    //your logic
+		    int result=0;
+		    String res="";
+		    try {
+				result = memberService.checkid(id);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		    HashMap<String, Object> hashmap = new HashMap<String, Object>();
+		    if(result>0){
+		    	res="이미있는 id입니다.";
+		    }else{
+		    	res="사용가능한 id입니다.";
+		    }
+		    hashmap.put("KEY", res);
+		    return hashmap;
 		}
-	    HashMap<String, Object> hashmap = new HashMap<String, Object>();
-	    if(result>0){
-	    	res="이미있는 id입니다.";
-	    }else{
-	    	res="사용가능한 id입니다.";
-	    }
-	    hashmap.put("KEY", res);
-	    
-	    return hashmap;
-	}
-	//회원가입view
-	@RequestMapping(value="/memberJoin", method=RequestMethod.GET)
-	public void memberJoin(){}
-	//회원가입
-	@RequestMapping(value="/memberJoin", produces="application/json; charset=utf-8")
-	public String memberJoin(MemberDTO memberDTO, RedirectAttributes rd){
-		int result=0;
-		String path="";
-		String message="";
-		try {
+		//회원가입view
+		@RequestMapping(value="/memberJoin", method=RequestMethod.GET)
+		public void memberJoin(){}
+		//회원가입
+		@RequestMapping(value="/memberJoin", produces="application/json; charset=utf-8")
+		public void memberJoin(MemberDTO memberDTO, HttpServletResponse response) throws Exception{
+			int result=0;
+			String message="";
 			result =memberService.memberJoin(memberDTO);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-		if(result>0){
-			path="redirect:/";
-			message="가입성공";
-		}else {
-			path="redirect:/";
-			message="가입실패";
+		//로그인 view
+		@RequestMapping(value="/memberLogin", method=RequestMethod.GET)
+		public void memberLogin(){}
+		//로그인
+		@RequestMapping(value="/memberLogin", produces="application/json; charset=utf-8")
+		public void memberLogin(MemberDTO memberDTO, HttpSession session, HttpServletResponse response, HttpServletRequest request) throws Exception{
+			request.setCharacterEncoding("UTF-8");
+			response.setCharacterEncoding("UTF-8");
+			memberDTO = memberService.memberLogin(memberDTO);
+			session.setAttribute("member", memberDTO);
+			PrintWriter writer=response.getWriter();
+			writer.println("<script>alert('"+memberDTO.getName()+"님 환영합니다.'); location.href='../';</script>");
 		}
-		rd.addFlashAttribute("message", message);
-		return path;
-	}
-	
-	@RequestMapping(value="/memberLogin", method=RequestMethod.GET)
-	public void memberLogin(){}
-	
-	@RequestMapping(value="/memberLogin", method=RequestMethod.POST)
-	public String memberLogin(MemberDTO memberDTO, Model model){
-		System.out.println(memberDTO.getId()+"/"+memberDTO.getPw());
-		try {
-			memberDTO=memberService.memberLogin(memberDTO);	
-			System.out.println("로그인성공");
-			
-		} catch (Exception e) {
-			memberDTO= null;	
-			System.out.println("로그인실패");
-			e.printStackTrace();
-		}
-
-		return "redirect:/";
+		//회원정보view
+		@RequestMapping(value="/memberView", method=RequestMethod.GET)
+		public void memberView(){}
 		
-	}
-	
-	@RequestMapping(value="/memberLogout")
-	public String memberLogout(HttpSession session){
-		session.invalidate();
-		return "redirect:/";
-	}
+		//회원수정view
+		@RequestMapping(value="/memberUpdate", method=RequestMethod.GET)
+		public void memberUpdate(){}
+		//회원수정
+		@RequestMapping(value="/memberUpdate", produces="application/json; charset=utf-8")
+		public void memberUpdate(MemberDTO memberDTO, HttpServletResponse response) throws Exception{
+			System.out.println("회원 수정컨트롤러");
+			String message="";
+			int result = memberService.memberUpdate(memberDTO);
+			if(result>0){
+				message="수정성공";
+			}else {
+				message="수정실패";
+			}
+			PrintWriter writer=response.getWriter();
+			writer.println("<script>alert('"+message+"'); location.href='../';</script>");
+			System.out.println(message);
+		}
 	
 }

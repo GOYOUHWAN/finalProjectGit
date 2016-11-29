@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -35,6 +37,17 @@ public class HomeController {
 		
 		return "home";
 	}
+	
 	@RequestMapping(value="/index")
 	public void goindex(){}
+	
+	//로그아웃
+		@RequestMapping(value="/memberLogout")
+		public String memberLogout(HttpSession session){
+			session.invalidate();
+			return "home";
+		}
+		
 }
+
+

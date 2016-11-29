@@ -44,5 +44,11 @@ public class MemberDAO {
 	public int checkid(String id) throws Exception{
 		return sqlSession.selectOne(namespace+"checkID", id);
 	}
+	
+	//회원정보보기
+	public MemberDTO memberView(String id) throws Exception{
+		return sqlSession.selectOne(namespace+"memberView", id);
+	}
+	
 
 }

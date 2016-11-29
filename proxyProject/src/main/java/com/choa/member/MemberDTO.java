@@ -1,5 +1,8 @@
 package com.choa.member;
 
+import java.sql.Date;
+import java.util.Calendar;
+
 public class MemberDTO {
 	private String id;
 	private String pw;
@@ -34,6 +37,7 @@ public class MemberDTO {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
+	
 	
 	public String getYear() {
 		return year;
