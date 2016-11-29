@@ -23,7 +23,11 @@ public class FreeboardService implements BoardService {
 	@Autowired
 	private FreeboardDAO fDAO;
 	
-	
+	//myPage에서 myBoardList 보기
+	public void myBoardList(String id, Model model)throws Exception{
+		model.addAttribute("myBoardList", fDAO.myBoardList(id));
+		
+	}
 	
 	@Override
 	public BoardDTO boardView(BoardDTO boardDTO) throws Exception {

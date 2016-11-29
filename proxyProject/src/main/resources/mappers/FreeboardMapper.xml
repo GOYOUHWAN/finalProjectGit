@@ -3,6 +3,11 @@
 
 <mapper namespace="FreeboardMapper">
 
+	<select id="myBoardList" resultType="com.choa.freeboard.FreeboardDTO" parameterType="com.choa.member.MemberDTO">
+		select * from FREEBOARD where writer=#{id}
+	</select>
+
+
 	<select id="boardView" resultType="com.choa.freeboard.FreeboardDTO" parameterType="com.choa.freeboard.FreeboardDTO">
 		select * from freeboard where num=#{num}
 	</select>

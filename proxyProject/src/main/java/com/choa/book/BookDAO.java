@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.choa.member.MemberDTO;
+
 
 @Repository
 public class BookDAO {
@@ -18,8 +18,12 @@ public class BookDAO {
 	
 	//좋아요 글 리스트//
 	public List<BookDTO> myBookList(String id) throws Exception {
-		System.out.println("dao에서 id 는 : " +id);
 		return sqlSession.selectList(namespace+"myBookList", id);
+	}
+	
+	//내가 산 책 리스트
+	public List<BookDTO> myBuyList(String id) throws Exception {
+		return sqlSession.selectList(namespace+"myBuyList", id);
 	}
 	
 

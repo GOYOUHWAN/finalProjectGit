@@ -7,6 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h2> 일반회원용 myPage</h2>
+
+<a href="myBookList?id=${member.id }">myBookList</a>
+<a href="myBoardList?id=${member.id} ">myBoardList</a>
+<a href=" ">회원정보수정</a>
+<a href="myBuyList?id=${member.id}">책_구매목록</a>
+
+
 
 </body>
 </html>

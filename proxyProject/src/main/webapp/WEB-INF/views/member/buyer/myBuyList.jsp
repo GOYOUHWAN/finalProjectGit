@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>MY_BOOK_LIST</title>
+<title>MY_BUY_LIST</title>
 
 <style>
 body{
@@ -29,7 +29,7 @@ img, ul, li{
 </head>
 <body class="home">
 	<div class="container">
-		<h2>myBookList_for_seller</h2>
+		<h2>myBuyList_for_buyer</h2>
 
 		<form action="findList" method="post" role="search">
 			<div class="row">
@@ -53,27 +53,29 @@ img, ul, li{
 		
 		<div class="panel panel-default">
 			<!-- Default panel contents -->
-			<div class="panel-heading">MY_BOOK_LIST</div>
+			<div class="panel-heading">MY_BUY_LIST</div>
 			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th>PRODUCT</th>
 						<th>WRITER</th>
 						<th>PRICE</th>
+						<th>BUY_DATE</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${booklist}" var="list">
+					<c:forEach items="${buylist}" var="list">
 						<tr>
 							<td>${list.product}</td>
 							<td>${list.writer}</td>
 							<td>${list.price }</td>
+							<td>${list.buy_date}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-	 	</div>
+	 </div>
 	<!-- Footer:S -->
 	<!-- Footer:E -->	
 	
