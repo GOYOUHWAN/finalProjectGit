@@ -5,52 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<!-- JavaScript 처리  시작 -->
-	<script type="text/javascript">
-		$(function() {
-			// 회원 수정 버튼
-			$("#btn4").click(function (){
-				$.post("memberUpdate", {
-					id : $("#id").val(),
-					pw : $("#pw2").val(),
-					name : $("#name").val(),
-					tel : "["+$("#tel").val()+"]"
-							+ $("#pFirst").val()+"-"
-							+ $("#pSecond").val()+"-"
-							+ $("#pThird").val(),
-					email : $("#email_1").val()+"@"
-							+ $("#email_2").val(),
-					address : $("#address").val()
-				}, function(data) {
-				});
-				
-			});
-			
-		});
-		
-		
-		// PW 일치, 불일치
-		function equalPW() {
-			var pw1 = $("#pw1").val();
-			var pw2 = $("#pw2").val();
-
-			if (pw1 == pw2) {
-				$("#true").css("display", "inline");
-				$("#false").css("display", "none");
-			} else {
-				$("#true").css("display", "none");
-				$("#false").css("display", "inline");
-			}
-		}
-
-		// 비밀번호 초기화
-		function rePW() {
-			$("#pw2").val("");
-			$("#true").css("display", "none");
-			$("#false").css("display", "none");
-		}
-	</script>
-	<!-- JavaScript 처리 끝 -->
 <style>
 #join_div {
 	width: 80%;
@@ -173,7 +127,59 @@ table {
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- JavaScript 처리  시작 -->
+	<script type="text/javascript">
+		$(function() {
+			//home버튼
+			$("#btn3").click(function() {
+				location.href="../";
+			});
+			
+			// 회원 수정 버튼
+			$("#btn4").click(function(){
+				$.post("memberUpdate", {
+					id : $("#id").val(),
+					pw : $("#pw2").val(),
+					name : $("#name").val(),
+					tel : "["+$("#tel").val()+"]"
+							+ $("#pFirst").val()+"-"
+							+ $("#pSecond").val()+"-"
+							+ $("#pThird").val(),
+					email : $("#email_1").val()+"@"
+							+ $("#email_2").val(),
+					address : $("#address").val()
+				}, function(data) {
+					alert("수정되었습니다.");
+					location.href="../";
+				}); 
+				
+			});
+			
+		});
+		
+		
+		// PW 일치, 불일치
+		function equalPW() {
+			var pw1 = $("#pw1").val();
+			var pw2 = $("#pw2").val();
 
+			if (pw1 == pw2) {
+				$("#true").css("display", "inline");
+				$("#false").css("display", "none");
+			} else {
+				$("#true").css("display", "none");
+				$("#false").css("display", "inline");
+			}
+		}
+
+		// 비밀번호 초기화
+		function rePW() {
+			$("#pw2").val("");
+			$("#true").css("display", "none");
+			$("#false").css("display", "none");
+		}
+	</script>
+	<!-- JavaScript 처리 끝 -->
 </head>
 <body>
 <h2>회원수정</h2>
@@ -254,7 +260,7 @@ table {
 		</div>
 		<!-- 버튼처리 부분 -->
 		<div id="join_sub_2">
-			<button class="btn2" id="btn3">HOME</button> 
+			<button class="btn2" id="btn3">HOME</button>
 			<button class="btn2" id="btn4">수정완료</button>
 		</div>
 	</div>

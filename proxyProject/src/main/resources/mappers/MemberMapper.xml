@@ -5,25 +5,19 @@
 <mapper namespace="MemberMapper">
 	<insert id="memberJoin" parameterType="com.choa.member.MemberDTO">
 		insert into member
-		values(#{id},#{pw},#{name},#{tel},#{year},#{email},#{address},1,1)
+		values(#{id},#{pw},#{name},#{tel},#{year},#{email},#{address},1,1,0)
 	</insert>
 
 	<select id="memberLogin" resultType="com.choa.member.MemberDTO" parameterType="com.choa.member.MemberDTO">
 		select * from member where id=#{id} and pw=#{pw}
 	</select>
-	<update id="update" parameterType="com.choa.member.MemberDTO">
+	<update id="memberUpdate" parameterType="com.choa.member.MemberDTO">
 		update member
-		<trim prefix="set" suffixOverrides=",">
-			<if test="pw!=null">pw=#{pw}</if>
-			<if test="name!=null">name=#{name}</if>
-			<if test="tel!=null">tel=#{tel}</if>
-			<if test="email!=null">email=#{email}</if>
-			<if test="address!=null">address=#{address}</if>
-		</trim>
+		set pw=#{pw}, name=#{name}, tel=#{tel}, email=#{email}, address=#{address}
 		where id=#{id}
 	</update>
-	<delete id="delete" parameterType="com.choa.member.MemberDTO">
-		delete member where id=#{id} and pw=#{pw}
+	<delete id="memberDelete" parameterType="String">
+		delete member where id=#{id}
 	</delete>
 	<select id="checkID" resultType="int" parameterType="String">
 		select count(*) from member where id=#{id}

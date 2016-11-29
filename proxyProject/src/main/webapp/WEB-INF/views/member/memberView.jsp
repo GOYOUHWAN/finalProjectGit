@@ -149,10 +149,11 @@ table {
 	border: 1px solid white;
 	color: white;
 }
-
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 		$(function() {
+			
 			$("#btn1").css("background-color", "#00ace6");
 			$("#btn1").css("color", "white");
 	
@@ -163,21 +164,20 @@ table {
 	
 			// 회원 정보 변경
 			$("#btn5").click(function() {
-				location.href = "member/memberUpdate";
+				location.href = "memberUpdate";
 			});
 	
-			// AJAX 해야 되는부분
 			// 회원 탈퇴
 			$("#btn6").click(function() {
 				 $.ajax({
-					url : "delete.member",
+					url : "memberDelete",
 					type : "POST",
 					data : {
 						id : $("#getId").text()
 					},
 					success : function(result) {
 						alert(result);
-						location.href = "member/memberDelete";
+						location.href="../";
 					} 
 				});
 			});
@@ -189,9 +189,6 @@ table {
 <h2>회원정보</h2>
 <!-- info -->
 	<div id="info_div">
-		<!-- /////// AJAX 처리 부분 /////// -->
-		<!-- 임시로 해놓은 부분 -->
-		<!-- 회원정보 -->
 		<div id="info_sub_2">
 			<table>
 				<!-- 아이디 -->
@@ -231,11 +228,9 @@ table {
 				</tr>
 			</table>
 		</div>
-		<!-- 회원정보 조회시 -->
-		<!-- 정보 변경, 회원 탈퇴, 예매 내역, HOME 처리 버튼 -->
 		<div id="info_sub_3">
 			<button class="btn_d_2" id="btn4">HOME</button>
-			<button class="btn_d_2" id="btn5">회원 정보 변경</button>
+			<button class="btn_d_2" id="btn5">정보 변경</button>
 			<button class="btn_d_2" id="btn6">회원 탈퇴</button>
 		</div>
 	</div>

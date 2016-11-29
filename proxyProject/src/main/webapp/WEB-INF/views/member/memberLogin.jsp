@@ -108,92 +108,81 @@ table {
 	outline: none;
 }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
-	$(function() {
-		var message=${message};
-		if(message!=''){
-			alert("message");
-			alert(message);
-		}
-		$("#id").focus();
-
-		// 로그인
-		$("#btn3").click(function() {
-			if ($("#id").val() == "") {
-				alert("아이디를 입력하세요");
-				$("#id").focus();
-				return;
-			}
-
-			if ($("#pw").val() == "") {
-				alert("비밀번호를 입력하세요");
-				$("#pw").focus();
-				return;
-			}
-			
-			$.ajax({
-				url : "memberLogin",
-				type : "POST",
-				data : {
-					id : $("#id").val(),
-					pw : $("#pw").val()
-				},
-				success : function(result){
-					/* var response = result.trim();
-					alert(response);
-					if(response == "로그인 완료!") {
-						location.href = "../home.jsp"
-					} else {
-						$("#id").focus();
-					}
-					$("#id").val("");
-					$("#pw").val("");
-					$("#id").css("placeholder", "ID 입력");
-					$("#pw").css("placeholder", "PW 입력"); */
-				}
-			});	
-		});
-
-		// ID 찾기
-		$("#btn4").click(
-				function() {
-					// Opener 사용
-					var newWindow = window
-							.open("../member/findID.jsp?", "newWindow",
-									"height=150, width=500, resizable=yes");
-					$("#id").focus();
-				});
-
-		// 비밀번호 찾기
-		$("#btn5").click(
-				function() {
-					var id = $("#id").val();
-					// Opener 사용
-					var newWindow = window
-							.open("../member/findPW.jsp?", "newWindow",
-									"height=150, width=450, resizable=yes");
-					$("#id").focus();
-				});
-
-		// 회원 가입
-		$("#btn6").click(function() {
-			location.href = "../member/join.jsp";
-		});
-
-		// HOME
-		$("#btn7").click(function() {
-			location.href = "../main/index.jsp";
-		});
+$(function() {
+	
+	// HOME
+	$("#btn7").click(function() {
+		alert("home");
+		location.href = "../";
 	});
+	
+	var message=${message};
+	if(message!=''){
+		alert("message");
+		alert(message);
+	}
+	$("#id").focus();
+
+	// 로그인
+	$("#btn3").click(function() {
+		if ($("#id").val() == "") {
+			alert("아이디를 입력하세요");
+			$("#id").focus();
+			return;
+		}
+
+		if ($("#pw").val() == "") {
+			alert("비밀번호를 입력하세요");
+			$("#pw").focus();
+			return;
+		}
+		
+		$.ajax({
+			url : "memberLogin",
+			type : "POST",
+			data : {
+				id : $("#id").val(),
+				pw : $("#pw").val()
+			},
+			success : function(result){
+			}
+		});	
+	});
+
+	// ID 찾기
+	$("#btn4").click(
+			function() {
+				// Opener 사용
+				var newWindow = window
+						.open("../member/findID.jsp?", "newWindow",
+								"height=150, width=500, resizable=yes");
+				$("#id").focus();
+			});
+
+	// 비밀번호 찾기
+	$("#btn5").click(
+			function() {
+				var id = $("#id").val();
+				// Opener 사용
+				var newWindow = window
+						.open("../member/findPW.jsp?", "newWindow",
+								"height=150, width=450, resizable=yes");
+				$("#id").focus();
+			});
+
+	// 회원 가입
+	$("#btn6").click(function() {
+		location.href = "memberJoin";
+	});
+}); 
+	
+	
+	
 </script>
 </head>
 <body>
-	<!-- <h2>LOGIN</h2>
-	<form action="memberLogin" method="post">
-		ID <input type="text" name="id"><br> PW <input
-			type="password" name="pw"><br> <input type="submit"
-			value="LOGIN">
-	</form> -->
 	<!-- Login 시작-->
 	<div id="login_div">
 		<!-- 버튼 처리 부분 -->

@@ -25,12 +25,11 @@ public class MemberService {
 	}
 	//회원수정
 	public int memberUpdate(MemberDTO memberDTO)throws Exception{
-		System.out.println("회원수정 service");
 		return memberDAO.memberUpdate(memberDTO);
 	}
 	//회원탈퇴
-	public int memberDelete(MemberDTO memberDTO)throws Exception{
-		return memberDAO.memberDelete(memberDTO);
+	public int memberDelete(String id)throws Exception{
+		return memberDAO.memberDelete(id);
 	}
 	
 	//회원정보보기

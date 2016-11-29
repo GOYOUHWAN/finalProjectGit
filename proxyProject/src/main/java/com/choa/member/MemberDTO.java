@@ -13,6 +13,7 @@ public class MemberDTO {
 	private String address;
 	private int type;
 	private int grade;
+	private int report; //신고횟수
 	public String getId() {
 		return id;
 	}
@@ -68,6 +69,12 @@ public class MemberDTO {
 	}
 	public void setGrade(int grade) {
 		this.grade = grade;
+	}
+	public int getReport() {
+		return report;
+	}
+	public void setReport(int report) {
+		this.report = report;
 	}
 	
 	

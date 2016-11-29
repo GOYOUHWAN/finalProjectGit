@@ -36,8 +36,8 @@ public class MemberDAO {
 	}
 	
 	//4.DELETE//
-	public int memberDelete(MemberDTO memberDTO) throws Exception{
-		return sqlSession.delete(namespace+"memberDelete", memberDTO);
+	public int memberDelete(String id) throws Exception{
+		return sqlSession.delete(namespace+"memberDelete", id);
 	}
 	
 	//5.id중복확인

@@ -5,23 +5,13 @@
 <html>
 <head>
 	<title>Home</title>
-
-	
-	
 </head>
 <body>
-<h1>
-</h1>
-
-	
- <c:choose>
-	<c:when test="${member !=null}">
-		
-${member.name}님 환영합니다 
-		 
- <a href="memberLogout">로그아웃</a>
-		
-  <a href="member/memberView">회원정보</a>
+<c:choose>
+ <c:when test="${member !=null}">
+${member.name}님 환영합니다  
+<a href="memberLogout">로그아웃</a>	
+<a href="member/memberView">회원정보</a>
 
 	
 	

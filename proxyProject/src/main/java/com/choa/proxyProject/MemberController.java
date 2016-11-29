@@ -81,6 +81,7 @@ public class MemberController {
 			String message="";
 			result =memberService.memberJoin(memberDTO);
 		}
+		
 		//로그인 view
 		@RequestMapping(value="/memberLogin", method=RequestMethod.GET)
 		public void memberLogin(){}
@@ -92,8 +93,9 @@ public class MemberController {
 			memberDTO = memberService.memberLogin(memberDTO);
 			session.setAttribute("member", memberDTO);
 			PrintWriter writer=response.getWriter();
-			writer.println("<script>alert('"+memberDTO.getName()+"님 환영합니다.'); location.href='../';</script>");
+			writer.println("<script>location.href='../';</script>");
 		}
+		
 		//회원정보view
 		@RequestMapping(value="/memberView", method=RequestMethod.GET)
 		public void memberView(){}
@@ -104,7 +106,6 @@ public class MemberController {
 		//회원수정
 		@RequestMapping(value="/memberUpdate", produces="application/json; charset=utf-8")
 		public void memberUpdate(MemberDTO memberDTO, HttpServletResponse response) throws Exception{
-			System.out.println("회원 수정컨트롤러");
 			String message="";
 			int result = memberService.memberUpdate(memberDTO);
 			if(result>0){
@@ -113,8 +114,21 @@ public class MemberController {
 				message="수정실패";
 			}
 			PrintWriter writer=response.getWriter();
-			writer.println("<script>alert('"+message+"'); location.href='../';</script>");
+			writer.println("<script>alert('회원수정'); </script>");
 			System.out.println(message);
 		}
-	
+		
+		@RequestMapping(value="/memberDelete", method = RequestMethod.POST)
+		public void memberDelete(String id, HttpServletResponse response, HttpServletRequest request) throws Exception{
+			request.setCharacterEncoding("UTF-8");
+			response.setCharacterEncoding("UTF-8");
+			int result = memberService.memberDelete(id);
+			System.out.println("result : "+result+"/"+id);
+			PrintWriter writer=response.getWriter();
+			if(result>0){
+				writer.println("이용해주셔서 감사합니다.");
+			}else{
+				writer.println("x");
+			}
+		}
 }
