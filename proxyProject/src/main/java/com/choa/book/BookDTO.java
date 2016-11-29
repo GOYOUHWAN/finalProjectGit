@@ -11,7 +11,7 @@ public class BookDTO {
 	private String writer;
 	private String contents;
 	private int price;
-	private Date but_date;
+	private Date buy_date;
 	private String k_id;
 	private int likes;
 	private int pages
@@ -59,11 +59,11 @@ public class BookDTO {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public Date getBut_date() {
-		return but_date;
+	public Date getBuy_date() {
+		return buy_date;
 	}
-	public void setBut_date(Date but_date) {
-		this.but_date = but_date;
+	public void setBuy_date(Date buy_date) {
+		this.buy_date = buy_date;
 	}
 	public String getK_id() {
 		return k_id;

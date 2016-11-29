@@ -16,9 +16,13 @@ public class BookService {
 
 	public List<BookDTO> myBookList(String id, Model model)throws Exception{
 		List<BookDTO> ar = bookDAO.myBookList(id);
-		
-		System.out.println("service에서 id 는 : " + id);
 		model.addAttribute("booklist", ar);
+		return ar;
+	}
+	
+	public List<BookDTO> myBuyList(String id, Model model)throws Exception{
+		List<BookDTO> ar = bookDAO.myBuyList(id);
+		model.addAttribute("buylist", ar);
 		return ar;
 	}
 	

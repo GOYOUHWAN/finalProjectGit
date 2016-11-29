@@ -9,4 +9,10 @@
 		where (M.id=MLB.id and MLB.num=B.num) and M.id=#{id}
 	</select> 
 	
+	<select id="myBuyList" resultType="com.choa.book.BookDTO" parameterType="String">
+		select B.* 
+		from BOOK B, BUYERBUYBOOKS BBB, MEMBER M 
+		where (M.id=BBB.id and BBB.num_buy=B.num) and M.id=#{id}
+	</select>
+	
 	</mapper>

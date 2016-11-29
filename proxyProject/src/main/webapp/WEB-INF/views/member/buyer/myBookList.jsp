@@ -73,40 +73,7 @@ img, ul, li{
 				</tbody>
 			</table>
 		</div>
-	 	<div class="center-block">
-			<!-- PAGINATIOIN:S -->
-			<nav aria-label="Page navigation">
-				<ul class="pagination">
-					<li><a href="#" aria-label="Previous"> <span
-							aria-hidden="true">&laquo;</span>
-					</a></li>
-					<li><c:if test="${paging.curBlock > 1}">
-							<a class="N_pageing"
-								href="freeboardList?curPage=${paging.startNum-1}&perPage=10">&laquo;</a>
-						</c:if></li>
-					<li><c:forEach begin="${paging.startNum}" step="1"
-							end="${paging.lastNum}" var="i">
-							<a class="N_pageing"
-								href="freeboardList?curPage=${i}&perPage=10">${i}</a>
-
-						</c:forEach></li>
-					<li><c:if test="${paging.curBlock < paging.totalBlock}">
-							<a class="N_pageing"
-								href="freeboardList?curPage=${paging.lastNum+1}&perPage=10">&raquo;</a>
-						</c:if></li>
-					<li><a href="#" aria-label="Next"> <span
-							aria-hidden="true">&raquo;</span>
-					</a></li>
-				</ul>
-			</nav>
-			<!-- PAGINATIOIN:E -->
-		</div> 
-		<c:if test="${sessionScope.member ne null }">
-		<div class="col-md-4">
-			<input type="button" value="글쓰기" id="wrBtn" class="btn btn-info">
-		</div>
-		</c:if>
-	</div>
+	 	</div>
 	<!-- Footer:S -->
 	<!-- Footer:E -->	
 	

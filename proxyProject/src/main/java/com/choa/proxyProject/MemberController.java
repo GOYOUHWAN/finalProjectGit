@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import com.choa.book.BookService;
+import com.choa.freeboard.FreeboardService;
 import com.choa.member.MemberDTO;
 import com.choa.member.MemberService;
 
@@ -30,21 +31,88 @@ public class MemberController {
 	private MemberService memberService;
 	@Autowired
 	private BookService bookService;
+	@Autowired
+	private FreeboardService freeboardService;
 	
-
+	
+	
+	//buyer 용
+//==================================================================	
+	@RequestMapping(value="/buyer/myPage")
+	public void myPageB(){}
+	
+	@RequestMapping(value="/buyer/myBoardList")
+	public String myBoardListB(@RequestParam String id, Model model){
+		try {
+			freeboardService.myBoardList(id,  model);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "/member/buyer/myBoardList";
+	}
+	
+	@RequestMapping(value="/buyer/myBuyList")
+	public String myBuyListB(@RequestParam String id, Model model){
+		try {
+			bookService.myBuyList(id, model);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "/member/buyer/myBuyList";
+	}
+	
 	@RequestMapping(value="/buyer/myBookList")
-	public String myBookList(@RequestParam String id, Model model){
+	public String myBookListB(@RequestParam String id, Model model){
 			try {
 				bookService.myBookList(id, model);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println("id는 " +id);
+		
 			
 		return "/member/buyer/myBookList";
 	}
 	
+	//=========================================================
+	@RequestMapping(value="/seller/myBoardList")
+	public String myBoardListS(@RequestParam String id, Model model){
+		try {
+			freeboardService.myBoardList(id,  model);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "/member/seller/myBoardList";
+	}
+	@RequestMapping(value="/seller/myPage")
+	public void myPageS(){}
+	
+	
+	@RequestMapping(value="/seller/myBuyList")
+	public String myBuyListS(@RequestParam String id, Model model){
+		try {
+			bookService.myBuyList(id, model);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "/member/seller/myBuyList";
+	}
+	
+	@RequestMapping(value="/seller/myBookList")
+	public String myBookListS(@RequestParam String id, Model model){
+			try {
+				bookService.myBookList(id, model);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return "/member/seller/myBookList";
+	}
+	//============================================================	
 	//ID중복체크
 		@ResponseBody
 		@RequestMapping(value = "checkID2", method = RequestMethod.POST)

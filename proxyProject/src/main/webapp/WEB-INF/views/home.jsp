@@ -7,30 +7,29 @@
 	<title>Home</title>
 </head>
 <body>
-<c:choose>
- <c:when test="${member !=null}">
-${member.name}님 환영합니다  
-<a href="memberLogout">로그아웃</a>	
-<a href="member/memberView">회원정보</a>
 
-	
-	
-<h2>${member2.name }</h2>
-<h2>${member.name }</h2>
+ <c:choose>
+	<c:when test="${member !=null}">
 		
+<h2>${member.name}님 환영합니다</h2> 
+		 
+ <a href="memberLogout">로그아웃</a>
+
+  <a href="member/memberView">회원정보</a>
+
 <!-- 일반 회원용 -->		
 <c:if test="${member.type =='1'}"> 
-<a href="member/myPage?type=${member.type}">마이페이지</a>
+<a href="<%=application.getContextPath() %>/member/buyer/myPage?type=${member.type}&id=${member.id}">마이페이지</a>
 	</c:if>
 	
 	<!--판매자용  -->
 		<c:if test="${member.type =='2'}"> 
-<a href="<%=application.getContextPath() %>member/seller/myBookList?id=${member.id}">마이페이지</a>
+<a href="<%=application.getContextPath() %>/member/seller/myPage?type=${member.type}&id=${member.id}">마이페이지</a>
 	</c:if> 
 	
 	<!-- 관리자용 -->
 		<c:if test="${member.type =='3'}">
-<a href="<%=application.getContextPath()%>member/sub/admin/myPage?id=${member.id}">마이페이지</a>
+<a href="<%=application.getContextPath()%>/member/admin/myPage?type=${member.type}&id=${member.id}">마이페이지</a>
 	</c:if>
 	
 	</c:when>
@@ -40,10 +39,7 @@ ${member.name}님 환영합니다
 	</c:otherwise>
 </c:choose>	
 	<a href="freeboard/freeboardList">freeboard</a>
-
-	<a href="member/buyer/myBookList?id=youhwan<%-- ${member.id } --%>"> myBookList</a>
-
-<P>  The time on the server is ${serverTime}. </P>
+	<a href="member/buyer/myBookList?id=${member.id }"> myBookList</a>
 <a href="index">index</a>
 </body>
 </html>

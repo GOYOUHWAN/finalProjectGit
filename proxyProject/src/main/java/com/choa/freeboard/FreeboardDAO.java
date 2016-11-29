@@ -19,7 +19,7 @@ public class FreeboardDAO implements BoardDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private String namespace="FreeboardMapper.";
-	
+
 	
 	//글보기//
 	@Override
@@ -33,7 +33,10 @@ public class FreeboardDAO implements BoardDAO {
 		
 		return sqlSession.selectList(namespace+"fileView", boardDTO);
 	}
-	
+	//myPage에서 myBoardList 보기
+	public List<BoardDTO> myBoardList(String id){
+		return sqlSession.selectList(namespace+"myBoardList", id);
+	}
 	
 	//게시글 리스트//
 	@Override

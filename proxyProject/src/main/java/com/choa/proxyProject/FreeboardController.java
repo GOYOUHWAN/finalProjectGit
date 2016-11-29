@@ -22,7 +22,6 @@ public class FreeboardController {
 	private FreeboardService freeboardService;
 	
 	
-	
 	@RequestMapping(value="/freeboardList")
 	public String boardList(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="10") int perPage, Model model){
 		try {
