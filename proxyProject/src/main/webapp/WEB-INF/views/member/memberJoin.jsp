@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -153,7 +154,10 @@ table {
 							+ $("#pThird").val(),
 					email : $("#email_1").val()+"@"
 							+ $("#email_2").val(),
-					address : $("#address").val()
+					address : $("#address").val(),
+					account : $("#accountBank").val()+","
+							+$("#accountName").val()+","
+							+$("#accountNum").val()
 				}, function(data) {
 					alert("가입성공");
 					location.href="../";
@@ -289,8 +293,8 @@ table {
 							<option>017</option>
 							<option>019</option>
 						</select> - 
-						<input type="text" class="categ3" id="pSecond" name="pSecond"> - 
-						<input type="text" class="categ3" id="pThird" name="pThird">
+						<input type="text" class="categ3" id="pSecond" name="pSecond" maxlength="4"> - 
+						<input type="text" class="categ3" id="pThird" name="pThird" maxlength="4">
 					</td>
 				</tr>
 				<!-- E-MAIL -->
@@ -308,10 +312,43 @@ table {
 						</select>
 					</td>
 				</tr>
+				<!-- 주소 -->
 				<tr>
-					<td class="td_1">address</td>
-					<td><input type="text" name="address" id="address"></td>
+					<td class="td_1">주소</td>
+					<td><input type="text" name="address" id="address" class="categ1"></td>
 				</tr>
+				
+				<!-- 계좌번호 -->
+				<tr>
+					<td class="td_1">환불 계좌번호</td>
+					<td>
+						<div>
+							<div class="form_wrap select card_type form_bg" >
+								<select id="accountBank">
+									<option>은행을 선택하세요</option>
+									<option id="NH농협">NH농협</option>
+									<option id="국민은행">국민은행</option>
+									<option id="신한은행">신한은행</option>
+									<option id="우리은행">우리은행</option>
+									<option id="기업은행">기업은행</option>
+									<option id="SC은행">SC은행</option>
+									<option id="부산은행">부산은행</option>
+									<option id="경남은행">경남은행</option>
+									<option id="우체국">우체국</option>
+								</select>
+							</div>
+						</div>
+						<div>
+							<div class="form_wrap text card_no form_bg" >
+								<label for="lp_card_no1">예금주명</label> 
+								<input id="accountName" type="text" maxlength="5">
+								<label for="lp_card_no1">계좌번호</label> 
+								<input id="accountNum" type="text" maxlength="15">
+							</div>
+						</div>
+					</td>
+				</tr>
+				
 			</table>
 			<!-- <input type="submit" class="btn2" id="btn4" value="JOIN">
 			</form> -->

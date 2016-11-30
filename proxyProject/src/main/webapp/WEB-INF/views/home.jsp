@@ -20,16 +20,20 @@
 <!-- 일반 회원용 -->		
 <c:if test="${member.type =='1'}"> 
 <a href="<%=application.getContextPath() %>/member/buyer/myPage?type=${member.type}&id=${member.id}">마이페이지</a>
+<a href="freeboard/freeboardList">freeboard</a>
+<a href="member/buyer/myBookList?id=${member.id }"> myBookList</a>
 	</c:if>
 	
 	<!--판매자용  -->
 		<c:if test="${member.type =='2'}"> 
 <a href="<%=application.getContextPath() %>/member/seller/myPage?type=${member.type}&id=${member.id}">마이페이지</a>
+<a href="freeboard/freeboardList">freeboard</a>
+<a href="member/buyer/myBookList?id=${member.id }"> myBookList</a>
 	</c:if> 
 	
 	<!-- 관리자용 -->
 		<c:if test="${member.type =='3'}">
-<a href="<%=application.getContextPath()%>/member/admin/myPage?type=${member.type}&id=${member.id}">마이페이지</a>
+<a href="<%=application.getContextPath()%>/member/manager/manageMember?type=${member.type}&id=${member.id}">관리자페이지</a>
 	</c:if>
 	
 	</c:when>
@@ -38,8 +42,7 @@
 		<a href="member/memberJoin">SIGN UP</a>
 	</c:otherwise>
 </c:choose>	
-	<a href="freeboard/freeboardList">freeboard</a>
-	<a href="member/buyer/myBookList?id=${member.id }"> myBookList</a>
+	
 <a href="index">index</a>
 </body>
 </html>

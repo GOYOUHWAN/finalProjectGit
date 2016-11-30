@@ -35,6 +35,17 @@ public class MemberController {
 	private FreeboardService freeboardService;
 	
 	
+	//Manager=======================================================
+	//관리자페이지
+	@RequestMapping(value="/manager/manageMember")
+	public void myPageM(){}
+	
+	
+	
+	
+	
+	
+	
 	
 	//buyer 용
 //==================================================================	
@@ -176,16 +187,15 @@ public class MemberController {
 		public void memberUpdate(MemberDTO memberDTO, HttpServletResponse response) throws Exception{
 			String message="";
 			int result = memberService.memberUpdate(memberDTO);
+			PrintWriter writer=response.getWriter();
 			if(result>0){
-				message="수정성공";
+				message="수정되었습니다.";
 			}else {
 				message="수정실패";
 			}
-			PrintWriter writer=response.getWriter();
-			writer.println("<script>alert('회원수정'); </script>");
-			System.out.println(message);
+			writer.println("<script>alert('"+message+"'); </script>");
 		}
-		
+		//회원탈퇴
 		@RequestMapping(value="/memberDelete", method = RequestMethod.POST)
 		public void memberDelete(String id, HttpServletResponse response, HttpServletRequest request) throws Exception{
 			request.setCharacterEncoding("UTF-8");
@@ -196,7 +206,7 @@ public class MemberController {
 			if(result>0){
 				writer.println("이용해주셔서 감사합니다.");
 			}else{
-				writer.println("x");
+				writer.println("탈퇴안됨 가지마");
 			}
 		}
 }
