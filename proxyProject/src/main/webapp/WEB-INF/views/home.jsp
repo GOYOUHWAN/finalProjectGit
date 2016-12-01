@@ -43,8 +43,9 @@
 		<a href="member/memberJoin">SIGN UP</a>
 <%-- 	</c:otherwise> --%>
 <%-- </c:choose>	 --%>
-	<a href="freeboard/freeboardList">freeboard</a>
+	<a href="${pageContext.request.contextPath}/freeboard/freList">freeboard</a>
 
+<p> ${pageContext.request.contextPath}</p>
 <P>  The time on the server is ${serverTime}. </P>
 <a href="index">index</a>
 </body>
