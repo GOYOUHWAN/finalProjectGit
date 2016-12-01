@@ -116,8 +116,5 @@ public class PageMaker {
 		this.lastNum = lastNum;
 	}
 	
-	
-	
 
 }
-
