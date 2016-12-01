@@ -29,7 +29,7 @@ img, ul, li{
 </head>
 <body class="home">
 	<div class="container">
-		<h2>myBoardList_for_buyer</h2>
+		<h2>myBoardList_for_seller</h2>
 
 		<form action="findList" method="post" role="search">
 			<div class="row">

@@ -14,9 +14,22 @@ public class BookDTO {
 	private Date buy_date;
 	private String k_id;
 	private int likes;
-	private int pages
+	private int pages;
+	private int num_1;
+	private String files1;
 	
-	;
+	public int getNum_1() {
+		return num_1;
+	}
+	public void setNum_1(int num_1) {
+		this.num_1 = num_1;
+	}
+	public String getFiles1() {
+		return files1;
+	}
+	public void setFiles1(String files1) {
+		this.files1 = files1;
+	}
 	public int getNum() {
 		return num;
 	}

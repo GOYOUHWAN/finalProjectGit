@@ -39,7 +39,8 @@
 	</c:otherwise>
 </c:choose>	
 	<a href="freeboard/freeboardList">freeboard</a>
-	<a href="member/buyer/myBookList?id=${member.id }"> myBookList</a>
+	<%-- <a href="member/buyer/myBookList?id=${member.id }"> myBookList</a>
+	<a href="sellBook/sellBookList">sellBookList</a> --%>
 <a href="index">index</a>
 </body>
 </html>
