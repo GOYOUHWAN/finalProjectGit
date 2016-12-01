@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.choa.freeboard.FreeboardAnswerDAO">
+	<!-- 게시물 작성 -->
+	<insert id="freAnswerWrite">
+		INSERT INTO FREEBOARD_ANSWER VALUES(ans_seq.nextval, #{aName}, #{aTitle}, #{aContent} sysdate)
+	</insert>
+</mapper>

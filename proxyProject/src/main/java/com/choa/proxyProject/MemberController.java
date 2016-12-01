@@ -34,19 +34,12 @@ public class MemberController {
 	@Autowired
 	private FreeboardService freeboardService;
 	
-	
 	//Manager=======================================================
 	//관리자페이지
 	@RequestMapping(value="/manager/manageMember")
 	public void myPageM(){}
 	
-	
-	
-	
-	
-	
-	
-	
+
 	//buyer 용
 //==================================================================	
 	@RequestMapping(value="/buyer/myPage")

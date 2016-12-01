@@ -1,34 +1,45 @@
 package com.choa.freeboard;
 
-import com.choa.board.BoardDTO;
+import java.sql.Timestamp;
 
-public class FreeboardDTO extends BoardDTO{
-
-	private int ref;
-	private int step;
-	private int depth;
+public class FreeboardDTO {
+	private int no;
+	private String id;
+	private String title;
+	private String content;
+	private Timestamp date2;
 	
 	
-	public int getRef() {
-		return ref;
+	public int getNo() {
+		return no;
 	}
-	public void setRef(int ref) {
-		this.ref = ref;
+	public void setNo(int no) {
+		this.no = no;
 	}
-	public int getStep() {
-		return step;
+	public String getId() {
+		return id;
 	}
-	public void setStep(int step) {
-		this.step = step;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public int getDepth() {
-		return depth;
+	public String getTitle() {
+		return title;
 	}
-	public void setDepth(int depth) {
-		this.depth = depth;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-	
-	
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public Timestamp getDate2() {
+		return date2;
+	}
+	public void setDate2(Timestamp date2) {
+		this.date2 = date2;
+	}
 	
 	
 }

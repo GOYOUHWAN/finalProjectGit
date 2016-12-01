@@ -43,6 +43,12 @@
 	</c:otherwise>
 </c:choose>	
 	
+<%-- 	</c:otherwise> --%>
+<%-- </c:choose>	 --%>
+	<a href="${pageContext.request.contextPath}/freeboard/freList">freeboard</a>
+
+<p> ${pageContext.request.contextPath}</p>
+<P>  The time on the server is ${serverTime}. </P>
 <a href="index">index</a>
 </body>
 </html>
