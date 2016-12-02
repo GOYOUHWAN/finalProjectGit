@@ -7,7 +7,6 @@
 	<title>Home</title>
 </head>
 <body>
-
  <c:choose>
 	<c:when test="${member !=null}">
 		
@@ -44,8 +43,8 @@
 </c:choose>	
 
 	<a href="freeboard/freeboardList">freeboard</a>
-	<%-- <a href="member/buyer/myBookList?id=${member.id }"> myBookList</a>
-	<a href="sellBook/sellBookList">sellBookList</a> --%>
+	 <a href="member/buyer/myBookList?id=${member.id }"> myBookList</a>
+	<a href="sellBook/sellBookList">sellBookList</a>
 
 	
 <%-- 	</c:otherwise> --%>
@@ -55,5 +54,6 @@
 <p> ${pageContext.request.contextPath}</p>
 <P>  The time on the server is ${serverTime}. </P>
 <a href="index">index</a>
+
 </body>
 </html>

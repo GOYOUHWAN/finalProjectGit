@@ -1,0 +1,103 @@
+@CHARSET "UTF-8";
+
+#contents {
+	position: relative;
+	float: left;
+	padding: 0 0 50px;
+	*padding: 0 0 0;
+	width: 750px;
+}
+.asterisk {
+    color: #ff6600;
+}/*1277*/
+#contents.seller_contents div.product_information {
+    margin: 25px 0 0;
+    width: 100%;
+}/*3751*/
+#contents.seller_contents div.product_information .asterisk {
+    color: #ff6600;
+}/*3752*/
+#contents.seller_contents div.product_information div.basic_info {
+    width: 100%;
+}/*3755*/
+#contents.seller_contents div.product_information div.basic_info h4 {
+    height: 20px;
+    font-size: 13px;
+    padding: 0 0 5px 8px;
+    color: #333333;
+    margin: 0 0 5px 0;
+    background: url(${pageContext.request.contextPath}/resources/image/arrow_01.gif) no-repeat left 7px;
+}/*3756*/
+#contents.seller_contents div.product_information div.basic_info p.info {
+    margin: -26px 0 0;
+    height: 20px;
+    font-size: 11px;
+    text-align: right;
+}/*3757*/
+#contents.seller_contents div.product_information div.basic_info p.info em {
+    font-style: normal;
+    color: #f60;
+}/*3758*/
+#contents.seller_contents div.product_information div.basic_info div.basic_info_books, 
+#contents.seller_contents div.product_information div.basic_info div.prer_info_books, 
+#contents.seller_contents div.product_information div.basic_info div.basic_info_disc {
+    padding: 0 0 0 0;
+    font-size: 11px;
+    color: #787878;
+    letter-spacing: -1px;
+    line-height: 1.5em;
+}/*3766*/
+#contents.seller_contents div.product_information div.basic_info table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+    width: 100%;
+    border-top: 1px solid #d9d9d9;
+}/*3776*/
+#contents.seller_contents div.product_information div.basic_info table tbody tr th {
+    padding: 5px 0;
+    text-align: left;
+    background: #f7f7f7;
+    border-left: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+}/*3778*/
+#contents.seller_contents div.product_information div.basic_info table tbody tr th.first {
+    border-left: none;
+}/*3779*/
+#contents.seller_contents div.product_information div.basic_info table tbody tr th label {
+    padding: 0 0 0 10px;
+    display: block;
+}/*3780*/
+#contents.seller_contents div.product_information div.basic_info table tbody tr td {
+    padding: 5px 0 5px 10px;
+    border-left: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+}/*3782*/
+#contents.seller_contents div.product_information div.basic_info table tbody tr td input {
+    height: 18px;
+    border: 1px solid #c6c6c6;
+    line-height: 21px;
+    padding: 0 0 0 5px;
+}/*3783*/
+#contents.seller_contents div.product_information div.basic_info table tbody tr td select {
+    border: 1px solid #c6c6c6;
+    height: 21px;
+    line-height: 21px;
+    padding: 0 5px 0 0;
+    letter-spacing: 0;
+    width: auto;
+    vertical-align: middle;
+    font-size: 1em;
+    background: #fff;
+    font-family: "돋움" , "Dotum", sans-serif;
+}/*3784*/
+#contents.seller_contents div.sale_information {
+    margin: 25px 0 0;
+    width: 100%;
+}/*3790*/
+#contents.seller_contents div.sale_information p.info1 {
+    padding: 0 0 8px 8px;
+    font-size: 11px;
+    color: #999;
+    line-height: 1.5em;
+}/*3793*/

@@ -26,14 +26,6 @@ public class MemberService {
 		mPageMaker.setPerPage(perPage);
 		mPageMaker.makeRow();
 		mPageMaker.makePage(totalCount);
-		System.out.println("curPage"+mPageMaker.getCurPage());
-		System.out.println("perPage"+mPageMaker.getPerPage());
-		System.out.println("StartNum"+mPageMaker.getStartNum());
-		System.out.println("LastNum"+mPageMaker.getLastNum());
-		System.out.println("CurBlock"+mPageMaker.getCurBlock());
-		System.out.println("LastLowNum"+mPageMaker.getLastLowNum());
-		System.out.println("StartRowNum"+mPageMaker.getStartRowNum());
-		System.out.println("TotalBlock"+mPageMaker.getTotalBlock());
 		
 		model.addAttribute("memberInfo", memberDAO.memberInfo(mPageMaker));
 		model.addAttribute("paging", mPageMaker);
