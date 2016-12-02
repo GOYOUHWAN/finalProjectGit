@@ -91,6 +91,7 @@ public class MemberController {
 		}
 		return "/member/seller/myBoardList";
 	}
+	
 	@RequestMapping(value="/seller/myPage")
 	public void myPageS(){}
 	

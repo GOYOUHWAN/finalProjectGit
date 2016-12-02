@@ -23,5 +23,7 @@ public interface FreeboardDAO{
 	   public List<FreeboardDTO> selectfreList(Map<String, Object> map);
 	   // 게시물에 답변
 	   public void freAnswer(FreeboardDTO dto);
+	   
+	   
 
 }
