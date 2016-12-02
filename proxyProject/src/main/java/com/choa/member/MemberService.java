@@ -23,7 +23,6 @@ public class MemberService {
 		MemberPageMaker mPageMaker = new MemberPageMaker();
 		mPageMaker.setType(type);
 		mPageMaker.setCurPage(curPage);
-		mPageMaker.setPerPage(perPage);
 		mPageMaker.makeRow();
 		mPageMaker.makePage(totalCount);
 		System.out.println("curPage"+mPageMaker.getCurPage());

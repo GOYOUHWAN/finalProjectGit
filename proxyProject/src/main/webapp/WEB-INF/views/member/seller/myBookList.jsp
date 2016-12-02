@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
 <title>MY_BOOK_LIST</title>
 
 <style>
@@ -28,6 +29,7 @@ img, ul, li{
 </style>
 </head>
 <body class="home">
+<%@ include file = "../../common/header.jsp" %>
 	<div class="container">
 		<h2>myBookList_for_seller</h2>
 

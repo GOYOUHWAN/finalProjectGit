@@ -25,6 +25,7 @@
 	});//btn
 </script>	
 <!--  ================================================-->	
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
 <style>
 body{
 	line-height: 1;
@@ -46,6 +47,8 @@ img, ul, li{
 </style>
 </head>
 <body class="home">
+<%@ include file = "../../common/header.jsp" %>
+
 	<div class="container">
 		<h2>myBuyList_for_seller</h2>
 

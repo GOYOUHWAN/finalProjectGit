@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -71,7 +71,7 @@
 			</div>	
 			<div id="header_div_3">
 			
-			<%-- <%if(mDto == null){ %> --%>
+		
 			<div id="header_div_4">
 			<div id="header_div_4_1">
 				
@@ -80,64 +80,16 @@
 		<div id="id01" class="login">
 	 <div class="modal-content card-4 animate-zoom">
 	
-<!-- 	  <ul class="tab" class="pagination white border-bottom" style="width:100%;">
-	   <li><a class="tablink" onclick="openCity(event, 'login')">로그인</a></li>
-	   <li><a class="tablink" onclick="openCity(event, 'join')">회원가입</a></li>
-	   <li><span  onclick="document.getElementById('id01').style.display='none'"
-	   class="closebtn wpadding-top">&times;</span></li>
-	  </ul> -->
-	
-<!-- 	  <div id="login" class="container city" class="tab">
-	  <c:import url="//member/login_form.jsp"></c:import> 
-	   </div>
-	
-	  <div id="join" class="container city" class="tab">
-	    <c:import url="//member/member_join_form.jsp"></c:import>
-	  </div>
-	  <div class="container light-grey padding">
-	  
-	  </div> -->
+
 	 </div>
 	</div>
 	</div>
 	</div>
-	<%-- <%}else{ %> --%>
-<%-- 		
-			<div class="dropdown">
-			
-		<a onclick="myFunction()" >${member.name }님<br>환영합니다 </a>
-			
-			
-			 <div id="myDropdown" class="dropdown-content">
-	    <a onclick="document.getElementById('id01').style.display='block'" >내 정보 보기</a>
-		<div id="id01" class="login">
-	 	<div class="modal-content card-4 animate-zoom">
-	
-	  <ul class="tab" class="pagination white border-bottom" style="width:100%;">
-	   <li><a href="#" class="tablink" onclick="openCity(event, 'view')">내 정보 보기</a></li>
-	   <li><a href="#" class="tablink" onclick="openCity(event, 'mod')">수정하기</a></li>
-	     <li><span  onclick="document.getElementById('id01').style.display='none'"
-	   class="closebtn wpadding-top">&times;</span></li>
-	  </ul>
-	
-	  <div id="view" class="container city" class="tab">
-	   <c:import url="//member/member_view.jsp"></c:import>
-	   </div>
-	
-	  <div id="mod" class="container city" class="tab">
-	    <c:import url="//member/member_mod_form.jsp"></c:import>
-	  </div>
-	  <div class="container light-grey padding">
-	  
-	  </div> --%>
+
 	 </div>
 	</div>
-	  <a href="/Sysdate/member/logout.jsp">로그 아웃</a>
-	  </div>
-	</div>
-	</div>
-			<%-- <%} %>	 --%>	
-			</div>		
+
+	
 	</header>
 </body>
 </html>

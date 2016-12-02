@@ -1,15 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
 <title>Insert title here</title>
 <style type="text/css">
 #sub_3 {
 	width: 80%;
 	height: 100px;
 	margin: 0 auto;
+	margin-top: 300px;
 }
 
 .btn_d_2 {
@@ -35,6 +37,7 @@
 </head>
 
 <body>
+<%@ include file = "../../common/header.jsp" %>
 <h2> 일반회원용 myPage</h2>
 
 	
