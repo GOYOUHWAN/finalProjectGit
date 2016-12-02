@@ -44,17 +44,14 @@
 </c:choose>	
 
 	<a href="freeboard/freeboardList">freeboard</a>
-	<%-- <a href="member/buyer/myBookList?id=${member.id }"> myBookList</a>--%>
+
 	<a href="sellBook/sellBookList">sellBookList</a> 
 
 	
-<%-- 	</c:otherwise> --%>
-<%-- </c:choose>	 --%>
+
 	<a href="${pageContext.request.contextPath}/freeboard/freList">freeboard</a>
 
 
-<p> ${pageContext.request.contextPath}</p>
-<P>  The time on the server is ${serverTime}. </P>
 
 
 <a href="index">index</a>

@@ -9,24 +9,7 @@
 <title>Insert title here</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<!-- <script type="text/javascript">
-	$(function() {
-		$("#btn").click(function() {
-			var num = $("#num").val();
-			$.ajax({
-				url:"sellBookList",
-				type:"GET",
-				data:{num:num},
-				success:function(data){
-					alert(data);
-					/* data=JSON.parse(data); */  //처음에는 우리가 이렇게 parse 해서 나눠서 json 만들어서 뿌렸는데 jackson 라이브러리 pom에 추가하니까 그냥 만들어줌
-					alert(data.title);
-					/* $("#result").html(data); */
-				}
-				
-			});
-		});//btn
-</script>		 -->
+
 <style type="text/css">
 #img{
 		margin: 0 auto;

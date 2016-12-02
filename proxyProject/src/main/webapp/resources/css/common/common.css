@@ -10,6 +10,7 @@
 	list-style: none;
 	font-family: Daum_Regular;
     border: none;
+   
 	}
 img{
 	border-radius: 15px;
@@ -22,6 +23,10 @@ a:hover{
 }
 header a{
 	color: white;
+}
+.container{
+	margin-top:200px;
+	border: 1px solid red;
 }
 #header_wrap {
 	width: 100%;
@@ -99,6 +104,13 @@ header a{
     border-color: rgb(113, 81, 252);
     border-image: initial;
 }
+#sub_3{
+	width: 80%;
+	height: 100px;
+	margin: 0 auto;
+	margin-top: 200px;
+}
+
 #a_header{
 	width: 100%;
     height: 50px;
@@ -107,6 +119,7 @@ header a{
     background-color: rgba(255, 255, 255, 0);
 }
 body{
+	border-top: 0.1px solid white;
 	background-color: #f2f2f2;
 }
 #section_wrap{

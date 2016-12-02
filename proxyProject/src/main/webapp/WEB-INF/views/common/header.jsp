@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+<!DOCTYPE html PUBLIC >
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -87,6 +90,7 @@
 					<input type="submit" value="검색" id="header_button" >
 				</form>	
 			</div>	
+
 			<div id="header_div_5">	
 				<ul id="h_ul2">
 					<li class="h_li2"><a>공지사항</a></li>
@@ -95,7 +99,28 @@
 					<li class="h_li2"><a href="blackList/blackListForm">블랙리스트</a></li>
 				</ul>
 			</div>
+
+			<div id="header_div_3">
+			
+		
+			<div id="header_div_4">
+			<div id="header_div_4_1">
+				
+				<a onclick="document.getElementById('id01').style.display='block'" >LOGIN</a>
+				
+		<div id="id01" class="login">
+	 <div class="modal-content card-4 animate-zoom">
+	
+
+	 </div>
+
 	</div>
+	</div>
+
+	 </div>
+	</div>
+
+</div>
 	</header>
 </body>
 </html>
