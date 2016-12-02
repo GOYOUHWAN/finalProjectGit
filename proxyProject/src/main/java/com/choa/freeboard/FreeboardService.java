@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 @Service
 public class FreeboardService {
 
+
    @Autowired
    private FreeboardDAO2 freeboardDAO2;
    
@@ -22,3 +23,7 @@ public class FreeboardService {
    
    
 }
+
+
+	
+

@@ -6,4 +6,5 @@
          <select id="myBoardList" resultType="com.choa.freeboard.FreeboardDTO" parameterType="String">
             select * from FREEBOARD where id=#{id}
          </select>
+
    </mapper>

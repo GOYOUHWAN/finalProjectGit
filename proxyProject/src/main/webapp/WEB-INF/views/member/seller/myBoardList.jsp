@@ -66,10 +66,10 @@ img, ul, li{
 				<tbody>
 					<c:forEach items="${myBoardList}" var="list">
 						<tr>
-							<td>${list.writer}</td>
+							<td>${list.id}</td>
 							<td>${list.title}</td>
-							<td>${list.contents }</td>
-							<td>${list.reg_date }</td>
+							<td>${list.content}</td>
+							<td>${list.date2 }</td>
 						</tr>
 					</c:forEach>
 				</tbody>

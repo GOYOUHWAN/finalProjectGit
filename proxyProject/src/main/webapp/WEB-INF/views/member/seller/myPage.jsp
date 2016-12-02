@@ -34,6 +34,8 @@
 </style>
 </head>
 <body>
+
+
 <h2> 판매자용 myPage</h2>
 <div id="sub_3">
 			<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">myBookList(내가 팔고있는 책들)</button></a>

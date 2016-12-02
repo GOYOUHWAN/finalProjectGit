@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class FreeboardDAO2 {
 
+
    @Autowired
    private SqlSession sqlSession;
    private String namespace = "MyFreeboardMapper.";
@@ -20,4 +21,6 @@ public class FreeboardDAO2 {
    }
    
    
+	
 }
+

@@ -118,12 +118,14 @@ public class MemberController {
 		return "/member/seller/myBoardList";
 	}
 
-	@RequestMapping(value = "/seller/myPage")
-	public void myPageS() {
-	}
 
-	@RequestMapping(value = "/seller/myBuyList")
-	public String myBuyListS(@RequestParam String id, Model model) {
+	@RequestMapping(value="/seller/myPage")
+	public void myPageS(){}
+	
+	
+	@RequestMapping(value="/seller/myBuyList")
+	public String myBuyListS(@RequestParam String id, Model model){
+
 		try {
 			bookService.myBuyList(id, model);
 		} catch (Exception e) {
