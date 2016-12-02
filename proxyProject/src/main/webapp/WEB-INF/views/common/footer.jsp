@@ -11,12 +11,13 @@
 	<footer id="footer_wrap">
 		<div id="section_div_1">	
 			<div id="footer_div_1">
-				footer에는 무슨 내용을 적을까요~~~~<br>
-				안심거래 중고책...가나다라마바사아자차카타파하<br>
+				주식회사 PROXY  |  사업자등록번호:105-87-98417  |  통신판매업 신고번호:제2015-서울성동-0822호  |  의료기기판매업 신고번호:제1152호  | <br>
+				서울특별시 강남구 역삼동 823-24 남도빌딩 2F, 3F, 4F  |  대표자:김대현  |  전화번호:1833-6279 <br>
 				개발자  : 고유환, 김남균, 정다은, 송주현  &nbsp;&nbsp;&nbsp;
-				H.P : 010-1234-1234&nbsp;&nbsp;&nbsp;
-				FAX : 02) 369- 3693&nbsp;&nbsp;&nbsp;
-				EMAIL : proxyproject11@gmail.com<br>
+				FAX : 02) 369- 3693&nbsp;&nbsp;&nbsp;<br>
+				<p style="color: gray; margin-top: 20px;">개별 판매자가 등록한 상품에 대한 광고, 상품주문, 배송 및 환불의 의무와 책임은 각 판매자가 부담하고,<br>
+				 이에 대하여 PROXY는 통신판매중개자로서 통신판매의 당사자가 아니므로 일체 책임을 지지 않습니다.</p>
+				<p style="color: gray; margin-top: 10px; font-size: 10px">Copyright ⓒ PROXY Inc. All rights reserved.</p>
 			</div>
 		</div>
 	</footer>
