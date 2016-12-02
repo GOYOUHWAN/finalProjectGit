@@ -54,7 +54,6 @@
 
 <p> ${pageContext.request.contextPath}</p>
 <P>  The time on the server is ${serverTime}. </P>
->>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
 <a href="index">index</a>
 </body>
 </html>

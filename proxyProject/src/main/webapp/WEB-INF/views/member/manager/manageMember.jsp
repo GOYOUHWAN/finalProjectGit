@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,6 +26,36 @@ a {
 	text-decoration: none;
 	cursor: pointer;
 	background: transparent;
+}
+
+.btn {
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: normal;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	white-space: nowrap;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857;
+	border-radius: 3px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.btn-default {
+	color: #333;
+	background-color: #fff;
+	border-color: #ccc;
+}
+
+.btn-expanded {
+	width: 100%;
 }
 
 .mypage-menu {
@@ -88,7 +119,13 @@ a {
 }
 
 .mypageodr-header-info {
-	width: 350px;
+	width: 60px;
+	display: inline-block;
+	text-align: center
+}
+
+.mypageodr-header-info-tel {
+	width: 150px;
 	display: inline-block;
 	text-align: center
 }
@@ -103,44 +140,154 @@ a {
 	width: 120px;
 	display: inline-block;
 	text-align: center;
-	float: right;
+}
+
+.mypageodr-item-info {
+	width: 40px;
+	display: inline-block;
+	margin-left: 20px;
+	vertical-align: middle
+}
+
+.mypageodr-item-price {
+	font-size: 14px;
+	text-align: center;
+}
+
+.mypageodr-item-state {
+	width: 60px;
+	display: inline-block;
+	font-size: 12px;
+	color: #000;
+	vertical-align: middle
+}
+
+.mypageodr-item-tel {
+	width: 150px;
+	display: inline-block;
+	font-size: 12px;
+	color: #000;
+	vertical-align: middle
+}
+
+.mypageodr-item-state-title {
+	font-size: 14px;
+	color: #000;
+	text-align: center
+}
+
+.mypageodr-item-btn-wrapper {
+	display: inline-block;
+	width: 126px;
+	padding: 0 20px;
+	text-align: center;
+	vertical-align: middle
+}
+
+.mypageodr-item-btn-wrapper .btn+.btn {
+	margin-top: 6px
+}
+
+.mypageodr-delete-btn {
+	display: block;
+}
+
+.mypage-page-wrapper {
+	padding: 20px 0;
+	text-align: center;
+	border-top: 1px solid #d8d8d8
+}
+
+.mypage-page {
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	font-size: 12px;
+	display: inline-block;
+	padding-top: 4px
+}
+
+.mypage-page.active {
+	background-color: #d8d8d8;
+	border-radius: 3px;
+	color: #fff
 }
 </style>
 </head>
 <body>
 	<div class="mypage-menu">
-		<a class="mypage-menu-item" href="#">구매자관리</a>
-		<a class="mypage-menu-item" href="#">판매자관리</a>
-		<a class="mypage-menu-item" href="#">블랙리스트관리</a>
+		<a class="mypage-menu-item active" href="manageMember?type=1">구매자관리</a> <a
+			class="mypage-menu-item" href="manageMember?type=2">판매자관리</a> <a
+			class="mypage-menu-item" href="manageMember?type=4">블랙리스트관리</a>
 		<div class="mypage-menu-hr"></div>
-		<a class="mypage-menu-item" href="#">회계관리</a>
+		<a class="mypage-menu-item" href="manageAccounting">회계관리</a>
 		<div class="mypage-menu-hr"></div>
-		<a class="mypage-menu-item" href="#">게시글관리</a>
+		<a class="mypage-menu-item" href="manageBoard">게시글관리</a>
 	</div>
 	<div class="mypage-content">
 		<div class="mypage-header">구매자관리</div>
 		<div class="mypage-body ng-scope">
 			<div class="mypageodr-table-header">
 				<div class="mypageodr-header-info">ID</div>
-				<div class="mypageodr-header-state">이름</div>
-				<div class="mypageodr-header-btns">관리</div>
+				<div class="mypageodr-header-info">이름</div>
+				<div class="mypageodr-header-info-tel">전화번호</div>
+				<div class="mypageodr-header-info-tel">이메일</div>
+				<div class="mypageodr-header-info">등급</div>
+				<div class="mypageodr-header-info-tel">관리</div>
 			</div>
 			<div>
-				<!-- ngRepeat: order in currentItems -->
-				<div class="mypage-item-wrapper ng-scope">
-					<div class="mypageodr-item-info">
-						<div class="mypageodr-item-price ng-binding">회원아이디</div>
-					</div>
-					<div
-						class="mypageodr-item-state mypageodr-item-state-title ng-binding">회원이름</div>
-					<div class="mypageodr-item-btn-wrapper">
-						<a class="btn btn-default btn-expanded mypageodr-delete-btn"
-							ng-click="removeItem(order);unbookmarkOrderFromList(order);trackButton('unbookmark')">삭제</a>
-					</div>
+					<!-- 구매자 정보 -->
+					<c:forEach items="${memberInfo}" var="f">
+					
+						<div class="mypage-item-wrapper ng-scope">
+							<div class="mypageodr-item-info">
+								<a class="mypageodr-item-price ng-binding"
+									href="${pageContext.request.contextPath }/member/memberView?id=${f.id}">${f.id }</a>
+							</div>
+							<div
+								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.name }</div>
+							<div
+								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.tel }</div>
+							<div
+								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.email }</div>
+							<div
+								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.grade }</div>
+
+							<div class="mypageodr-item-btn-wrapper">
+								<a class="btn btn-default btn-expanded mypageodr-delete-btn"
+									href="${pageContext.request.contextPath}/member/memberDelete?id=${f.id }">탈퇴</a>
+							</div>
+						</div>
+						
+					</c:forEach>
+				<div class="mypage-page-wrapper">
+					<!-- pageNumber -->
+					<c:if test="${listsize != '0' }">
+						<c:if test="${paging.curBlock > 1}">
+							<a href="manageMember?curPage=${paging.startNum-1}&perPage=10">이전</a>
+						</c:if>
+						<c:forEach begin="${paging.startNum}" step="1"
+							end="${paging.lastNum}" var="i">
+							<a class="mypage-page"
+								href="manageMember?curPage=${i}&perPage=10" value="${i }">${i}</a>
+
+						</c:forEach>
+						<c:if test="${paging.curBlock < paging.totalBlock}">
+							<a href="manageMember?curPage=${paging.lastNum+1}&perPage=10" >다음</a>
+						</c:if>
+						<!-- PAGINATIOIN:E -->
+					</c:if>
 				</div>
-				
 			</div>
 		</div>
 	</div>
 </body>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {	
+	$(".mypage-page:eq(${paging.lastNum-1})").addClass("active");
+		
+});
+</script>
 </html>

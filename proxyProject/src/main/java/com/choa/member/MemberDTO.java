@@ -1,8 +1,5 @@
 package com.choa.member;
 
-import java.sql.Date;
-import java.util.Calendar;
-
 public class MemberDTO {
 	private String id;
 	private String pw;
@@ -14,6 +11,7 @@ public class MemberDTO {
 	private int type;
 	private int grade;
 	private int report; //신고횟수
+	private String account;
 	public String getId() {
 		return id;
 	}
@@ -75,6 +73,12 @@ public class MemberDTO {
 	}
 	public void setReport(int report) {
 		this.report = report;
+	}
+	public String getAccount() {
+		return account;
+	}
+	public void setAccount(String account) {
+		this.account = account;
 	}
 	
 	
