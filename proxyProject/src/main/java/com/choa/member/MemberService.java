@@ -3,6 +3,7 @@ package com.choa.member;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.choa.util.MemberPageMaker;
 import com.choa.util.PageMaker;
 
 import java.util.List;
@@ -17,15 +18,25 @@ public class MemberService {
 	
 	//관리자메뉴=================================================
 	//회원정보열람
-	public void memberInfo(int curPage, int perPage, Model model) throws Exception{
-		int totalCount = memberDAO.memberCount();
-		PageMaker pageMaker = new PageMaker();
-		pageMaker.setCurPage(curPage);
-		pageMaker.setPerPage(perPage);
-		pageMaker.makeRow();
-		pageMaker.makePage(totalCount);
-		model.addAttribute("memberInfo", memberDAO.memberInfo(pageMaker));
-		model.addAttribute("paging", pageMaker);
+	public void memberInfo(int curPage, int perPage, Model model, int type) throws Exception{
+		int totalCount = memberDAO.memberCount(type);
+		MemberPageMaker mPageMaker = new MemberPageMaker();
+		mPageMaker.setType(type);
+		mPageMaker.setCurPage(curPage);
+		mPageMaker.setPerPage(perPage);
+		mPageMaker.makeRow();
+		mPageMaker.makePage(totalCount);
+		System.out.println("curPage"+mPageMaker.getCurPage());
+		System.out.println("perPage"+mPageMaker.getPerPage());
+		System.out.println("StartNum"+mPageMaker.getStartNum());
+		System.out.println("LastNum"+mPageMaker.getLastNum());
+		System.out.println("CurBlock"+mPageMaker.getCurBlock());
+		System.out.println("LastLowNum"+mPageMaker.getLastLowNum());
+		System.out.println("StartRowNum"+mPageMaker.getStartRowNum());
+		System.out.println("TotalBlock"+mPageMaker.getTotalBlock());
+		
+		model.addAttribute("memberInfo", memberDAO.memberInfo(mPageMaker));
+		model.addAttribute("paging", mPageMaker);
 	}
 	
 	

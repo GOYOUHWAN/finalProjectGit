@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.choa.util.MemberPageMaker;
 import com.choa.util.PageMaker;
 
 import org.apache.ibatis.session.SqlSession;
@@ -23,13 +24,13 @@ public class MemberDAO {
 	
 	//관리자메뉴=================================================
 	//회원정보열람
-	public List<MemberDTO> memberInfo(PageMaker pageMaker) throws Exception{
-		return sqlSession.selectList(namespace+"memberInfo", pageMaker);
+	public List<MemberDTO> memberInfo(MemberPageMaker mPageMaker) throws Exception{
+		return sqlSession.selectList(namespace+"memberInfo", mPageMaker);
 	}
 	
 	//전체회원수
-	public int memberCount() throws Exception{
-		return sqlSession.selectOne(namespace+"memberCount");
+	public int memberCount(int type) throws Exception{
+		return sqlSession.selectOne(namespace+"memberCount", type);
 	}
 	
 	//회원메뉴=================================================

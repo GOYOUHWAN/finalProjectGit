@@ -217,15 +217,15 @@ a {
 <body>
 	<div class="mypage-menu">
 		<a class="mypage-menu-item" href="manageMember">구매자관리</a> <a
-			class="mypage-menu-item active" href="manageSeller">판매자관리</a> <a
-			class="mypage-menu-item" href="manageBlacklist">블랙리스트관리</a>
+			class="mypage-menu-item" href="manageSeller">판매자관리</a> <a
+			class="mypage-menu-item active" href="manageBlacklist">블랙리스트관리</a>
 		<div class="mypage-menu-hr"></div>
 		<a class="mypage-menu-item" href="manageAccounting">회계관리</a>
 		<div class="mypage-menu-hr"></div>
 		<a class="mypage-menu-item" href="manageBoard">게시글관리</a>
 	</div>
 	<div class="mypage-content">
-		<div class="mypage-header">판매자관리</div>
+		<div class="mypage-header">블랙리스트관리</div>
 		<div class="mypage-body ng-scope">
 			<div class="mypageodr-table-header">
 				<div class="mypageodr-header-info">ID</div>
@@ -275,7 +275,7 @@ a {
 						</c:forEach>
 						</c:if>
 						<c:if test="${paging.totalBlock==0 }">
-							<h4>아직 판매자가 존재하지 않습니다.</h4>
+							<h4>아직 블랙리스트가 존재하지 않습니다.</h4>
 						</c:if>
 						<c:if test="${paging.curBlock < paging.totalBlock}">
 							<a href="manageMember?curPage=${paging.lastNum+1}&perPage=10" >다음</a>
@@ -291,7 +291,7 @@ a {
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 $(function() {	
-	$(".mypage-page:eq(${paging.totalBlock})").addClass("active");
+	$(".mypage-page:eq(${totalBlock})").addClass("active");
 		
 });
 </script>

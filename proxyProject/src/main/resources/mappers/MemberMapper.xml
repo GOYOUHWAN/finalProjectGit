@@ -20,11 +20,11 @@
 	<select id="memberInfo" parameterType="com.choa.util.PageMaker" resultType="com.choa.member.MemberDTO"> 
 		select * from 
 		(select rownum R, F.* from 
-		(select * from member where type=1) F) 
+		(select * from member where type=#{type}) F) 
 		where R between #{startRowNum} and #{lastLowNum}
 	</select>
-	<select id="memberCount" resultType="int"> 
-		select count(*) from member where type=1 
+	<select id="memberCount" parameterType="int"  resultType="int"> 
+		select count(*) from member where type=#{type} 
 	</select>
 	
 	<!-- member -->	

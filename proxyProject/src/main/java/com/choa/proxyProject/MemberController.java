@@ -35,7 +35,7 @@ public class MemberController {
 	public String memberInfo(@RequestParam(defaultValue = "1") int curPage,
 			@RequestParam(defaultValue = "10") int perPage, Model model) {
 		try {
-			memberService.memberInfo(curPage, perPage, model);
+			memberService.memberInfo(curPage, perPage, model,1);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -43,6 +43,29 @@ public class MemberController {
 		return "member/manager/manageMember";
 	}
 
+	@RequestMapping(value = "/manager/manageSeller")
+	public String sellerInfo(@RequestParam(defaultValue = "1") int curPage,
+			@RequestParam(defaultValue = "10") int perPage, Model model) {
+		try {
+			memberService.memberInfo(curPage, perPage, model,2);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "member/manager/manageSeller";
+	}
+	
+	@RequestMapping(value = "/manager/manageBlacklist")
+	public String blackInfo(@RequestParam(defaultValue = "1") int curPage,
+			@RequestParam(defaultValue = "10") int perPage, Model model) {
+		try {
+			memberService.memberInfo(curPage, perPage, model,4);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "member/manager/manageBlacklist";
+	}
 	// buyer 용
 	// ==================================================================
 	@RequestMapping(value = "/buyer/myPage")
