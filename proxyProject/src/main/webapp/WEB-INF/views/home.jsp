@@ -7,7 +7,6 @@
 	<title>Home</title>
 </head>
 <body>
-
  <c:choose>
 	<c:when test="${member !=null}">
 		
@@ -44,8 +43,13 @@
 </c:choose>	
 
 	<a href="freeboard/freeboardList">freeboard</a>
+<<<<<<< HEAD
 
 	<a href="sellBook/sellBookList">sellBookList</a> 
+=======
+	 <a href="member/buyer/myBookList?id=${member.id }"> myBookList</a>
+	<a href="sellBook/sellBookList">sellBookList</a>
+>>>>>>> refs/heads/daeun
 
 	
 
@@ -55,6 +59,10 @@
 
 
 <a href="index">index</a>
+<<<<<<< HEAD
 <a href="test">test_for_ajax</a>
+=======
+
+>>>>>>> refs/heads/daeun
 </body>
 </html>
