@@ -6,8 +6,9 @@
 <head>
 	<title>Home</title>
 </head>
-<body>
 
+
+<body>
  <c:choose>
 	<c:when test="${member !=null}">
 		

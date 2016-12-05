@@ -10,7 +10,7 @@
 	list-style: none;
 	font-family: Daum_Regular;
     border: none;
-   
+   	
 	}
 img{
 	border-radius: 15px;
@@ -120,7 +120,7 @@ header a{
 }
 body{
 	border-top: 0.1px solid white;
-	background-color: #f2f2f2;
+	background-color: #d9d9d9;
 }
 #section_wrap{
 	width: 100%;
@@ -389,7 +389,7 @@ ul.tab li a:focus, .active {
 	width:100%;
 	height: 890px;
 	background-image: url('/proxyProject/resources/image/center4.PNG');
-	background-size: 100%;
+	background-size: 110%;
 	overflow: hidden;
 }
 #nav_1{
@@ -417,7 +417,7 @@ ul.tab li a:focus, .active {
 	width: 600px;
 	height: 300px;
 	margin: 0 auto;
-	margin-top: 100px;
+
 }
 #logo{
 	margin-left: 0px;

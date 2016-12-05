@@ -2,6 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
    <mapper namespace="BookMapper">
+	
+	<select id="sellBookView" resultType="com.choa.book.BookDTO" parameterType="int">
+		select * from BOOK 
+		where num=#{num}
+	</select>
 
 	<select id="myBookList" resultType="com.choa.book.BookDTO" parameterType="String">
 		select B.* 

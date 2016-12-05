@@ -17,6 +17,16 @@ public class SellBookController {
 	@Autowired
 	private BookService bookService;
 
+	@RequestMapping(value="/sellBookView")
+	public String sellBookView(@RequestParam int num, Model model){
+		try {
+			bookService.sellBookView(num, model);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}return "sellBook/sellBookView";
+	}
+	
 	@RequestMapping(value="/sellBookList")
 	public String sellBookList(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="10")int perPage, Model model){
 	  try {
