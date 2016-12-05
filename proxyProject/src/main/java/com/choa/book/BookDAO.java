@@ -18,6 +18,11 @@ public class BookDAO {
 	private SqlSession sqlSession;
 	private String namespace= "BookMapper.";
 	
+	//sellBookView
+	public BookDTO sellBookView(int num) throws Exception{
+		return sqlSession.selectOne(namespace+"sellBookView", num);
+	}
+	
 	//좋아요 글 리스트//
 	public List<BookDTO> myBookList(String id) throws Exception {
 		return sqlSession.selectList(namespace+"myBookList", id);

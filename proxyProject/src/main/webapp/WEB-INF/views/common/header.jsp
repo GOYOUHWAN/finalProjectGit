@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-
 <!DOCTYPE html PUBLIC >
 
 <html>
@@ -14,6 +12,7 @@
 	#h_div1{
 		width: 100%;
 		height: 30px;
+		border: 1px solid green;
 	}
 	#h_ul1{
 		height: 100%;
@@ -28,6 +27,7 @@
 		margin-left: 8px;
 		margin-right: 10px;
 		font-size: 16px;
+		border: 1px solid red;
 	}
 	#h_ul2{
 		width: 100%;
@@ -47,13 +47,32 @@
 	.acolor {
     color: gray;
 	}
+	#music{
+		float: left;
+		border: 1px solid blue;
+	}
+	#musicPlayer{
+	width : 30px;
+	height: 30px;
+	float: left;
+	resize: none;	
+}
 </style>
+
+
 </head>
+
 <body>
+
 	<header id="header_wrap">
+	<audio  id="musicPlayer" autoplay="autoplay"  controls autoplay  >
+	  					<source src="/proxyProject/resources/upload/music.mp3" type="audio/mpeg">
+					</audio>   
 		<div id="header_div_1">
 			<div id="h_div1">
+				
 				<ul id="h_ul1">
+					
 					<li class="h_li1"><a href="member/memberLogin" class="acolor">로그인</a></li>
 					<li class="h_li1">
 				 		<!-- 일반 회원용 -->      
@@ -106,7 +125,7 @@
 			<div id="header_div_4">
 			<div id="header_div_4_1">
 				
-				<a onclick="document.getElementById('id01').style.display='block'" >LOGIN</a>
+			
 				
 		<div id="id01" class="login">
 	 <div class="modal-content card-4 animate-zoom">

@@ -15,6 +15,13 @@ public class BookService {
 	@Autowired
 	private BookDAO bookDAO;
 	
+	
+	public BookDTO sellBookView(int num, Model model) throws Exception{
+		BookDTO bookDTO = bookDAO.sellBookView(num);
+		model.addAttribute("view", bookDTO);
+		return bookDTO;
+	}
+	
 	public List<BookDTO> sellBookList(int curPage, int perPage, Model model)throws Exception{
 	
 			int totalCount = bookDAO.bookCount();
