@@ -31,8 +31,6 @@ public class MemberController {
 	private MemberService memberService;
 	@Autowired
 	private BookService bookService;
-	@Autowired
-	private FreeboardService freeboardService;
 	
 	//Manager=======================================================
 	//관리자페이지
@@ -44,17 +42,6 @@ public class MemberController {
 //==================================================================	
 	@RequestMapping(value="/buyer/myPage")
 	public void myPageB(){}
-	
-	@RequestMapping(value="/buyer/myBoardList")
-	public String myBoardListB(@RequestParam String id, Model model){
-		try {
-			freeboardService.myBoardList(id,  model);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return "/member/buyer/myBoardList";
-	}
 	
 	@RequestMapping(value="/buyer/myBuyList")
 	public String myBuyListB(@RequestParam String id, Model model){
@@ -81,16 +68,7 @@ public class MemberController {
 	}
 	
 	//=========================================================
-	@RequestMapping(value="/seller/myBoardList")
-	public String myBoardListS(@RequestParam String id, Model model){
-		try {
-			freeboardService.myBoardList(id,  model);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return "/member/seller/myBoardList";
-	}
+	
 	@RequestMapping(value="/seller/myPage")
 	public void myPageS(){}
 	
