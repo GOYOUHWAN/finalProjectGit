@@ -18,6 +18,14 @@ public class BookDAO {
 	private SqlSession sqlSession;
 	private String namespace= "BookMapper.";
 	
+	//판매도서 등록. 이미지파일 같이 등록.
+	public int sellBookWrite(BookDTO bookDTO, BookPictureDTO bookPictureDTO) throws Exception{
+		int result = 0;
+		result = sqlSession.insert(namespace+"sellBookfile", bookPictureDTO);
+		result = result + sqlSession.insert(namespace+"sellBookWrite", bookDTO);
+		return result;
+	}
+	
 	//sellBookView
 	public BookDTO sellBookView(int num) throws Exception{
 		return sqlSession.selectOne(namespace+"sellBookView", num);
