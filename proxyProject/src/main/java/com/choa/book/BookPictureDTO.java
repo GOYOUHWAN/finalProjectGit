@@ -39,6 +39,4 @@ public class BookPictureDTO {
 	public void setFiles4(String files4) {
 		this.files4 = files4;
 	}
-	
->>>>>>> refs/heads/12_06
 }
