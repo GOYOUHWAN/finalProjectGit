@@ -15,6 +15,12 @@ public class BookService {
 	@Autowired
 	private BookDAO bookDAO;
 	
+	//판매도서등록
+	public int sellBookWrite(BookDTO bookDTO, BookPictureDTO bookPictureDTO, Model model) throws Exception{
+		System.out.println("bookservice");
+		System.out.println(bookPictureDTO.getFiles1()+bookPictureDTO.getFiles2()+bookPictureDTO.getFiles3()+bookPictureDTO.getFiles4());
+		return bookDAO.sellBookWrite(bookDTO, bookPictureDTO);
+	}
 	
 	public BookDTO sellBookView(int num, Model model) throws Exception{
 		BookDTO bookDTO = bookDAO.sellBookView(num);

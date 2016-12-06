@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div id="contents" class="seller_contents">
-	<form action="sellbook" method="post" enctype="multipart/form-data" >
+	<form action="sellBookWrite" method="post" enctype="multipart/form-data" >
 		<div class="product_information" style="display: block;">
 			<!-- ===============================================================상품 기본정보========================================== -->
 			<div class="basic_info">
@@ -40,10 +40,10 @@
 									<select name="genre" title="상품분류"
 									style="display: inline-block;">
 										<option value="">선 택</option>
-										<option value="0101">소설</option>
-										<option value="0103">시/에세이</option>
-										<option value="0105">인문</option>
-										<option value="0108">요리</option>
+										<option value="소설">소설</option>
+										<option value="시/에세이">시/에세이</option>
+										<option value="인문">인문</option>
+										<option value="요리">요리</option>
 										<option value="0109">건강</option>
 										<option value="0111">스포츠</option>
 										<option value="0113">경제/경영</option>
@@ -85,7 +85,7 @@
 									<label for="bookdate">발행일 <span class="asterisk">*</span></label>
 								</th>
 								<td><!-- 숫자만입력하게 -->
-									<input id="books-date-issue1" name="bookdate1" title="발행년" onkeydown="onlyNum(event, this)" type="text"
+									<input id="books-date-issue1" name="bookdate" title="발행년" onkeydown="onlyNum(event, this)" type="text"
 									 style="width:30px;"> 년&nbsp;
 									<input id="books-date-issue2" name="bookdate2" title="발행월" onkeydown="onlyNum(event, this)" type="text"
 									style="width:30px;"> 월&nbsp;
@@ -140,9 +140,9 @@
 									<label for="quality">품질상태 <span class="asterisk">*</span></label> 
 								</th>
 								<td colspan="3">
-									<input type="radio" name="quality"><label for="상">상</label>
-									<input type="radio" name="quality" ><label for="중">중</label>
-									<input type="radio" name="quality" ><label for="하">하</label>
+									<input type="radio" name="quality1" value="상" onclick="radioch('상');"><label for="상">상</label>
+									<input type="radio" name="quality1" value="중" onclick="radioch('중');"><label for="중">중</label>
+									<input type="radio" name="quality1" value="하" onclick="radioch('하');"><label for="하">하</label>
 								</td>
 							</tr>
 							<!-- 카카오톡 ID -->
@@ -173,13 +173,20 @@
 									<p id="waring_p">* 첫번째 파일은 겉표지 이미지를 등록 하세요 (파일 5개 까지 등록 가능) *</p>
 									<input type="file" id="file_1" class="categ0" name="fileName1">
 									<span><input type="button" id="add_btn" value="첨부 파일 추가"></span>
-									<textarea rows="10" cols="77"></textarea>
+									<textarea rows="10" cols="77" name="contents"></textarea>
 								</td>
 							</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
+			<!-- 메시지를 받아옴 -->
+		<!-- ###### -->
+		<input type="hidden" id="message" value="${ message }">
+		<input type="hidden" name="id" value="ff">
+		<input type="text" readonly="readonly" id="here" name="quality" value="상">
+		<input type="hidden" name="status" value="ff">
+		<!-- ###### -->
 			<!-- 상품등록 버튼 -->
 			<div class="button_product_register">
 				<input id="sellbtn" type="submit" class="btn_medium btn_blue2" value="상품등록">
@@ -187,11 +194,7 @@
 		</div>
 		</form>
 	</div>
-	<!-- 메시지를 받아옴 -->
-		<!-- ###### -->
-		<input type="hidden" id="message" value="${ message }">
-		<input type="hidden" id="id" value="${ member.id }">
-		<!-- ###### -->
+	
 </body>
 <!-- javascript 시작 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -216,7 +219,15 @@
 				alert("첨부파일은 최대 5개까지 가능합니다.");
 			}
 		});
+		
+		
+
 	});
+	function radioch(ch){
+		alert("click");
+		alert(ch);
+		$("#here").attr("value",ch);
+	}
 </script>
 <!-- javascript 끝 -->
 </html>

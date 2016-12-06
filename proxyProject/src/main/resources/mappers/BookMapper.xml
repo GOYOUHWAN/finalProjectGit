@@ -2,9 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
    <mapper namespace="BookMapper">
-	<insert parameterType="" id="sellbook"> </insert>
-	<!-- 판매 책 이미지파일 등록 -->
-	<insert parameterType="String" id="sellbookfile"> 
+   <!-- 판매 도서 등록 -->
+	<insert id="sellBookWrite" parameterType="com.choa.book.BookDTO"> 
+		insert into book 
+		values(b_seq.nextval, #{id}, #{product}, #{publisher},  #{contents},
+		 #{price}, #{buy_date}, #{k_id}, 0, 0, sysdate, #{status},
+		 #{author}, #{sellingprice}, #{quality}, #{genre}, #{bookdate} )
+	</insert>
+	<!-- 판매 도서 이미지파일 등록 -->
+	<insert id="sellBookfile" parameterType="com.choa.book.BookPictureDTO"> 
 		insert into book_picture values(b_seq.nextval, #{files1},#{files2},#{files3},#{files4})
 	</insert>
 	
