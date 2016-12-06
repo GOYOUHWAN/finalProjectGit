@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+/* sellbook common */
+.btn_medium {
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid #aaa;
+    padding: 7px 8px 0;
+    height: 18px;
+    font-size: 12px !important;
+    line-height: 15px;
+    font-weight: bold;
+    font-family: 'dotum';
+    color: #555 !important;
+    text-decoration: none !important;
+    background-color: #fff;
+    text-align: center;
+    transition: all .2s;
+}/*9*/
+input.btn_medium, button.btn_medium {
+    height: 26px;
+    padding-top: 3px;
+}/*19*/
+.btn_blue2 {
+    background-image: none;
+    background-color: #7b8ed1 !important;
+    border: 1px solid #7b8ed1;
+    color: #fff !important;
+    box-shadow: none;
+}/*28*/

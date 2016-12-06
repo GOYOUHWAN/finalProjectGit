@@ -26,27 +26,17 @@ public class MemberController {
 	private MemberService memberService;
 	@Autowired
 	private BookService bookService;
-<<<<<<< HEAD
+
 	
 	//Manager=======================================================
 	//관리자페이지
 	@RequestMapping(value="/manager/manageMember")
 	public void myPageM(){}
 	
-=======
+
 	@Autowired
 	private FreeboardService freeboardService;
->>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
-
-<<<<<<< HEAD
-	//buyer 용
-//==================================================================	
-	@RequestMapping(value="/buyer/myPage")
-	public void myPageB(){}
 	
-	@RequestMapping(value="/buyer/myBuyList")
-	public String myBuyListB(@RequestParam String id, Model model){
-=======
 	// Manager=======================================================
 	// 관리자페이지
 	@RequestMapping(value = "/manager/manageMember")
@@ -101,18 +91,6 @@ public class MemberController {
 		return "/member/buyer/myBoardList";
 	}
 
-	@RequestMapping(value = "/buyer/myBuyList")
-	public String myBuyListB(@RequestParam String id, Model model) {
->>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
-		try {
-			bookService.myBuyList(id, model);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return "/member/buyer/myBuyList";
-	}
-
 	@RequestMapping(value = "/buyer/myBookList")
 	public String myBookListB(@RequestParam String id, Model model) {
 		try {
@@ -124,11 +102,6 @@ public class MemberController {
 
 		return "/member/buyer/myBookList";
 	}
-<<<<<<< HEAD
-	
-	//=========================================================
-	
-=======
 
 	// =========================================================
 	@RequestMapping(value = "/seller/myBoardList")
@@ -142,8 +115,6 @@ public class MemberController {
 		return "/member/seller/myBoardList";
 	}
 
-
->>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
 	@RequestMapping(value="/seller/myPage")
 	public void myPageS(){}
 	
