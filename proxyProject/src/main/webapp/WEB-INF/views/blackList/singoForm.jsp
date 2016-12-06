@@ -10,7 +10,7 @@
 	<h2>신고하기</h2>
 	<form action="singoWrite" method="post">
 		판매자아이디 : <input type="text" name="sid"><br>
-		작성자아이디 : <input type="text" name="bid"><br>
+		작성자아이디 : <input type="text" name="bid" value="${sessionScope.member.id}" readonly="readonly"><br>
 		제목 : <input type="text" name="title"><br>
 		내용<br><textarea rows="6" cols="20" name="contents"></textarea>
 		<input type="submit" id="singo">

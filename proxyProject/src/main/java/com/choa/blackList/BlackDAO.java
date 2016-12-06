@@ -17,7 +17,7 @@ public class BlackDAO {
 	private SqlSession sqlSession;
 	private String namespace="BlackListMapper.";
 	
-	//±Û¾²±â//
+	//ê¸€ì“°ê¸°//
 	public int singoWrite(BlackDTO blackDTO) throws Exception {
 		return sqlSession.insert(namespace+"singoWrite", blackDTO);
 	}

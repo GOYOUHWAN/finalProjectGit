@@ -31,10 +31,10 @@ public class BlackListController {
 		}
 		if(result>0){
 			path="redirect:/blackList/blackListForm";
-			message="µî·Ï¼º°ø";
+			message="ë“±ë¡ ì„±ê³µ";
 		}else {
 			path="redirect:/blackList/blackListForm";
-			message="µî·Ï½ÇÆĞ";
+			message="ë“±ë¡ ì‹¤íŒ¨";
 		}
 		rd.addFlashAttribute("message", message);
 		return path;

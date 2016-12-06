@@ -45,7 +45,11 @@
 		float: left;
 	}
 	.acolor {
-    color: gray;
+    	color: gray;
+	}
+	.acolor2 {
+    	color: gray;
+    	margin-left: 15px;
 	}
 	#music{
 		float: left;
@@ -73,28 +77,28 @@
 				
 				<ul id="h_ul1">
 					
-					<li class="h_li1"><a href="member/memberLogin" class="acolor">로그인</a></li>
+					<li class="h_li1"><a href="${pageContext.request.contextPath}/member/memberLogin" class="acolor">로그인</a></li>
 					<li class="h_li1">
 				 		<!-- 일반 회원용 -->      
 						<c:if test="${member.type =='1'}"> 
-						<a href="<%=application.getContextPath() %>/member/buyer/myPage?type=${member.type}&id=${member.id}">마이페이지</a>
-						<a href="freeboard/freeboardList">freeboard</a>
-						<a href="member/buyer/myBookList?id=${member.id }"> myBookList</a>
+						<a href="<%=application.getContextPath() %>/member/buyer/myPage?type=${member.type}&id=${member.id}" class="acolor">마이페이지</a>
+						<a href="freeboard/freeboardList" class="acolor2">freeboard</a>
+						<a href="member/buyer/myBookList?id=${member.id }" class="acolor2"> myBookList</a>
 						</c:if>
 						   
 						   <!--판매자용  -->
 						      <c:if test="${member.type =='2'}"> 
-						<a href="<%=application.getContextPath() %>/member/seller/myPage?type=${member.type}&id=${member.id}">마이페이지</a>
-						<a href="freeboard/freeboardList">freeboard</a>
-						<a href="member/buyer/myBookList?id=${member.id }"> myBookList</a>
+						<a href="<%=application.getContextPath() %>/member/seller/myPage?type=${member.type}&id=${member.id}" class="acolor">마이페이지</a>
+						<a href="freeboard/freeboardList" class="acolor2">freeboard</a>
+						<a href="member/buyer/myBookList?id=${member.id }" class="acolor2"> myBookList</a>
 						   </c:if> 
 						   
 						   <!-- 관리자용 -->
 						      <c:if test="${member.type =='3'}">
-						<a href="<%=application.getContextPath()%>/member/manager/manageMember?type=${member.type}&id=${member.id}">관리자페이지</a>
+						<a href="<%=application.getContextPath()%>/member/manager/manageMember?type=${member.type}&id=${member.id}" class="acolor">관리자페이지</a>
 						   </c:if>
 					</li>
-					<li class="h_li1"><a href="member/memberJoin" class="acolor">회원가입</a></li>
+					<li class="h_li1"><a href="${pageContext.request.contextPath}/member/memberJoin" class="acolor">회원가입</a></li>
 					<li class="h_li1"><a href="member/memberJoin" class="acolor">아이디 찾기</a></li>
 					<li class="h_li1"><a href="member/memberJoin" class="acolor">비밀번호 찾기</a></li>
 				</ul>
@@ -114,8 +118,8 @@
 				<ul id="h_ul2">
 					<li class="h_li2"><a>공지사항</a></li>
 					<li class="h_li2"><a href="${pageContext.request.contextPath}/freeboard/freList">자유게시판</a></li>
-					<li class="h_li2"><a href="sellBook/sellBookList">물품 구매</a></li>
-					<li class="h_li2"><a href="blackList/blackListForm">블랙리스트</a></li>
+					<li class="h_li2"><a href="${pageContext.request.contextPath}/sellBook/sellBookList">물품 구매</a></li>
+					<li class="h_li2"><a href="${pageContext.request.contextPath}/blackList/blackListForm">블랙리스트</a></li>
 				</ul>
 			</div>
 
