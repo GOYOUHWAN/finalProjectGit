@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+*{
+	margin:0;
+	padding:0;
+}
+#contents {
+    position: relative;
+    z-index: 1;
+    min-height: 600px;
+}/* 266*/
+
+#contents.seller_contents {
+	float: right;
+	width: 770px;
+}/* 948 */
+
+

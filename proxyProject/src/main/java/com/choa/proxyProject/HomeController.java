@@ -34,9 +34,12 @@ public class HomeController {
 		String formattedDate = dateFormat.format(date);
 		
 		model.addAttribute("serverTime", formattedDate );
-		return "home";
+		return "index";
 		
 	}
+	@RequestMapping(value="/test")
+	public void test(){}
+	
 	
 	@RequestMapping(value="/index")
 	public void goindex(){}

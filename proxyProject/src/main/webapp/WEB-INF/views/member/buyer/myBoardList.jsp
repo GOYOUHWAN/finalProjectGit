@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
 <title>MY_BOARD_LIST</title>
 
 <style>
@@ -28,6 +29,7 @@ img, ul, li{
 </style>
 </head>
 <body class="home">
+<%@ include file = "../../common/header.jsp" %>
 	<div class="container">
 		<h2>myBoardList_for_buyer</h2>
 
@@ -66,10 +68,10 @@ img, ul, li{
 				<tbody>
 					<c:forEach items="${myBoardList}" var="list">
 						<tr>
-							<td>${list.writer}</td>
+							<td>${list.id}</td>
 							<td>${list.title}</td>
-							<td>${list.contents }</td>
-							<td>${list.reg_date }</td>
+							<td>${list.content }</td>
+							<td>${list.date2 }</td>
 						</tr>
 					</c:forEach>
 				</tbody>

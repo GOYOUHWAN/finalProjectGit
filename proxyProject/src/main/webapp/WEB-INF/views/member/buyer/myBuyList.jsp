@@ -5,8 +5,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
 <title>MY_BUY_LIST</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#div_status").hide();
+	});
 
+	$(function() {
+		$("#order_status").mouseover(function() {
+			$("#div_status").show();
+		});
+	});
+	
+	$(function() {
+		$("#order_status").mouseout(function() {
+			$("#div_status").hide();
+		});
+	});//btn
+</script>	
+<!--  ================================================-->	
 <style>
 body{
 	line-height: 1;
@@ -25,9 +44,17 @@ img, ul, li{
 .center-block {
 	margin-left: 40%;
 }
+
 </style>
 </head>
 <body class="home">
+<%@ include file = "../../common/header.jsp" %>
+<div id="sub_3">
+			<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">myBookList(내가 좋아요한 글)</button></a>
+			<a href="myBoardList?id=${member.id }"><button class="btn_d_2" id="btn5" tabindex="5">myBoardList</button></a>
+			<a href="myBuyList?id=${member.id }"><button class="btn_d_2" id="btn6" tabindex="6">myBuyList</button></a>
+			<a href="/proxyProject"><button class="btn_d_2" id="btn7" tabindex="7">HOME</button></a>
+		</div>
 	<div class="container">
 		<h2>myBuyList_for_buyer</h2>
 
@@ -57,19 +84,28 @@ img, ul, li{
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>PRODUCT</th>
-						<th>WRITER</th>
-						<th>PRICE</th>
-						<th>BUY_DATE</th>
+						<th>구매 날짜</th>
+						<th>책 제목</th>
+						<th>가격</th>
+						<th id="order_status">주문상태	</th>
+						<th>
+						<div id="div_status">
+						-입금대기중<br>
+						-결제완료<br>
+						-배송준비중<br>
+						-배송완료<br>
+						-구매확정<br>
+						</div></th>
+					
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${buylist}" var="list">
 						<tr>
-							<td>${list.product}</td>
-							<td>${list.writer}</td>
-							<td>${list.price }</td>
 							<td>${list.buy_date}</td>
+							<td>${list.product}</td>
+							<td>${list.price }</td>
+							<td></td>
 						</tr>
 					</c:forEach>
 				</tbody>

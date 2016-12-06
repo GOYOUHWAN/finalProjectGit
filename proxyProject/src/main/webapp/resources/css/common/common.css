@@ -1,18 +1,22 @@
 @CHARSET "UTF-8";
-* {
+@font-face {
+    font-family: 'Daum_Regular';
+    src: url(Daum_Regular.ttf) format('truetype');
+}
+*{
 	margin-top:0px;
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	font-family: 맑은 고딕;
+	font-family: Daum_Regular;
     border: none;
+   	
 	}
 img{
 	border-radius: 15px;
 }
  a{
-	
-	 text-decoration: none; 
+	text-decoration: none; 
 }
 a:hover{
 	text-decoration: underline;
@@ -20,10 +24,14 @@ a:hover{
 header a{
 	color: white;
 }
+.container{
+	margin-top:200px;
+	border: 1px solid red;
+}
 #header_wrap {
 	width: 100%;
 	height: 190px;
-	background: rgba(0,230,230,0.8);
+	background: rgba(255,255,255,0.5);
 	margin-top: 0px;
 	margin-left: 0px;
 	position: fixed;
@@ -35,12 +43,12 @@ header a{
 	margin: 0 auto;
 	color : white;
 	font-size: 18px;
+	margin-top: 10px;
 }
 #header_div_2{
 	width: 100%;
 	height: 50px;
 	color: white;
-	margin-top: 5px;
 	margin-bottom: 8px;
 	display: inline-block;
 	text-align: center;
@@ -74,62 +82,73 @@ header a{
 }
 
 #header_button{
-	width: 50px;
-	height: 30px;
-	vertical-align:middle;
+	width: 52px;
+    height: 32px;
+    vertical-align: middle;
+    background-color: rgb(113, 81, 252);
+    color: white;
+    font-size: 17px;
 }
 #header_button:HOVER{
-	background-color: #c0c0c0;
+	background-color: #8c72fd;
 }
 #header_text{
-	width: 200px;
-	height: 30px;
-	border-collapse: collapse;
-	font-size: 17px;
-	vertical-align:middle;
+    width: 200px;
+    height: 30px;
+    border-collapse: collapse;
+    font-size: 17px;
+    vertical-align: middle;
+    padding-left: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(113, 81, 252);
+    border-image: initial;
 }
+#sub_3{
+	width: 80%;
+	height: 100px;
+	margin: 0 auto;
+	margin-top: 200px;
+}
+
 #a_header{
 	width: 100%;
-	height: 30px;
-	display: inline-block;
-	text-align: center;
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0);
 }
 body{
-	background-color: #f2f2f2;
+	border-top: 0.1px solid white;
+	background-color: #d9d9d9;
 }
 #section_wrap{
 	width: 100%;
 	height: 900px;
 	margin-bottom: 0px;
 }
-
 #footer_wrap{
 	width: 100%;
-	height: 80px;
+	height: 150px;
 	margin-top: 0px;
-	
 }
 #footer_submit{
 	width: 50px;
 	height: 30px;
-
 }
-
-
 #footer_div_1{
-	width: 80%;
+	width: 70%;
 	height: 60%;
 	margin: 0 auto;
 	margin-top:20px;
 	font-size: 13px;
 }
 #section_div_1{
-	width: 100%;
+	width: 80%;
 	height: 100%;
-	margin-top: 0px;
+	margin-top: 10px;
 	overflow: hidden;
-	background: rgba(0,230,230,0.5);
-	
+	background: white;
 }
 #section_div_2{
 	width:250px;
@@ -369,7 +388,8 @@ ul.tab li a:focus, .active {
 #nav_all{
 	width:100%;
 	height: 890px;
-	background-image: url("");
+	background-image: url('/proxyProject/resources/image/center4.PNG');
+	background-size: 110%;
 	overflow: hidden;
 }
 #nav_1{
@@ -397,7 +417,7 @@ ul.tab li a:focus, .active {
 	width: 600px;
 	height: 300px;
 	margin: 0 auto;
-	margin-top: 100px;
+
 }
 #logo{
 	margin-left: 0px;

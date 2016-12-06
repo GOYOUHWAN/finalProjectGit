@@ -3,9 +3,34 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MemberMapper">
+<!-- manager -->
+
+	<!-- 판매자리스트 -->
+	<select id="memberInfo2" parameterType="com.choa.util.PageMaker" resultType="com.choa.member.MemberDTO"> 
+		select * from 
+		(select rownum R, F.* from 
+		(select * from member where type=2) F) 
+		where R between #{startRowNum} and #{lastLowNum}
+	</select>
+	<select id="memberCount2" resultType="int">  
+		select count(*) from member where type=2 
+	</select>
+		
+	<!-- 구매자리스트 -->
+	<select id="memberInfo" parameterType="com.choa.util.PageMaker" resultType="com.choa.member.MemberDTO"> 
+		select * from 
+		(select rownum R, F.* from 
+		(select * from member where type=#{type}) F) 
+		where R between #{startRowNum} and #{lastLowNum}
+	</select>
+	<select id="memberCount" parameterType="int"  resultType="int"> 
+		select count(*) from member where type=#{type} 
+	</select>
+	
+	<!-- member -->	
 	<insert id="memberJoin" parameterType="com.choa.member.MemberDTO">
 		insert into member
-		values(#{id},#{pw},#{name},#{tel},#{year},#{email},#{address},1,1,0)
+		values(#{id},#{pw},#{name},#{tel},#{year},#{email},#{address},1,1,0,#{account})
 	</insert>
 
 	<select id="memberLogin" resultType="com.choa.member.MemberDTO" parameterType="com.choa.member.MemberDTO">

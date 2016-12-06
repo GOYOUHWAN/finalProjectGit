@@ -2,6 +2,12 @@ package com.choa.member;
 
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+
+import com.choa.util.MemberPageMaker;
+import com.choa.util.PageMaker;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +16,22 @@ public class MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
 	
+	//관리자메뉴=================================================
+	//회원정보열람
+	public void memberInfo(int curPage, int perPage, Model model, int type) throws Exception{
+		int totalCount = memberDAO.memberCount(type);
+		MemberPageMaker mPageMaker = new MemberPageMaker();
+		mPageMaker.setType(type);
+		mPageMaker.setCurPage(curPage);
+		mPageMaker.makeRow();
+		mPageMaker.makePage(totalCount);
+		
+		model.addAttribute("memberInfo", memberDAO.memberInfo(mPageMaker));
+		model.addAttribute("paging", mPageMaker);
+	}
+	
+	
+	//회원메뉴=================================================
 	//아이디중복확인
 	public int checkid(String id) throws Exception{
 		return memberDAO.checkid(id);
@@ -36,5 +58,7 @@ public class MemberService {
 	public MemberDTO memberView(String id) throws Exception{
 		return memberDAO.memberView(id);
 	}
+	
+	
 
 }

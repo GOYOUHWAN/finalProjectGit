@@ -6,7 +6,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>MY_BUY_LIST</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#div_status").hide();
+	});
 
+	$(function() {
+		$("#order_status").mouseover(function() {
+			$("#div_status").show();
+		});
+	});
+	
+	$(function() {
+		$("#order_status").mouseout(function() {
+			$("#div_status").hide();
+		});
+	});//btn
+</script>	
+<!--  ================================================-->	
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
 <style>
 body{
 	line-height: 1;
@@ -28,8 +47,10 @@ img, ul, li{
 </style>
 </head>
 <body class="home">
+<%@ include file = "../../common/header.jsp" %>
+
 	<div class="container">
-		<h2>myBuyList_for_buyer</h2>
+		<h2>myBuyList_for_seller</h2>
 
 		<form action="findList" method="post" role="search">
 			<div class="row">
@@ -57,19 +78,28 @@ img, ul, li{
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>PRODUCT</th>
-						<th>WRITER</th>
-						<th>PRICE</th>
-						<th>BUY_DATE</th>
+						<th>구매 날짜</th>
+						<th>책 제목</th>
+						<th>가격</th>
+						<th id="order_status">주문상태	</th>
+						<th>
+						<div id="div_status">
+						-입금대기중<br>
+						-결제완료<br>
+						-배송준비중<br>
+						-배송완료<br>
+						-구매확정<br>
+						</div></th>
+					
 					</tr>
 				</thead>
-				<tbody>
+			<tbody>
 					<c:forEach items="${buylist}" var="list">
 						<tr>
-							<td>${list.product}</td>
-							<td>${list.writer}</td>
-							<td>${list.price }</td>
 							<td>${list.buy_date}</td>
+							<td>${list.product}</td>
+							<td>${list.price }</td>
+							<td></td>
 						</tr>
 					</c:forEach>
 				</tbody>
