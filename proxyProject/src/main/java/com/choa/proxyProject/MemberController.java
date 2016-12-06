@@ -26,27 +26,9 @@ public class MemberController {
 	private MemberService memberService;
 	@Autowired
 	private BookService bookService;
-<<<<<<< HEAD
-	
-	//Manager=======================================================
-	//관리자페이지
-	@RequestMapping(value="/manager/manageMember")
-	public void myPageM(){}
-	
-=======
 	@Autowired
 	private FreeboardService freeboardService;
->>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
 
-<<<<<<< HEAD
-	//buyer 용
-//==================================================================	
-	@RequestMapping(value="/buyer/myPage")
-	public void myPageB(){}
-	
-	@RequestMapping(value="/buyer/myBuyList")
-	public String myBuyListB(@RequestParam String id, Model model){
-=======
 	// Manager=======================================================
 	// 관리자페이지
 	@RequestMapping(value = "/manager/manageMember")
@@ -103,7 +85,7 @@ public class MemberController {
 
 	@RequestMapping(value = "/buyer/myBuyList")
 	public String myBuyListB(@RequestParam String id, Model model) {
->>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
+
 		try {
 			bookService.myBuyList(id, model);
 		} catch (Exception e) {
@@ -124,11 +106,7 @@ public class MemberController {
 
 		return "/member/buyer/myBookList";
 	}
-<<<<<<< HEAD
-	
-	//=========================================================
-	
-=======
+
 
 	// =========================================================
 	@RequestMapping(value = "/seller/myBoardList")
@@ -143,7 +121,6 @@ public class MemberController {
 	}
 
 
->>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
 	@RequestMapping(value="/seller/myPage")
 	public void myPageS(){}
 	
