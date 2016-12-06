@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.choa.member.MemberDTO;
 import com.choa.util.PageMaker;
 
 
@@ -14,12 +15,16 @@ public class BookService {
 
 	@Autowired
 	private BookDAO bookDAO;
+
 	
-	
-	public BookDTO sellBookView(int num, Model model) throws Exception{
+	public Model sellBookView(int num, String id, Model model) throws Exception{
 		BookDTO bookDTO = bookDAO.sellBookView(num);
+		BookPictureDTO bookPictureDTO = bookDAO.sellBookPicture(num);
+		MemberDTO memberDTO = bookDAO.sellBookViewMember(id);
 		model.addAttribute("view", bookDTO);
-		return bookDTO;
+		model.addAttribute("viewPicture", bookPictureDTO);
+		model.addAttribute("viewMember", memberDTO);
+		return model;
 	}
 	
 	public List<BookDTO> sellBookList(int curPage, int perPage, Model model)throws Exception{

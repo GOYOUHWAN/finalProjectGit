@@ -23,10 +23,12 @@ public class SellBookController {
 	public void sellBookWrite(){}
 
 	@RequestMapping(value="/sellBookView")
-	public String sellBookView(@RequestParam int num, Model model){
+	public String sellBookView(@RequestParam int num, @RequestParam String id, Model model){
 		try {
-			bookService.sellBookView(num, model);
+			bookService.sellBookView(num, id, model);
+		
 		} catch (Exception e) {
+			
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}return "sellBook/sellBookView";

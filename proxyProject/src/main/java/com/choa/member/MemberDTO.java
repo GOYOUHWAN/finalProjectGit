@@ -5,13 +5,16 @@ public class MemberDTO {
 	private String pw;
 	private String name;
 	private String tel;
-	private String year;
+	private String birth;
 	private String email;
 	private String address;
 	private int type;
 	private int grade;
-	private int report; //신고횟수
+	private int buyer_trust;
+	private int seller_trust;
 	private String account;
+	
+	
 	public String getId() {
 		return id;
 	}
@@ -36,13 +39,11 @@ public class MemberDTO {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	
-	
-	public String getYear() {
-		return year;
+	public String getBirth() {
+		return birth;
 	}
-	public void setYear(String year) {
-		this.year = year;
+	public void setBirth(String birth) {
+		this.birth = birth;
 	}
 	public String getEmail() {
 		return email;
@@ -68,11 +69,17 @@ public class MemberDTO {
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
-	public int getReport() {
-		return report;
+	public int getBuyer_trust() {
+		return buyer_trust;
 	}
-	public void setReport(int report) {
-		this.report = report;
+	public void setBuyer_trust(int buyer_trust) {
+		this.buyer_trust = buyer_trust;
+	}
+	public int getSeller_trust() {
+		return seller_trust;
+	}
+	public void setSeller_trust(int seller_trust) {
+		this.seller_trust = seller_trust;
 	}
 	public String getAccount() {
 		return account;
@@ -80,6 +87,8 @@ public class MemberDTO {
 	public void setAccount(String account) {
 		this.account = account;
 	}
+	
+	
 	
 	
 

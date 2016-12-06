@@ -56,7 +56,7 @@ function checkCookie() {
 #listTable{
 	width : 80%;
 	margin-left: 150px;
-	margin-top: 300px;
+	margin-top: 240px;
 }
 #td_book{
 	border: 1px solid red;
@@ -111,13 +111,13 @@ function checkCookie() {
 	                  
 	                  <c:if test="${listsize !='0' }">
 	                     <td id="td_book">
-	                     ID :<a href="sellBookView?num=${list[count].num}">${list[count].id}</a>
+	                     ID :<a href="sellBookView?num=${list[count].num}&id=${list[count].id}">${list[count].id}</a>
 	                        <div id="div_img">
-	                        <a href="sellBookView?num=${list[count].num}"><img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}"> </a><br>
+	                        <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"><img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}"> </a><br>
 	                       </div>
 	                       
 	                        <div class="pad">
-	                         	책이름 :<a href="sellBookView?num=${list[count].num}"><span class="pink name">${list[count].product}</span></a><br>
+	                         	책이름 :<a href="sellBookView?num=${list[count].num}&id=${list[count].id}"><span class="pink name">${list[count].product}</span></a><br>
 	                         	가격 : ${list[count].price} 원
 	                    	  	&nbsp;&nbsp;&nbsp;&nbsp;<span>찜  : </span><span class="pink name">${list[count].likes}</span>
 								
