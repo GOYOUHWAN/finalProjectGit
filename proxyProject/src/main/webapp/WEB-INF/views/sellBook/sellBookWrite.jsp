@@ -7,11 +7,13 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/layout_new.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/seller.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/sellbook.css">
 </head>
 <body>
 	<div id="contents" class="seller_contents">
+	<form action="sellbook" method="post" enctype="multipart/form-data" >
 		<div class="product_information" style="display: block;">
-			<!-- 도서기본정보 -->
+			<!-- ===============================================================상품 기본정보========================================== -->
 			<div class="basic_info">
 				<h4>상품 기본정보</h4>
 					<p class="info"><em>*</em> <span>필수입력항목  입니다. 등록한 상품은 수정할 수 없습니다. 신중하게 입력해주세요.</span></p>
@@ -21,23 +23,21 @@
 							<!-- 상품명 -->
 							<tr>
 								<th scope="row" class="first">
-									<label for="books-name">
+									<label for="product">
 										상품명<span class="asterisk">*</span>
 									</label>
 								</th>
-								<td class="book-name">
+								<td colspan="3" class="book-name">
 									<input type="text" name="product" style="width:250px;">
 								</td>
 							</tr>
 							<!-- 장르구분 -->
 							<tr>
 								<th scope="row" class="first">
-									<label for="books-product-grouping1">
-										상품분류 <span class="asterisk">*</span>
-									</label>
+									<label for="genre">상품분류 <span class="asterisk">*</span></label>
 								</th>
-								<td class="book-group">
-									<select id="books-product-grouping1" title="상품분류"
+								<td colspan="3" class="genre">
+									<select name="genre" title="상품분류"
 									style="display: inline-block;">
 										<option value="">선 택</option>
 										<option value="0101">소설</option>
@@ -66,11 +66,9 @@
 							<!-- 저자 -->
 							<tr>
 								<th scope="row" class="first">
-									<label for="books-product-grouping1">
-										저자 <span class="asterisk">*</span>
-									</label>
+									<label for="author">저자 <span class="asterisk">*</span></label>
 								</th>
-								<td class="book-name">
+								<td colspan="3" class="author">
 									<input type="text" name="author" style="width:250px;">
 									<br>공동저자가 있을 경우 ","로 입력해주세요.
 								</td>
@@ -78,54 +76,47 @@
 							<!-- 출판사&발행일 -->
 							<tr>
 								<th scope="row" class="first">
-									<label for="books-product-grouping1">
-										출판사 <span class="asterisk">*</span>
-									</label>
+									<label for="publisher">출판사 <span class="asterisk">*</span></label>
 								</th>
 								<td>
 									<input type="text" name="publisher">
 								</td>
 								<th scope="row" class="first">
-									<label for="books-product-grouping1">
-										발행일 <span class="asterisk">*</span>
-									</label>
+									<label for="bookdate">발행일 <span class="asterisk">*</span></label>
 								</th>
 								<td><!-- 숫자만입력하게 -->
-									<input id="books-date-issue1" name="year1" title="발행년" onkeydown="onlyNum(event, this)" type="text"> 년&nbsp;
-									<input id="books-date-issue2" name="month1" title="발행월" onkeydown="onlyNum(event, this)" type="text"> 월&nbsp;
-									<input id="books-date-issue3" name="day1" title="발행일" onkeydown="onlyNum(event, this)" type="text"> 일&nbsp;
+									<input id="books-date-issue1" name="bookdate1" title="발행년" onkeydown="onlyNum(event, this)" type="text"
+									 style="width:30px;"> 년&nbsp;
+									<input id="books-date-issue2" name="bookdate2" title="발행월" onkeydown="onlyNum(event, this)" type="text"
+									style="width:30px;"> 월&nbsp;
+									<input id="books-date-issue3" name="bookdate3" title="발행일" onkeydown="onlyNum(event, this)" type="text"
+									style="width:30px;"> 일&nbsp;
 								</td>
 							</tr>
 							<!-- 페이지수 -->
 							<tr>
 								<th scope="row" class="first">
-									<label for="books-product-grouping1">
-										페이지수 <span class="asterisk">*</span>
-									</label>
+									<label for="pages">페이지수 <span class="asterisk">*</span></label>
 								</th>
-								<td>
+								<td colspan="3">
 									<input type="text" name="pages">쪽
 								</td>
 							</tr>
 							<!-- 정가 -->
 							<tr>
 								<th scope="row" class="first">
-									<label for="books-product-grouping1">
-										정가 <span class="asterisk">*</span>
-									</label>
+									<label for="price">정가 <span class="asterisk">*</span></label>
 								</th>
-								<td>
+								<td colspan="3">
 									<input type="text" name="price">원
 								</td>
 							</tr>
 							<!-- 판매가 -->
 							<tr>
 								<th scope="row" class="first">
-									<label for="books-product-grouping1">
-										판매가 <span class="asterisk">*</span>
-									</label>
+									<label for="sellingprice">판매가 <span class="asterisk">*</span></label>
 								</th>
-								<td>
+								<td colspan="3">
 									<input type="text" name="sellingprice">원
 								</td>
 							</tr>
@@ -133,14 +124,99 @@
 					</table>
 				</div>
 			</div>
+			<!-- ================================================================판매정보========================================== -->
 			<div class="sale_information" style="display: block;">
 				<h4>판매정보</h4>
 				<p class="info1">
 					상품정보를 정확하게 확인해주세요. 잘못된 정보로 인해 반품, 환불 등의 불이익을 받을 수 있습니다. (왕복 배송비 판매자 부담)<br>
 					일반판매가 불가한 불온서적이나 19세미만금지를 설정하지않은 19금도서는 상품 등록 시 관리자에 의해 상품 판매가 중지될 수 있습니다.
 				</p>
+				<div class="sale_information_content">
+					<table>
+						<tbody>
+						<!-- 품질상태 -->
+							<tr>
+								<th scope="row" class="first">
+									<label for="quality">품질상태 <span class="asterisk">*</span></label> 
+								</th>
+								<td colspan="3">
+									<input type="radio" name="quality"><label for="상">상</label>
+									<input type="radio" name="quality" ><label for="중">중</label>
+									<input type="radio" name="quality" ><label for="하">하</label>
+								</td>
+							</tr>
+							<!-- 카카오톡 ID -->
+							<tr>
+								<th scope="row" class="first">
+									<label for="k_id">카카오톡ID <span class="asterisk">*</span></label> 
+								</th>
+								<td colspan="3">
+									<input name="k_id" type="text" style="width: 250px;">
+								</td>
+							</tr>
+							<!-- 구입시기 -->
+							<tr>
+								<th scope="row" class="first">
+									<label for="buy_date">구입시기 <span class="asterisk">*</span></label> 
+								</th>
+								<td colspan="3">
+									<input name="buy_date" type="text" style="width: 250px;">
+									예) 2015년 10월경
+								</td>
+							</tr>
+							<!-- 상품소개 및 이미지 등록 -->
+							<tr>
+								<th scope="row" class="first">
+									<label for="contents">상품소개 <span class="asterisk">*</span></label>
+								</th>
+								<td colspan="3">
+									<p id="waring_p">* 첫번째 파일은 겉표지 이미지를 등록 하세요 (파일 5개 까지 등록 가능) *</p>
+									<input type="file" id="file_1" class="categ0" name="fileName1">
+									<span><input type="button" id="add_btn" value="첨부 파일 추가"></span>
+									<textarea rows="10" cols="77"></textarea>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- 상품등록 버튼 -->
+			<div class="button_product_register">
+				<input id="sellbtn" type="submit" class="btn_medium btn_blue2" value="상품등록">
 			</div>
 		</div>
+		</form>
 	</div>
+	<!-- 메시지를 받아옴 -->
+		<!-- ###### -->
+		<input type="hidden" id="message" value="${ message }">
+		<input type="hidden" id="id" value="${ member.id }">
+		<!-- ###### -->
 </body>
+<!-- javascript 시작 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function () {
+		if ($("#message").val() == "등록 성공!") {
+			alert($("#message").val());
+		} else if ($("#message").val() == "등록 실패..") {
+			alert($("#message").val());
+		} 
+		
+		// 파일 갯수 확인 위함
+		var fileCount = 1;
+		
+		// 첨부 파일 추가
+		$("#add_btn").click(function () {
+			var f = $("[type='file']");
+			if(f.length < 5) {
+				fileCount++;
+				$("#file_"+(fileCount-1)).after("<input type='file' id='file_"+fileCount+"' class='categ0' name='fileName"+fileCount+"'>");
+			} else {
+				alert("첨부파일은 최대 5개까지 가능합니다.");
+			}
+		});
+	});
+</script>
+<!-- javascript 끝 -->
 </html>

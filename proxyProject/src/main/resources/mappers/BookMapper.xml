@@ -2,6 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
    <mapper namespace="BookMapper">
+	<insert parameterType="" id="sellbook"> </insert>
+	<!-- 판매 책 이미지파일 등록 -->
+	<insert parameterType="String" id="sellbookfile"> 
+		insert into book_picture values(b_seq.nextval, #{files1},#{files2},#{files3},#{files4})
+	</insert>
 	
 	<select id="sellBookView" resultType="com.choa.book.BookDTO" parameterType="int">
 		select * from BOOK 

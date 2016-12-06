@@ -48,12 +48,18 @@
 					<th><strong>작성자</strong></th>
 					<th><strong>작성일</strong></th>
 				</tr>
+				<c:set var="count" value="-1"/>
 				<c:forEach var="FreeboardDTO" items="${freList}">
+				<c:set var="count" value="${count+1}"/>	
 					<tr>
 						<td>${FreeboardDTO.no}</td>
 						<td><a href="freView?no=${FreeboardDTO.no}">
 								${FreeboardDTO.title}
-						</a></td>
+						</a>
+							<c:if test="${replyCount[count]!='0'}">
+								<span id="replyCount" class="pink">${replyCount[count]}</span> 
+							</c:if>
+						</td>
 						<td>${FreeboardDTO.id}</td>
 						<td>
 						<fmt:formatDate

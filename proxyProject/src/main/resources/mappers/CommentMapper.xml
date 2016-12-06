@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="com.choa.comment.CommentDAO">
+    	<!-- 댓글작성 -->
+    	<insert id="commentWrite">
+    		INSERT INTO review VALUES(#{no},com_seq.nextval,#{writer},#{contents},sysdate)
+    	</insert>
+    	
+    	<!-- 작성 댓글 보기 -->
+    	<select id="commentView" resultType="com.choa.comment.CommentDTO">
+    		SELECT * FROM review WHERE NO=#{no}    	
+    	</select>
+    	
+    	<!-- 댓글 뿌려주기 -->
+    	<select id="selectCommentList" resultType="com.choa.comment.CommentDTO">
+    		SELECT * FROM review where no=#{no} order by reviewno desc
+    	</select>
+    	
+    	<!-- 댓글 삭제하기 -->
+    	<delete id="commentDelete">
+    		DELETE FROM review WHERE REVIEWNO=#{reviewno}
+    	</delete>
+    	
+    	<!-- 댓글 수정하기 -->
+    	<update id="commentModify">
+    		UPDATE review SET CONTENTS=#{contents} WHERE REVIEWNO=#{reviewno}
+    	</update>
+    </mapper>

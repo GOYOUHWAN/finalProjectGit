@@ -3,7 +3,6 @@ package com.choa.proxyProject;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,19 +16,12 @@ import com.choa.comment.CommentDAO;
 import com.choa.comment.CommentDTO;
 import com.choa.freeboard.FreeboardDAO;
 import com.choa.freeboard.FreeboardDTO;
-import com.choa.util.Const;
 
 
 
 @Controller
 @RequestMapping("/comment")
 public class CommentController {
-	DataSource dataSource;
-	
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-		Const.dataSource = this.dataSource;
-	}
 
 	@Autowired
 	private SqlSession sqlSession;
@@ -58,9 +50,9 @@ public class CommentController {
 		CommentDTO dto = new CommentDTO();
 		CommentDAO dao = sqlSession.getMapper(CommentDAO.class);
 		dao.commentDelete(reviewno);
-		FreeboardDAO qdao = sqlSession.getMapper(FreeboardDAO.class);
-		FreeboardDTO qdto = qdao.freView(dto.getNo());
-		model.addAttribute("dto", qdto);
+		FreeboardDAO fdao = sqlSession.getMapper(FreeboardDAO.class);
+		FreeboardDTO fdto = fdao.freView(dto.getNo());
+		model.addAttribute("dto", fdto);
 	}
 	// 댓글 달기
 	@RequestMapping("/commentWrite")

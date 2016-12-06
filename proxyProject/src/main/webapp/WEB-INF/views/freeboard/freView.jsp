@@ -5,11 +5,45 @@
 <!DOCTYPE html >
 <html lang="en">
 <head>
+<style type="text/css">
+#re1{
+	padding: 88px 0 24px;
+    color: #1f1f1f;
+    font-size: 20px;
 
+}
+
+.review1{
+    margin: 50px 50px 50px 50px;
+    padding: 20px 0 20px 20px;
+    background-color: #f8f8f8;	
+    border : 1px solid black;
+}
+#contents{
+    border: 1px solid #dbdbdb;
+    padding: 20px;
+    width: 90%;
+    height: 150px;
+}
+#submit{
+	
+    color: #7151FC;
+    font-size: 16px;
+    line-height: 19px;
+    padding: 16px 54px;
+    border: 1px solid #7151FC;
+}
+
+#review3{
+	border : 1px solid black;
+	width:100%;
+	height:150px;
+}
+</style>
 <script type="text/javascript"
 	src="/proxyProject/resources/js/jquery-1.11.3.min.js"></script>
 <script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
 	function commentList() {
 		var id = $("#id").val();
@@ -24,13 +58,13 @@
 						var result = "";
 						if (data.length > 0) {
 							result += "<center>";
-							result += "<table style='width:600px; height:50px; background-color:black;'>";
+							result += "<table>";
 							result += "<tr>";
 							result += "<td colspan='3'></td>"
 							result += "</tr>";
 							for (var i = 0; i < data.length; i++) {
 								var c = data[i].contents;
-								result += "<tr style='color:white;'><td>";
+								result += "<tr><td>";
 								result += "WRITER : ";
 								result += data[i].writer;
 								result += "</td><td>";
@@ -40,12 +74,12 @@
 
 								if (id == data[i].writer
 										|| "${sessionScope.member.type}" == "3") {
-									result += "<input type='button' value='수정' style='background-color: white; border-radius: 10px' onclick='mod(";
+									result += "<input type='button' value='수정' onclick='mod(";
 									result += data[i].reviewno;
 									result += ", ";
 									result += i;
 									result += ")'>";
-									result += " <input type='button' value='삭제' style='background-color: white; border-radius: 10px' onclick='del(";
+									result += " <input type='button' value='삭제'  onclick='del(";
 									result += data[i].reviewno;
 									result += ")'>";
 									result += "</td>";
@@ -55,7 +89,7 @@
 								result += "</tr>";
 								result += "<tr>";
 								result += "<td colspan='3'>";
-								result += "<textarea style='width:600px; height:70px; resize:none; padding:7px' name='contents'>";
+								result += "<textarea name='contents'>";
 								result += data[i].contents;
 								result += "</textarea></td>";
 								result += "</tr>";
@@ -73,7 +107,6 @@
 	$(function() {
 		commentList();
 		$("#submit").click(function(event) {
-			//ajax로 저장하고 성공하면 저장한 데이터를 가져와 넣어야 하는데 여기서는 테스트라 그냥 입력값을 가져옴
 			var pName = $("#writer").val();
 			var pText = $("#contents").val();
 			var pNo = $("#reviewno").val();
@@ -116,16 +149,17 @@
 	}
 	function mod(no, i) {
 		var data = document.getElementsByName("contents");
-		var content = data[i].value;
+		var contents = data[i].value;
+		//alert($().val());
 		$.ajax({
 			url : "/proxyProject/comment/commentModify",
 			data : {
 				reviewno : no,
-				contents : content
+				contents : contents
 			},
 			success : function() {
 				alert("댓글 수정!");
-				$("#contents").val("");
+				/* $("#contents").val(""); */
 				commentList();
 			}
 		});
@@ -147,40 +181,37 @@
 			<td><fmt:formatDate value="${dto.date2}"
 					pattern="yyyy/MM/dd hh:mm" /></td>
 			<td>${dto.content}</td>
-				<c:if
-					test="${sessionScope.member.id eq dto.id || sessionScope.member.type eq '3'}">
-					<a href="freModifyForm?no=${dto.no}">수정</a>
+			<c:if
+				test="${sessionScope.member.id eq dto.id || sessionScope.member.type eq '3'}">
+				<a href="freModifyForm?no=${dto.no}">수정</a>
 
-					<a href="freDelete?no=${dto.no}"
-						onclick="return confirm('정말 삭제하시겠습니까?')">삭제</a>
-				</c:if>
+				<a href="freDelete?no=${dto.no}"
+					onclick="return confirm('정말 삭제하시겠습니까?')">삭제</a>
+			</c:if>
 
-				<a href="freList">목록</a>
+			<a href="freList">목록</a>
 
-				<h2>답변입니다.</h2>
-
-				<td>
-				<input type="hidden" value="${member.id}" id="id">
-	</td>
-
-					<table>
-						<tr>
-							<td><span role="form">
-									<td><input type="text" readonly="readonly" id="writer"
-										name="writer" value="${sessionScope.member.id}" maxlength="10">
-										<input type="hidden" id="reviewno" name="reviewno"
-										value="${dto.no}"></td>
-									<td>
-										<button type="button" id="submit">답변하기</button>
-								</td> 
-								<br>
-								<br>
-								<textarea id="contents" name="contents"></textarea>
-								<!-- contents  -->
-							</span></td>
-						</tr>
-					</table>
-		</tr>
+			<td><input type="hidden" value="${member.id}" id="id"></td>
+			<table class="table table-condensed" align="center">
+				<tr>
+					<h2 id="re1">댓글</h2>
+					<h2 id="re2"></h2>
+				
+					<td>
+							<div class="form-group">
+								 <input type="hidden" id="reviewno" name="reviewno" value="${dto.no}">
+							</div>		
+					</td>
+				</tr>
+			</table>
+			<div id="review3">
+			<textarea id="contents" placeholder="댓글입니다."></textarea>
+							<button type="button" id="submit">댓글등록</button>
+								
+			<div id="div_review" align="center" class="review1">
+					<center></center><!--  댓글 달리는곳 -->
+			</div>
+			</div>
 	</table>
 	</section>
 	<!--==============================
