@@ -11,7 +11,7 @@
 #s_div1{
 	width: 100%;
 	height: 300px;
-	margin-top: 280px;
+	margin-top: 240px;
 	border: 1px solid green;
 }
 .s_div2{

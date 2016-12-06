@@ -1,12 +1,14 @@
 package com.choa.book;
 
 public class BookPictureDTO {
-	
+
 	private int num;
 	private String files1;
 	private String files2;
 	private String files3;
 	private String files4;
+	
+	
 	public int getNum() {
 		return num;
 	}
@@ -38,5 +40,5 @@ public class BookPictureDTO {
 		this.files4 = files4;
 	}
 	
-
+>>>>>>> refs/heads/12_06
 }

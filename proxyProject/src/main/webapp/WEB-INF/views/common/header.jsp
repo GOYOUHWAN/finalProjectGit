@@ -31,13 +31,14 @@
 	}
 	#h_ul2{
 		width: 100%;
-	    height: 37px;
+	    height: 30px;
 	    list-style-type: none;
 	    margin-top: 0px;
 	    text-align: center;
 	    background-color: #7151FC;
 	    padding-top: 13px;
 	    padding-left: 110px;
+	   
 	}
 	.h_li2{
 		width: 20%;
@@ -61,6 +62,7 @@
 	float: left;
 	resize: none;	
 }
+
 </style>
 
 
@@ -104,12 +106,12 @@
 				</ul>
 			</div>
 			<div id="header_div_2">
-				<a href="/proxyProject"><img src="${pageContext.request.contextPath}/resources/image/logo2.png" width="150" height="60"></a>
+				<a href="/proxyProject"><img src="${pageContext.request.contextPath}/resources/image/logo2.png" id="img_logo" width="150" height="60"></a>
 			</div>
 			<div id="a_header">			
 				<!--헤더에서 검색했을때 list 띄우는  -->
-				<form action="/Sysdate/restaurant/restaurantList.hashtag">	
-					<input type="text" id="header_text"  placeholder="예)나무" name="hashtag">
+				<form action="/sellBook/sellBookList">	
+					<input type="text" id="header_text"  placeholder="예)나무" name="search">
 					<input type="submit" value="검색" id="header_button" >
 				</form>	
 			</div>	
@@ -122,26 +124,6 @@
 					<li class="h_li2"><a href="${pageContext.request.contextPath}/blackList/blackListForm">블랙리스트</a></li>
 				</ul>
 			</div>
-
-			<div id="header_div_3">
-			
-		
-			<div id="header_div_4">
-			<div id="header_div_4_1">
-				
-			
-				
-		<div id="id01" class="login">
-	 <div class="modal-content card-4 animate-zoom">
-	
-
-	 </div>
-
-	</div>
-	</div>
-
-	 </div>
-	</div>
 
 </div>
 	</header>

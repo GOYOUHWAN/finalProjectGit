@@ -65,7 +65,7 @@
 
 
 <a href="index">index</a>
-
+\
 <a href="test">test_for_ajax</a>
 
 

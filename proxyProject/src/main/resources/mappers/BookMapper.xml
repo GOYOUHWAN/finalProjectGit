@@ -14,10 +14,19 @@
 		insert into book_picture values(b_seq.nextval, #{files1},#{files2},#{files3},#{files4})
 	</insert>
 	
+	<select id="sellBookViewFiles" resultType="com.choa.book.BookPictureDTO" parameterType="int">
+		select * from BOOK_PICTURE where num=#{num}
+	</select>
+	
 	<select id="sellBookView" resultType="com.choa.book.BookDTO" parameterType="int">
 		select * from BOOK 
 		where num=#{num}
 	</select>
+	<select id="sellBookViewMember" resultType="com.choa.member.MemberDTO" parameterType="String">
+		select * from MEMBER
+		where id=#{id}
+	</select>
+
 
 	<select id="myBookList" resultType="com.choa.book.BookDTO" parameterType="String">
 		select B.* 
