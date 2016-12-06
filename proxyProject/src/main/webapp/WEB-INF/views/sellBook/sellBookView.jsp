@@ -93,7 +93,6 @@ table tr, td{
 	</div>
 	
 	<div id="div_name">
-	
 		<table id="view_table">
 			<tr>
 				<td><h2>판매자 : ${view.id }</h2>
@@ -101,36 +100,24 @@ table tr, td{
 				</td>
 			</tr>
 			<tr>
-				<td><h1>PRODUCT : ${view.product }</h1><br>
-								BUY_DATE : ${view. buy_date}
+				<td><h1>책 제목 : ${view.product }</h1><br>
+								구매 날짜 : ${view. buy_date}
 				</td>
 			</tr>
 			<tr>
 				<td><h2>${view.price } 원</h2></td>
 			</tr>
 			<tr>
-				<td>	WRITER : ${view.writer }</td>
+				<td>줄거리 : ${view.contents }</td>
 			</tr>
 			<tr>
-				<td>CONTENTS : ${view.contents }</td>
-			</tr>
-			<tr>
-				<td>LIKES : ${view.likes }</td>
+				<td>좋아요 : ${view.likes }</td>
 			</tr>
 			<tr>
 				<td><input type="submit" class="view_button"><input type="submit" class="view_button"></td>
 			</tr>
 			
 		</table>
-			
-		
-		
-	
-		
-		
-		
-		
-		
 	</div>
 	
 	

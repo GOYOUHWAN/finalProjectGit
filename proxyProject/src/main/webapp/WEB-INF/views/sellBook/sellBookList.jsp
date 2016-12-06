@@ -12,6 +12,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 
+
+
 //cookie 이용 script 구현 안되어있고 코드만 미리 가져다 놓음 ==>>>구현해줘야함.
 function setCookie(cname,cvalue,exdays) {
     var d = new Date();
@@ -89,8 +91,14 @@ function checkCookie() {
 	width: 20px;
 	height: 20px;
 }
-
-
+#div_likes{
+	border: 1px solid red;
+}
+.img_likes{
+	border-radius : 0px;
+	width: 20px;
+	height: 20px;
+}
 
 </style>
 </head>
@@ -112,6 +120,7 @@ function checkCookie() {
 	                  <c:if test="${listsize !='0' }">
 	                     <td id="td_book">
 	                     ID :<a href="sellBookView?num=${list[count].num}&id=${list[count].id}">${list[count].id}</a>
+	                     		 num은 : ${list[count].num }
 	                        <div id="div_img">
 	                        <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"><img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}"> </a><br>
 	                       </div>
@@ -119,10 +128,27 @@ function checkCookie() {
 	                        <div class="pad">
 	                         	책이름 :<a href="sellBookView?num=${list[count].num}&id=${list[count].id}"><span class="pink name">${list[count].product}</span></a><br>
 	                         	가격 : ${list[count].price} 원
-	                    	  	&nbsp;&nbsp;&nbsp;&nbsp;<span>찜  : </span><span class="pink name">${list[count].likes}</span>
-								
+	                    	  	&nbsp;&nbsp;&nbsp;&nbsp;
+	                    	  	
+	                    	  	<div id="div_likes" > <img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart${list[count].num }" onclick="change_img_to_red(${list[count].num})">
+	                    	  	&nbsp;&nbsp; ${list[count].likes}
+	                    	  	<script>
+	                    	  	 var num = ${list[count].num};
+	                    	  		function change_img_to_red(num) {
+										 var heart = document.getElementById("img_heart"+num).src;
+										 	 if(heart =="http://localhost:8080/proxyProject/resources/image/black_heart.png"){
+										 		 document.getElementById("img_heart"+num).src = "/proxyProject/resources/image/heart.jpg";
+										 	 }else{
+										 		document.getElementById("img_heart"+num).src="/proxyProject/resources/image/black_heart.png";
+										 	 }	                      	 	
+									 }
+									 </script>
+	                    	  	</div>
+	                    	  	
+	                    	  	<!--하... 스크립트로 클릭하면 하트 모양 또는 색깔 바꾸기   -->
+	                    	  
 	                        </div>
-	                        
+	              
 	                     </td>
 	                  </c:if>
               	  </c:if>  
@@ -133,6 +159,7 @@ function checkCookie() {
             </tr>
          </c:forEach>
          </table>
+                   
          <!-- 리스트 끝 -->
          <c:if test="${no}">
             <p id="tagisp">조회된 결과가 없습니다. 다른 조건으로 검색해보세요!</p>

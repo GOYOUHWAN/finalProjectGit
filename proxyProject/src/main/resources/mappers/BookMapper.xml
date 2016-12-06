@@ -19,12 +19,10 @@
 	</select>
 	
 	<select id="sellBookView" resultType="com.choa.book.BookDTO" parameterType="int">
-		select * from BOOK 
-		where num=#{num}
+		select * from BOOK where num=#{num}
 	</select>
 	<select id="sellBookViewMember" resultType="com.choa.member.MemberDTO" parameterType="String">
-		select * from MEMBER
-		where id=#{id}
+		select * from MEMBER where id=#{id}
 	</select>
 
 
