@@ -12,7 +12,7 @@
 	#h_div1{
 		width: 100%;
 		height: 30px;
-		border: 1px solid green;
+		/* border: 1px solid green; */
 	}
 	#h_ul1{
 		height: 100%;
@@ -27,7 +27,7 @@
 		margin-left: 8px;
 		margin-right: 10px;
 		font-size: 16px;
-		border: 1px solid red;
+		/* border: 1px solid red; */
 	}
 	#h_ul2{
 		width: 100%;
@@ -54,7 +54,7 @@
 	}
 	#music{
 		float: left;
-		border: 1px solid blue;
+	/* 	border: 1px solid blue; */
 	}
 	#musicPlayer{
 	width : 30px;

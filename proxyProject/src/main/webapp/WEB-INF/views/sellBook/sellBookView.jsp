@@ -28,11 +28,11 @@
 .view_div_img{
 	width: 90%;
 	margin: 0 auto;
-	border: 1px solid blue;
+/* 	border: 1px solid blue; */
 }
 #view_div_1{
 	margin-top: 200px;
-	border: 1px solid red;
+/* 	border: 1px solid red; */
 	display: inline-block;
 	float: left;
 }
@@ -40,18 +40,18 @@
 	width: 100%;
 	height: 1000px;
 	padding-top: 0px;
-	border: 1px solid black;
+/* 	border: 1px solid black; */
 }
 #view_div_inside{
 	width: 80%;
 	height: 100%;
-	border: 1px solid yellow;
+/* 	border: 1px solid yellow; */
 	margin: 0 auto;
 }
 #div_name{
 	width: 50%;
 	height: 500px;
-	border: 1px solid green;
+/* 	border: 1px solid green; */
 	display: inline-block;
 	float: left;
 	margin-top: 200px;
@@ -59,14 +59,69 @@
 #view_table{
 	width : 90%;
 	float : right;
-	border: 1px solid red;
+/* 	border: 1px solid red; */
 }
-table tr, td{
-	border: 1px solid red;
-}
+
 .view_button{
-	width: 50%;
+	width: 40%;
 	height: 40px;
+	border: 1px solid #7151FC;
+
+}
+#img_face{
+	width: 50px;
+	height: 50px;
+	float: left;
+	border-radius: 100%;
+}
+#p_product{
+	font-size: 30px;
+}
+#p_price{
+	font-size: 50px;
+
+	float: left;
+}
+#td_space{
+	height: 30px;
+}
+.gray{
+	color: gray;
+}
+#img_heart{
+	border-radius : 0px;
+	width: 20px;
+	height: 20px;
+	margin: 0 auto;
+}
+#div_button{
+	width: 80%;
+	height: 100%;
+	margin: 0 auto;
+	
+}
+#view_button1{
+	background-color:  white;
+}
+#view_button2{
+	float: right;
+	background-color:  #7151FC;
+}
+#div_likes{
+	border: 0.5px solid gray;
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	text-align: center;
+	margin: 0 auto;
+	
+}
+#p_id{
+	font-size: 20px;
+}
+#won{
+	margin-top : 10px;
+	font-size: 30px;
 }
 </style>
 
@@ -95,26 +150,43 @@ table tr, td{
 	<div id="div_name">
 		<table id="view_table">
 			<tr>
-				<td><h2>판매자 : ${view.id }</h2>
-								판매자 신용도 : ${viewMember.seller_trust }
+				<td><img src="/proxyProject/resources/upload/lim.jpg" id="img_face"><p id="p_id">&nbsp;&nbsp;판매자 : ${view.id }</p>
+								<p class="gray">&nbsp;&nbsp;&nbsp;판매자 신용도  ${viewMember.seller_trust }</p>
 				</td>
 			</tr>
 			<tr>
-				<td><h1>책 제목 : ${view.product }</h1><br>
-								구매 날짜 : ${view. buy_date}
+				<td id="td_space"></td>
+			</tr>
+			<tr>
+				<td><p id="p_product">${view.product }</p>
+								<p class="gray">구매 날짜 :  ${view. buy_date}</p>
 				</td>
+				
 			</tr>
 			<tr>
-				<td><h2>${view.price } 원</h2></td>
+				<td id="td_space"></td>
 			</tr>
 			<tr>
-				<td>줄거리 : ${view.contents }</td>
+				<td><p class="gray">${view.contents }</p></td>
 			</tr>
 			<tr>
-				<td>좋아요 : ${view.likes }</td>
+				<td id="td_space"></td>
 			</tr>
 			<tr>
-				<td><input type="submit" class="view_button"><input type="submit" class="view_button"></td>
+				<td><p id="p_price">${view.price } </p><p id="won">원</p></td>
+			</tr>
+		
+			<tr>
+				<td id="td_space"></td>
+			</tr>
+			<tr>
+				<td><div id="div_button"><a href="basketBook"><input type="submit" class="view_button" id="view_button1" value="장바구니" ></a><a href="buyBook"><input type="submit"  id="view_button2"class="view_button" value="구매하기"></a></div></td>
+			</tr>
+			<tr>
+				<td id="td_space"></td>
+			</tr>
+			<tr>
+				<td><div id="div_likes"><p class="gray"><br><br><img src="/proxyProject/resources/image/heart.jpg" id="img_heart" ><br>${view.likes }</p></div></td>
 			</tr>
 			
 		</table>
