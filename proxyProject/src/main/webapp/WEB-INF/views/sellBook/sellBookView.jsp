@@ -31,7 +31,7 @@
 /* 	border: 1px solid blue; */
 }
 #view_div_1{
-	margin-top: 200px;
+	margin-top: 100px;
 /* 	border: 1px solid red; */
 	display: inline-block;
 	float: left;

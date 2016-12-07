@@ -58,7 +58,7 @@ function checkCookie() {
 #listTable{
 	width : 80%;
 	margin-left: 150px;
-	margin-top: 240px;
+	margin-top: 100px;
 }
 #td_book{
 	/* border: 1px solid red; */
@@ -72,6 +72,7 @@ function checkCookie() {
 	height: 300px;
 }
 #img{
+	border-radius : 0px;
 	size: inherit; 
 	width: 80%;
 	height: 100%;
@@ -140,11 +141,11 @@ function checkCookie() {
 	                  <c:if test="${listsize !='0' }">
 	                     <td id="td_book">
 	                     <!--id 보여주는 곳  -->
-	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ID :<a href="sellBookView?num=${list[count].num}&id=${list[count].id}">${list[count].id}</a>
+	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;판매자 :<%-- <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> --%>${list[count].id}<!-- </a> -->
 	                     		
 	                        <div id="div_img">
 	                     <!--책 img 보여주는곳  -->
-	                      <%--   <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> --%><img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}"> <!-- </a> --><br>
+	                       <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}">  </a><br>
 	                       </div>
 	                       
 	                        <div class="pad">
