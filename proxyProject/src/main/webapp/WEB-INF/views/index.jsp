@@ -21,7 +21,6 @@
 	float: left;
 	text-align: center;
 	border: 1px solid red;
-	
 }
 #s_div3{
 	width: 90%;
