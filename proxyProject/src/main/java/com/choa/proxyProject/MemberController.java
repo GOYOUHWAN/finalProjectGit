@@ -139,7 +139,16 @@ public class MemberController {
       return "/member/seller/myBookList";
    }
 
-   // ============================================================
+   // MEMBER============================================================
+   //ID찾기
+   @RequestMapping(value="findID", method=RequestMethod.GET)
+   public void findID(){}
+   //ID찾기결과
+   @RequestMapping(value="findIDResult", method=RequestMethod.GET)
+   public void findIDResult(){}
+   //PW찾기
+   @RequestMapping(value="findPW", method=RequestMethod.GET)
+   public void findPW(){}
    // ID중복체크
    @ResponseBody
    @RequestMapping(value = "checkID2", method = RequestMethod.POST)
