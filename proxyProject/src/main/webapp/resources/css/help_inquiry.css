@@ -1,0 +1,261 @@
+@CHARSET "UTF-8";
+<!-- ID찾기form시작 -->
+
+#container {
+	height:903px;
+    position: relative;
+    margin: 0 auto;
+}
+#container #content {
+    float: none;
+    width: auto;
+    margin: 0;
+    padding: 25px 0 80px;
+    background-color: #fff;
+}
+.non_sign {
+    padding-bottom: 50px !important;
+}
+.inquiry.non_sign {
+    width: 670px !important;
+    margin: 0 auto !important;
+}
+.content_header {
+    position: relative;
+    margin: 10px 0;
+}
+.content_header h2 {
+    float: left;
+    clear: both;
+    position: relative;
+    height: 21px;
+    margin-bottom: -2px;
+    padding: 0 2px 0 1px;
+    border-bottom: 2px solid #4d4d4d;
+}
+* {
+    font-family: '돋움',Dotum,AppleGothic,sans-serif;
+    font-size: 12px;
+    margin:0;
+    padding:0;
+}
+.content_header img:FIRST-CHILD{
+	width:70px;
+	height:16px;
+}
+.content_summary {
+	clear:both;
+    margin-bottom: 30px;
+    font-size: 12px;
+    line-height: 17px;
+    color: #888;
+}
+.inquiry.non_sign .content_summary {
+	border-top:2px solid #e5e5e5;
+    margin: 0;
+    padding: 2px 0 41px;
+    color: #666;
+}
+.section_find {
+	position:relative;
+    margin-top: -19px;
+    padding-bottom: 80px;
+}
+.box6 {
+	height:250px;
+    position: relative;
+    padding: 40px 40px 20px;
+    border: 1px solid #e5e5e5;
+    z-index: 100;
+}
+.section_find.box6 {
+	height:97px;
+}
+.box_inn {
+    position: relative;
+    padding: 0 0 18px 19px;
+}
+.box_inn.selected {
+	height:159px;
+    padding-bottom: 30px;
+}
+.box_inn .input_rd {
+    position: absolute;
+    top: 2px;
+    left: 0;
+}
+.box_inn .label_rd {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+    letter-spacing: -1px;
+}
+.box_inn .dsc {
+    padding-top: 4px;
+    color: #666;
+    line-height: 18px;
+}
+.box_inn dl {
+    padding-top: 14px;
+}
+.box_inn .input_txt {
+	width:217px;
+    height: 23px;
+    padding-left: 3px;
+    border: 1px solid #ccc;
+    vertical-align: top;
+    line-height: 23px;
+}
+.box_inn dt {
+    float: left;
+    width: 80px;
+    height: 25px;
+    font-weight: bold;
+    margin-top: 6px;
+}
+.box_inn .label_txt {
+    line-height: 25px;
+    color: #333;
+}
+.box_inn dd {
+    position: relative;
+    float: left;
+    width: 488px;
+    height: 25px;
+    margin-top: 6px;
+    vertical-align: top;
+}
+.country_code {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    border: solid 1px #ccc;
+    vertical-align: top;
+}
+.country_code .sel_value {
+    display: block;
+    width: 54px;
+    padding: 3px 6px 3px 0;
+    margin-left: 4px;
+    height: 17px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #000;
+    background: #fff url(../image/ico_select_arr.png) no-repeat 100% 50%;
+}
+/* .box_inn dd select {
+    height: 25px;
+    padding: 4px 3px 3px 1px;
+    border: 1px solid #ccc;
+    vertical-align: top;
+    line-height: 23px;
+} */
+.country_code .sel_value+select {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    opacity: 0;
+}
+.int_mob {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    vertical-align: top;
+}
+.input_txt:NTH-CHILD(1) {
+	width:152px;
+}
+.box_inn+.box_inn {
+    padding: 19px 0 18px 19px;
+    border-top: 1px solid #f4f4f4;
+}
+.box_inn+.box_inn .input_rd {
+    top: 22px;
+}
+.section_find .btn_area {
+    padding: 17px 0 15px;
+    text-align: center;
+}
+.section_find .btn_area a+a {
+    margin-left: 2px;
+}
+.btn_next2, .btn_prev, .btn_confirm2, .btn_ct, .btn_login, .btn_login2, .btn_findpw, .btn_checkid, .ico_arr, .ico_arr2, .ico_help2, .dash, .edge {
+    position: relative;
+    display: inline-block;
+    background: url(https://static.nid.naver.com/images/web/user/sp_find_idpw.png) no-repeat;
+}
+.btn_next2 {
+    width: 60px;
+    height: 33px;
+    background-position: 0 0;
+}
+<!-- ID찾기form 끝 -->
+
+<!-- ID찾기 결과form 시작 -->
+ul{
+    list-style: none;
+}
+.list_id {
+	margin-left:20px;
+    display: inline-block;
+    padding-bottom: 11px;
+}
+.list_id li {
+    padding-bottom: 8px;
+    text-align: left;
+}
+.list_id li strong{
+	font-size: 14px;
+    color: #333;
+}
+.list_id .label_rd {
+    font-size: 14px;
+    color: #333;
+}
+.section_find .btn_area {
+    padding: 17px 0 15px;
+}
+
+.btn_login2 {
+    width: 122px;
+    height: 33px;
+    background-position: 0 -140px;
+}
+.btn_findpw {
+    width: 112px;
+    height: 33px;
+    background-position: 0 -70px;
+}
+.find_dsc h3 a {
+    display: inline-block;
+    margin-left: 2px;
+    color: #707070;
+    text-decoration: underline;
+}
+.ico_arr {
+    top: -3px;
+    left: 3px;
+    width: 5px;
+    height: 3px;
+    background-position: -120px -210px;
+}
+<!-- ID찾기 결과form 끝 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
