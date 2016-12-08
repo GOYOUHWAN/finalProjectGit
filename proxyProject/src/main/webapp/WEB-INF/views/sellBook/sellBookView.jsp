@@ -105,13 +105,13 @@ table tr, td{
 				</td>
 			</tr>
 			<tr>
-				<td><h2>${view.price } 원</h2></td>
+				<td><h3>가격 : ${view.price } 원</h3></td>
 			</tr>
 			<tr>
-				<td>줄거리 : ${view.contents }</td>
+				<td><h3>줄거리 : ${view.contents }</h3></td>
 			</tr>
 			<tr>
-				<td>좋아요 : ${view.likes }</td>
+				<td><h3>좋아요 : ${view.likes }</h3></td>
 			</tr>
 			<tr>
 				<td><input type="submit" class="view_button"><input type="submit" class="view_button"></td>

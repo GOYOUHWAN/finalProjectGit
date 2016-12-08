@@ -139,6 +139,18 @@ public class MemberController {
       return "/member/seller/myBookList";
    }
 
+   @RequestMapping(value="/buyer/deposit")
+   public String deposit(@RequestParam int num, String id,  Model model){
+
+      try {
+         bookService.deposit(num, id, model);
+      } catch (Exception e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
+      return "/member/buyer/deposit";
+   }
+   
    // ============================================================
    // ID중복체크
    @ResponseBody

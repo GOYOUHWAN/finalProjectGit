@@ -1,0 +1,1196 @@
+@CHARSET "UTF-8";
+
+div {
+	display: block;
+}
+
+#section_wrap {
+	width: 980px;
+	height: 550px;
+	margin: 0 auto;
+}
+
+#section_wrap .steps {
+	width: 1056px;
+	height: 550px;
+	position: relative;
+}
+
+#section_wrap .steps .section {
+	position: relative;
+	float: left;
+	margin-right: 2px;
+	overflow: hidden;
+}
+
+<!--
+ticket -->#section_wrap .section-theater {
+	width: 265px;
+	height: 528px;
+}
+
+#section_wrap .section-theater .col-head {
+	background-position: 50% -25px;
+}
+
+#section_wrap .section-date .col-head {
+	background-position: 50% -58px;
+}
+
+#section_wrap .section-time .col-head {
+	background-position: 50% -91px;
+}
+#section_wrap .section-timetime .col-head {
+	background-position: 50% -91px;
+}
+
+#section_wrap .section-seat .col-head {
+	background-position: 50% -124px;
+}
+
+#section_wrap .section-complement .col-head {
+	background-position: 50% -157px;
+}
+
+.section .col-head img {
+	vertical-align: middle;
+}
+
+.section .col-body {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.section .col-body .item {
+	width: 244px;
+	margin: 0 20px 0 20px;
+}
+
+#section_wrap .col-head {
+	position: relative;
+	height: 33px;
+	line-height: 33px;
+	text-align: center;
+	background-color: #333333;
+	background-image: url(../img/titles.png);
+	background-repeat: no-repeat;
+	background-position: 50% 3px;
+}
+
+.section.section-movie .col-head {
+	background-position: 50% 8px;
+}
+
+h3 {
+	display: block;
+	font-size: 1.17em;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	font-weight: bold;
+}
+
+.sreader {
+	visibility: hidden;
+	display: block;
+	position: absolute;
+}
+
+#section_wrap .section .col-body {
+	width:100%;
+	position: relative;
+}
+.section .col-body .theater-select {
+	float: left;
+	width: 235px;
+	height: 364px; /*355px*/
+	margin-top: 8px;
+}
+
+#section_wrap .section .col-body .theater-list {
+	width: 235px;
+	height: 388px;
+	overflow: hidden;
+	float: left;
+	margin-top: 3px;
+	margin-left: 15px;
+}
+
+/* 지역 선택*/
+.col-body .theater-list .theater-area-list {
+	width: 109px;
+	height: 100%;
+	overflow: hidden;
+	float: left;
+}
+
+.col-body .theater-list .theater-area-list>ul>li {
+	width: 109px;
+	height: 35px;
+	clear: both;
+	overflow: hidden;
+	line-height: 35px;
+	margin-bottom: 1px;
+	float: left;
+}
+
+.col-body .theater-select .theater-list .theater-area-list > ul > li button {
+    display: block;
+    color: #333333;
+    font-size: 12px;
+    letter-spacing: -0.1em;
+    text-align: right;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: middle;
+    padding-left: 6px;
+    padding-right: 8px;
+    background-color: #e6e4d9;
+}
+
+.col-body .theater-select .theater-list .theater-area-list>ul>li .selected>button {
+	background: url(../img/theaterarealist_item_selected.png) no-repeat
+		right;
+	background-color: transparent;
+}
+
+.col-body .theater-list .theater-area-list>ul>li .selected>div {
+	display: block;
+}
+
+.col-body .theater-list .theater-area-list>ul>li>div {
+	position: absolute;
+	width: 124px;
+	top: 3px;
+	height: 100%;
+	margin-left: 110px;
+	overflow: hidden;
+}
+
+.nano {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#section_wrap .section .col-body .theater-list .theater-area-list>ul>li .selectarea{
+	display: block;
+    color: #333333;
+    font-size: 12px;
+    letter-spacing: -0.1em;
+    text-align: right;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    vertical-align: middle;
+    padding-right: 8px;
+    background-color: #e6e4d9;
+    float:right;
+    margin-top:5px;
+    width: 100%;
+    height: 34px;
+    text-align:center;
+    outline: none;
+}
+
+#section_wrap .section .col-body .theater-list .theater-area-list>ul>li>a
+	{
+	display: block;
+	color: #333333;
+	font-size: 12px;
+	letter-spacing: -0.1em;
+	text-align: right;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	vertical-align: middle;
+	padding-left: 6px;
+	padding-right: 8px;
+	background-color: #e6e4d9;
+}
+
+<!--
+영화관선택 -->.col-body .theater-list .area_theater_list ul {
+	width: 154px;
+}
+
+.col-body .theater-list .area_theater_list ul li.selected {
+	background-color: #333;
+	width: 112px;
+	height: 33px;
+	line-height: 33px;
+	border: 1px solid #000;
+}
+
+.col-body .theater-list .area_theater_list ul li.selected a {
+	width: 110px;
+	height: 29px;
+	line-height: 29px;
+	margin: 1px;
+	color: #fff;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.nano .content {
+	position: absolute;
+	overflow: scroll;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.nano .content.scroll-y {
+	overflow-x: hidden;
+}
+
+/* 스크롤바 */
+.nano>.pane-y {
+	width: 10px;
+	top: 4px;
+	bottom: 4px;
+	right: 0;
+	height: 380px;
+}
+
+.nano>.pane, .nano>.pane-y, .nano>.pane-x {
+	background: none;
+}
+
+.nano>.pane-y {
+	height: 380px;
+}
+
+.nano>.pane, .nano>.pane-y, .nano>.pane-x {
+	background: rgba(0, 0, 0, .25);
+	position: absolute;
+	visibility: hidden\9;
+	opacity: .01;
+	border-radius: 5px;
+}
+
+.nano>.pane, .nano>.pane-y, .nano>.pane-x {
+	background: rgba(0, 0, 0, .25);
+	position: absolute;
+	visibility: hidden\9;
+	opacity: .01;
+	-webkit-transition: .2s;
+	-moz-transition: .2s;
+	-o-transition: .2s;
+	transition: .2s;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	right: 0;
+}
+
+nano>.pane>.slider, .nano>.pane-y>.slider-y, .nano>.pane-x>.slider-x {
+	background: #444;
+	background: rgba(0, 0, 0, .5);
+	position: relative;
+	margin: 0px 2px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.nano .slider-y {
+	width: 6px;
+}
+
+.nano .slider-y, .nano .slider-x {
+	background: #acaba2;
+}
+
+.section-theater .col-body .theater-select .theater-list .area_theater_list ul
+	{
+	width: 154px;
+}
+
+.section-theater .col-body .theater-select .theater-list .area_theater_list ul li
+	{
+	clear: both;
+	overflow: hidden;
+	float: left;
+	width: 114px;
+	height: 35px;
+	line-height: 35px;
+	margin-bottom: 1px;
+}
+
+.section-theater .col-body .theater-select .theater-list .area_theater_list ul li a
+	{
+	display: block;
+	color: #333333;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: -0.1em;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	vertical-align: middle;
+	padding-left: 7px;
+	padding-right: 7px;
+}
+
+.section-theater .col-body .theater-select .theater-list .area_theater_list ul li.dimmed
+	{
+	opacity: 0.25;
+	filter: alpha(opacity = 25);
+}
+
+.section-theater .col-body .theater-select .theater-list .area_theater_list ul li.selected
+	{
+	background-color: #333;
+	width: 112px;
+	height: 33px;
+	line-height: 33px;
+	border: 1px solid #000;
+}
+
+.section-theater .col-body .theater-select .theater-list .area_theater_list ul li.selected a
+	{
+	border: 1px solid #5c5c5c;
+	height: 29px;
+	line-height: 29px;
+	margin: 1px;
+	color: #fff;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.section-theater .col-body .theater-select .theater-list .area_theater_list ul li.duplicate
+	{
+	display: none;
+}
+
+<!--
+section-date -->.section-date {
+	width: 91px;
+	height: 416px;
+}
+
+.section-date .body {
+	height: 495px;
+}
+
+.section-date .col-body .date-list {
+	float: left;
+	width: 83px;
+	height: 457px;
+	margin-top: 19px;
+	margin-left: 7px;
+}
+
+.section-date .col-body .date-list ul {
+	width: 104px;
+}
+
+.section-date .col-body .date-list ul li.month {
+	clear: both;
+	overflow: hidden;
+	float: left;
+	width: 64px;
+	height: 67px;
+	margin-bottom: 1px;
+	margin-left: 7px;
+}
+
+.section-date .col-body .date-list ul li.month span.year {
+	display: block;
+	margin-top: 12px;
+	text-align: center;
+	color: #666;
+	font-size: 11px;
+	font-family: Verdana;
+	font-weight: bold;
+	line-height: 11px;
+}
+
+.section-date .col-body .date-list ul li.month span.month {
+	display: block;
+	margin-top: 3px;
+	text-align: center;
+	color: #666;
+	font-size: 30px;
+	font-family: Verdana;
+	font-weight: bold;
+	line-height: 30px;
+}
+
+.section-date .col-body .date-list ul li.day {
+	position: relative;
+	clear: both;
+	float: left;
+	width: 64px;
+	height: 35px;
+	line-height: 35px;
+	margin-bottom: 1px;
+}
+
+.section-date .col-body .date-list ul li.day a {
+	display: block;
+	height: 100%;
+	vertical-align: middle;
+	padding-left: 8px;
+	padding-right: 7px;
+	margin-left: 13px;
+}
+
+.section-date .col-body .date-list ul li.day {
+	margin-left: 13px;
+	width: 51px;
+}
+
+.section-date .col-body .date-list ul li.day a {
+	margin-left: 0;
+}
+
+.section-date .col-body .date-list ul li.day a span.dayweek {
+	float: left;
+	color: #333;
+	font-size: 12px;
+	padding-top: 2px;
+	cursor: pointer;
+}
+
+.section-date .col-body .date-list ul li.day a span.dayweek span {
+	display: block;
+	position: absolute;
+	left: -10000px;
+}
+
+.section-date .col-body .date-list ul li.day a span.day {
+	float: right;
+	color: #333;
+	font-family: Verdana;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.section-date .col-body .date-list ul li.day.day-sat a span.dayweek {
+	color: #31597e;
+}
+
+.section-date .col-body .date-list ul li.day.day-sat a span.day {
+	color: #31597e;
+}
+
+.section-date .col-body .date-list ul li.day.day-sun a span.dayweek {
+	color: #ad2727;
+}
+
+.section-date .col-body .date-list ul li.day.day-sun a span.day {
+	color: #ad2727;
+}
+
+.section-date .col-body .date-list ul li.day.dimmed a {
+	opacity: 0.25;
+	filter: alpha(opacity = 25);
+}
+
+.section-date .col-body .date-list ul li.day.selected a span.dayweek {
+	color: #fff;
+}
+
+.section-date .col-body .date-list ul li.day.selected a span.day {
+	color: #fff;
+}
+
+.section-date .col-body .date-list ul li.day.selected {
+	background-color: #333;
+	width: 49px;
+	height: 33px;
+	line-height: 33px;
+	border: 1px solid #000;
+}
+
+.section-date .col-body .date-list ul li.day.selected a {
+	border: 1px solid #5c5c5c;
+	height: 29px;
+	line-height: 29px;
+	margin: 1px;
+	padding-left: 6px;
+	padding-right: 5px;
+	color: #fff;
+}
+
+.section-date .col-body .date-list ul li.day span.today {
+	display: block;
+	width: 5px;
+	height: 9px;
+	position: absolute;
+	top: 14px;
+	left: -12px;
+	background:
+		url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/step1/datelist_item_today.png)
+		no-repeat
+}
+
+.section-date .col-body .date-list ul li.day.selected span.today {
+	left: -13px;
+	top: 13px;
+}
+
+section-timetime {
+	width: 206px;
+	height: 528px;
+}
+
+.section-timetime .col-body {
+	height: 495px;
+}
+
+.section-timetime .col-body .time-option {
+	width: 100%;
+	height: 23px;
+	margin: 0 auto;
+	margin-top: 19px;
+	border-bottom: solid 2px #cfcdc3;
+}
+
+.section-timetime .col-body .time-option span.morning {
+	float: left;
+	height: 14px;
+	padding-left: 18px;
+	background: url(../img/icon_morning_night.png) no-repeat left;
+	background-position: 0 0;
+}
+
+.section-timetime .col-body .time-option span.night {
+	float: left;
+	height: 14px;
+	padding-left: 14px;
+	margin-left: 14px;
+	background: url(../img/icon_morning_night.png) no-repeat left;
+	background-position: 0 -20px;
+}
+
+.section-timetime .col-body .placeholder {
+	float: left;
+	width: 100%;
+	height: 416px;
+	line-height: 416px;
+	text-align: center;
+	color: #666;
+}
+
+.section-timetime .col-body .placeholder.hidden {
+	display: none;
+}
+
+.section-timetime .col-body .time-list {
+	width: 100%;
+	height: 416px;
+	margin-top: 15px;
+	overflow: scroll;
+	overflow-x: hidden;
+}
+
+.section-timetime .col-body .time-list .content {
+	width: 177px;
+}
+
+.section-timetime .col-body .time-list .theater {
+	float: left;
+	width: 100%;
+	border-bottom: solid 2px #cfcdc3;
+	margin-top: 16px;
+	overflow: hidden;
+}
+
+.section-timetime .col-body .time-list .theater:first-child {
+	margin-top: 0px;
+}
+
+.section-timetime .col-body .time-list .theater.last {
+	border: none;
+}
+
+.section-timetime .col-body .time-list .theater .title span.name {
+	color: #b54d15;
+	font-size: 12px;
+	font-weight: bold;
+	margin-right: 6px;
+}
+
+.section-timetime .col-body .time-list .theater .title span.floor {
+	color: #333;
+	font-size: 12px;
+	font-weight: bold;
+	margin-right: 5px;
+}
+
+.section-timetime .col-body .time-list .theater .title span.seatcount
+	{
+	color: #666;
+	font-size: 12px;
+}
+
+.section-timetime .col-body .time-list .theater ul {
+	width: 150px;
+	margin-top: 10px;
+	margin-bottom: 6px;
+	overflow: hidden;
+}
+
+.section-timetime .col-body .time-list .theater ul li {
+	position: relative;
+	float: left;
+	height: 25px;
+	line-height: 25px;
+	padding-bottom: 9px;
+}
+
+.section-timetime .col-body .time-list .theater ul li a {
+	display: block;
+	vertical-align: middle;
+	width: 103px;
+	height: 25px;
+}
+
+.section-timetime .col-body .time-list .theater ul li a span.time {
+	float: left;
+	width: 51px;
+	height: 25px;
+	line-height: 25px;
+	color: #333;
+	font-size: 12px;
+	font-weight: bold;
+	font-family: Verdana;
+	background:
+		url(../img/timelist_item_none.png)
+		no-repeat;
+}
+
+.section-timetime .col-body .time-list .theater ul li a span.time {
+	width: 49px;
+	height: 23px;
+	line-height: 23px;
+	border: 1px solid #d6d3ce;
+	background-image: none;
+	background-color: #f2f0e5;
+}
+
+.section-timetime .col-body .time-list .theater ul li a span.time span
+	{
+	display: block;
+}
+
+.section-timetime .col-body .time-list .theater ul li a span.count {
+	float: left;
+	width: 49px;
+	height: 20px;
+	line-height: 25px;
+	text-align: left;
+	color: #3d7c35;
+	font-size: 12px;
+	padding-left: 3px;
+	overflow: hidden;
+}
+
+.section-timetime .col-body .time-list .theater ul li.selected a span.time
+	{
+	color: #fff;
+	background-image:
+		url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/step1/timelist_item_selected.png);
+}
+
+.section-timetime .col-body .time-list .theater ul li.selected a span.time
+	{
+	background-image: none;
+	border-color: #000;
+	background-color: #333;
+}
+
+.section-timetime .col-body .time-list .theater ul li.selected a span.time span
+	{
+	border: 1px solid #5c5c5c;
+	margin: 1px;
+	line-height: 19px;
+}
+
+.section-timetime .col-body .time-list .theater ul li.morning a span.count
+	{
+	padding-left: 19px;
+	width: 33px;
+	background: url(../img/icon_morning_night.png) no-repeat left;
+	background-position: 2px 6px;
+}
+
+.section-timetime .col-body .time-list .theater ul li.night a span.count
+	{
+	padding-left: 16px;
+	width: 33px;
+	background: url(../img/icon_morning_night.png) no-repeat left;
+	background-position: 2px -15px;
+}
+
+.section-timetime .col-body .time-list .theater ul li.disabled a span.time
+	{
+	color: #666;
+	text-decoration: line-through;
+	background-image: none;
+}
+
+.section-timetime .col-body .time-list .theater ul li.disabled a span.count
+	{
+	color: #666;
+	padding-left: 1px;
+	background-image: none;
+}
+
+.section-timetime .col-body .time-list .theater ul li.morning.disabled a span.count,
+	.step1 .section-time .col-body .time-list .theater ul li.night.disabled a span.count
+	{
+	width: 47px;
+}
+
+/* section-numberofpeople */
+.section-numberofpeople .col-body .numberofpeople-select {
+	width: 261px;
+	height: 52px;
+	margin-left: 39px;
+	margin-top: 20px;
+}
+
+.three_line .section-numberofpeople .col-body .numberofpeople-select {
+	height: 82px;
+	margin-top: 8px;
+}
+
+.section-numberofpeople {
+	width: 300px;
+	height: 100%;
+}
+
+.section-numberofpeople .col-body .numberofpeople-select {
+	margin-left: 15px;
+	padding-right: 18px;
+	border-right: 2px solid #d4d3c9;
+}
+/* section-seat */
+.section-seat {
+	float: none;
+	width: 470px;
+	height: 528px;
+}
+
+.section-seat>.col-body {
+	height: 495px;
+}
+
+.section-seat .theater {
+	margin-left: 20px;
+	width: 826px;
+	height: 365px;
+	position: relative;
+}
+
+.section-seat.three_line .theater {
+	height: 355px;
+}
+
+.section-seat .theater .screen {
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+	background: url(../img/screen_bg.png) repeat-x left;
+}
+
+.section-seat .theater .screen .text {
+	width: 57px;
+	height: 25px;
+	display: inline-block;
+	zoom: 1;
+	background: url(../img/screen_text.png) no-repeat;
+}
+
+.section-seat .person_screen {
+	position: relative;
+	height: 88px;
+	border-bottom: 2px solid #d4d3c9;
+}
+
+.section-seat.three_line .person_screen {
+	height: 98px;
+}
+
+.section-seat .adjacent_seat_wrap {
+	display: block;
+	position: absolute;
+	left: 310px;
+	top: 50%;
+	height: 52px;
+	margin-top: 2px;
+}
+
+.section-seat .adjacent_seat_wrap .adjacent_seat {
+	position: relative;
+	top: -50%;
+	height: 100%;
+	width: 250px;
+	border-right: 2px solid #d4d3c9;
+}
+
+.section-seat .adjacent_seat_wrap .adjacent_seat .title {
+	display: block;
+	color: #000;
+	font-size: 12px;
+	margin-right: 12px;
+}
+
+.section-seat .adjacent_seat_wrap .adjacent_seat .block_wrap {
+	margin-top: 17px;
+}
+
+.section-seat .adjacent_seat_wrap .adjacent_seat .seat_block input[type=radio]
+	{
+	margin-bottom: 1px;
+	margin-right: 2px;
+}
+
+.section-seat .adjacent_seat_wrap .adjacent_seat .seat_block .box {
+	width: 13px;
+	height: 13px;
+	margin-right: 1px;
+	vertical-align: middle;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	border: 1px solid #999;
+}
+
+.ie7 .section-seat .adjacent_seat_wrap .adjacent_seat .seat_block .box {
+	width: 11px;
+	height: 11px;
+}
+
+.section-seat .adjacent_seat_wrap .adjacent_seat .seat_block.enabled .box
+	{
+	border: 1px solid #666;
+}
+
+.section-seat .adjacent_seat_wrap .adjacent_seat .seat_block.selected .box
+	{
+	background-color: #333;
+	border-color: #333;
+}
+
+.section-seat.expand .adjacent_seat_wrap .adjacent_seat {
+	width: 744px;
+}
+
+.section-seat .theater .seats {
+	position: relative;
+	margin: 56px auto 40px auto;
+	height: 627px;
+}
+
+.section-seat .theater .seats .row {
+	position: absolute;
+	height: 15px;
+	line-height: 15px;
+}
+
+.section-seat .theater .seats .row .label {
+	position: absolute;
+	left: 0px;
+	margin-bottom: 1px;
+	width: 15px;
+	height: 14px;
+	line-height: 14px;
+	border-top: 1px solid #d4d3c9;
+	font-size: 11px;
+	font-family: Verdana;
+	font-weight: bold;
+	text-align: center;
+}
+
+.section-seat .theater .seats .row a.skip_row {
+	display: block;
+	position: absolute;
+	width: 80px;
+	left: -1000px;
+	top: -2px;
+	background-color: #fff;
+	padding: 3px;
+	text-decoration: none;
+	z-index: 1;
+}
+
+.section-seat .theater .seats .row a.skip_row:focus {
+	left: 0;
+}
+
+.section-seat .theater .seats .row .seat {
+	position: absolute;
+	width: 16px;
+	height: 15px;
+}
+
+.section-seat .theater .seats .row .seat a {
+	display: block;
+	height: 100%;
+	cursor: pointer;
+	letter-spacing: -1px;
+}
+
+.section-seat .theater .seats .row .seat a .no {
+	text-decoration:none;
+	display: block;
+	width: 15px;
+	height: 15px;
+	line-height: 15px;
+	overflow: hidden;
+	text-align: center;
+	color: #fff;
+	font-size: 10px;
+	font-family: Verdana;
+	background-color: #666;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+.section-seat .theater .seats .row .seat.sweet a .no {
+	background-color: #da1b68;
+	background-image: url(../img/seat_icons_new.png);
+	background-position: -100px 0;
+}
+
+.section-seat .theater .seats .row .seat.veat a .no {
+	background-color: #13295f;
+	background-image: url(../img/seat_icons_new.png);
+	background-position: -125px 0;
+}
+
+.section-seat .theater .seats .row .seat.fourd a .no {
+	background-color: #74501c;
+	background-image: url(../img/seat_icons_new.png);
+	background-position: -150px 0;
+}
+
+.section-seat .theater .seats .row .seat.wide a .no {
+	background-color: #0b5741;
+	background-image: url(../img/seat_icons_new.png);
+	background-position: -175px 0;
+}
+
+.section-seat .theater .seats .row .seat.couple a .no {
+	background-color: #794491;
+	background-image: url(../img/seat_icons_new.png);
+	background-position: -50px 0;
+}
+
+.section-seat .theater .seats .row .seat.handicap a .no {
+	background-color: #5d822e;
+	background-image: url(../img/seat_icons_new.png);
+	background-position: -75px 0;
+}
+
+.section-seat .theater .seats .row .seat.cinekids a .no {
+	background-color: #2782b1;
+	background-image: url(../img/seat_icons_new.png);
+	background-position: -200px 0;
+}
+
+.section-seat .theater .seats .row .seat.comfort a .no {
+	background-color: transparent;
+	background-image: url(../img/seat_icons_new.png);
+	background-position: -225px 0;
+}
+
+.section-seat .theater .seats .row .seat.notavail a .no {
+	background-color: #bbb;
+	background-image: url(../img/seat_icons_new.png);
+	background-position: -25px 0;
+}
+
+.section-seat .theater .seats .row .seat.reserved a .no {
+	background-color: #bbb;
+	background-image: none;
+}
+
+.section-seat .theater .seats .row .seat.preselect a .no {
+	background-color: #ad1712;
+	background-image: url(../img/seat_icons_new.png);
+	background-position: 0 0;
+}
+
+.section-seat .theater .seats .row .seat.selected a .no {
+	background-color: #ad1712;
+	background-image: url(../img/seat_icons_new.png);
+	background-position: 0 0;
+}
+
+.section-seat .theater .seats .row .seat.primezone a .no {
+	width: 11px;
+	height: 11px;
+	line-height: 11px;
+	border: solid 2px #b11500;
+}
+
+.section-seat .theater .seats .row .seat.rating_prime a .no {
+	width: 11px;
+	height: 11px;
+	line-height: 11px;
+	border: solid 2px #f71708;
+}
+
+.section-seat .theater .seats .row .seat.rating_comfort a .no {
+	width: 11px;
+	height: 11px;
+	line-height: 11px;
+	border: solid 2px #01c73c;
+}
+
+.section-seat .theater .seats .row .seat.rating_economy a .no {
+	width: 11px;
+	height: 11px;
+	line-height: 11px;
+	border: solid 2px #ed8c00;
+}
+
+.section-seat .theater_minimap .legend {
+	position: absolute;
+	top: 150px;
+	left: 300px;
+	width: 106px;
+	height: 100%;
+}
+
+.section-seat .seat-icon-desc {
+	margin-left: 5px;
+	line-height: 15px;
+}
+
+.section-seat .seat-icon-desc .icon {
+	position: relative;
+	display: block;
+	margin-top: 8px;
+	padding-left: 19px;
+	height: 15px;
+	color: #666;
+	font-size: 12px;
+}
+
+.section-seat .seat-icon-desc .icon:first-child {
+	margin-top: 0;
+}
+
+.section-seat .seat-icon-desc .icon>span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 15px;
+	height: 16px;
+	padding: 0;
+	background-image: url(../img/seat_icons_new.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+
+.section-seat .seat-icon-desc .icon.reserved>span {
+	background-color: #bbb;
+	background-image: none;
+}
+
+.section-seat .seat-icon-desc .icon.notavail>span {
+	background-color: #bbb;
+	background-position: -25px 0;
+}
+
+.section-numberofpeople .col-body .numberofpeople-select .group {
+	float: left;
+	margin-bottom: 8px;
+}
+
+.section-numberofpeople .col-body .numberofpeople-select .group span.title
+	{
+	float: left;
+	width: 45px;
+	height: 22px;
+	line-height: 22px;
+	color: #666;
+	letter-spacing: -0.1em;
+}
+
+.section-numberofpeople .col-body .numberofpeople-select .group ul {
+	float: left;
+	width: 216px;
+	height: 22px;
+	line-height: 22px;
+	overflow: hidden;
+}
+
+.section-numberofpeople .col-body .numberofpeople-select .group ul li {
+	float: left;
+	width: 22px;
+	height: 22px;
+	margin-right: 2px;
+}
+
+.section-numberofpeople .col-body .numberofpeople-select .group ul li {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	border: 1px solid #d6d3ce;
+	background-color: #f2f0e5;
+}
+
+.section-numberofpeople .col-body .numberofpeople-select .group ul li a
+	{
+	display: block;
+	height: 100%;
+	color: #333;
+	font-family: Verdana;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.section-numberofpeople .col-body .numberofpeople-select .group ul li.selected
+	{
+	border-color: #000;
+	background-color: #333;
+}
+
+.section-numberofpeople .col-body .numberofpeople-select .group ul li.selected a
+	{
+	color: #fff;
+}
+
+.section-numberofpeople .col-body .numberofpeople-select .group ul li.selected a
+	{
+	margin: 1px;
+	border: 1px solid #5c5c5c;
+	width: 16px;
+	height: 16px;
+	line-height: 16px;
+}
+.section-seat .theater .seats .exit {
+	position: absolute;
+	width: 23px;
+	height: 23px;
+	background-image: url(../img/seat_icons_new.png);
+	background-repeat: no-repeat;
+}
+
+
+
+.section-seat .theater .seats .exit.bottom {
+	background-position: 0px -50px;
+}
+
+.section-seat .theater_minimap {
+	position: relative;
+	width: 866px;
+	margin-top: 20px;
+}

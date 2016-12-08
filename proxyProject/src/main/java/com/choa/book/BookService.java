@@ -54,6 +54,7 @@ public class BookService {
 			model.addAttribute("check", true);
 			return ar;
 		}	
+	
 
 	public List<BookDTO> myBookList(String id, Model model)throws Exception{
 		List<BookDTO> ar = bookDAO.myBookList(id);
@@ -64,6 +65,17 @@ public class BookService {
 	public List<BookDTO> myBuyList(String id, Model model)throws Exception{
 		List<BookDTO> ar = bookDAO.myBuyList(id);
 		model.addAttribute("buylist", ar);
+		return ar;
+	}
+	
+	//구매
+	public List<BookDTO> deposit(int num, String id, Model model)throws Exception{
+		BookPictureDTO bookPictureDTO = bookDAO.sellBookPicture(num);
+		List<BookDTO> ar = bookDAO.deposit(id);
+		BookDTO bookDTO = bookDAO.sellBookView(num);
+		model.addAttribute("viewPicture", bookPictureDTO);
+		model.addAttribute("view", bookDTO);
+		model.addAttribute("deposit", ar);
 		return ar;
 	}
 	
