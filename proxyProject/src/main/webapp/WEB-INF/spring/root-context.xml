@@ -11,10 +11,16 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<!-- mybatis -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="username" value="proxy"></property>
+		<property name="password" value="proxy"></property>
+		<property name="url" value="jdbc:oracle:thin:@192.168.30.127:1521:xe"></property>
 
+<<<<<<< HEAD
 		<property name="username" value="proxy"></property>
 		<property name="password" value="proxy"></property>
 		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe"></property>
+=======
+>>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
 	</bean>
 	
