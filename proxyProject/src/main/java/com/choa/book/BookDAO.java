@@ -50,6 +50,11 @@ public class BookDAO {
 		return sqlSession.selectList(namespace+"myBuyList", id);
 	}
 	
+	//구매하기
+		public List<BookDTO> deposit(String id) throws Exception {
+			return sqlSession.selectList(namespace+"deposit", id);
+		}
+	
 	//내가 팔기위해 올려놓은 책 리스트
 	public List<BookDTO> sellBookList(PageMaker pageMaker)throws Exception{
 		return sqlSession.selectList(namespace+"sellBookList", pageMaker);

@@ -139,6 +139,21 @@ public class MemberController {
       return "/member/seller/myBookList";
    }
 
+<<<<<<< HEAD
+   @RequestMapping(value="/buyer/deposit")
+   public String deposit(@RequestParam int num, String id,  Model model){
+
+      try {
+         bookService.deposit(num, id, model);
+      } catch (Exception e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
+      return "/member/buyer/deposit";
+   }
+   
+   // ============================================================
+=======
    // MEMBER============================================================
    //ID찾기
    @RequestMapping(value="findID", method=RequestMethod.GET)
@@ -149,6 +164,7 @@ public class MemberController {
    //PW찾기
    @RequestMapping(value="findPW", method=RequestMethod.GET)
    public void findPW(){}
+>>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
    // ID중복체크
    @ResponseBody
    @RequestMapping(value = "checkID2", method = RequestMethod.POST)

@@ -24,6 +24,9 @@
 			$("#div_status").hide();
 		});
 	});//btn
+	
+	
+	
 </script>	
 <!--  ================================================-->	
 <style>
@@ -65,6 +68,8 @@ img, ul, li{
 						<option value="title">TITLE</option>
 						<option value="writer">WRITER</option>
 						<option value="contents">CONTENTS</option>
+						
+						
 					</select>
 				</div>
 				<div class="col-lg-3">
@@ -103,9 +108,11 @@ img, ul, li{
 					<c:forEach items="${buylist}" var="list">
 						<tr>
 							<td>${list.buy_date}</td>
-							<td>${list.product}</td>
+							<td><a href="<%=application.getContextPath()%>/sellBook/sellBookView?id=${list.id}&num=${list.num}">
+							${list.product}</a></td>
 							<td>${list.price }</td>
-							<td></td>
+							<td>${list.status}</td>
+							<td><a href="deposit?id=${member.id}&price=${list.price}&num=${list.num}&id=${list.id}"><button id="deposit"> 입금하기 </button></a>
 						</tr>
 					</c:forEach>
 				</tbody>

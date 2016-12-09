@@ -164,13 +164,25 @@
 				
 			</tr>
 			<tr>
+<<<<<<< HEAD
+				<td><h3>가격 : ${view.price } 원</h3></td>
+=======
 				<td id="td_space"></td>
+>>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
 			</tr>
 			<tr>
+<<<<<<< HEAD
+				<td><h3>줄거리 : ${view.contents }</h3></td>
+=======
 				<td><p class="gray">${view.contents }</p></td>
+>>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
 			</tr>
 			<tr>
+<<<<<<< HEAD
+				<td><h3>좋아요 : ${view.likes }</h3></td>
+=======
 				<td id="td_space"></td>
+>>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
 			</tr>
 			<tr>
 				<td><p id="p_price">${view.price } </p><p id="won">원</p></td>
