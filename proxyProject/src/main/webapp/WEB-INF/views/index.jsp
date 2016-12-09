@@ -11,7 +11,7 @@
 #s_div1{
 	width: 100%;
 	height: 300px;
-	margin-top: 240px;
+	margin-top: 100px;
 	border: 1px solid green;
 }
 .s_div2{
@@ -39,18 +39,17 @@
 <!-- <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"> -->
 
 <body>
-
-
-
 <div>
 	<!-- Header Start -->
-		<%@ include file = "common/header.jsp" %>
+		
 	<!-- Header End -->
 	
 	<!--section 시작  -->
 	<section id="section_wrap">
 	<nav id="nav_all">
+	<%@ include file = "common/header.jsp" %>
 	<div id="s_div1">
+	
 		<div id="s_div3">
 			<div class="w3-content w3-section s_div2" style="max-width:200px" >
 			추천
@@ -76,7 +75,7 @@
 					    myIndex++;
 					    if (myIndex > x.length) {myIndex = 1}    
 					    x[myIndex-1].style.display = "block";  
-					    setTimeout(carousel, 2500); // Change image every 2 seconds
+					    setTimeout(carousel, 2500); // Change image every 2.5 seconds
 					}
 					</script>
 			<div class="s_div2">

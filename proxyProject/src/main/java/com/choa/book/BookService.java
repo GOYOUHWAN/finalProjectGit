@@ -1,12 +1,14 @@
 package com.choa.book;
 
 
+import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.choa.member.MemberDTO;
+import com.choa.member.MemberLikeBooksDTO;
 import com.choa.util.PageMaker;
 
 
@@ -16,6 +18,17 @@ public class BookService {
 	@Autowired
 	private BookDAO bookDAO;
 
+	//까망 하트 눌렀을때(mlb에 id랑 num으로 한줄 삽입 / book에 likes 하나 더하기)
+	public void changeLikesBlack(MemberLikeBooksDTO mlbDTO)throws Exception{
+		bookDAO.changeLikesAdd(mlbDTO.getNum());
+		bookDAO.insertMLB(mlbDTO);
+	}
+	
+	//빨강 하트 눌렀을때(mlb에 id랑 num으로 한줄 삭제 / book에 likes 하나 빼기)
+	public void changeLikesRed(MemberLikeBooksDTO mlbDTO)throws Exception{
+		bookDAO.changeLikesDelete(mlbDTO.getNum());
+		bookDAO.deleteMLB(mlbDTO);
+	}
 	
 
 	//판매도서등록
@@ -25,17 +38,15 @@ public class BookService {
 		return bookDAO.sellBookWrite(bookDTO, bookPictureDTO);
 	}
 	
-
-
-	public Model sellBookView(int num, String id, Model model) throws Exception{
-
+	public BookDTO sellBookView(int num, String id, Model model) throws Exception{
+		
 		BookDTO bookDTO = bookDAO.sellBookView(num);
 		BookPictureDTO bookPictureDTO = bookDAO.sellBookPicture(num);
 		MemberDTO memberDTO = bookDAO.sellBookViewMember(id);
 		model.addAttribute("view", bookDTO);
 		model.addAttribute("viewPicture", bookPictureDTO);
 		model.addAttribute("viewMember", memberDTO);
-		return model;
+		return bookDTO;
 	}
 	
 	public List<BookDTO> sellBookList(int curPage, int perPage, Model model)throws Exception{

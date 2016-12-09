@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
 .mySlides {
@@ -198,7 +199,47 @@
 				<td id="td_space"></td>
 			</tr>
 			<tr>
-				<td><div id="div_likes"><p class="gray"><br><br><img src="/proxyProject/resources/image/heart.jpg" id="img_heart" ><br>${view.likes }</p></div></td>
+				<td><div id="div_likes"><p class="gray"><br><br><img src="/proxyProject/resources/image/black_heart.png" id="img_heart" onclick="change_img_to_red(${view.num})"><br><span id="spanLikes">${view.likes }</span></p></div>
+				   	  	<script>
+	                    	
+                	  			var id = "${member.id}";
+
+	                    	  	 function change_img_to_red(num) {
+	          					 	
+	                    	  		var heart = document.getElementById("img_heart").src;
+										if(heart =="http://localhost:8080/proxyProject/resources/image/black_heart.png"){
+										 	 	document.getElementById("img_heart").src = "/proxyProject/resources/image/heart.jpg"; 
+										 		$.ajax({
+			                    					url:'changeLikesBlack',
+			                    					type:'POST',
+			                    					data : {id:id, num:num}, 	
+			                    					success:function(result) {    //여기서 result는 ajax 실행했을때 컨트롤러에서 받는 리턴(bookDTO)을 의미
+			                    						$("#spanLikes").html(result.likes);             
+			                    					},
+			                    					error:function(e){
+			                    						alert("eeeeeeeeeeeeeee");
+			                    					}
+			                    				});
+										 	 }else{
+										 		//여기로 들어오면 memberLikeBooks에 한줄 삭제하고 , books에 likes -1
+										 		document.getElementById("img_heart").src="/proxyProject/resources/image/black_heart.png";
+										 		$.ajax({
+			                    					url:"changeLikesRed",
+			                    					type:"POST",
+			                    					data : {id:id, num:num}, 	
+			                    					success:function(result) {
+			                    						$("#spanLikes").html(result.likes);        
+			                    					},
+			                    					error:function(e){
+			                    						alert("eeeeeeeeeeeeeee");
+			                    					}
+			                    				});
+										 	 }	                      	 	
+									 
+	                    	  	 }
+	                	 
+									 </script>
+				</td>
 			</tr>
 			
 		</table>
