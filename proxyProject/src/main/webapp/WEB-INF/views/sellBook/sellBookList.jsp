@@ -15,7 +15,7 @@
 
 
 //cookie 이용 script 구현 안되어있고 코드만 미리 가져다 놓음 ==>>>구현해줘야함.
-function setCookie(cname,cvalue,exdays) {
+/* function setCookie(cname,cvalue,exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires=" + d.toGMTString();
@@ -47,7 +47,23 @@ function checkCookie() {
            setCookie("username", user, 30);
        }
     }
-}
+} */
+//ajax  likes 수 변화 시키기
+/* 			$("#img_heart${list[count].num}").click(function () {
+				var heart = document.getElementById("#img_heart${list[count].num}").src;
+				var likess = ${list[count].likes}
+				$.ajax({
+					url:"changeHeart",
+					dataType : "json",
+					type:"POST",
+					data : {likes:likess+1},
+					success:function(data) {
+						$("#img_heart${list[count].num}").src;
+					},
+				    }
+				}); */
+
+
 
 </script>
 
@@ -156,17 +172,44 @@ function checkCookie() {
 	                    	  	&nbsp;&nbsp;&nbsp;&nbsp;
 	                    	  	
 	                    	  	<div id="div_likes" > <img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart${list[count].num }" onclick="change_img_to_red(${list[count].num})">
-	                    	  	&nbsp;&nbsp; ${list[count].likes}
+	                    	  	&nbsp;&nbsp; <span id="spanLikes${list[count].num }">${list[count].likes}</span>
+	                    
+	                    	  	
 	                    	  	<script>
-	                    	  	 var num = ${list[count].num};
-	                    	  		function change_img_to_red(num) {
-										 var heart = document.getElementById("img_heart"+num).src;
-										 	 if(heart =="http://localhost:8080/proxyProject/resources/image/black_heart.png"){
-										 		document.getElementById("img_heart"+num).src = "/proxyProject/resources/image/heart.jpg";
+	                    		var likess = "${list[count].likes}";
+                	  			var id = "${member.id}";
+
+	                    	  	 function change_img_to_red(num) {
+	          
+	                    	  		var heart = document.getElementById("img_heart"+num).src;
+										if(heart =="http://localhost:8080/proxyProject/resources/image/black_heart.png"){
+										 	 	document.getElementById("img_heart"+num).src = "/proxyProject/resources/image/heart.jpg"; 
+										 		$.ajax({
+			                    					url:'changeLikesBlack',
+			                    					type:'POST',
+			                    					data : {id:id, num:num}, 	
+			                    					success:function(result) {    //여기서 result는 ajax 실행했을때 컨트롤러에서 받는 리턴(bookDTO)을 의미
+			                    						$("#spanLikes"+num).html(result.likes);             
+			                    					},
+			                    					error:function(e){
+			                    						alert("eeeeeeeeeeeeeee");
+			                    					}
+			                    				});
 										 	 }else{
+										 		//여기로 들어오면 memberLikeBooks에 한줄 삭제하고 , books에 likes -1
 										 		document.getElementById("img_heart"+num).src="/proxyProject/resources/image/black_heart.png";
+										 		$.ajax({
+			                    					url:"changeLikesRed",
+			                    					type:"POST",
+			                    					data : {id:id, num:num}, 	
+			                    					success:function(result) {
+			                    						$("#spanLikes"+num).html(result.likes);        
+			                    					},
+			                    				});
 										 	 }	                      	 	
-									 }
+									 
+	                    	  	 }
+	                	 
 									 </script>
 	                    	  	</div>
 	                    	  

@@ -34,7 +34,7 @@
 		<%@ include file = "../../common/header.jsp" %>
 	<!-- Header End -->
 
-<h2> 판매자용 myPage</h2>
+${member.name }님의 page
 		<div id="sub_3">
 			<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">myBookList(내가 팔고있는 책들)</button></a>
 			<a href="myBoardList?id=${member.id }"><button class="btn_d_2" id="btn5" tabindex="5">myBoardList(내가 쓴 글들)</button></a>
@@ -43,8 +43,6 @@
 		</div>
 
 
-<!-- Footer Start -->
-		<%@ include file = "../../common/footer.jsp" %>
-	<!-- Footer End -->
+
 </body>
 </html>

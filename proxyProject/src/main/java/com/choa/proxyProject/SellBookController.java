@@ -7,10 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.choa.book.BookDTO;
 import com.choa.book.BookPictureDTO;
 import com.choa.book.BookService;
+import com.choa.member.MemberLikeBooksDTO;
 
 
 @Controller
@@ -19,6 +21,38 @@ public class SellBookController {
 	
 	@Autowired
 	private BookService bookService;
+	
+	//likes 수 올리기 (하트 모양 바뀌면서)
+/*	@RequestMapping(value = "/memberJoin", produces = "application/json; charset=utf-8")*/
+	@ResponseBody
+	@RequestMapping(value="/changeLikesBlack", produces = "application/json; charset=utf-8"/*method=RequestMethod.POST*/)
+	public BookDTO changeLikesBlack(MemberLikeBooksDTO mlbDTO, Model model){
+		BookDTO bookDTO = null;
+		try {
+				bookService.changeLikesBlack(mlbDTO);
+				bookDTO = bookService.sellBookView(mlbDTO.getNum(), mlbDTO.getId(), model);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("컨트롤러");
+		return bookDTO;
+		
+	}
+	//likes 수 -1 하기
+	@ResponseBody
+	@RequestMapping(value="/changeLikesRed", produces = "application/json; charset=utf-8"/*method=RequestMethod.POST*/)
+	public BookDTO changeLikesRed(MemberLikeBooksDTO mlbDTO, Model model){
+		BookDTO bookDTO = null;
+		try {
+				bookService.changeLikesRed(mlbDTO);
+				bookDTO = bookService.sellBookView(mlbDTO.getNum(), mlbDTO.getId(), model);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return bookDTO;
+	}
 	
 	//도서 등록 폼
 	@RequestMapping(value="/sellBookWrite", method = RequestMethod.GET)

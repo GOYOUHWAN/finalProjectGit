@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.choa.member.MemberDTO;
+import com.choa.member.MemberLikeBooksDTO;
 import com.choa.util.PageMaker;
 
 
@@ -18,6 +19,32 @@ public class BookDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private String namespace= "BookMapper.";
+	
+	//like 하나 더하기
+	public int changeLikesAdd(int num)throws Exception{
+		int result = 0;
+		result = sqlSession.update(namespace+"changeLikesAdd", num);
+		return result;
+	}
+	//like 하나 빼기
+	public int changeLikesDelete(int num)throws Exception{
+		int result=0;
+		result = sqlSession.update(namespace+"changeLikesDelete", num);
+		return result;
+	}
+	//memberLIkeBook 에 한줄 추가하기
+	public int insertMLB(MemberLikeBooksDTO mlbDTO)throws Exception{
+		int result=0;
+		result = sqlSession.insert(namespace+"insertMLB", mlbDTO);
+		return result;
+	}
+	//memberLikeBook에 한줄 삭제하기
+	public int deleteMLB(MemberLikeBooksDTO mlbDTO)throws Exception{
+		int result = 0;
+		result = sqlSession.delete(namespace+"deleteMLB", mlbDTO );
+		return result;
+	}
+	
 	
 	//판매도서 등록. 이미지파일 같이 등록.
 	public int sellBookWrite(BookDTO bookDTO, BookPictureDTO bookPictureDTO) throws Exception{
