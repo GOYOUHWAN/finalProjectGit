@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
 <style type="text/css">
 .btn_d_2 {
-	width: 25%;
+	width: 33.33333%;
 	height: 50px;
 	margin: 0 auto;
 	margin-top: 50px;
@@ -33,13 +33,10 @@
 <!-- Header Start -->
 		<%@ include file = "../../common/header.jsp" %>
 	<!-- Header End -->
-
-${member.name }님의 page
 		<div id="sub_3">
 			<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">myBookList(내가 팔고있는 책들)</button></a>
 			<a href="myBoardList?id=${member.id }"><button class="btn_d_2" id="btn5" tabindex="5">myBoardList(내가 쓴 글들)</button></a>
 			<a href="myBuyList?id=${member.id }"><button class="btn_d_2" id="btn6" tabindex="6">myBuyList(내가 산 책들)</button></a>
-			<a href="/proxyProject"><button class="btn_d_2" id="btn7" tabindex="7">HOME</button></a>
 		</div>
 
 
