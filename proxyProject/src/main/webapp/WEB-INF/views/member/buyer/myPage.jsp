@@ -11,12 +11,8 @@
 	width: 60%;
 	height: 100px;
 	margin: 0 auto;
-	margin-top: 100px;
-	
 }
-/* #sub_4{
-	wid
-} */
+
 
 .btn_d_2 {
 	float : left;
@@ -41,8 +37,6 @@
 
 <body>
 <%@ include file = "../../common/header.jsp" %>
-
-		<p>${member.name }님의 page</p>
 	
 		<div id="sub_3">
 			<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">myBookList(내가 좋아요한 글)</button></a>

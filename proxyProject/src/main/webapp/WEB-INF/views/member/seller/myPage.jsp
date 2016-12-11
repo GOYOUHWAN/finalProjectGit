@@ -12,7 +12,7 @@
 	width: 33.33333%;
 	height: 50px;
 	margin: 0 auto;
-	margin-top: 50px;
+
 	float: left;
 	font-size: 15px;
 	border: 1px solid #737373;
