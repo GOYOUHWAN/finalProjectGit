@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
 
-<title>Insert title here</title>
+<title>최신순 booklist</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -61,7 +61,7 @@ function checkCookie() {
 	width : 80%;
 	margin : 0 auto;
 	margin-top: 50px;
-	
+
 }
 #td_book{
 	/* border: 1px solid red; */
@@ -148,38 +148,38 @@ function checkCookie() {
 <!-- 리스트 시작 -->
           <table id="listTable">
          
-         <c:forEach begin="0" end="${listsize/4}">
+         <c:forEach begin="0" end="${listsize4/4}">
             <tr >
                <c:forEach begin="0" end="3">
                <c:set var="count" value="${count+1}"/>
-               <c:if test="${check}">  
-	                  <c:if test="${listsize =='0' }">
+               <c:if test="${check4}">  
+	                  <c:if test="${listsize4 =='0' }">
 	                 	 <c:set var="no" value="true"/>
 	                  </c:if>
 	                  
-	                  <c:if test="${listsize !='0' }">
+	                  <c:if test="${listsize4 !='0' }">
 	                     <td id="td_book">
 	                     <!--id 보여주는 곳  -->
-	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;판매자 :<%-- <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> --%>${list[count].id}<!-- </a> -->
+	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;판매자 :<%-- <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> --%>${list4[count].id}<!-- </a> -->
 	                     		
 	                        <div id="div_img">
 	                     <!--책 img 보여주는곳  -->
-	                       <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}">  </a><br>
+	                       <a href="sellBookView?num=${list4[count].num}&id=${list4[count].id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list4[count].files1}">  </a><br>
 	                       </div>
 	                       
 	                        <div class="pad">
 	                        <!--각 책에대한 설명  -->
 	                       
-	                         	<span class="pink name">${list[count].product}</span><br><br>
-	                         	 <p id="p_price">${list[count].price}</p> <p id="p_won">원</p>
+	                         	<span class="pink name">${list4[count].product}</span><br><br>
+	                         	 <p id="p_price">${list4[count].price}</p> <p id="p_won">원</p>
 	                    	  	&nbsp;&nbsp;&nbsp;&nbsp;
 	                    	  	
-	                    	  	<div id="div_likes" > <img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart${list[count].num }" onclick="change_img_to_red(${list[count].num})">
-	                    	  	&nbsp;&nbsp; <span id="spanLikes${list[count].num }">${list[count].likes}</span>
+	                    	  	<div id="div_likes" > <img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart${list4[count].num }" onclick="change_img_to_red(${list4[count].num})">
+	                    	  	&nbsp;&nbsp; <span id="spanLikes${list4[count].num }">${list4[count].likes}</span>
 	                    
 	                    	  	
 	                    	  	<script>
-	                    		var likess = "${list[count].likes}";
+	                    		var likess = "${list4[count].likes}";
                 	  			var id = "${member.id}";
 
 	                    	  	 function change_img_to_red(num) {
@@ -222,8 +222,8 @@ function checkCookie() {
 	                     </td>
 	                  </c:if>
               	  </c:if>  
-                  <c:if test="${(count+1) ==listsize}">
-                     <c:set var="check" value="false"/>
+                  <c:if test="${(count+1) ==listsize4}">
+                     <c:set var="check4" value="false"/>
                   </c:if>
                </c:forEach>
             </tr>

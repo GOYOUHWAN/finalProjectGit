@@ -20,6 +20,9 @@ public class BookDAO {
 	private SqlSession sqlSession;
 	private String namespace= "BookMapper.";
 	
+	
+
+	
 	//like 하나 더하기
 	public int changeLikesAdd(int num)throws Exception{
 		int result = 0;
@@ -82,9 +85,30 @@ public class BookDAO {
 			return sqlSession.selectList(namespace+"deposit", id);
 		}
 	
+	//search 했을때 list
+	public List<BookDTO> sellBookSearch(PageMaker pageMaker)throws Exception{
+		  System.out.println("dao의 서치 : " + pageMaker.getSearch());
+		  return sqlSession.selectList(namespace+"sellBookSearch", pageMaker);
+	}		
+		
 	//내가 팔기위해 올려놓은 책 리스트
 	public List<BookDTO> sellBookList(PageMaker pageMaker)throws Exception{
 		return sqlSession.selectList(namespace+"sellBookList", pageMaker);
+	}
+	//내가 팔기위해 올려놓은 책 리스트  //낮은 가격순
+	public List<BookDTO> sellBookList2(PageMaker pageMaker)throws Exception{
+		return sqlSession.selectList(namespace+"sellBookList2", pageMaker);
+	}
+	//내가 팔기위해 올려놓은 책 리스트  // 높은 가격순
+	public List<BookDTO> sellBookList3(PageMaker pageMaker)throws Exception{
+		return sqlSession.selectList(namespace+"sellBookList3", pageMaker);
+	}
+	//내가 팔기위해 올려놓은 책 리스트  //최신순
+	public List<BookDTO> sellBookList4(PageMaker pageMaker)throws Exception{
+		return sqlSession.selectList(namespace+"sellBookList4", pageMaker);
+	}	//내가 팔기위해 올려놓은 책 리스트  //좋아요순
+	public List<BookDTO> sellBookList5(PageMaker pageMaker)throws Exception{
+		return sqlSession.selectList(namespace+"sellBookList5", pageMaker);
 	}
 	
 	//book 카운트

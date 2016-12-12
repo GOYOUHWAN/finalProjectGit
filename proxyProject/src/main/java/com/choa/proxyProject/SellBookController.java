@@ -13,6 +13,7 @@ import com.choa.book.BookDTO;
 import com.choa.book.BookPictureDTO;
 import com.choa.book.BookService;
 import com.choa.member.MemberLikeBooksDTO;
+import com.choa.util.PageMaker;
 
 
 @Controller
@@ -21,6 +22,21 @@ public class SellBookController {
 	
 	@Autowired
 	private BookService bookService;
+	
+	
+	@RequestMapping(value="/sellBookSearch", method=RequestMethod.GET)
+	public String sellBookList(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="10")int perPage, @RequestParam String search, Model model){
+	  try {
+		  System.out.println("컨트롤러의 서치 : " + search);
+		  bookService.sellBookSearch(curPage, perPage, search, model);
+		
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		return "sellBook/sellBookSearch";
+	}
+	
 	
 	//likes 수 올리기 (하트 모양 바뀌면서)
 /*	@RequestMapping(value = "/memberJoin", produces = "application/json; charset=utf-8")*/
@@ -101,7 +117,45 @@ public class SellBookController {
 	}
 		return "sellBook/sellBookList";
 	}
-	
-	
+	@RequestMapping(value="/sellBookList2")
+	public String sellBookList2(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="10")int perPage, Model model){
+	  try {
+		bookService.sellBookList2(curPage, perPage, model);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		return "sellBook/sellBookList2";
+	}
+	@RequestMapping(value="/sellBookList3")
+	public String sellBookList3(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="10")int perPage, Model model){
+	  try {
+		bookService.sellBookList3(curPage, perPage, model);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		return "sellBook/sellBookList3";
+	}
+	@RequestMapping(value="/sellBookList4")
+	public String sellBookList4(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="10")int perPage, Model model){
+	  try {
+		bookService.sellBookList4(curPage, perPage, model);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		return "sellBook/sellBookList4";
+	}
+	@RequestMapping(value="/sellBookList5")
+	public String sellBookList5(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="10")int perPage, Model model){
+	  try {
+		bookService.sellBookList5(curPage, perPage, model);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		return "sellBook/sellBookList5";
+	}
 	
 }

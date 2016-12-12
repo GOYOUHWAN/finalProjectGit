@@ -73,7 +73,7 @@ img, ul, li{
 					<c:forEach items="${booklist}" var="list">
 						<tr>
 							<td>${list.product}</td>
-							<td>${list.writer}</td>
+							<td>${list.id}</td>
 							<td>${list.price }</td>
 						</tr>
 					</c:forEach>

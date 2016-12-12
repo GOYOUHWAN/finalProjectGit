@@ -37,6 +37,10 @@ tr, th {
 	float: left;
 	margin-top: 20px;
 }
+a:hover{
+	text-decoration: underline;
+	color: white;
+}
 </style>
 </head>
 <body class="home">

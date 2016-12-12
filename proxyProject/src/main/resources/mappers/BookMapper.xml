@@ -3,6 +3,19 @@
     
    <mapper namespace="BookMapper">
    
+   <select id="sellBookSearch" resultType="com.choa.book.BookDTO" parameterType="com.choa.util.PageMaker">
+  select T.*, BP.* from
+   	 (select * from
+		(select Rownum R, F.* from
+		(select * from Book order by num asc) F)
+		where R between #{startRowNum} and #{lastLowNum})T, BOOK_PICTURE BP
+   		 where (T.num=BP.num and T.product like '%'|| #{search} ||'%') 
+   		 or (T.num=BP.num and T.publisher like '%'||#{search}||'%') 
+   		 or (T.num=BP.num and T.writer like '%'||#{search}||'%') 
+   		 or (T.num=BP.num and T.contents like '%'||#{search}||'%')
+	</select>
+   
+   
    <!-- 하트눌렀을때 MemberLikeBooks 의  해당 한줄 삽입하기  -->
    <insert id="insertMLB" parameterType="com.choa.member.MemberLikeBooksDTO">
    		insert into MEMBERLIKEBOOKS values(#{id}, #{num}) 
@@ -65,6 +78,42 @@
    	 (select * from
 		(select Rownum R, F.* from
 		(select * from Book order by num asc) F)
+		where R between #{startRowNum} and #{lastLowNum})T, BOOK_PICTURE BP
+   		 where T.num=BP.num
+	</select>
+	
+	<select id="sellBookList2" resultType="com.choa.book.BookDTO" parameterType="com.choa.util.PageMaker">
+  	select T.*, BP.* from
+   	 (select * from
+		(select Rownum R, F.* from
+		(select * from Book order by price asc) F)
+		where R between #{startRowNum} and #{lastLowNum})T, BOOK_PICTURE BP
+   		 where T.num=BP.num
+	</select>
+	
+	<select id="sellBookList3" resultType="com.choa.book.BookDTO" parameterType="com.choa.util.PageMaker">
+  	select T.*, BP.* from
+   	 (select * from
+		(select Rownum R, F.* from
+		(select * from Book order by price desc) F)
+		where R between #{startRowNum} and #{lastLowNum})T, BOOK_PICTURE BP
+   		 where T.num=BP.num
+	</select>
+	
+		<select id="sellBookList4" resultType="com.choa.book.BookDTO" parameterType="com.choa.util.PageMaker">
+  	select T.*, BP.* from
+   	 (select * from
+		(select Rownum R, F.* from
+		(select * from Book order by reg_date desc) F)
+		where R between #{startRowNum} and #{lastLowNum})T, BOOK_PICTURE BP
+   		 where T.num=BP.num
+	</select>
+	
+	<select id="sellBookList5" resultType="com.choa.book.BookDTO" parameterType="com.choa.util.PageMaker">
+  	select T.*, BP.* from
+   	 (select * from
+		(select Rownum R, F.* from
+		(select * from Book order by likes desc) F)
 		where R between #{startRowNum} and #{lastLowNum})T, BOOK_PICTURE BP
    		 where T.num=BP.num
 	</select>

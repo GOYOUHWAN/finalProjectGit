@@ -18,6 +18,30 @@ public class BookService {
 	@Autowired
 	private BookDAO bookDAO;
 
+	//search 했을때 list
+	public List<BookDTO> sellBookSearch(int curPage, int perPage, String search , Model model)throws Exception{
+		  System.out.println("서비스의 서치 : " + search);
+		int totalCount = bookDAO.bookCount();
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCurPage(curPage);
+		pageMaker.setPerPage(perPage);
+		pageMaker.makeRow();//startRow & lastRow
+		pageMaker.makePage(totalCount);
+		pageMaker.setSearch(search);
+		
+		List<BookDTO> ar2 = bookDAO.sellBookSearch(pageMaker);
+		System.out.println(ar2);
+		System.out.println(ar2.size());
+		
+		model.addAttribute("listS", ar2);
+		model.addAttribute("listsizeS", ar2.size());
+		model.addAttribute("pagingS", pageMaker);
+		model.addAttribute("checkS", true);
+		return ar2;
+	}	
+	
+	
+	
 	//까망 하트 눌렀을때(mlb에 id랑 num으로 한줄 삽입 / book에 likes 하나 더하기)
 	public void changeLikesBlack(MemberLikeBooksDTO mlbDTO)throws Exception{
 		bookDAO.changeLikesAdd(mlbDTO.getNum());
@@ -65,7 +89,70 @@ public class BookService {
 			model.addAttribute("check", true);
 			return ar;
 		}	
-	
+	public List<BookDTO> sellBookList2(int curPage, int perPage, Model model)throws Exception{
+		
+		int totalCount = bookDAO.bookCount();
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCurPage(curPage);
+		pageMaker.setPerPage(perPage);
+		pageMaker.makeRow();//startRow & lastRow
+		pageMaker.makePage(totalCount);
+		
+		List<BookDTO> ar = bookDAO.sellBookList2(pageMaker);
+		model.addAttribute("list2", ar);
+		model.addAttribute("listsize2", ar.size());
+		model.addAttribute("paging2", pageMaker);
+		model.addAttribute("check2", true);
+		return ar;
+	}	
+	public List<BookDTO> sellBookList3(int curPage, int perPage, Model model)throws Exception{
+		
+		int totalCount = bookDAO.bookCount();
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCurPage(curPage);
+		pageMaker.setPerPage(perPage);
+		pageMaker.makeRow();//startRow & lastRow
+		pageMaker.makePage(totalCount);
+		
+		List<BookDTO> ar = bookDAO.sellBookList3(pageMaker);
+		model.addAttribute("list3", ar);
+		model.addAttribute("listsize3", ar.size());
+		model.addAttribute("paging3", pageMaker);
+		model.addAttribute("check3", true);
+		return ar;
+	}	
+	public List<BookDTO> sellBookList4(int curPage, int perPage, Model model)throws Exception{
+		
+		int totalCount = bookDAO.bookCount();
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCurPage(curPage);
+		pageMaker.setPerPage(perPage);
+		pageMaker.makeRow();//startRow & lastRow
+		pageMaker.makePage(totalCount);
+		
+		List<BookDTO> ar = bookDAO.sellBookList4(pageMaker);
+		model.addAttribute("list4", ar);
+		model.addAttribute("listsize4", ar.size());
+		model.addAttribute("paging4", pageMaker);
+		model.addAttribute("check4", true);
+		return ar;
+	}	
+	public List<BookDTO> sellBookList5(int curPage, int perPage, Model model)throws Exception{
+		
+		int totalCount = bookDAO.bookCount();
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCurPage(curPage);
+		pageMaker.setPerPage(perPage);
+		pageMaker.makeRow();//startRow & lastRow
+		pageMaker.makePage(totalCount);
+		
+		List<BookDTO> ar = bookDAO.sellBookList5(pageMaker);
+		model.addAttribute("list5", ar);
+		model.addAttribute("listsize5", ar.size());
+		model.addAttribute("paging5", pageMaker);
+		model.addAttribute("check5", true);
+		return ar;
+	}	
 
 	public List<BookDTO> myBookList(String id, Model model)throws Exception{
 		List<BookDTO> ar = bookDAO.myBookList(id);

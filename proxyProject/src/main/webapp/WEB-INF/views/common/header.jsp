@@ -31,19 +31,23 @@
 	}
 	#h_ul2{
 		width: 100%;
-	    height: 30px;
+	    height: 100%;
 	    list-style-type: none;
 	    margin-top: 0px;
 	    text-align: center;
 	    background-color: #7151FC;
 	    padding-top: 13px;
 	    padding-left: 110px;
-	   
+	   border: 1px solid green;
 	}
 	.h_li2{
 		width: 20%;
 		height: 100%;
 		float: left;
+	}
+	.header_a:hover{
+		text-decoration: underline;
+		color: white;
 	}
 	.acolor {
     	color: gray;
@@ -67,7 +71,6 @@
 
 
 </head>
-
 <body>
 
 	<header id="header_wrap">
@@ -84,15 +87,13 @@
 				 		<!-- 일반 회원용 -->      
 						<c:if test="${member.type =='1'}"> 
 						<a href="<%=application.getContextPath() %>/member/buyer/myPage?type=${member.type}&id=${member.id}" class="acolor">마이페이지</a>
-						<a href="freeboard/freeboardList" class="acolor2">freeboard</a>
-						<a href="member/buyer/myBookList?id=${member.id }" class="acolor2"> myBookList</a>
+						
 						</c:if>
 						   
 						   <!--판매자용  -->
 						      <c:if test="${member.type =='2'}"> 
 						<a href="<%=application.getContextPath() %>/member/seller/myPage?type=${member.type}&id=${member.id}" class="acolor">마이페이지</a>
-						<a href="freeboard/freeboardList" class="acolor2">freeboard</a>
-						<a href="member/buyer/myBookList?id=${member.id }" class="acolor2"> myBookList</a>
+					
 						   </c:if> 
 						   
 						   <!-- 관리자용 -->
@@ -110,7 +111,8 @@
 			</div>
 			<div id="a_header">			
 				<!--헤더에서 검색했을때 list 띄우는  -->
-				<form action="/sellBook/sellBookList">	
+				<form action="${pageContext.request.contextPath}/sellBook/sellBookSearch" method="get">	
+			
 					<input type="text" id="header_text"  placeholder="예)나무" name="search">
 					<input type="submit" value="검색" id="header_button" >
 				</form>	
@@ -118,10 +120,10 @@
 
 			<div id="header_div_5">	
 				<ul id="h_ul2">
-					<li class="h_li2"><a>공지사항</a></li>
-					<li class="h_li2"><a href="${pageContext.request.contextPath}/freeboard/freList">자유게시판</a></li>
-					<li class="h_li2"><a href="${pageContext.request.contextPath}/sellBook/sellBookList">물품 구매</a></li>
-					<li class="h_li2"><a href="${pageContext.request.contextPath}/blackList/blackListForm">블랙리스트</a></li>
+					<li class="h_li2"><a href="#"class="header_a">공지사항</a></li>
+					<li class="h_li2"><a href="${pageContext.request.contextPath}/freeboard/freList" class="header_a">자유게시판</a></li>
+					<li class="h_li2"><a href="${pageContext.request.contextPath}/sellBook/sellBookList"class="header_a">물품 구매</a></li>
+					<li class="h_li2"><a href="${pageContext.request.contextPath}/blackList/blackListForm"class="header_a">블랙리스트</a></li>
 				</ul>
 			</div>
 

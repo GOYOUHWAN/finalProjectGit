@@ -1,6 +1,8 @@
 package com.choa.util;
 
 public class PageMaker {
+	private String search;  // search 했을때 찾을 검색어 parameter
+	
 	private int startRowNum;
 	private int lastLowNum;
 	private int curBlock;
@@ -9,6 +11,18 @@ public class PageMaker {
 	private int lastNum;
 	private int curPage;
 	private int perPage;
+	
+	
+	//search 했을때 찾을라고 여기에 넣었음
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+
+	
 	
 	//rownum
 	public void makeRow(){

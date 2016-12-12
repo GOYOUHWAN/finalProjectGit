@@ -134,7 +134,7 @@ function checkCookie() {
 
 	</style>
 </head>
-<body id="body_sellbooklist">
+<body id="body_sellbookList">
 <%@ include file = "../common/header.jsp" %>
 
 <!--정렬 시작  -->
@@ -147,39 +147,39 @@ function checkCookie() {
 
 <!-- 리스트 시작 -->
           <table id="listTable">
-         
-         <c:forEach begin="0" end="${listsize/4}">
+        
+         <c:forEach begin="0" end="${listsizeS/4}">
             <tr >
                <c:forEach begin="0" end="3">
                <c:set var="count" value="${count+1}"/>
-               <c:if test="${check}">  
-	                  <c:if test="${listsize =='0' }">
+               <c:if test="${checkS}">  
+	                  <c:if test="${listsizeS =='0' }">
 	                 	 <c:set var="no" value="true"/>
 	                  </c:if>
 	                  
-	                  <c:if test="${listsize !='0' }">
+	                  <c:if test="${listsizeS !='0' }">
 	                     <td id="td_book">
 	                     <!--id 보여주는 곳  -->
-	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;판매자 :<%-- <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> --%>${list[count].id}<!-- </a> -->
+	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;판매자 :<%-- <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> --%>${listS[count].id}<!-- </a> -->
 	                     		
 	                        <div id="div_img">
 	                     <!--책 img 보여주는곳  -->
-	                       <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}">  </a><br>
+	                       <a href="sellBookView?num=${listS[count].num}&id=${listS[count].id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${listS[count].files1}">  </a><br>
 	                       </div>
 	                       
 	                        <div class="pad">
 	                        <!--각 책에대한 설명  -->
 	                       
-	                         	<span class="pink name">${list[count].product}</span><br><br>
-	                         	 <p id="p_price">${list[count].price}</p> <p id="p_won">원</p>
+	                         	<span class="pink name">${listS[count].product}</span><br><br>
+	                         	 <p id="p_price">${listS[count].price}</p> <p id="p_won">원</p>
 	                    	  	&nbsp;&nbsp;&nbsp;&nbsp;
 	                    	  	
-	                    	  	<div id="div_likes" > <img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart${list[count].num }" onclick="change_img_to_red(${list[count].num})">
-	                    	  	&nbsp;&nbsp; <span id="spanLikes${list[count].num }">${list[count].likes}</span>
+	                    	  	<div id="div_likes" > <img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart${listS[count].num }" onclick="change_img_to_red(${listS[count].num})">
+	                    	  	&nbsp;&nbsp; <span id="spanLikes${listS[count].num }">${listS[count].likes}</span>
 	                    
 	                    	  	
 	                    	  	<script>
-	                    		var likess = "${list[count].likes}";
+	                    		var likess = "${listS[count].likes}";
                 	  			var id = "${member.id}";
 
 	                    	  	 function change_img_to_red(num) {
@@ -222,8 +222,8 @@ function checkCookie() {
 	                     </td>
 	                  </c:if>
               	  </c:if>  
-                  <c:if test="${(count+1) ==listsize}">
-                     <c:set var="check" value="false"/>
+                  <c:if test="${(count+1) ==listsizeS}">
+                     <c:set var="checkS" value="false"/>
                   </c:if>
                </c:forEach>
             </tr>
