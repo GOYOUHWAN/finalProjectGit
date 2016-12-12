@@ -40,7 +40,17 @@
 <!-- <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"> -->
 
 <body>
+<script type="text/javascript"> 
+function test() { 
+var td = document.getElementById("test"); 
+var n = Number(td.innerHTML); 
+td.innerHTML = n + 1; 
+} 
+</script> 
 
+<input type="button" value="push" onclick="test()" /> 
+
+<table border="1"><tr><td id="test"></td></tr></table>
 
 
 <div>

@@ -43,7 +43,7 @@
 	</c:otherwise>
 </c:choose>	
 
-	<a href="freeboard/freeboardList">freeboard</a>
+	<a href="freeboard/freList">freeboard</a>
 
 
 	<a href="sellBook/sellBookList">sellBookList</a> 
@@ -56,7 +56,6 @@
 <<<<<<< HEAD
 <%-- 	</c:otherwise> --%>
 <%-- </c:choose>	 --%>
-=======
 
 	<a href="${pageContext.request.contextPath}/freeboard/freList">freeboard</a>
 >>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git

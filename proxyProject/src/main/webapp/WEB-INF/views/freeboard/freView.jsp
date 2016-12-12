@@ -6,39 +6,80 @@
 <html lang="en">
 <head>
 <style type="text/css">
-#re1{
+#submit{
+	width: 10%;
+	float: right;
+	background-color: #7151FC;
+}
+#s_div1 {
+	width: 50%;
+	height: 300px;
+	margin-top: 350px;
+	border: 1px solid green;
+	margin-left: 350px;
+}
+
+#re1 {
 	padding: 88px 0 24px;
     color: #1f1f1f;
-    font-size: 20px;
-
+    font-size: 30px;
 }
 
-.review1{
-    margin: 50px 50px 50px 50px;
-    padding: 20px 0 20px 20px;
-    background-color: #f8f8f8;	
-    border : 1px solid black;
-}
-#contents{
-    border: 1px solid #dbdbdb;
-    padding: 20px;
-    width: 90%;
-    height: 150px;
-}
-#submit{
+.review1 {
+	margin: 50px 50px 50px 50px;
+	padding: 20px 0 20px 20px;
+	background-color: #f8f8f8;
+	border-bottom: 1px solid #ececec;
 	
-    color: #7151FC;
-    font-size: 16px;
-    line-height: 19px;
-    padding: 16px 54px;
-    border: 1px solid #7151FC;
 }
 
-#review3{
-	border : 1px solid black;
-	width:100%;
-	height:150px;
+#contents {
+	border: 1px solid #dbdbdb;
+	width: 100%;
+	height: 150px;
 }
+
+#review3 {
+	border: 1px solid black;
+	width: 100%;
+	height: 150px;
+}
+
+#section {
+	padding: 0 50px;
+}
+
+#title {
+	font-size: 30px;
+	line-height: 42px;
+	color: #1f1f1f;
+}
+
+#writer {
+	border-bottom: 1px solid #ececec;
+	margin-bottom: 150px;
+	float:right;
+}
+#content{
+	margin-left: 250px;
+	font-size: 50px;
+	margin:0 auto;
+}
+#tr2{
+	margin: auto;
+}
+#date{
+	float:left;
+}
+#writer{
+	float:left;
+}
+.comment{
+	padding: 20px 0 20px 16px;
+    border-bottom: 1px solid #ececec;
+
+}
+
 </style>
 <script type="text/javascript"
 	src="/proxyProject/resources/js/jquery-1.11.3.min.js"></script>
@@ -74,7 +115,7 @@
 
 								if (id == data[i].writer
 										|| "${sessionScope.member.type}" == "3") {
-									result += "<input type='button' value='수정' onclick='mod(";
+									result += "<input type='button' value='수정' style='background-color: white; border-radius: 10px' onclick='mod(";
 									result += data[i].reviewno;
 									result += ", ";
 									result += i;
@@ -88,7 +129,7 @@
 								}
 								result += "</tr>";
 								result += "<tr>";
-								result += "<td colspan='3'>";
+								result += "<td colspan='5'>";
 								result += "<textarea name='contents'>";
 								result += data[i].contents;
 								result += "</textarea></td>";
@@ -168,19 +209,26 @@
 <title>VIEW</title>
 </head>
 <body>
-
-	<section>
-	<table>
+	<div>
+<!-- Header Start -->
+		<%@ include file = "../common/header.jsp" %>
+	<!-- Header End -->
+</div>
+	<section id="section">
+	<table id="s_div1">
 		<tr>
-			<td>${dto.title}</td>
+			<td id="title">${dto.title}</td>
 		</tr>
 		<tr>
-			<td>작성자</td>
-			<td>${dto.id}</td>
-			<td>날 짜 |</td>
-			<td><fmt:formatDate value="${dto.date2}"
+			<td id="content">${dto.content}</td>
+			<div id="tr2">
+			<td id="writer">작성자 :&nbsp;</td>
+			<td id="writer">${dto.id}</td><br>
+			<td id="date">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;날 짜 :&nbsp;</td>
+			<td id="date"><fmt:formatDate value="${dto.date2}"
 					pattern="yyyy/MM/dd hh:mm" /></td>
-			<td>${dto.content}</td>
+			</div>
+		</tr>	
 			<c:if
 				test="${sessionScope.member.id eq dto.id || sessionScope.member.type eq '3'}">
 				<a href="freModifyForm?no=${dto.no}">수정</a>
@@ -204,13 +252,13 @@
 					</td>
 				</tr>
 			</table>
-			<div id="review3">
 			<textarea id="contents" placeholder="댓글입니다."></textarea>
 							<button type="button" id="submit">댓글등록</button>
+							<br>
+							<br>
 								
-			<div id="div_review" align="center" class="review1">
+			<div id="div_review" class="review1">
 					<center></center><!--  댓글 달리는곳 -->
-			</div>
 			</div>
 	</table>
 	</section>

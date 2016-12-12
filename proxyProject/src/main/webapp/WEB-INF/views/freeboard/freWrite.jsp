@@ -64,30 +64,21 @@ $(function(){
 	text-align: center;
 	margin: 0 auto;
 }
-</style>
-<title>Q&A</title>
-</head>
-<body>
-	<header>
 
-		<section id="stuck_container">
-			<div class="container">
-				<div class="row">
-					<div class="grid_12">
-						<h1>
-							
-						</h1>
-						<div class="navigation">
-							
-							</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	</header>
-	<section class="contents">
+#save{
+	width: 100%;
+	float: right;
+	background-color: #7151FC;
+}
+</style>
+</head>
+		<!-- header Start -->
+		<%@ include file = "../common/header.jsp" %>
+	<!-- header End -->
+<body>
+
+	<section class="contents">	
 		<div class="container" align="center">
-				<h2 style="color:#86cdd7; font-size:35px; background-color: white">WRITE</h2>
 				<form action="freWrite" method="post" id="frm" style="background-color: white;">
 					<div id="center" style="background-color:white;font-weight: bold; color: gray;">
 						제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="title" id="title" style="width: 300px; background-color: #FAFAFA;" placeholder="제목을 작성하세요">
@@ -95,13 +86,15 @@ $(function(){
 						<br>
 						<br> 내용	<textarea name="content" id="ir1" style="width:100%; height:500px"></textarea>
 						<br><div style="width: 100px; height: 20px; text-align: center; margin:0 auto; margin-top: 10px">
-							<input type="button" id="save" value="글 작 성">
+							<button id="save">글 작 성</button>
 						</div>
 					</div>
 				</form>
 		</div>
 	</section>
-
+	<!-- Footer Start -->
+		<%@ include file = "../common/footer.jsp" %>
+	<!-- Footer End -->
 
 </body>
 </html>
