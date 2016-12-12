@@ -18,6 +18,7 @@ public class PageMaker {
 	
 	//pageing
 	public void makePage(int totalCount){
+		
 		//1. 전체 게시물 수-매개변수
 		
 		//2. 전체 page

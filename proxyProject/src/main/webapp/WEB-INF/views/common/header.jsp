@@ -71,9 +71,9 @@
 <body>
 
 	<header id="header_wrap">
-	<audio  id="musicPlayer" autoplay="autoplay"  controls autoplay  >
+<!-- 	<audio  id="musicPlayer" autoplay="autoplay"  controls autoplay  >
 	  					<source src="/proxyProject/resources/upload/music.mp3" type="audio/mpeg">
-					</audio>   
+					</audio> -->   
 		<div id="header_div_1">
 			<div id="h_div1">
 				

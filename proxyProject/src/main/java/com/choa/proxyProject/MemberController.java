@@ -139,6 +139,10 @@ public class MemberController {
       return "/member/seller/myBookList";
    }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
    @RequestMapping(value="/buyer/deposit")
    public String deposit(@RequestParam int num, String id,  Model model){
 
@@ -152,6 +156,10 @@ public class MemberController {
    }
    
    // ============================================================
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
    // MEMBER============================================================
    //ID찾기
    @RequestMapping(value="findID", method=RequestMethod.GET)
@@ -162,6 +170,10 @@ public class MemberController {
    //PW찾기
    @RequestMapping(value="findPW", method=RequestMethod.GET)
    public void findPW(){}
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
    // ID중복체크
    @ResponseBody
    @RequestMapping(value = "checkID2", method = RequestMethod.POST)

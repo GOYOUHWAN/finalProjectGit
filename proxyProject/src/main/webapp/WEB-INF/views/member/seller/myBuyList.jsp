@@ -48,6 +48,11 @@ img, ul, li{
 </head>
 <body class="home">
 <%@ include file = "../../common/header.jsp" %>
+<div id="sub_3">
+			<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">myBookList(내가 팔고있는 책들)</button></a>
+			<a href="myBoardList?id=${member.id }"><button class="btn_d_2" id="btn5" tabindex="5">myBoardList(내가 쓴 글들)</button></a>
+			<a href="myBuyList?id=${member.id }"><button class="btn_d_2" id="btn6" tabindex="6">myBuyList(내가 산 책들)</button></a>
+		</div>
 
 	<div class="container">
 		<h2>myBuyList_for_seller</h2>

@@ -25,7 +25,7 @@ header a{
 	color: white;
 }
 .container{
-	margin-top:200px;
+	margin-top:60px;
 	border: 1px solid red;
 }
 #header_wrap {
@@ -43,7 +43,7 @@ header a{
 	margin: 0 auto;
 	color : white;
 	font-size: 18px;
-	margin-top: 10px;
+	margin-top: 0px;
 
 }
 #header_div_2{
@@ -93,8 +93,9 @@ header a{
 #sub_3{
 	width: 80%;
 	height: 100px;
+	margin-top: 300px;
 	margin: 0 auto;
-	margin-top: 200px;
+	border: 1px solid red;
 }
 
 #a_header{
@@ -143,7 +144,7 @@ body{
 	margin-top: 50px;
 }
 
-.button{
+/* .button{
 	cursor: pointer;
 	background-color: #00e6e6;
 	border: none;
@@ -156,9 +157,7 @@ body{
     margin: 4px 2px;
     border-radius: 15px;
     box-shadow: 0 9px #999;
-    
-   
-}
+} */
 .button:active {
   background-color: #00e6e6;
   box-shadow: 0 5px #666;
@@ -194,14 +193,14 @@ body{
 
 .id, .pw {
     width: 80%;
-    padding: 12px 20px;
+   /*  padding: 12px 20px; */
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;/* 상은씨 로그인폼의 테두리 색 */
     box-sizing: border-box;
 }
 
-button {
+/* button {
     background-color: #7151FC;
     color: white;
     padding: 14px 20px;
@@ -210,7 +209,7 @@ button {
     cursor: pointer;
     width: 100%;
    
-}
+} */
 
 .cancelbtn {
     width: auto;
@@ -229,9 +228,7 @@ img.avatar {
     border-radius: 50%;
 }
 
-.container {
-    padding: 16px; 
-}
+
    .psw {
        display: block;
        margin-right: 30px;
@@ -334,10 +331,10 @@ ul.tab li a:focus, .active {
    
 } 
 
-.dropbtn:hover, .dropbtn:focus {
+/* .dropbtn:hover, .dropbtn:focus {
      background-color: #3e8e41; 
 }
-
+ */
 .dropdown {
 	width : 200px;
     position: static;
@@ -418,3 +415,37 @@ ul.tab li a:focus, .active {
 	background-color: #f2f2f2;
 	color: #f2f2f2;
 }
+
+
+.btn_d_2 {
+	float : left;
+	width: 33.333333%;
+	height: 50px;
+	margin: 0 auto;
+	font-size: 15px;
+	border: 1px solid #737373;
+	background-color: white;
+	color: #737373;
+	outline: none;
+	margin-top: 50px;
+}
+.btn_d_2:HOVER {
+	background-color: #737373;
+	border: 1px solid white;
+	color: white;
+	outline: none;
+}
+#div_container_2{
+	border: 1px solid gray;
+	width: 80%;
+	margin: 0 auto;
+	padding: 20px;
+}
+#div_title{
+	width: 100%;
+	height : 40px;
+	border-bottom-color: gray;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+

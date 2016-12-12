@@ -15,18 +15,17 @@ td.innerHTML = n + 1;
 </script> 
 <style type="text/css">
 #sub_3 {
-	width: 80%;
+	width: 60%;
 	height: 100px;
 	margin: 0 auto;
-	margin-top: 300px;
 }
 
+
 .btn_d_2 {
-	width: 25%;
+	float : left;
+	width: 33.333333%;
 	height: 50px;
 	margin: 0 auto;
-	margin-top: 50px;
-	float: left;
 	font-size: 15px;
 	border: 1px solid #737373;
 	background-color: white;
@@ -46,14 +45,11 @@ td.innerHTML = n + 1;
 
 <body>
 <%@ include file = "../../common/header.jsp" %>
-<h2> 일반회원용 myPage</h2>
-
 	
 		<div id="sub_3">
 			<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">myBookList(내가 좋아요한 글)</button></a>
 			<a href="myBoardList?id=${member.id }"><button class="btn_d_2" id="btn5" tabindex="5">myBoardList</button></a>
 			<a href="myBuyList?id=${member.id }"><button class="btn_d_2" id="btn6" tabindex="6">myBuyList</button></a>
-			<a href="/proxyProject"><button class="btn_d_2" id="btn7" tabindex="7">HOME</button></a>
 		</div>
 
 
