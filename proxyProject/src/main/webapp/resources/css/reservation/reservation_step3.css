@@ -64,7 +64,7 @@ div.form_wrap input[type="text"], div.form_wrap input[type="password"]
 	line-height: 21px;
 	border: none;
 	background-color: transparent;
-}
+}//주소 입력하는 css 수정하기 
 
 div.form_wrap input.shinsegae_vipcard_pw {
 	width: 100px
@@ -76,8 +76,8 @@ div.form_wrap input.shinsegae_vipcard_pw {
 
 .ticket_payment_method {
 	float: left;
-	width: 744px;
-	min-height: 400px;
+	width: 800px;
+	min-height: 200px;
 }
 .ticket_payment_summary {
 	float: right;
