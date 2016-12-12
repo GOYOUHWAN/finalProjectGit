@@ -33,10 +33,10 @@ public class BlackListController {
 		}
 		if(result>0){
 			path="redirect:/blackList/blackListForm";
-			message="등록 성공";
+			message="신고가 접수되었습니다.";
 		}else {
 			path="redirect:/blackList/blackListForm";
-			message="등록 실패";
+			message="신고 접수 실패";
 		}
 		rd.addFlashAttribute("message", message);
 		return path;
@@ -53,6 +53,4 @@ public class BlackListController {
 		}
 		return "/blackList/blackListForm";
 	}
-/*	@RequestMapping(value="/blackListForm")
-	public void blackListForm(){}*/
 }
