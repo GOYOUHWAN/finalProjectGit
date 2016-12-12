@@ -8,209 +8,219 @@
 <title>Manager Page</title>
 <style type="text/css">
 * {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
 }
 
 body {
-	font-family: "NanumGothic", "Helvetica Neue", Helvetica, Arial,
-		sans-serif;
-	padding-bottom: 60px;
-	color: #141823;
-	line-height: 1.42857;
+   font-family: "NanumGothic", "Helvetica Neue", Helvetica, Arial,
+      sans-serif;
+   padding-bottom: 60px;
+   color: #141823;
+   line-height: 1.42857;
 }
 
 a {
-	color: #298cd8;
-	text-decoration: none;
-	cursor: pointer;
-	background: transparent;
+   color: #298cd8;
+   text-decoration: none;
+   cursor: pointer;
+   background: transparent;
 }
 
 .btn {
-	display: inline-block;
-	margin-bottom: 0;
-	font-weight: normal;
-	text-align: center;
-	vertical-align: middle;
-	cursor: pointer;
-	background-image: none;
-	border: 1px solid transparent;
-	white-space: nowrap;
-	padding: 6px 12px;
-	font-size: 14px;
-	line-height: 1.42857;
-	border-radius: 3px;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+   display: inline-block;
+   margin-bottom: 0;
+   font-weight: normal;
+   text-align: center;
+   vertical-align: middle;
+   cursor: pointer;
+   background-image: none;
+   border: 1px solid transparent;
+   white-space: nowrap;
+   padding: 6px 12px;
+   font-size: 14px;
+   line-height: 1.42857;
+   border-radius: 3px;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
 }
 
 .btn-default {
-	color: #333;
-	background-color: #fff;
-	border-color: #ccc;
+   color: #333;
+   background-color: #fff;
+   border-color: #ccc;
 }
 
 .btn-expanded {
-	width: 100%;
+   width: 100%;
 }
 
 .mypage-menu {
-	display: inline-block;
-	width: 234px;
-	padding: 22px 0;
-	border: 1px solid #d8d8d8;
-	border-radius: 3px;
-	margin: 30px 14px 50px 0
+   display: inline-block;
+   width: 234px;
+   padding: 22px 0;
+   border-radius: 3px;
+   margin: 30px 14px 50px 0
 }
 
 .mypage-menu-item {
-	padding: 8px 36px;
-	display: block;
-	font-size: 16px;
-	color: #1f1f1f
+   padding: 8px 36px;
+   display: block;
+   font-size: 16px;
+   color: #1f1f1f
 }
 
 .mypage-menu-item.active {
-	font-weight: bold;
-	background-color: #f5f5f5
+   font-weight: bold;
+   background-color: #f5f5f5
 }
 
 .mypage-menu-hr {
-	border-top: 1px solid #d8d8d8;
-	margin: 10px
+   border-top: 1px solid #d8d8d8;
+   margin: 10px
 }
 
 .mypage-content {
-	width: 732px;
-	vertical-align: top;
-	display: inline-block;
-	border: 1px solid #d8d8d8;
-	border-radius: 3px;
-	margin-top: 30px;
-	margin-bottom: 50px;
+   width: 732px;
+   vertical-align: top;
+   display: inline-block;
+   border: 1px solid #d8d8d8;
+   border-radius: 3px;
+   margin-top: 30px;
+   margin-bottom: 50px;
 }
 
-.mypage-header {
-	font-size: 24px;
-	padding: 22px 0 22px 34px;
-	border-bottom: 1px solid #d8d8d8;
+.blacklist-header {
+   width: 70%;
+   float: left;
 }
-
+.blacklist-header2 {
+   width: 30%;
+    padding: 32px 0 20px 34px;
+    border-bottom: 1px solid #d8d8d8;
+   float: left;
+   margin-bottom: 20px;
+}
+#blacktitle {
+   font-size: 24px;
+   padding: 20px 0 20px 34px;
+   border-bottom: 1px solid #d8d8d8;
+}
 .mypage-body {
-	padding: 33px;
+   padding: 33px;
 }
 
 .mypage-item-wrapper {
-	padding: 16px 0;
+   padding: 16px 0;
 }
 
 .mypage-item-wrapper+.mypage-item-wrapper {
-	border-top: 1px solid #d8d8d8;
+   border-top: 1px solid #d8d8d8;
 }
 
 .mypageodr-table-header {
-	border-bottom: 1px solid #d8d8d8;
-	padding-bottom: 10px;
-	font-size: 14px
+   border-bottom: 1px solid #d8d8d8;
+   margin-top: 10px;
+   padding-bottom: 10px;
+   font-size: 14px
 }
 
 .mypageodr-header-info {
-	width: 60px;
-	display: inline-block;
-	text-align: center
+   width: 60px;
+   display: inline-block;
+   text-align: center
 }
 
 .mypageodr-header-info-tel {
-	width: 150px;
-	display: inline-block;
-	text-align: center
+   width: 150px;
+   display: inline-block;
+   text-align: center
 }
 
 .mypageodr-header-state {
-	width: 188px;
-	display: inline-block;
-	text-align: center;
+   width: 188px;
+   display: inline-block;
+   text-align: center;
 }
 
 .mypageodr-header-btns {
-	width: 120px;
-	display: inline-block;
-	text-align: center;
+   width: 120px;
+   display: inline-block;
+   text-align: center;
 }
 
 .mypageodr-item-info {
-	width: 40px;
-	display: inline-block;
-	margin-left: 20px;
-	vertical-align: middle
+   width: 40px;
+   display: inline-block;
+   margin-left: 20px;
+   vertical-align: middle
 }
 
 .mypageodr-item-price {
-	font-size: 14px;
-	text-align: center;
+   font-size: 14px;
+   text-align: center;
 }
 
 .mypageodr-item-state {
-	width: 60px;
-	display: inline-block;
-	font-size: 12px;
-	color: #000;
-	vertical-align: middle
+   width: 60px;
+   display: inline-block;
+   font-size: 12px;
+   color: #000;
+   vertical-align: middle
 }
 
 .mypageodr-item-tel {
-	width: 150px;
-	display: inline-block;
-	font-size: 12px;
-	color: #000;
-	vertical-align: middle
+   width: 150px;
+   display: inline-block;
+   font-size: 12px;
+   color: #000;
+   vertical-align: middle
 }
 
 .mypageodr-item-state-title {
-	font-size: 14px;
-	color: #000;
-	text-align: center
+   font-size: 14px;
+   color: #000;
+   text-align: center
 }
 
 .mypageodr-item-btn-wrapper {
-	display: inline-block;
-	width: 126px;
-	padding: 0 20px;
-	text-align: center;
-	vertical-align: middle
+   display: inline-block;
+   width: 126px;
+   padding: 0 20px;
+   text-align: center;
+   vertical-align: middle
 }
 
 .mypageodr-item-btn-wrapper .btn+.btn {
-	margin-top: 6px
+   margin-top: 6px
 }
 
 .mypageodr-delete-btn {
-	display: block;
+   display: block;
 }
 
 .mypage-page-wrapper {
-	padding: 20px 0;
-	text-align: center;
-	border-top: 1px solid #d8d8d8
+   padding: 20px 0;
+   text-align: center;
+   border-top: 1px solid #d8d8d8
 }
 
 .mypage-page {
-	text-align: center;
-	width: 24px;
-	height: 24px;
-	font-size: 12px;
-	display: inline-block;
-	padding-top: 4px
+   text-align: center;
+   width: 24px;
+   height: 24px;
+   font-size: 12px;
+   display: inline-block;
+   padding-top: 4px
 }
 
 .mypage-page.active {
-	background-color: #d8d8d8;
-	border-radius: 3px;
-	color: #fff
+   background-color: #d8d8d8;
+   border-radius: 3px;
+   color: #fff
 }
 </style>
 </head>

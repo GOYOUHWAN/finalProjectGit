@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.choa.freeboard.FreeboardDAO">
+
+   
+   <!-- 게시물 작성 -->
+   <insert id="DepositWrite">
+      INSERT INTO deposit VALUES(dep_seq.nextval, #{id}, sysdate, #{price},  #{book2_num})
+   </insert>
+      
+  
+</mapper>

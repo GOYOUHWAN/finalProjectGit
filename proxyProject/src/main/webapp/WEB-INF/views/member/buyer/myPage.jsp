@@ -6,6 +6,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
 <title>Insert title here</title>
+<script type="text/javascript"> 
+function test() { 
+var td = document.getElementById("test"); 
+var n = Number(td.innerHTML); 
+td.innerHTML = n + 1; 
+} 
+</script> 
 <style type="text/css">
 #sub_3 {
 	width: 60%;
@@ -32,6 +39,7 @@
 	color: white;
 	outline: none;
 }
+
 </style>
 </head>
 
@@ -44,6 +52,10 @@
 			<a href="myBuyList?id=${member.id }"><button class="btn_d_2" id="btn6" tabindex="6">myBuyList</button></a>
 		</div>
 
+
+<input type="button" value="push" onclick="test()" /> 
+
+<table border="1"><tr><td id="test"></td></tr></table>
 
 
 
