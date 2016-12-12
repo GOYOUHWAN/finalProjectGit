@@ -6,6 +6,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>BlackList Page</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+      var message='${message}';
+      if(message!=''){
+         alert(message);
+      }
+});
+</script>
 <style type="text/css">
 * {
    -webkit-box-sizing: border-box;
@@ -59,11 +69,7 @@ a {
 }
 
 .mypage-menu {
-   display: inline-block;
-   width: 234px;
-   padding: 22px 0;
-   border-radius: 3px;
-   margin: 30px 14px 50px 0
+	text-align: center;
 }
 
 .mypage-menu-item {
@@ -91,14 +97,26 @@ a {
    border-radius: 3px;
    margin-top: 30px;
    margin-bottom: 50px;
+   margin: 0 auto;
 }
 
-.mypage-header {
-   font-size: 24px;
-   padding: 22px 0 22px 34px;
+.blacklist-header {
+   width: 70%;
+   float: left;
    border-bottom: 1px solid #d8d8d8;
 }
-
+.blacklist-header2 {
+   width: 30%;
+    padding: 32px 0 20px 34px;
+    border-bottom: 1px solid #d8d8d8;
+   float: left;
+   margin-bottom: 20px;
+}
+#blacktitle {
+   font-size: 24px;
+   padding: 20px 0 20px 34px;
+   float: left;
+}
 .mypage-body {
    padding: 33px;
 }
@@ -112,17 +130,22 @@ a {
 }
 
 .mypageodr-table-header {
-   border-bottom: 1px solid #d8d8d8;
+   border-bottom: 2px solid #d8d8d8;
+   margin-top: 10px;
    padding-bottom: 10px;
-   font-size: 14px
+   font-size: 14px;
+   text-align: left;
 }
 
 .mypageodr-header-info {
    width: 60px;
    display: inline-block;
-   text-align: center
+   text-align: center;
 }
-
+.mypageodr-header-info2 {
+   width: 30px;
+   display: inline-block;
+}
 .mypageodr-header-info-tel {
    width: 150px;
    display: inline-block;
@@ -214,29 +237,24 @@ a {
 </style>
 </head>
 <body>
-<%--    <!-- Header Start -->
+    <!-- Header Start -->
       <%@ include file = "../common/header.jsp" %>
-   <!-- Header End --> --%>
-   <div style="height: 150px;"></div>
+	<!-- Header End -->
+
    <div class="mypage-menu">
-<!--       <a class="mypage-menu-item" href="manageMember">구매자관리</a> <a
-         class="mypage-menu-item" href="manageSeller">판매자관리</a> <a
-         class="mypage-menu-item active" href="manageBlacklist">블랙리스트관리</a>
-      <div class="mypage-menu-hr"></div>
-      <a class="mypage-menu-item" href="manageAccounting">회계관리</a>
-      <div class="mypage-menu-hr"></div>
-      <a class="mypage-menu-item" href="manageBoard">게시글관리</a> -->
-   </div>
    <div class="mypage-content">
-      <div class="mypage-header">블랙리스트</div>
-      <div class="mypage-body ng-scope">
+      <div class="blacklist-header"><p id="blacktitle">블랙리스트</p></div>
+      <div class="blacklist-header2"><a href="singoForm">신고하기</a></div>
+      <div class="mypage-body ng-scope2">
          <div class="mypageodr-table-header">
+         <div class="mypageodr-header-info2"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div class="mypageodr-header-info">ID</div>
+            <div class="mypageodr-header-info2"></div>
+            <div class="mypageodr-header-info2"></div>
             <div class="mypageodr-header-info">이름</div>
             <div class="mypageodr-header-info-tel">전화번호</div>
             <div class="mypageodr-header-info-tel">이메일</div>
             <div class="mypageodr-header-info">등급</div>
-            <div class="mypageodr-header-info-tel">관리</div>
          </div>
          <div>
                <!-- 구매자 정보 -->
@@ -247,6 +265,8 @@ a {
                         <a class="mypageodr-item-price ng-binding"
                            href="${pageContext.request.contextPath }/member/memberView?id=${f.id}">${f.id }</a>
                      </div>
+                     <div class="mypageodr-header-info2"></div>
+                     <div class="mypageodr-header-info2"></div>
                      <div
                         class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.name }</div>
                      <div
@@ -286,6 +306,7 @@ a {
             </div>
          </div>
       </div>
+   </div>
    </div>
 </body>
 <script
