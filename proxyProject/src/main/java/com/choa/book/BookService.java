@@ -18,6 +18,15 @@ public class BookService {
 	@Autowired
 	private BookDAO bookDAO;
 
+	//index에서 좋아요순으로 1~10 보여주기
+	public List<BookDTO> BookLikes(Model model)throws Exception{
+		List<BookDTO> ar = bookDAO.BookLikes();
+		model.addAttribute("bookLikes", ar);
+		model.addAttribute("count", 0);
+		model.addAttribute("listsize", ar.size());
+		return ar;
+	}
+	
 	//search 했을때 list
 	public List<BookDTO> sellBookSearch(int curPage, int perPage, String search , Model model)throws Exception{
 		  System.out.println("서비스의 서치 : " + search);
@@ -84,12 +93,12 @@ public class BookService {
 			
 			List<BookDTO> ar = bookDAO.sellBookList(pageMaker);
 			System.out.println("인덱스확인 : " + ar.size());
-			System.out.println("0"+ar.get(0).getFiles1());  //0부터 시작한다.
+/*			System.out.println("0"+ar.get(0).getFiles1());  //0부터 시작한다.
 			System.out.println("1"+ar.get(1).getFiles1());
 			System.out.println("2"+ar.get(2).getFiles1());
 			System.out.println("3"+ar.get(3).getFiles1());
 			System.out.println("4"+ar.get(4).getFiles1());
-			System.out.println("5"+ar.get(5).getFiles1());
+			System.out.println("5"+ar.get(5).getFiles1());*/
 		
 			
 			model.addAttribute("count", 0);
@@ -109,6 +118,7 @@ public class BookService {
 		pageMaker.makePage(totalCount);
 		
 		List<BookDTO> ar = bookDAO.sellBookList2(pageMaker);
+		model.addAttribute("count", 0);
 		model.addAttribute("list2", ar);
 		model.addAttribute("listsize2", ar.size());
 		model.addAttribute("paging2", pageMaker);
@@ -125,6 +135,7 @@ public class BookService {
 		pageMaker.makePage(totalCount);
 		
 		List<BookDTO> ar = bookDAO.sellBookList3(pageMaker);
+		model.addAttribute("count", 0);
 		model.addAttribute("list3", ar);
 		model.addAttribute("listsize3", ar.size());
 		model.addAttribute("paging3", pageMaker);
@@ -141,6 +152,7 @@ public class BookService {
 		pageMaker.makePage(totalCount);
 		
 		List<BookDTO> ar = bookDAO.sellBookList4(pageMaker);
+		model.addAttribute("count", 0);
 		model.addAttribute("list4", ar);
 		model.addAttribute("listsize4", ar.size());
 		model.addAttribute("paging4", pageMaker);
@@ -157,6 +169,7 @@ public class BookService {
 		pageMaker.makePage(totalCount);
 		
 		List<BookDTO> ar = bookDAO.sellBookList5(pageMaker);
+		model.addAttribute("count", 0);
 		model.addAttribute("list5", ar);
 		model.addAttribute("listsize5", ar.size());
 		model.addAttribute("paging5", pageMaker);

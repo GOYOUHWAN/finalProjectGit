@@ -151,7 +151,7 @@ function checkCookie() {
          <c:forEach begin="0" end="${listsize2/4}">
             <tr >
                <c:forEach begin="0" end="3">
-               <c:set var="count" value="${count+1}"/>
+              
                <c:if test="${check2}">  
 	                  <c:if test="${listsize2 =='0' }">
 	                 	 <c:set var="no" value="true"/>
@@ -225,6 +225,7 @@ function checkCookie() {
                   <c:if test="${(count+1) ==listsize2}">
                      <c:set var="check2" value="false"/>
                   </c:if>
+                   <c:set var="count" value="${count+1}"/>
                </c:forEach>
             </tr>
          </c:forEach>

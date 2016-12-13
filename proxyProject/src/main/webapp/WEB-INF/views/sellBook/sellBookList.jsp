@@ -229,12 +229,6 @@ function checkCookie() {
                </c:forEach>
             </tr>
          </c:forEach>
-         	<tr>
-         		<td>
-         		    <h2>6번 : ${list[6].files1 }</h2>
-                   <h2>0 번 : ${list[0].files1 }</h2>
-         		</td>
-         	</tr>
          </table>
                
          <!-- 리스트 끝 -->

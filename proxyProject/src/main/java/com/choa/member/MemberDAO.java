@@ -22,6 +22,19 @@ public class MemberDAO {
 	private SqlSession sqlSession;
 	private String namespace = "MemberMapper.";
 	
+	//고유환이 만든부분 시작
+	//index 에서 판매자seller_trust에 따라 순위 1~10위 보여주기
+	public List<MemberDTO> sellerTrust()throws Exception{
+		return sqlSession.selectList(namespace+"sellerTrust");
+	}
+	//index 에서 판매자 buyer_trust에 따라 순위 1~10위 보여주기
+	public List<MemberDTO> buyerTrust()throws Exception{
+		return sqlSession.selectList(namespace+"buyerTrust");
+	}
+	//고유환이 만든부분 끝
+	
+	
+	
 	//관리자메뉴=================================================
 	//회원정보열람
 	public List<MemberDTO> memberInfo(MemberPageMaker mPageMaker) throws Exception{

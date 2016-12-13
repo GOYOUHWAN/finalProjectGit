@@ -11,8 +11,8 @@
 #s_div1{
 	width: 100%;
 	height: 300px;
-	margin-top: 100px;
-	border: 1px solid green;
+	margin-top: 150px;
+	/* border: 1px solid green; */
 }
 .s_div2{
 	width:  200px;
@@ -20,13 +20,18 @@
 	margin-left: 6%;
 	float: left;
 	text-align: center;
-	border: 1px solid red;
+	border-radius : 15px;
+	background-color : #f2f2f2;
+	background-color: rgba(242, 242, 242, 0.2);
+		 text-shadow: 1px 1px gray;
+	
+ /* 	border: 1px solid red;  */
 }
 #s_div3{
 	width: 90%;
 	height: 100%;
 	margin: 0 auto;
-	border: 1px solid yellow;
+/* 	border: 1px solid yellow; */
 }
 .mySlides{
 	width: 200px;
@@ -34,13 +39,22 @@
 	display:none;
 
 }
+.p_text{
+	color: white;
+	margin-top: 10px;
+}
+.class_text{
+	color: white;
+	 text-shadow: 1px 1px black;
+}
+
 </style>
 </head>
 <!-- <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"> -->
 
 <body>
 
-<script type="text/javascript"> 
+<!-- <script type="text/javascript"> 
 function test() { 
 var td = document.getElementById("test"); 
 var n = Number(td.innerHTML); 
@@ -48,9 +62,9 @@ td.innerHTML = n + 1;
 } 
 </script> 
 
-<input type="button" value="push" onclick="test()" /> 
+<input type="button" value="push" onclick="test()" />  -->
 
-<table border="1"><tr><td id="test"></td></tr></table>
+<!-- <table border="1"><tr><td id="test"></td></tr></table> -->
 
 
 
@@ -67,7 +81,7 @@ td.innerHTML = n + 1;
 	
 		<div id="s_div3">
 			<div class="w3-content w3-section s_div2" style="max-width:200px" >
-			추천
+			<h3 class="class_text">추천</h3>
 			  <img class="mySlides" src="/proxyProject/resources/upload/dogani.jpg" style="width:100%">
 			  <img class="mySlides" src="/proxyProject/resources/upload/osaka.jpg" style="width:100%">
 			  <img class="mySlides" src="/proxyProject/resources/upload/blood.jpg" style="width:100%">
@@ -94,13 +108,26 @@ td.innerHTML = n + 1;
 					}
 				</script>
 			<div class="s_div2">
-				인기도
+				<h3 class="class_text">도서 인기도</h3>
+				<c:forEach begin="1" end="${listsize}">
+				
+					<p class="p_text"><a href="sellBook/sellBookView?num=${bookLikes[count].num}&id=${bookLikes[count].id}" class="p_text">${count+1}위&nbsp; ${bookLikes[count].product}</a></p>
+							<c:set var="count" value="${count+1 }"/>
+				</c:forEach>
 			</div>
 			<div class="s_div2">
-				판매자 신용도
+				<h3 class="class_text">판매자 신용도</h3>
+				<c:forEach begin="1" end="${listsizeT}">
+					<p class="p_text">${countT+1}위&nbsp; ${sellerTrust[countT].id}</p>
+							<c:set var="countT" value="${countT+1 }"/>
+				</c:forEach>
 			</div>
 			<div class="s_div2">
-				구매자 신용도
+				<h3 class="class_text">구매자 신용도</h3>
+				<c:forEach begin="1" end="${listsizeB }">
+				<p class="p_text">${countB+1 }위&nbsp; ${buyerTrust[countB].id }</p>
+					<c:set var="countB" value="${countB+1 }"/>				
+				</c:forEach>
 			</div>
 			</div>
 		</div>

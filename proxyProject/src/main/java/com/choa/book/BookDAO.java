@@ -21,7 +21,10 @@ public class BookDAO {
 	private String namespace= "BookMapper.";
 	
 	
-
+	//index 페이지에서 likes 순으로 1~10위 보여주기
+	public List<BookDTO> BookLikes()throws Exception{
+		return sqlSession.selectList(namespace+"BookLikes" );
+	}
 	
 	//like 하나 더하기
 	public int changeLikesAdd(int num)throws Exception{

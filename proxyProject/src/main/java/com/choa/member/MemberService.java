@@ -15,6 +15,28 @@ import org.springframework.stereotype.Service;
 public class MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
+
+	//고유환이 만든부분 시작
+	//sellerTrust로 index에서 1~10위 보여주기
+	public List<MemberDTO> sellerTrust(Model model)throws Exception{
+		 List<MemberDTO> ar = memberDAO.sellerTrust();
+		model.addAttribute("sellerTrust", ar);
+		model.addAttribute("countT", 0);
+		model.addAttribute("listsizeT", ar.size());
+		return ar;
+	}
+	
+	//buyerTrust로 index 에서 1~10위 보여쥐
+	public List<MemberDTO> buyerTrust(Model model)throws Exception{
+		List<MemberDTO> ar = memberDAO.buyerTrust();
+		model.addAttribute("buyerTrust", ar);
+		model.addAttribute("countB", 0);
+		model.addAttribute("listsizeB", ar.size());
+		return ar;
+	}
+	//고유환인 만든부분 끝
+	
+	
 	
 	//관리자메뉴=================================================
 	//회원정보열람

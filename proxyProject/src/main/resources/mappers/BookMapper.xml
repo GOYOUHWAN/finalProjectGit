@@ -3,6 +3,12 @@
     
    <mapper namespace="BookMapper">
    
+   <select id="BookLikes" resultType="com.choa.book.BookDTO">
+   		select * from Book order by likes desc
+   </select>
+   
+   
+   
    <select id="sellBookSearch" resultType="com.choa.book.BookDTO" parameterType="com.choa.util.PageMaker">
   select T.*, BP.files1 from
    	 (select * from
