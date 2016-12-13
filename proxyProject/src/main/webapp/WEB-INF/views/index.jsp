@@ -39,7 +39,7 @@
 <!-- <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"> -->
 
 <body>
-<<<<<<< HEAD
+
 <script type="text/javascript"> 
 function test() { 
 var td = document.getElementById("test"); 
@@ -53,8 +53,7 @@ td.innerHTML = n + 1;
 <table border="1"><tr><td id="test"></td></tr></table>
 
 
-=======
->>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
+
 <div>
 	<!-- Header Start -->
 		
@@ -93,7 +92,7 @@ td.innerHTML = n + 1;
 					    x[myIndex-1].style.display = "block";  
 					    setTimeout(carousel, 2500); // Change image every 2.5 seconds
 					}
-					</script>
+				</script>
 			<div class="s_div2">
 				인기도
 			</div>

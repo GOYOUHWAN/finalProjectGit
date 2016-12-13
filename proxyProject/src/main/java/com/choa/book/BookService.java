@@ -30,13 +30,13 @@ public class BookService {
 		pageMaker.setSearch(search);
 		
 		List<BookDTO> ar2 = bookDAO.sellBookSearch(pageMaker);
-		System.out.println(ar2);
-		System.out.println(ar2.size());
+		System.out.println("ar2.size : " + ar2.size());
 		
-		model.addAttribute("listS", ar2);
-		model.addAttribute("listsizeS", ar2.size());
-		model.addAttribute("pagingS", pageMaker);
-		model.addAttribute("checkS", true);
+		model.addAttribute("count", 0);
+		model.addAttribute("list", ar2);
+		model.addAttribute("listsize", ar2.size());
+		model.addAttribute("paging", pageMaker);
+		model.addAttribute("check", true);
 		return ar2;
 	}	
 	
@@ -83,6 +83,16 @@ public class BookService {
 			pageMaker.makePage(totalCount);
 			
 			List<BookDTO> ar = bookDAO.sellBookList(pageMaker);
+			System.out.println("인덱스확인 : " + ar.size());
+			System.out.println("0"+ar.get(0).getFiles1());  //0부터 시작한다.
+			System.out.println("1"+ar.get(1).getFiles1());
+			System.out.println("2"+ar.get(2).getFiles1());
+			System.out.println("3"+ar.get(3).getFiles1());
+			System.out.println("4"+ar.get(4).getFiles1());
+			System.out.println("5"+ar.get(5).getFiles1());
+		
+			
+			model.addAttribute("count", 0);
 			model.addAttribute("list", ar);
 			model.addAttribute("listsize", ar.size());
 			model.addAttribute("paging", pageMaker);

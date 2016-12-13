@@ -4,7 +4,7 @@
    <mapper namespace="BookMapper">
    
    <select id="sellBookSearch" resultType="com.choa.book.BookDTO" parameterType="com.choa.util.PageMaker">
-  select T.*, BP.* from
+  select T.*, BP.files1 from
    	 (select * from
 		(select Rownum R, F.* from
 		(select * from Book order by num asc) F)
