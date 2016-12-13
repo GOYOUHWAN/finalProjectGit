@@ -31,7 +31,16 @@ public class MemberService {
 	}
 	
 	
-	//회원메뉴=================================================
+	// 회원메뉴=================================================
+	// ID찾기
+	public void findID(String find, Model model) throws Exception {
+		model.addAttribute("find", memberDAO.findID(find));
+	}
+	
+	// PW변경
+	public int updatePW(String id, String pw) throws Exception {
+		return memberDAO.updatePW(id, pw);
+	}
 	//아이디중복확인
 	public int checkid(String id) throws Exception{
 		return memberDAO.checkid(id);

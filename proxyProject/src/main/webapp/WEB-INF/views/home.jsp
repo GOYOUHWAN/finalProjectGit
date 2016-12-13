@@ -53,18 +53,15 @@
 
 
 	
-<<<<<<< HEAD
 <%-- 	</c:otherwise> --%>
 <%-- </c:choose>	 --%>
 
 	<a href="${pageContext.request.contextPath}/freeboard/freList">freeboard</a>
->>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
 
 
 
 
 <a href="index">index</a>
-\
 <a href="test">test_for_ajax</a>
 
 

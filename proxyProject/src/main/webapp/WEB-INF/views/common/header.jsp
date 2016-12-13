@@ -102,8 +102,8 @@
 						   </c:if>
 					</li>
 					<li class="h_li1"><a href="${pageContext.request.contextPath}/member/memberJoin" class="acolor">회원가입</a></li>
-					<li class="h_li1"><a href="member/memberJoin" class="acolor">아이디 찾기</a></li>
-					<li class="h_li1"><a href="member/memberJoin" class="acolor">비밀번호 찾기</a></li>
+					<li class="h_li1"><a href="member/findID" class="acolor">아이디 찾기</a></li>
+					<li class="h_li1"><a href="member/findPW" class="acolor">비밀번호 찾기</a></li>
 				</ul>
 			</div>
 			<div id="header_div_2">

@@ -161,13 +161,58 @@ public class MemberController {
    //ID찾기
    @RequestMapping(value="findID", method=RequestMethod.GET)
    public void findID(){}
+   //ID찾기
+   @RequestMapping(value="findID", method=RequestMethod.POST)
+   public String findID(@RequestParam String tel,@RequestParam String pFirst,@RequestParam String pSecond,@RequestParam String pThird, 
+		   @RequestParam String email_1, @RequestParam String email_2, @RequestParam int ch, Model model){
+	   String find = "";
+	   String page = "";
+	   if(pThird!=null){
+		   find = "["+tel+"]"+pFirst+"-"+pSecond+"-"+ pThird;
+		   find = find.replace(",","");
+	   }else{
+		   find = email_1+"@"+email_2;
+		   find = find.replace(",","");
+	   }
+	   
+	   try {
+		memberService.findID(find, model);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	   if(ch=='1'){
+		   page = "member/findIDResult";
+	   }else{
+		   page = "member/findPWResult";
+	   }
+	  return page;
+   }
+   
    //ID찾기결과
    @RequestMapping(value="findIDResult", method=RequestMethod.GET)
    public void findIDResult(){}
    //PW찾기
    @RequestMapping(value="findPW", method=RequestMethod.GET)
    public void findPW(){}
-
+   //PW찾기결과
+   @RequestMapping(value="findPWResult", method=RequestMethod.POST)
+   public String findPWResult(@RequestParam String id, @RequestParam String pw, Model model, HttpServletResponse response )throws Exception{
+	   int result = 0;
+	   String message= "";
+	   response.setContentType("text/html;charset=UTF-8");
+		   PrintWriter writer = response.getWriter();
+		  result = memberService.updatePW(id, pw);
+		  if(result>0){
+			   message = "수정완료";
+		   }else{
+			   message="수정실패";
+		   }
+		  model.addAttribute("message", message);
+		  writer.println("<script type='text/javascript'>");
+		  writer.println("alert('안녕'); </script>");
+	
+	   return "redirect:/";
+   }
    // ID중복체크
    @ResponseBody
    @RequestMapping(value = "checkID2", method = RequestMethod.POST)

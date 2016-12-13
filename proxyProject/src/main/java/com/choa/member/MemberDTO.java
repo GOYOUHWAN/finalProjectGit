@@ -1,20 +1,22 @@
 package com.choa.member;
 
+import java.sql.Date;
+
 public class MemberDTO {
 	private String id;
 	private String pw;
 	private String name;
 	private String tel;
-	private String birth;
+	private String year;
 	private String email;
 	private String address;
 	private int type;
-	private int grade;
+	private int grade;/*
 	private int buyer_trust;
-	private int seller_trust;
+	private int seller_trust;*/
 	private String account;
-	
-	
+	private int report;
+	private Date joinDate;
 	public String getId() {
 		return id;
 	}
@@ -39,12 +41,7 @@ public class MemberDTO {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-	public String getBirth() {
-		return birth;
-	}
-	public void setBirth(String birth) {
-		this.birth = birth;
-	}
+	
 	public String getEmail() {
 		return email;
 	}
@@ -69,23 +66,30 @@ public class MemberDTO {
 	public void setGrade(int grade) {
 		this.grade = grade;
 	}
-	public int getBuyer_trust() {
-		return buyer_trust;
-	}
-	public void setBuyer_trust(int buyer_trust) {
-		this.buyer_trust = buyer_trust;
-	}
-	public int getSeller_trust() {
-		return seller_trust;
-	}
-	public void setSeller_trust(int seller_trust) {
-		this.seller_trust = seller_trust;
-	}
+	
 	public String getAccount() {
 		return account;
 	}
 	public void setAccount(String account) {
 		this.account = account;
+	}
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
+	public int getReport() {
+		return report;
+	}
+	public void setReport(int report) {
+		this.report = report;
+	}
+	public Date getJoinDate() {
+		return joinDate;
+	}
+	public void setJoinDate(Date joinDate) {
+		this.joinDate = joinDate;
 	}
 	
 	

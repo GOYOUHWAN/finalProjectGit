@@ -34,35 +34,46 @@ public class MemberDAO {
 	}
 	
 	//회원메뉴=================================================
-	//1.JOIN//
+		//id찾기
+		public String findID(String find) throws Exception{
+			find = sqlSession.selectOne(namespace+"findID", find);
+			return find;
+		}
+		
+		public int updatePW(String id, String pw) throws Exception{
+			MemberDTO memberDTO = new MemberDTO();
+			memberDTO.setId(id);
+			memberDTO.setPw(pw);
+			return sqlSession.update(namespace+"updatePW", memberDTO);
+		}
+		
+		//id중복확인
+		public int checkid(String id) throws Exception{
+			return sqlSession.selectOne(namespace+"checkID", id);
+		}
+			
+		//회원정보보기
+		public MemberDTO memberView(String id) throws Exception{
+			return sqlSession.selectOne(namespace+"memberView", id);
+		}
+		//회원가입
 		public int memberJoin(MemberDTO memberDTO) throws Exception{
 			return sqlSession.insert(namespace+"memberJoin", memberDTO);
 		}
-	//2.LOGIN//
-	public MemberDTO memberLogin(MemberDTO memberDTO) throws Exception{
-		return sqlSession.selectOne(namespace+"memberLogin", memberDTO);
-	}
-	
-	//3.UPDATE//
-	public int memberUpdate(MemberDTO memberDTO) throws Exception{
-		return sqlSession.update(namespace+"memberUpdate", memberDTO);
-	}
-	
-	//4.DELETE//
-	public int memberDelete(String id) throws Exception{
-		System.out.println("memeberDAO : "+id);
-		return sqlSession.delete(namespace+"memberDelete", id);
-	}
-	
-	//5.id중복확인
-	public int checkid(String id) throws Exception{
-		return sqlSession.selectOne(namespace+"checkID", id);
-	}
-	
-	//회원정보보기
-	public MemberDTO memberView(String id) throws Exception{
-		return sqlSession.selectOne(namespace+"memberView", id);
-	}
+		//로그인
+		public MemberDTO memberLogin(MemberDTO memberDTO) throws Exception{
+			return sqlSession.selectOne(namespace+"memberLogin", memberDTO);
+		}
+		
+		//회원수정
+		public int memberUpdate(MemberDTO memberDTO) throws Exception{
+			return sqlSession.update(namespace+"memberUpdate", memberDTO);
+		}
+		
+		//회원탈퇴
+		public int memberDelete(String id) throws Exception{
+			return sqlSession.delete(namespace+"memberDelete", id);
+		}
 	
 	
 	

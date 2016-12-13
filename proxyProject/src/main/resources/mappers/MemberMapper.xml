@@ -36,4 +36,10 @@
 	<select id="checkID" resultType="int" parameterType="String">
 		select count(*) from member where id=#{id}
 	</select>
+	<select resultType="String" parameterType="String" id="findID"> 
+	select id from member where email=#{find} or tel=#{find} 
+	</select>
+	<update parameterType="com.choa.member.MemberDTO" id="updatePW"> 
+	update member set pw=#{pw} where id=#{id} 
+	</update>
 </mapper>

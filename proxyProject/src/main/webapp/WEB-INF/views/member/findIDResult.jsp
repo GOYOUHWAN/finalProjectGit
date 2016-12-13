@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -21,8 +23,16 @@
 				<div class="box6 result" style="text-align:center; height:57px;" >
 					<ul class="list_id" style="list-style:none;">
 						<li><strong>
-						<input type="radio">
-						<label class="label_rd">daeun94112</label>
+						
+						<c:choose>
+							<c:when test="${find eq null }">
+								<p>일치하는 ID가 없습니다.</p>
+							</c:when>
+							<c:otherwise>
+								<input type="radio">
+								<label class="label_rd">${find }</label>
+							</c:otherwise>
+						</c:choose>
 						</strong></li>
 					</ul>
 				</div>
