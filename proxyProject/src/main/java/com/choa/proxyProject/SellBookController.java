@@ -1,6 +1,8 @@
 package com.choa.proxyProject;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,11 +26,11 @@ public class SellBookController {
 	private BookService bookService;
 	
 	
-	@RequestMapping(value="/sellBookSearch", method=RequestMethod.GET)
+	@RequestMapping(value="/sellBookSearch")
 	public String sellBookList(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="10")int perPage, @RequestParam String search, Model model){
 	  try {
 		  System.out.println("컨트롤러의 서치 : " + search);
-		  bookService.sellBookSearch(curPage, perPage, search, model);
+		 bookService.sellBookSearch(curPage, perPage, search, model);
 		
 	} catch (Exception e) {
 		// TODO Auto-generated catch block

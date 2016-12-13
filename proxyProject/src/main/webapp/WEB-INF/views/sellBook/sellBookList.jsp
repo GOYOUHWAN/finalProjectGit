@@ -151,7 +151,7 @@ function checkCookie() {
          <c:forEach begin="0" end="${listsize/4}">
             <tr >
                <c:forEach begin="0" end="3">
-               <c:set var="count" value="${count+1}"/>
+   
                <c:if test="${check}">  
 	                  <c:if test="${listsize =='0' }">
 	                 	 <c:set var="no" value="true"/>
@@ -164,7 +164,7 @@ function checkCookie() {
 	                     		
 	                        <div id="div_img">
 	                     <!--책 img 보여주는곳  -->
-	                       <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}">  </a><br>
+	                       <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}"> </a><br>
 	                       </div>
 	                       
 	                        <div class="pad">
@@ -175,7 +175,7 @@ function checkCookie() {
 	                    	  	&nbsp;&nbsp;&nbsp;&nbsp;
 	                    	  	
 	                    	  	<div id="div_likes" > <img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart${list[count].num }" onclick="change_img_to_red(${list[count].num})">
-	                    	  	&nbsp;&nbsp; <span id="spanLikes${list[count].num }">${list[count].likes}</span>
+	         	  		&nbsp;&nbsp; <span id="spanLikes${list[count].num }">${list[count].likes}</span>
 	                    
 	                    	  	
 	                    	  	<script>
@@ -225,11 +225,18 @@ function checkCookie() {
                   <c:if test="${(count+1) ==listsize}">
                      <c:set var="check" value="false"/>
                   </c:if>
+               <c:set var="count" value="${count+1}"/>
                </c:forEach>
             </tr>
          </c:forEach>
+         	<tr>
+         		<td>
+         		    <h2>6번 : ${list[6].files1 }</h2>
+                   <h2>0 번 : ${list[0].files1 }</h2>
+         		</td>
+         	</tr>
          </table>
-                   
+               
          <!-- 리스트 끝 -->
          <c:if test="${no}">
             <p id="tagisp">조회된 결과가 없습니다. 다른 조건으로 검색해보세요!</p>

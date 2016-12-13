@@ -90,7 +90,7 @@ public class BookDAO {
 		  System.out.println("dao의 서치 : " + pageMaker.getSearch());
 		  return sqlSession.selectList(namespace+"sellBookSearch", pageMaker);
 	}		
-		
+	
 	//내가 팔기위해 올려놓은 책 리스트
 	public List<BookDTO> sellBookList(PageMaker pageMaker)throws Exception{
 		return sqlSession.selectList(namespace+"sellBookList", pageMaker);
