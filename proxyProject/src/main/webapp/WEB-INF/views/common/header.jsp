@@ -31,19 +31,22 @@
 	}
 	#h_ul2{
 		width: 100%;
-	    height: 100%;
+	    height: 35px;
 	    list-style-type: none;
 	    margin-top: 0px;
 	    text-align: center;
 	    background-color: #7151FC;
 	    padding-top: 13px;
 	    padding-left: 110px;
-	   border: 1px solid green;
+	/*    border: 2px solid green; */
 	}
 	.h_li2{
-		width: 20%;
-		height: 100%;
+		width: 250px;
+		height: 25px;
 		float: left;
+		margin: 0 auto;
+/* 		border: 1px solid red; */
+	
 	}
 	.header_a:hover{
 		text-decoration: underline;
@@ -56,16 +59,8 @@
     	color: gray;
     	margin-left: 15px;
 	}
-	#music{
-		float: left;
-	/* 	border: 1px solid blue; */
-	}
-	#musicPlayer{
-	width : 30px;
-	height: 30px;
-	float: left;
-	resize: none;	
-}
+	
+
 
 </style>
 
@@ -74,9 +69,7 @@
 <body>
 
 	<header id="header_wrap">
-<!-- 	<audio  id="musicPlayer" autoplay="autoplay"  controls autoplay  >
-	  					<source src="/proxyProject/resources/upload/music.mp3" type="audio/mpeg">
-					</audio> -->   
+
 		<div id="header_div_1">
 			<div id="h_div1">
 				

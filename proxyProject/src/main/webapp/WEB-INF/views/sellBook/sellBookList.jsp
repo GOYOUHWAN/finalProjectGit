@@ -14,42 +14,6 @@
 
 
 
-//cookie 이용 script 구현 안되어있고 코드만 미리 가져다 놓음 ==>>>구현해줘야함.
-/* function setCookie(cname,cvalue,exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires=" + d.toGMTString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-function checkCookie() {
-    var user=getCookie("username");
-    if (user != "") {
-        alert("Welcome again " + user);
-    } else {
-       user = prompt("Please enter your name:","");
-       if (user != "" && user != null) {
-           setCookie("username", user, 30);
-       }
-    }
-} */
-
-
 
 </script>
 
@@ -73,6 +37,7 @@ function checkCookie() {
 	/* border : 1px solid yellow; */
 	width: 100%;;
 	height: 300px;
+/* 	border: 1px solid red; */
 }
 #img{
 	border-radius : 0px;
@@ -81,6 +46,7 @@ function checkCookie() {
 	height: 100%;
 	/* border: 1px solid green; */
 	margin-left: 25px;
+/* 	border: 1px solid green; */
 	}
 #body_sellbooklist{
 	height: 1200px;
@@ -114,10 +80,7 @@ function checkCookie() {
 	width: 20px;
 	height: 20px;
 }
-#p_price{
-	font-size: 22px;
-	float: left;
-}
+
 #p_won{
 	font-size: 13px;
 	color: gray;
@@ -160,7 +123,7 @@ function checkCookie() {
 	                  <c:if test="${listsize !='0' }">
 	                     <td id="td_book">
 	                     <!--id 보여주는 곳  -->
-	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;판매자 :<%-- <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> --%>${list[count].id}<!-- </a> -->
+	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="span_id">${list[count].id}</span>
 	                     		
 	                        <div id="div_img">
 	                     <!--책 img 보여주는곳  -->
@@ -171,11 +134,12 @@ function checkCookie() {
 	                        <!--각 책에대한 설명  -->
 	                       
 	                         	<span class="pink name">${list[count].product}</span><br><br>
-	                         	 <p id="p_price">${list[count].price}</p> <p id="p_won">원</p>
+	                         	 <p id="p_price">${list[count].price}   </p> <p id="p_won">원</p>
+	                         	
 	                    	  	&nbsp;&nbsp;&nbsp;&nbsp;
 	                    	  	
 	                    	  	<div id="div_likes" > <img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart${list[count].num }" onclick="change_img_to_red(${list[count].num})">
-	         	  		&nbsp;&nbsp; <span id="spanLikes${list[count].num }">${list[count].likes}</span>
+	         	  		&nbsp;&nbsp; <span class="spanLikes" id="spanLikes${list[count].num }">${list[count].likes}</span>
 	                    
 	                    	  	
 	                    	  	<script>
@@ -235,5 +199,34 @@ function checkCookie() {
          <c:if test="${no}">
             <p id="tagisp">조회된 결과가 없습니다. 다른 조건으로 검색해보세요!</p>
          </c:if> 
+         
+         
+    
+	
+<!--paging  시작 -->
+	<c:if test="${paging != null }">
+		<!-- 목차, 글쓰기 -->
+		<div id="listnum">
+		<!-- 뒤로가기 -->
+	
+		<c:if test="${paging.curBlock>'1'}">
+			<a href="sellBookList?curPage=${paging.startNum-1}"> 이전 </a>
+		</c:if>
+		<!-- 목차번호 -->
+		
+		<c:forEach begin="${paging.startNum}" end="${paging.lastNum}" step="1" var="i">
+			<a href="sellBookList?curPage=${i}">${i}</a>
+		</c:forEach>
+		
+		<!-- 앞으로 가기 -->
+		<c:if test="${paging.curBlock < paging.totalBlock}">
+			<a href="sellBookList?curPage=${paging.lastNum+1}"> 다음 </a>
+		</c:if>
+			
+		</div>
+		</c:if>
+<!--paging 끝 -->
+         
+         
 </body>
 </html>

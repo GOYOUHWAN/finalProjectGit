@@ -235,5 +235,28 @@ function checkCookie() {
          <c:if test="${no}">
             <p id="tagisp">조회된 결과가 없습니다. 다른 조건으로 검색해보세요!</p>
          </c:if> 
+         
+         	
+<!--paging  시작 -->
+		<!-- 목차, 글쓰기 -->
+		<div id="listnum">
+		<!-- 뒤로가기 -->
+
+		<c:if test="${paging5.curBlock>'1'}">
+			<a href="sellBookList5?curPage=${paging5.startNum-1}"> 이전 </a>
+		</c:if>
+		<!-- 목차번호 -->
+		
+		<c:forEach begin="${paging5.startNum}" end="${paging5.lastNum}" step="1" var="i">
+			<a href="sellBookList5?curPage=${i}">${i}</a>
+		</c:forEach>
+		
+		<!-- 앞으로 가기 -->
+		<c:if test="${paging5.curBlock < paging5.totalBlock}">
+			<a href="sellBookList5?curPage=${paging5.lastNum+1}"> 다음 </a>
+		</c:if>
+			
+		</div>
+<!--paging 끝 -->
 </body>
 </html>

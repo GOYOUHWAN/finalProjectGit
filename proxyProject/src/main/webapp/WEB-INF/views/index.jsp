@@ -50,21 +50,9 @@
 
 </style>
 </head>
-<!-- <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"> -->
+<!--  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">   -->
 
 <body>
-
-<!-- <script type="text/javascript"> 
-function test() { 
-var td = document.getElementById("test"); 
-var n = Number(td.innerHTML); 
-td.innerHTML = n + 1; 
-} 
-</script> 
-
-<input type="button" value="push" onclick="test()" />  -->
-
-<!-- <table border="1"><tr><td id="test"></td></tr></table> -->
 
 
 
@@ -109,24 +97,26 @@ td.innerHTML = n + 1;
 				</script>
 			<div class="s_div2">
 				<h3 class="class_text">도서 인기도</h3>
+				<c:if test="${listsize >10 }">
+					<c:set var="listsize" value="10"/>
+				</c:if>
 				<c:forEach begin="1" end="${listsize}">
-				
 					<p class="p_text"><a href="sellBook/sellBookView?num=${bookLikes[count].num}&id=${bookLikes[count].id}" class="p_text">${count+1}위&nbsp; ${bookLikes[count].product}</a></p>
-							<c:set var="count" value="${count+1 }"/>
+						<c:set var="count" value="${count+1 }"/>
 				</c:forEach>
 			</div>
 			<div class="s_div2">
 				<h3 class="class_text">판매자 신용도</h3>
 				<c:forEach begin="1" end="${listsizeT}">
 					<p class="p_text">${countT+1}위&nbsp; ${sellerTrust[countT].id}</p>
-							<c:set var="countT" value="${countT+1 }"/>
+						<c:set var="countT" value="${countT+1 }"/>
 				</c:forEach>
 			</div>
 			<div class="s_div2">
 				<h3 class="class_text">구매자 신용도</h3>
 				<c:forEach begin="1" end="${listsizeB }">
-				<p class="p_text">${countB+1 }위&nbsp; ${buyerTrust[countB].id }</p>
-					<c:set var="countB" value="${countB+1 }"/>				
+					<p class="p_text">${countB+1 }위&nbsp; ${buyerTrust[countB].id }</p>
+						<c:set var="countB" value="${countB+1 }"/>				
 				</c:forEach>
 			</div>
 			</div>

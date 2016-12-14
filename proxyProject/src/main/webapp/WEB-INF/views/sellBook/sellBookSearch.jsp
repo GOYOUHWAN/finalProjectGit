@@ -237,5 +237,8 @@ function checkCookie() {
          <c:if test="${no}">
             <p id="tagisp">조회된 결과가 없습니다. 다른 조건으로 검색해보세요!</p>
          </c:if> 
+         
+         
+
 </body>
 </html>

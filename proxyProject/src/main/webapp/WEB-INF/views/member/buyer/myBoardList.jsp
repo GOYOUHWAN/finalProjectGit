@@ -37,6 +37,7 @@ tr, th {
 	float: left;
 	margin-top: 20px;
 }
+
 </style>
 </head>
 <body class="home">
@@ -49,6 +50,7 @@ tr, th {
 	<div class="container">
 	<div id="div_container_2">		
 	<div id="div_container_3">
+		<div id="div_title"><h2>내가 쓴 글 리스트</h2></div>
 		<%-- <form action="findList" method="post" role="search">
 			<div class="row">
 				<div class="col-lg-2">
@@ -75,18 +77,19 @@ tr, th {
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>PRODUCT</th>
-						<th>WRITER</th>
-						<th>PRICE</th>
-						<th>DATE</th>
+						<th>글번호</th>
+						<th>제목</th>
+						<th>내용</th>
+						<th>날짜</th>
 					</tr>
 				</thead>
 				<tbody>
 				<c:choose>
+
 				<c:when test="${myBoardList != null}">
 					<c:forEach items="${myBoardList}" var="list">
 						<tr>
-							<td>${list.id}</td>
+							<td>${list.no}</td>
 							<td>${list.title}</td>
 							<td>${list.content }</td>
 							<td>${list.date2 }</td>
@@ -104,6 +107,7 @@ tr, th {
 		</div>
 	 	</div>
 	<!-- Footer:S -->
+	<%@ include file = "../../common/footer.jsp" %>
 	<!-- Footer:E -->	
 	
 </body>

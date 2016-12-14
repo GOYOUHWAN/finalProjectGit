@@ -46,9 +46,9 @@ a:hover{
 <body class="home">
 <%@ include file = "../../common/header.jsp" %>
 	<div id="sub_3">
-			<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">myBookList(내가 좋아요한 글)</button></a>
-			<a href="myBoardList?id=${member.id }"><button class="btn_d_2" id="btn5" tabindex="5">myBoardList</button></a>
-			<a href="myBuyList?id=${member.id }"><button class="btn_d_2" id="btn6" tabindex="6">myBuyList</button></a>
+						<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">좋아요 내역</button></a>
+			<a href="myBoardList?id=${member.id }"><button class="btn_d_2" id="btn5" tabindex="5">게시판 글 내역</button></a>
+			<a href="myBuyList?id=${member.id }"><button class="btn_d_2" id="btn6" tabindex="6">구매 내역</button></a>
 		</div>
 	<div class="container">
 	<div id="div_container_2">
@@ -80,9 +80,9 @@ a:hover{
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>PRODUCT</th>
-						<th>WRITER</th>
-						<th>PRICE</th>
+						<th>책</th>
+						<th>판매자ID</th>
+						<th>가격</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -92,7 +92,7 @@ a:hover{
 								<tr>
 									<td>${list.product}</td>
 									<td>${list.id}</td>
-									<td>${list.price }</td>
+									<td>${list.price }원</td>
 								</tr>
 							</c:forEach>
 					</c:when>
@@ -108,6 +108,6 @@ a:hover{
 	 	</div>
 	<!-- Footer:S -->
 	<!-- Footer:E -->	
-	
+	<%@ include file = "../../common/footer.jsp" %>
 </body>
 </html>

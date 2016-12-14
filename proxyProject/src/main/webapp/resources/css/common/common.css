@@ -26,16 +26,17 @@ header a{
 }
 .container{
 	margin-top:60px;
-	border: 1px solid red;
+/* 	border: 1px solid red; */
 }
 #header_wrap {
 	width: 100%;
-	height: 140px;
+	height: 180px;
 	background: rgba(255,255,255,0.5);
 	margin-top: 0px;
 	margin-left: 0px;
  /* 	position: relative; */
 	z-index: 2;
+/* 	border: 2px solid yellow; */
 }
 #header_div_1{
 	width: 100%;
@@ -46,25 +47,27 @@ header a{
 	margin-top: 0px;
 
 }
+/* proxy 로고 들어가는 div */
 #header_div_2{
 	width: 100%;
 	height: 40px;
 	color: white;
-	margin-top: -20px;
 	display: inline-block;
 	text-align: center;
+/* 	border: 2px solid blue; */
 }
 #img_logo{
 	margin-top: 0px;
 }
 
 #header_div_5{
+	margin-top : 0px;
 	width : 100%;
-	height : 35px;
+	height : 50px;
 	display: inline-block;
 	text-align: center;
-	margin-top: 5px;
-
+/* 	border: 2px solid red; */
+	background-color: rgb(113, 81, 252);
 }
 
 #header_button{
@@ -72,8 +75,10 @@ header a{
     height: 32px;
     vertical-align: middle;
     background-color: rgb(113, 81, 252);
+    border-radius : 10px;
     color: white;
     font-size: 17px;
+    
 }
 #header_button:HOVER{
 	background-color: #8c72fd;
@@ -85,16 +90,16 @@ header a{
     font-size: 17px;
     vertical-align: middle;
     padding-left: 10px;
-    border-width: 1px;
+    border-radius : 10px;
+    border-width: 0px;
     border-style: solid;
-    border-color: rgb(113, 81, 252);
     border-image: initial;
     background-color: activeborder;
     background: transparent;
     	
 }
 #sub_3{
-	width: 80%;
+	width: 60%;
 	height: 100px;
 	margin-top: 300px;
 	margin: 0 auto;
@@ -104,9 +109,9 @@ header a{
 #a_header{
 	width: 100%;
     height: 50px;
-    display: inline-block;
     text-align: center;
     background-color: rgba(255, 255, 255, 0);
+  /*   border: 2px solid black; */
 }
 body{
 	border-top: 0.1px solid white;
@@ -194,14 +199,14 @@ body{
 	float: right;
 }
 
-.id, .pw {
+/* .id, .pw {
     width: 80%;
-   /*  padding: 12px 20px; */
+    padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;/* 상은씨 로그인폼의 테두리 색 */
+    border: 1px solid #ccc;상은씨 로그인폼의 테두리 색
     box-sizing: border-box;
-}
+} */
 
 /* button {
     background-color: #7151FC;
@@ -451,4 +456,24 @@ ul.tab li a:focus, .active {
 	border-bottom-style: solid;
 	border-bottom-width: 1px;
 }
-
+#listnum{
+	width : 200px;
+	height: 40px;
+	margin: 0 auto;
+/* 	border: 1px solid red; */
+	text-align: center;
+	
+}
+.spanLikes{
+	color: gray;	
+	}
+#span_id{
+	color: gray;
+}	
+.pink{
+	color: gray;
+}	
+#p_price{
+	font-size: 27px;
+	float: left;
+}
