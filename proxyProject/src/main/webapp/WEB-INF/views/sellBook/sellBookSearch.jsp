@@ -161,7 +161,7 @@ function checkCookie() {
 	                  <c:if test="${listsize !='0' }">
 	                     <td id="td_book">
 	                     <!--id 보여주는 곳  -->
-	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;판매자 :<%-- <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> --%>${list[count].id}<!-- </a> -->
+	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="span_id">${list[count].id}</span>
 	                     		
 	                        <div id="div_img">
 	                     <!--책 img 보여주는곳  -->
