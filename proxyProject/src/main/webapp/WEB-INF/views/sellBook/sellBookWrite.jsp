@@ -170,7 +170,7 @@
 									<label for="contents">상품소개 <span class="asterisk">*</span></label>
 								</th>
 								<td colspan="3">
-									<p id="waring_p">* 첫번째 파일은 겉표지 이미지를 등록 하세요 (파일 5개 까지 등록 가능) *</p>
+									<p id="waring_p">* 첫번째 파일은 겉표지 이미지를 등록 하세요 (파일 4개 까지 등록 가능) *</p>
 									<input type="file" id="file_1" class="categ0" name="fileName1">
 									<span><input type="button" id="add_btn" value="첨부 파일 추가"></span>
 									<textarea rows="10" cols="77" name="contents"></textarea>
@@ -212,11 +212,11 @@
 		// 첨부 파일 추가
 		$("#add_btn").click(function () {
 			var f = $("[type='file']");
-			if(f.length < 5) {
+			if(f.length < 4) {
 				fileCount++;
 				$("#file_"+(fileCount-1)).after("<input type='file' id='file_"+fileCount+"' class='categ0' name='fileName"+fileCount+"'>");
 			} else {
-				alert("첨부파일은 최대 5개까지 가능합니다.");
+				alert("첨부파일은 최대 4개까지 가능합니다.");
 			}
 		});
 		

@@ -120,7 +120,7 @@
 
 			<div id="header_div_5">	
 				<ul id="h_ul2">
-					<li class="h_li2"><a href="#"class="header_a">공지사항</a></li>
+					<li class="h_li2"><a href="${pageContext.request.contextPath}/notice/noticeList"class="header_a">공지사항</a></li>
 					<li class="h_li2"><a href="${pageContext.request.contextPath}/freeboard/freList" class="header_a">자유게시판</a></li>
 					<li class="h_li2"><a href="${pageContext.request.contextPath}/sellBook/sellBookList"class="header_a">물품 구매</a></li>
 					<li class="h_li2"><a href="${pageContext.request.contextPath}/blackList/blackListForm"class="header_a">블랙리스트</a></li>

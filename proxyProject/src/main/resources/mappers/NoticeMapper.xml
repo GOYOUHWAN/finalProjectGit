@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NoticeMapper">
+	<!-- 게시물 작성 -->
+   <insert id="noticeWrite" parameterType="com.choa.notice.NoticeDTO">
+      INSERT INTO notice VALUES(no_seq.nextval, #{title}, #{content}, sysdate, 0)
+   </insert>
+      
+   <!-- 게시물 보기 -->
+   <select id="noticeView" resultType="com.choa.notice.NoticeDTO">
+      SELECT * FROM notice WHERE no=#{no}
+   </select>
+   
+   <!-- 게시물 수정 -->
+   <update id="noticeMod">
+      UPDATE notice SET title=#{title}, content=#{content} WHERE no=#{no}
+   </update>
+   
+   <!-- 총 게시물 보기? -->
+   <select id="noticeList" resultType="Integer"> 
+      SELECT COUNT(*) FROM notice
+   </select>
+   
+   <!-- 게시물 삭제 -->
+   <delete id="noticeDel">
+      DELETE FROM notice WHERE no=#{no}
+   </delete>
+   
+   <!-- 조회수 -->
+   <update id="noticeHits">
+   	update notice set hits=#{hits} where no=#{no}
+   </update>
+</mapper>
