@@ -160,7 +160,7 @@ function checkCookie() {
 	                  <c:if test="${listsize3 !='0' }">
 	                     <td id="td_book">
 	                     <!--id 보여주는 곳  -->
-	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;판매자 :<%-- <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> --%>${list3[count].id}<!-- </a> -->
+	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="span_id">${list3[count].id}</span>
 	                     		
 	                        <div id="div_img">
 	                     <!--책 img 보여주는곳  -->
@@ -235,5 +235,27 @@ function checkCookie() {
          <c:if test="${no}">
             <p id="tagisp">조회된 결과가 없습니다. 다른 조건으로 검색해보세요!</p>
          </c:if> 
+         	
+<!--paging  시작 -->
+		<!-- 목차, 글쓰기 -->
+		<div id="listnum">
+		<!-- 뒤로가기 -->
+
+		<c:if test="${paging3.curBlock>'1'}">
+			<a href="sellBookList3?curPage=${paging3.startNum-1}"> 이전 </a>
+		</c:if>
+		<!-- 목차번호 -->
+		
+		<c:forEach begin="${paging3.startNum}" end="${paging3.lastNum}" step="1" var="i">
+			<a href="sellBookList3?curPage=${i}">${i}</a>
+		</c:forEach>
+		
+		<!-- 앞으로 가기 -->
+		<c:if test="${paging3.curBlock < paging3.totalBlock}">
+			<a href="sellBookList3?curPage=${paging3.lastNum+1}"> 다음 </a>
+		</c:if>
+			
+		</div>
+<!--paging 끝 -->
 </body>
 </html>

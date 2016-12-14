@@ -14,7 +14,6 @@ public class MemberDTO {
 	private int grade;
 	private int buyer_trust;
 	private int seller_trust;
-
 	private String account;
 	private int report;
 	private Date joinDate;

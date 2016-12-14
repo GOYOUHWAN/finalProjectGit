@@ -11,33 +11,14 @@
 <title>MY_BUY_LIST</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- <script type="text/javascript">
-	$(document).ready(function(){
-		$("#div_status").hide();
-	});
 
-	$(function() {
-		$("#order_status").mouseover(function() {
-			$("#div_status").show();
-		});
-	});
-	
-	$(function() {
-		$("#order_status").mouseout(function() {
-			$("#div_status").hide();
-		});
-	});//btn
-	
-	
-	
-</script>	 -->
 <!--  ================================================-->	
 <style>
-body{
-	line-height: 1;
-    color: #414141;
-    font-family: "Helvetica", "Arial", sans-serif;
-    /* background: #f5f5f5; */
+#sub_3 {
+	width: 60%;
+	height: 100px;
+	margin: 0 auto;
+
 }
 img, ul, li{
     margin: 0;
@@ -55,48 +36,39 @@ tr, th {
 	width: 227px;
 	height: 40px;
 	margin: 0 auto;
+
 }
 
 #div_th{
 	float: left;
 	margin-top: 20px;
-}
 
+}
+#header_div_5{
+	width : 100%;
+	height : 50px;
+	display: inline-block;
+	text-align: center;
+/* 	border: 1px solid red; */
+}
+#h_ul2{
+	height: 35px;
+}
 </style>
 </head>
-<body class="home">
+<body >
 <%@ include file = "../../common/header.jsp" %>
 <div id="sub_3">
-
-			<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">myBookList(내가 좋아요한 글)</button></a>
-			<a href="myBoardList?id=${member.id }"><button class="btn_d_2" id="btn5" tabindex="5">myBoardList</button></a>
-			<a href="myBuyList?id=${member.id }"><button class="btn_d_2" id="btn6" tabindex="6">myBuyList</button></a>
+					<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">좋아요 내역</button></a>
+			<a href="myBoardList?id=${member.id }"><button class="btn_d_2" id="btn5" tabindex="5">게시판 글 내역</button></a>
+			<a href="myBuyList?id=${member.id }"><button class="btn_d_2" id="btn6" tabindex="6">구매 내역</button></a>
 		</div>
 	<div class="container">
 	<div id="div_container_2">
 	<div id="div_container_3">
 		<div id="div_title"><h2>구매내역</h2></div>
 		
-		<%-- <form action="findList" method="post" role="search">
-			<div class="row">
-				<div class="col-lg-2">
-					<select name="type" class="form-control">
-						<option value="title">TITLE</option>
-						<option value="writer">WRITER</option>
-						<option value="contents">CONTENTS</option>
-						
-						
-					</select>
-				</div>
-				<div class="col-lg-3">
-					<div class="input-group">
-						<input type="hidden" name="board" value="${board}"> 
-						<input type="text" name="find" class="form-control" placeholder="Search for...">
-						<span class="input-group-btn"><button type="submit" class="btn btn-default">Submit</button></span>
-					</div>
-				</div>
-			</div>
-		</form> --%>
+	
 		
 		
 		<div class="panel panel-default">
@@ -159,6 +131,6 @@ tr, th {
 	 </div>
 	<!-- Footer:S -->
 	<!-- Footer:E -->	
-	
+	<%@ include file = "../../common/footer.jsp" %>
 </body>
 </html>

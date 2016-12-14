@@ -161,7 +161,7 @@ function checkCookie() {
 	                  <c:if test="${listsize !='0' }">
 	                     <td id="td_book">
 	                     <!--id 보여주는 곳  -->
-	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;판매자 :<%-- <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> --%>${list[count].id}<!-- </a> -->
+	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="span_id">${list[count].id}</span>
 	                     		
 	                        <div id="div_img">
 	                     <!--책 img 보여주는곳  -->
@@ -237,5 +237,8 @@ function checkCookie() {
          <c:if test="${no}">
             <p id="tagisp">조회된 결과가 없습니다. 다른 조건으로 검색해보세요!</p>
          </c:if> 
+         
+         
+
 </body>
 </html>

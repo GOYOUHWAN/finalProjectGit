@@ -27,7 +27,7 @@ public class SellBookController {
 	
 	
 	@RequestMapping(value="/sellBookSearch")
-	public String sellBookList(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="10")int perPage, @RequestParam String search, Model model){
+	public String sellBookList(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, @RequestParam String search, Model model){
 	  try {
 		  System.out.println("컨트롤러의 서치 : " + search);
 		 bookService.sellBookSearch(curPage, perPage, search, model);
@@ -110,7 +110,7 @@ public class SellBookController {
 	}
 	
 	@RequestMapping(value="/sellBookList")
-	public String sellBookList(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="10")int perPage, Model model){
+	public String sellBookList(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, Model model){
 	  try {
 		bookService.sellBookList(curPage, perPage, model);
 	} catch (Exception e) {
@@ -120,7 +120,7 @@ public class SellBookController {
 		return "sellBook/sellBookList";
 	}
 	@RequestMapping(value="/sellBookList2")
-	public String sellBookList2(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="10")int perPage, Model model){
+	public String sellBookList2(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, Model model){
 	  try {
 		bookService.sellBookList2(curPage, perPage, model);
 	} catch (Exception e) {
@@ -130,7 +130,7 @@ public class SellBookController {
 		return "sellBook/sellBookList2";
 	}
 	@RequestMapping(value="/sellBookList3")
-	public String sellBookList3(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="10")int perPage, Model model){
+	public String sellBookList3(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, Model model){
 	  try {
 		bookService.sellBookList3(curPage, perPage, model);
 	} catch (Exception e) {
@@ -140,7 +140,7 @@ public class SellBookController {
 		return "sellBook/sellBookList3";
 	}
 	@RequestMapping(value="/sellBookList4")
-	public String sellBookList4(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="10")int perPage, Model model){
+	public String sellBookList4(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, Model model){
 	  try {
 		bookService.sellBookList4(curPage, perPage, model);
 	} catch (Exception e) {
@@ -150,7 +150,7 @@ public class SellBookController {
 		return "sellBook/sellBookList4";
 	}
 	@RequestMapping(value="/sellBookList5")
-	public String sellBookList5(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="10")int perPage, Model model){
+	public String sellBookList5(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, Model model){
 	  try {
 		bookService.sellBookList5(curPage, perPage, model);
 	} catch (Exception e) {
