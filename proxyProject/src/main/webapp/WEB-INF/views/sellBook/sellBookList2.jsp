@@ -131,19 +131,42 @@ function checkCookie() {
 	margin: 0 auto;
 	margin-top: 150px;
 }
+.order{
+	width : 100px;
+	height: 25px;
+	color: gray;
 
+	background-color: white;
+	border: 1px solid #bfbfbf;
+	border-radius: 15px;
+	text-align: center;
+	display: inline-block;
+}
+
+.order:hover{
+	color: white;
+	background-color:#8c72fd;
+	border-color: #8c72fd;
+}
+.paging_text{
+	font-size: 23px;
+	color: gray;
+}
 	</style>
 </head>
 <body id="body_sellbooklist">
 <%@ include file = "../common/header.jsp" %>
 
+<c:if test="${list2[count] != null }">
 <!--정렬 시작  -->
-	<div id="line_order"> 
-	<a href="<%=application.getContextPath() %>/sellBook/sellBookList2">낮은가격순</a> 
-	<a href="<%=application.getContextPath() %>/sellBook/sellBookList3">높은가격순</a>
-	<a href="<%=application.getContextPath() %>/sellBook/sellBookList4"> 최신순</a>
-	<a href="<%=application.getContextPath() %>/sellBook/sellBookList5"> 좋아요순</a></div>
+<div id="line_order">
+	<a href="<%=application.getContextPath() %>/sellBook/sellBookList2" class="a_order"><div id="order_1" class="order">낮은가격순</div></a> 
+	<a href="<%=application.getContextPath() %>/sellBook/sellBookList3" class="a_order"><div id="order_2" class="order">높은가격순</div></a>
+	<a href="<%=application.getContextPath() %>/sellBook/sellBookList4" class="a_order"><div id="order_3" class="order"> 최신순</div></a>
+	<a href="<%=application.getContextPath() %>/sellBook/sellBookList5" class="a_order"><div id="order_4" class="order"> 좋아요순</div></a> 
+</div>
 <!--정렬 끝  -->
+</c:if>
 
 <!-- 리스트 시작 -->
           <table id="listTable">
@@ -233,7 +256,8 @@ function checkCookie() {
                    
          <!-- 리스트 끝 -->
          <c:if test="${no}">
-            <p id="tagisp">조회된 결과가 없습니다. 다른 조건으로 검색해보세요!</p>
+           <p id="tagisp"><img src="${pageContext.request.contextPath}/resources/image/warn.png"><br><br>
+            조회된 결과가 없습니다. 다른 조건으로 검색해보세요!</p>
          </c:if> 
          	
 <!--paging  시작 -->
@@ -242,17 +266,17 @@ function checkCookie() {
 		<!-- 뒤로가기 -->
 
 		<c:if test="${paging2.curBlock>'1'}">
-			<a href="sellBookList2?curPage=${paging2.startNum-1}"> 이전 </a>
+			<a href="sellBookList2?curPage=${paging2.startNum-1}"  class="paging_text"> 이전 </a>
 		</c:if>
 		<!-- 목차번호 -->
 		
 		<c:forEach begin="${paging2.startNum}" end="${paging2.lastNum}" step="1" var="i">
-			<a href="sellBookList2?curPage=${i}">${i}</a>
+			<a href="sellBookList2?curPage=${i}"  class="paging_text">${i}</a>
 		</c:forEach>
 		
 		<!-- 앞으로 가기 -->
 		<c:if test="${paging2.curBlock < paging2.totalBlock}">
-			<a href="sellBookList2?curPage=${paging2.lastNum+1}"> 다음 </a>
+			<a href="sellBookList2?curPage=${paging2.lastNum+1}"  class="paging_text"> 다음 </a>
 		</c:if>
 			
 		</div>

@@ -339,10 +339,7 @@ ul.tab li a:focus, .active {
    
 } 
 
-/* .dropbtn:hover, .dropbtn:focus {
-     background-color: #3e8e41; 
-}
- */
+
 .dropdown {
 	width : 200px;
     position: static;
@@ -460,6 +457,8 @@ ul.tab li a:focus, .active {
 	width : 200px;
 	height: 40px;
 	margin: 0 auto;
+	font-size: 23px;
+	font-weight: bold;
 /* 	border: 1px solid red; */
 	text-align: center;
 	
@@ -477,3 +476,11 @@ ul.tab li a:focus, .active {
 	font-size: 27px;
 	float: left;
 }
+#tagisp{
+	width : 80%;
+	margin: 0 auto;
+	font-size: 25px;
+	text-align : center;
+/* 	border: 1px solid red; */
+}
+

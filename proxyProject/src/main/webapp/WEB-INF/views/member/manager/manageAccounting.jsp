@@ -229,7 +229,7 @@ a {
 		<a class="mypage-menu-item" href="manageBoard">게시글관리</a>
 	</div>
 	<div class="mypage-content">
-		<div class="mypage-header">회계관리</div>
+		<div class="mypage-header"></div>
 		<div class="mypage-body ng-scope">
 			<div class="mypageodr-table-header">
 				<div class="mypageodr-header-info">ID</div>

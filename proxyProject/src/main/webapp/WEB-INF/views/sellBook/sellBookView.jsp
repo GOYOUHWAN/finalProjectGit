@@ -140,6 +140,7 @@
 	
 	  <div class="view_div w3-row-padding w3-section">
 	    <div class="view_div_img  w3-col s4">
+	  	 	<img class="view_img demo w3-opacity w3-hover-opacity-off" src="/proxyProject/resources/upload/${viewPicture.files1 }" onclick="currentDiv(1)">
 	    	<img class="view_img demo w3-opacity w3-hover-opacity-off" src="/proxyProject/resources/upload/${viewPicture.files2 }" onclick="currentDiv(2)">
 	   	 	<img class="view_img demo w3-opacity w3-hover-opacity-off" src="/proxyProject/resources/upload/${viewPicture.files3 }" onclick="currentDiv(3)">
 	  		<img class="view_img demo w3-opacity w3-hover-opacity-off" src="/proxyProject/resources/upload/${viewPicture.files4 }" onclick="currentDiv(4)">
@@ -150,7 +151,7 @@
 	<div id="div_name">
 		<table id="view_table">
 			<tr>
-				<td><img src="/proxyProject/resources/upload/lim.jpg" id="img_face"><p id="p_id">&nbsp;&nbsp;판매자 : ${view.id }</p>
+				<td><img src="/proxyProject/resources/upload/lim.jpg" id="img_face"><p id="p_id">&nbsp;&nbsp;${view.id }</p>
 								<p class="gray">&nbsp;&nbsp;&nbsp;판매자 신용도  ${viewMember.seller_trust }</p>
 				</td>
 			</tr>
@@ -165,21 +166,21 @@
 			</tr>
 			<tr>
 
-				<td><h3>가격 : ${view.price } 원</h3></td>
+			<%-- 	<td><h3>가격 : ${view.price } 원</h3></td> --%>
 
 				<td id="td_space"></td>
 
 			</tr>
 			<tr>
 
-				<td><h3>줄거리 : ${view.contents }</h3></td>
+				<td><h3>줄거리 : <span class="gray">${view.contents }</span></h3></td>
 
-				<td><p class="gray">${view.contents }</p></td>
+			<%-- 	<td><p class="gray">${view.contents }</p></td> --%>
 
 			</tr>
 			<tr>
 
-				<td><h3>좋아요 : ${view.likes }</h3></td>
+				<%-- <td><h3>좋아요 : ${view.likes }</h3></td> --%>
 
 				<td id="td_space"></td>
 

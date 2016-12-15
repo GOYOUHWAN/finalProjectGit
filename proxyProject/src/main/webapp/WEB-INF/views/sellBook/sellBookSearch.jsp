@@ -13,44 +13,6 @@
 <script type="text/javascript">
 
 
-
-//cookie 이용 script 구현 안되어있고 코드만 미리 가져다 놓음 ==>>>구현해줘야함.
-/* function setCookie(cname,cvalue,exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires=" + d.toGMTString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-function checkCookie() {
-    var user=getCookie("username");
-    if (user != "") {
-        alert("Welcome again " + user);
-    } else {
-       user = prompt("Please enter your name:","");
-       if (user != "" && user != null) {
-           setCookie("username", user, 30);
-       }
-    }
-} */
-
-
-
 </script>
 
 
@@ -131,19 +93,50 @@ function checkCookie() {
 	margin: 0 auto;
 	margin-top: 150px;
 }
+#tagisp{
+	width : 80%;
+	margin: 0 auto;
+	font-size: 25px;
+	text-align : center;
+	margin-top: 100px;
+/* 	border: 1px solid red; */
+}
+.order{
+	width : 100px;
+	height: 25px;
+	color: gray;
 
+	background-color: white;
+	border: 1px solid #bfbfbf;
+	border-radius: 15px;
+	text-align: center;
+	display: inline-block;
+}
+
+.order:hover{
+	color: white;
+	background-color:#8c72fd;
+	border-color: #8c72fd;
+}
+.paging_text{
+	font-size: 23px;
+	color: gray;
+}
 	</style>
 </head>
 <body id="body_sellbooklist">
 <%@ include file = "../common/header.jsp" %>
 
+<c:if test="${list[count] != null }">
 <!--정렬 시작  -->
-	<div id="line_order">
-	<a href="<%=application.getContextPath() %>/sellBook/sellBookList2">낮은가격순</a> 
-	<a href="<%=application.getContextPath() %>/sellBook/sellBookList3">높은가격순</a>
-	<a href="<%=application.getContextPath() %>/sellBook/sellBookList4"> 최신순</a>
-	<a href="<%=application.getContextPath() %>/sellBook/sellBookList5"> 좋아요순</a> </div>
+<div id="line_order">
+	<a href="<%=application.getContextPath() %>/sellBook/sellBookList2" class="a_order"><div id="order_1" class="order">낮은가격순</div></a> 
+	<a href="<%=application.getContextPath() %>/sellBook/sellBookList3" class="a_order"><div id="order_2" class="order">높은가격순</div></a>
+	<a href="<%=application.getContextPath() %>/sellBook/sellBookList4" class="a_order"><div id="order_3" class="order"> 최신순</div></a>
+	<a href="<%=application.getContextPath() %>/sellBook/sellBookList5" class="a_order"><div id="order_4" class="order"> 좋아요순</div></a> 
+</div>
 <!--정렬 끝  -->
+</c:if>
 
 <!-- 리스트 시작 -->
           <table id="listTable">
@@ -235,7 +228,8 @@ function checkCookie() {
                    
          <!-- 리스트 끝 -->
          <c:if test="${no}">
-            <p id="tagisp">조회된 결과가 없습니다. 다른 조건으로 검색해보세요!</p>
+            <p id="tagisp"><img src="${pageContext.request.contextPath}/resources/image/warn.png"><br><br>
+            조회된 결과가 없습니다. 다른 조건으로 검색해보세요!</p>
          </c:if> 
          
          
