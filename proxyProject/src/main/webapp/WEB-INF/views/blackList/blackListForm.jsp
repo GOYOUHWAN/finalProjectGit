@@ -70,6 +70,7 @@ a {
 
 .mypage-menu {
 	text-align: center;
+	padding-top: 50px;
 }
 
 .mypage-menu-item {
@@ -90,7 +91,7 @@ a {
 }
 
 .mypage-content {
-   width: 732px;
+   width: 860px;
    vertical-align: top;
    display: inline-block;
    border: 1px solid #d8d8d8;
@@ -138,18 +139,19 @@ a {
 }
 
 .mypageodr-header-info {
-   width: 60px;
+   width: 45px;
    display: inline-block;
    text-align: center;
 }
 .mypageodr-header-info2 {
-   width: 30px;
+   width: 20px;
    display: inline-block;
 }
 .mypageodr-header-info-tel {
    width: 150px;
    display: inline-block;
-   text-align: center
+   text-align: center;
+   margin-left: 20px;
 }
 
 .mypageodr-header-state {
@@ -167,10 +169,14 @@ a {
 .mypageodr-item-info {
    width: 40px;
    display: inline-block;
+   vertical-align: middle;
+}
+.mypageodr-item-info2 {
+   width: 80px;
+   display: inline-block;
    margin-left: 20px;
    vertical-align: middle
 }
-
 .mypageodr-item-price {
    font-size: 14px;
    text-align: center;
@@ -185,17 +191,18 @@ a {
 }
 
 .mypageodr-item-tel {
-   width: 150px;
+   width: 170px;
    display: inline-block;
    font-size: 12px;
    color: #000;
-   vertical-align: middle
+   vertical-align: middle;
 }
 
 .mypageodr-item-state-title {
    font-size: 14px;
    color: #000;
-   text-align: center
+   text-align: center;
+   margin-left: 10px;
 }
 
 .mypageodr-item-btn-wrapper {
@@ -234,6 +241,16 @@ a {
    border-radius: 3px;
    color: #fff
 }
+.singgo{
+	background-color: #8c72fd;
+	color: white;
+	padding: 10px 10px 10px 10px;
+}
+.singgo:hover{
+	background-color: #7151FC;
+	color: white;
+	text-decoration: none;
+}
 </style>
 </head>
 <body>
@@ -244,7 +261,17 @@ a {
    <div class="mypage-menu">
    <div class="mypage-content">
       <div class="blacklist-header"><p id="blacktitle">블랙리스트</p></div>
-      <div class="blacklist-header2"><a href="singoForm">신고하기</a></div>
+      <div class="blacklist-header2">
+      <c:if test="${sessionScope.member.id eq dto.id}">
+      <br>
+      </c:if>
+      	<c:if test="${sessionScope.member.id != dto.id}">
+      		<c:if test="${sessionScope.member.type eq '3'}"><br></c:if>
+      		<c:if test="${sessionScope.member.type != '3'}">
+      			<a href="singoForm" class="singgo">신고하기</a>
+      		</c:if>
+      	</c:if>
+      	</div>
       <div class="mypage-body ng-scope2">
          <div class="mypageodr-table-header">
          <div class="mypageodr-header-info2"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -254,6 +281,8 @@ a {
             <div class="mypageodr-header-info">이름</div>
             <div class="mypageodr-header-info-tel">전화번호</div>
             <div class="mypageodr-header-info-tel">이메일</div>
+            <div class="mypageodr-header-info2"></div>
+            <div class="mypageodr-header-info2"></div>
             <div class="mypageodr-header-info">등급</div>
          </div>
          <div>
@@ -262,8 +291,13 @@ a {
                
                   <div class="mypage-item-wrapper ng-scope">
                      <div class="mypageodr-item-info">
+                     <c:if test="${sessionScope.member.id != dto.id}">
                         <a class="mypageodr-item-price ng-binding"
                            href="${pageContext.request.contextPath }/member/memberView?id=${f.id}">${f.id }</a>
+                     </c:if>
+                     <c:if test="${sessionScope.member.id eq dto.id}">
+                     	${f.id }
+                     </c:if>
                      </div>
                      <div class="mypageodr-header-info2"></div>
                      <div class="mypageodr-header-info2"></div>
@@ -276,8 +310,11 @@ a {
                      <div
                         class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.grade }</div>
 
-                     <div class="mypageodr-item-btn-wrapper">
-                     </div>
+                      <div class="mypageodr-item-info2">
+                      <c:if test="${sessionScope.member.id != dto.id}">
+                        <a class="mypageodr-item-price ng-binding"
+                        	href="${pageContext.request.contextPath }/blackList/singoView?sid=${f.id}">신고 글 보기</a></div>
+                 		</c:if>
                   </div>
                   
                </c:forEach>
@@ -285,13 +322,13 @@ a {
                <!-- pageNumber -->
                <c:if test="${listsize != '0' }">
                   <c:if test="${paging.curBlock > 1}">
-                     <a href="manageMember?curPage=${paging.startNum-1}&perPage=10">이전</a>
+                     <a href="blackListForm?curPage=${paging.startNum-1}&perPage=10">이전</a>
                   </c:if>
                   <c:if test="${paging.totalBlock>0 }">
                   <c:forEach begin="${paging.startNum}" step="1"
                      end="${paging.lastNum}" var="i">
                      <a class="mypage-page"
-                        href="manageMember?curPage=${i}&perPage=10" value="${i }">${i}</a>
+                        href="blackListForm?curPage=${i}&perPage=10" value="${i }">${i}</a>
 
                   </c:forEach>
                   </c:if>
@@ -299,7 +336,7 @@ a {
                      <h4>아직 블랙리스트가 존재하지 않습니다.</h4>
                   </c:if>
                   <c:if test="${paging.curBlock < paging.totalBlock}">
-                     <a href="manageMember?curPage=${paging.lastNum+1}&perPage=10" >다음</a>
+                     <a href="blackListForm?curPage=${paging.lastNum+1}&perPage=10" >다음</a>
                   </c:if>
                   <!-- PAGINATIOIN:E -->
                </c:if>

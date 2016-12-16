@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.choa.blackList.BlackDTO;
 import com.choa.util.MemberPageMaker;
 import com.choa.util.PageMaker;
 
@@ -45,7 +46,14 @@ public class MemberDAO {
 	public int memberCount(int type) throws Exception{
 		return sqlSession.selectOne(namespace+"memberCount", type);
 	}
-	
+	//신고글개수
+	public int singoCount() throws Exception{
+		return sqlSession.selectOne(namespace+"singoCount");
+	}
+	//신고글관리
+	public List<BlackDTO> manageSingolist(PageMaker pageMaker) throws Exception{
+		return sqlSession.selectList(namespace+"manageSingolist", pageMaker);
+	}
 	//회원메뉴=================================================
 		//id찾기
 		public String findID(String find) throws Exception{

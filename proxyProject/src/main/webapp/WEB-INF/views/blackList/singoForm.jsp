@@ -65,6 +65,20 @@
 	text-align: center;
 }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+		$(function() {
+			//목록으로
+			$("#list").click(function() {
+				location.href = "${pageContext.request.contextPath}/blackList/blackListForm";
+			});
+			
+/* 			// 회원 정보 변경
+			$("#btn5").click(function() {
+				location.href = "memberUpdate";
+			}); */
+		});
+</script>
 </head>
 <body>	
 	<div id="singo_div">
