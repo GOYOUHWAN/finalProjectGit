@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Manager Page</title>
+<title>Insert title here</title>
 <style type="text/css">
 * {
    -webkit-box-sizing: border-box;
@@ -165,7 +165,7 @@ a {
 }
 
 .mypageodr-item-state {
-   width: 60px;
+   width: 250px;
    display: inline-block;
    font-size: 12px;
    color: #000;
@@ -237,40 +237,37 @@ a {
 		<a class="mypage-menu-item" href="manageSingolist">신고글관리</a>
 	</div>
 	<div class="mypage-content">
-		<div class="mypage-header">블랙리스트관리</div>
+		<div class="mypage-header">신고글관리</div>
 		<div class="mypage-body ng-scope">
 			<div class="mypageodr-table-header">
-				<div class="mypageodr-header-info">ID</div>
-				<div class="mypageodr-header-info">이름</div>
-				<div class="mypageodr-header-info-tel">전화번호</div>
-				<div class="mypageodr-header-info-tel">이메일</div>
-				<div class="mypageodr-header-info">등급</div>
-				<div class="mypageodr-header-info">타입</div>
+				<div class="mypageodr-header-info-tel">신고자 아이디</div>
+				<div class="mypageodr-header-info-tel">사기꾼 아이디</div>
+				<div class="mypageodr-header-info-tel">제목</div>
 				<div class="mypageodr-header-info">관리</div>
 			</div>
 			<div>
 					<!-- 구매자 정보 -->
-					<c:forEach items="${memberInfo}" var="f">
+					<c:forEach items="${manageSingolist}" var="f">
 					
 						<div class="mypage-item-wrapper ng-scope">
 							<div class="mypageodr-item-info">
-								<a class="mypageodr-item-price ng-binding"
-									href="${pageContext.request.contextPath }/member/memberView?id=${f.id}">${f.id }</a>
+								<a class="mypageodr-item-price ng-binding">${f.bid }</a>
 							</div>
 							<div
-								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.name }</div>
+								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.sid }</div>
 							<div
-								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.tel }</div>
-							<div
+								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">
+								<a href="${pageContext.request.contextPath }/blackList/singoView?sid=${f.sid}">${f.title}</a></div>
+<%-- 							<div
 								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.email }</div>
 							<div
 								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.grade }</div>
 							<div
-								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.type }</div>
-							<div class="mypageodr-item-btn-wrapper">
+								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.type }</div> --%>
+<%-- 							<div class="mypageodr-item-btn-wrapper">
 								<a class="btn btn-default btn-expanded mypageodr-delete-btn"
 									href="${pageContext.request.contextPath}/member/memberDelete?id=${f.id }">탈퇴</a>
-							</div>
+							</div> --%>
 						</div>
 						
 					</c:forEach>
@@ -289,7 +286,7 @@ a {
 						</c:forEach>
 						</c:if>
 						<c:if test="${paging.totalBlock==0 }">
-							<h4>아직 블랙리스트가 존재하지 않습니다.</h4>
+							<h4>아직 신고글이 존재하지 않습니다.</h4>
 						</c:if>
 						<c:if test="${paging.curBlock < paging.totalBlock}">
 							<a href="manageMember?curPage=${paging.lastNum+1}&perPage=10" >다음</a>
@@ -301,12 +298,4 @@ a {
 		</div>
 	</div>
 </body>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script type="text/javascript">
-$(function() {	
-	$(".mypage-page:eq(${totalBlock})").addClass("active");
-		
-});
-</script>
 </html>

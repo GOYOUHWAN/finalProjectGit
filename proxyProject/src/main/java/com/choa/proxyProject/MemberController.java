@@ -46,18 +46,32 @@ public class MemberController {
       }
       return "member/manager/manageSeller";
    }
-   
-   @RequestMapping(value = "/manager/manageBlacklist")
-   public String blackInfo(@RequestParam(defaultValue = "1") int curPage,
-         @RequestParam(defaultValue = "10") int perPage, Model model) {
-      try {
-         memberService.memberInfo(curPage, perPage, model,4);
-      } catch (Exception e) {
-         // TODO Auto-generated catch block
-         e.printStackTrace();
-      }
-      return "member/manager/manageBlacklist";
-   }
+	//블랙리스트
+	@RequestMapping(value ="/manager/manageBlacklist")
+	public String memberInfo(@RequestParam(defaultValue = "1") int curPage,
+		@RequestParam(defaultValue = 
+		"10") int perPage, Model model,@RequestParam(defaultValue = "4") int type) {
+		try {
+			memberService.memberInfo(curPage, perPage, model, type);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "/member/manager/manageBlacklist";
+	}
+	//신고글리스트
+	@RequestMapping(value ="/manager/manageSingolist")
+	public String manageSingolist(@RequestParam(defaultValue = "1") int curPage,
+		@RequestParam(defaultValue = 
+		"10") int perPage, Model model) {
+		try {
+			memberService.manageSingolist(curPage, perPage, model);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "/member/manager/manageSingolist";
+	}
    // buyer 용
    // ==================================================================
    @RequestMapping(value = "/buyer/myPage")

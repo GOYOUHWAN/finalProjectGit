@@ -3,6 +3,7 @@ package com.choa.member;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.choa.blackList.BlackDTO;
 import com.choa.util.MemberPageMaker;
 import com.choa.util.PageMaker;
 
@@ -40,18 +41,44 @@ public class MemberService {
 	
 	//관리자메뉴=================================================
 	//회원정보열람
-	public void memberInfo(int curPage, int perPage, Model model, int type) throws Exception{
+	public void memberInfo(int curPage, int perPage, Model model, int type) throws Exception{		
 		int totalCount = memberDAO.memberCount(type);
 		MemberPageMaker mPageMaker = new MemberPageMaker();
 		mPageMaker.setType(type);
 		mPageMaker.setCurPage(curPage);
+		mPageMaker.setPerPage(perPage);
 		mPageMaker.makeRow();
-		mPageMaker.makePage(totalCount);
+		List<MemberDTO> ar = null;
 		
-		model.addAttribute("memberInfo", memberDAO.memberInfo(mPageMaker));
+		try{
+			mPageMaker.makePage(totalCount);
+			ar = memberDAO.memberInfo(mPageMaker);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		
+		model.addAttribute("memberInfo", ar);
 		model.addAttribute("paging", mPageMaker);
 	}
-	
+	//신고 글 보기
+		public void manageSingolist(int curPage, int perPage, Model model) throws Exception{		
+			int totalCount = memberDAO.singoCount();
+			MemberPageMaker pageMaker = new MemberPageMaker();
+			pageMaker.setCurPage(curPage);
+			pageMaker.setPerPage(perPage);
+			pageMaker.makeRow();
+			List<BlackDTO> ar = null;
+			
+			try{
+				pageMaker.makePage(totalCount);
+				ar = memberDAO.manageSingolist(pageMaker);
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			
+			model.addAttribute("manageSingolist", ar);
+			model.addAttribute("paging", pageMaker);
+		}
 	
 	// 회원메뉴=================================================
 	// ID찾기

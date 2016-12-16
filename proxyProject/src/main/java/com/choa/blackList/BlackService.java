@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 
 import com.choa.member.MemberDAO;
 import com.choa.member.MemberDTO;
+import com.choa.blackList.BlackDAO;
 import com.choa.util.MemberPageMaker;
 
 @Service
@@ -15,6 +16,7 @@ public class BlackService {
 	@Autowired
 	private BlackDAO blackDAO;
 	
+	//신고 글 작성
 	public int singoWrite(BlackDTO blackDTO) throws Exception {
 		return blackDAO.singoWrite(blackDTO);
 	}
@@ -38,5 +40,23 @@ public class BlackService {
 		
 		model.addAttribute("memberInfo", ar);
 		model.addAttribute("paging", mPageMaker);
+	}
+	//신고 글 보기
+	public BlackDTO singoView(String sid, Model model) throws Exception{
+		 BlackDTO blackDTO = blackDAO.singoView(sid);
+	     model.addAttribute("blackDTO",blackDTO);
+	     
+	     return blackDTO;
+	}
+	//블랙멤버 정보보기
+	public MemberDTO blackmView(String id, Model model) throws Exception{
+		MemberDTO memberDTO = blackDAO.blackmView(id);
+	     model.addAttribute("memberDTO",memberDTO);
+	     
+	     return memberDTO;
+	}
+	//회원수정
+	public int blackmUpdate(MemberDTO memberDTO)throws Exception{
+		return blackDAO.blackmUpdate(memberDTO);
 	}
 }
