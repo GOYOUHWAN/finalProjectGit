@@ -78,18 +78,6 @@ public class MemberController {
 	}
 
    
-/*   @RequestMapping(value = "/manager/manageBlacklist")
-   public String blackInfo(@RequestParam(defaultValue = "1") int curPage,
-         @RequestParam(defaultValue = "10") int perPage, Model model) {
-      try {
-         memberService.memberInfo(curPage, perPage, model,4);
-      } catch (Exception e) {
-         // TODO Auto-generated catch block
-         e.printStackTrace();
-      }
-      return "member/manager/manageBlacklist";
-   }*/
-   
    
 
    // buyer 용

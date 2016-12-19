@@ -234,6 +234,11 @@ a {
    border-radius: 3px;
    color: #fff
 }
+.mypage-header {
+    font-size: 24px;
+    padding: 22px 0 22px 34px;
+    border-bottom: 1px solid #d8d8d8;
+}
 </style>
 </head>
 <body>

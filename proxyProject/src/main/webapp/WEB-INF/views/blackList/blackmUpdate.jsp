@@ -1,3 +1,5 @@
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -70,6 +72,7 @@ table {
 	margin-left: 20px;
 	width: 60%;
 	height: 20px;
+	font-size: 20px;
 }
 
 .categ2 {
@@ -157,12 +160,13 @@ table {
       <%@ include file = "../common/header.jsp" %>
 	<!-- Header End -->
 <div id="join_div">
-<h2 style="text-align: center; margin-bottom: 30px;">회원수정</h2>
+<h2 style="text-align: center; margin-bottom: 30px;">TYPE 변경</h2>
 <!-- Join 시작 -->
 		<!-- 입력 부분 시작 -->
 		<div id="join_sub_1">
 		<!-- <form action="memberJoin" method="post"> -->
 			<table>
+				<tr><td style="height: 20px;"></td><td></td></tr>
 				<!-- 아이디 -->
 				<tr>
 					<td class="td_1">아이디</td>
