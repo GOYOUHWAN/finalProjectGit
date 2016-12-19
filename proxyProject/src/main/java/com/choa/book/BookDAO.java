@@ -21,6 +21,11 @@ public class BookDAO {
 	private String namespace= "BookMapper.";
 	
 	
+	//sellBookList에서 하트 보여주기
+	public List<Integer> myHeart(String id)throws Exception{
+		return sqlSession.selectList(namespace+"myHeart", id);
+	}
+	
 	//index 페이지에서 likes 순으로 1~10위 보여주기
 	public List<BookDTO> BookLikes()throws Exception{
 		return sqlSession.selectList(namespace+"BookLikes" );

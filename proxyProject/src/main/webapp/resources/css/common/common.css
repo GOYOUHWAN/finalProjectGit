@@ -465,6 +465,7 @@ ul.tab li a:focus, .active {
 }
 .spanLikes{
 	color: gray;	
+	margin-top: 0px;
 	}
 #span_id{
 	color: gray;

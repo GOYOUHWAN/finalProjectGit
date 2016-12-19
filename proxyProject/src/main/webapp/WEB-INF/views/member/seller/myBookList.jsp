@@ -90,7 +90,7 @@ a:hover{
 						<c:when test="${booklist != null}">
 							<c:forEach items="${booklist}" var="list">
 								<tr>
-									<td>${list.product}</td>
+									<td><a href="../../sellBook/sellBookView?num=${list.num}&id=${list.id}">${list.product}</a></td>
 									<td>${list.id}</td>
 									<td>${list.price }원</td>
 								</tr>

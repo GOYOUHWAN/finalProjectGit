@@ -35,6 +35,9 @@ public class MemberController {
    @Autowired
    private FreeboardService freeboardService;
 
+   
+
+   
    @RequestMapping(value = "/manager/manageSeller")
    public String sellerInfo(@RequestParam(defaultValue = "1") int curPage,
          @RequestParam(defaultValue = "10") int perPage, Model model) {
@@ -58,6 +61,8 @@ public class MemberController {
       }
       return "member/manager/manageBlacklist";
    }
+   
+   
    // buyer 용
    // ==================================================================
    @RequestMapping(value = "/buyer/myPage")

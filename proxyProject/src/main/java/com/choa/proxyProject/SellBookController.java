@@ -26,12 +26,13 @@ public class SellBookController {
 	private BookService bookService;
 	
 	
+
+	
 	@RequestMapping(value="/sellBookSearch")
-	public String sellBookList(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, @RequestParam String search, Model model){
-	  try {
-		  System.out.println("컨트롤러의 서치 : " + search);
+	public String sellBookListS(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, @RequestParam String search, @RequestParam String id,Model model){
+	  try {	
+		  bookService.myHeart(id, model);
 		 bookService.sellBookSearch(curPage, perPage, search, model);
-		
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -100,6 +101,7 @@ public class SellBookController {
 	@RequestMapping(value="/sellBookView")
 	public String sellBookView(@RequestParam int num, @RequestParam String id, Model model){
 		try {
+			bookService.myHeart(id, model);
 			bookService.sellBookView(num, id, model);
 		
 		} catch (Exception e) {
@@ -110,8 +112,9 @@ public class SellBookController {
 	}
 	
 	@RequestMapping(value="/sellBookList")
-	public String sellBookList(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, Model model){
+	public String sellBookList(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, @RequestParam String id, Model model){
 	  try {
+		bookService.myHeart(id, model);
 		bookService.sellBookList(curPage, perPage, model);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
@@ -120,8 +123,9 @@ public class SellBookController {
 		return "sellBook/sellBookList";
 	}
 	@RequestMapping(value="/sellBookList2")
-	public String sellBookList2(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, Model model){
+	public String sellBookList2(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, @RequestParam String id, Model model){
 	  try {
+		  bookService.myHeart(id, model);
 		bookService.sellBookList2(curPage, perPage, model);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
@@ -130,8 +134,9 @@ public class SellBookController {
 		return "sellBook/sellBookList2";
 	}
 	@RequestMapping(value="/sellBookList3")
-	public String sellBookList3(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, Model model){
+	public String sellBookList3(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, @RequestParam String id, Model model){
 	  try {
+		  bookService.myHeart(id, model);
 		bookService.sellBookList3(curPage, perPage, model);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
@@ -140,8 +145,9 @@ public class SellBookController {
 		return "sellBook/sellBookList3";
 	}
 	@RequestMapping(value="/sellBookList4")
-	public String sellBookList4(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, Model model){
+	public String sellBookList4(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, @RequestParam String id, Model model){
 	  try {
+		  bookService.myHeart(id, model);
 		bookService.sellBookList4(curPage, perPage, model);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
@@ -150,8 +156,9 @@ public class SellBookController {
 		return "sellBook/sellBookList4";
 	}
 	@RequestMapping(value="/sellBookList5")
-	public String sellBookList5(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, Model model){
+	public String sellBookList5(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage,@RequestParam String id, Model model){
 	  try {
+		  bookService.myHeart(id, model);
 		bookService.sellBookList5(curPage, perPage, model);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block

@@ -59,7 +59,9 @@
     	color: gray;
     	margin-left: 15px;
 	}
-	
+#h3_for_test{
+	color: black;
+}	
 
 
 </style>
@@ -72,7 +74,7 @@
 
 		<div id="header_div_1">
 			<div id="h_div1">
-				
+				<h3 id="h3_for_test">${member.id }님 로그인   (로그인한 사람 확인용으로 썼어요)</h3>
 				<ul id="h_ul1">
 					
 					<li class="h_li1"><a href="${pageContext.request.contextPath}/member/memberLogin" class="acolor">로그인</a></li>
@@ -115,7 +117,7 @@
 				<ul id="h_ul2">
 					<li class="h_li2"><a href="${pageContext.request.contextPath}/notice/noticeList"class="header_a">공지사항</a></li>
 					<li class="h_li2"><a href="${pageContext.request.contextPath}/freeboard/freList" class="header_a">자유게시판</a></li>
-					<li class="h_li2"><a href="${pageContext.request.contextPath}/sellBook/sellBookList"class="header_a">물품 구매</a></li>
+					<li class="h_li2"><a href="${pageContext.request.contextPath}/sellBook/sellBookList?id=${member.id}"class="header_a">물품 구매</a></li>
 					<li class="h_li2"><a href="${pageContext.request.contextPath}/blackList/blackListForm"class="header_a">블랙리스트</a></li>
 				</ul>
 			</div>

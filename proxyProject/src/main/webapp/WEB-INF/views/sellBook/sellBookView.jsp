@@ -7,6 +7,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+</script>
 <title>Insert title here</title>
 <style type="text/css">
 .mySlides {
@@ -94,6 +97,7 @@
 	width: 20px;
 	height: 20px;
 	margin: 0 auto;
+	margin-top: 40px;
 }
 #div_button{
 	width: 80%;
@@ -115,14 +119,25 @@
 	border-radius: 100%;
 	text-align: center;
 	margin: 0 auto;
-	
 }
+
+
 #p_id{
 	font-size: 20px;
 }
 #won{
 	margin-top : 10px;
 	font-size: 30px;
+}
+.img_likes{
+	border-radius : 0px;
+	width: 20px;
+	height: 20px;
+	margin-top : 100px;
+/* 	border: 1px solid red; */
+}
+#spanLikes{
+	margin-top: 0px;
 }
 </style>
 
@@ -147,7 +162,7 @@
 	    </div>
 	  </div>
 	</div>
-	
+
 	<div id="div_name">
 		<table id="view_table">
 			<tr>
@@ -160,7 +175,7 @@
 			</tr>
 			<tr>
 				<td><p id="p_product">${view.product }</p>
-								<p class="gray">구매 날짜 :  ${view. buy_date}</p>
+								<p class="gray">구매 날짜 :  ${view.buy_date}</p>
 				</td>
 				
 			</tr>
@@ -199,7 +214,21 @@
 				<td id="td_space"></td>
 			</tr>
 			<tr>
-				<td><div id="div_likes"><p class="gray"><br><br><img src="/proxyProject/resources/image/black_heart.png" id="img_heart" onclick="change_img_to_red(${view.num})"><br><span id="spanLikes">${view.likes }</span></p></div>
+				<td><%-- <div id="div_likes"><p class="gray"><br><br><img src="/proxyProject/resources/image/black_heart.png" id="img_heart" onclick="change_img_to_red(${view.num})"><br><span id="spanLikes">${view.likes }</span></p></div> --%>
+				   	 <div id="div_likes">
+				   	  <c:set var="bool" value="false"/>
+				   	  <c:set var="number"  value="${view.num }" />
+		                    	  	<c:forEach var="num" begin="0" end="${heartSize }">
+				                    	  	<c:if test="${number == heartV[num]}">
+				                
+				                    	  		<img src="/proxyProject/resources/image/heart.jpg" class="img_likes" id="img_heart" onclick="change_img_to_red(${view.num})">
+				         	  					<c:set var="bool" value="true"/>
+				         	  				</c:if>
+		         	  				</c:forEach>
+	         	  					<c:if test="${bool == false}">
+	         	  						<img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart" onclick="change_img_to_red(${view.num})">
+									</c:if><span class="spanLikes" id="spanLikes">${view.likes}</span>
+				   	  </div>
 				   	  	<script>
 	                    	
                 	  			var id = "${member.id}";
@@ -235,10 +264,10 @@
 			                    					}
 			                    				});
 										 	 }	                      	 	
-									 
 	                    	  	 }
 	                	 
 									 </script>
+									 
 				</td>
 			</tr>
 			
@@ -280,5 +309,9 @@ function showDivs(n) {
 }
 </script>
 
+
+	<!-- Footer Start -->
+		<%@ include file = "../common/footer.jsp" %>
+	<!-- Footer End -->
 </body>
 </html>

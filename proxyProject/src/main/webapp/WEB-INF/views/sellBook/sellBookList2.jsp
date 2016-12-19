@@ -160,10 +160,10 @@ function checkCookie() {
 <c:if test="${list2[count] != null }">
 <!--정렬 시작  -->
 <div id="line_order">
-	<a href="<%=application.getContextPath() %>/sellBook/sellBookList2" class="a_order"><div id="order_1" class="order">낮은가격순</div></a> 
-	<a href="<%=application.getContextPath() %>/sellBook/sellBookList3" class="a_order"><div id="order_2" class="order">높은가격순</div></a>
-	<a href="<%=application.getContextPath() %>/sellBook/sellBookList4" class="a_order"><div id="order_3" class="order"> 최신순</div></a>
-	<a href="<%=application.getContextPath() %>/sellBook/sellBookList5" class="a_order"><div id="order_4" class="order"> 좋아요순</div></a> 
+	<a href="${pageContext.request.contextPath}/sellBook/sellBookList2?id=${member.id}" class="a_order"><div id="order_1" class="order">낮은가격순</div></a> 
+	<a href="${pageContext.request.contextPath}/sellBook/sellBookList3?id=${member.id}" class="a_order"><div id="order_2" class="order">높은가격순</div></a>
+	<a href="${pageContext.request.contextPath}/sellBook/sellBookList4?id=${member.id}" class="a_order"><div id="order_3" class="order"> 최신순</div></a>
+	<a href="${pageContext.request.contextPath}/sellBook/sellBookList5?id=${member.id}" class="a_order"><div id="order_4" class="order"> 좋아요순</div></a> 
 </div>
 <!--정렬 끝  -->
 </c:if>
@@ -197,8 +197,18 @@ function checkCookie() {
 	                         	 <p id="p_price">${list2[count].price}</p> <p id="p_won">원</p>
 	                    	  	&nbsp;&nbsp;&nbsp;&nbsp;
 	                    	  	
-	                    	  	<div id="div_likes" > <img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart${list2[count].num }" onclick="change_img_to_red(${list2[count].num})">
-	                    	  	&nbsp;&nbsp; <span id="spanLikes${list2[count].num }">${list2[count].likes}</span>
+	                    	  	<div id="div_likes" > 
+	                    	  	<c:set var="bool" value="false"/>
+		                    	  	<c:forEach var="num" begin="0" end="${heartSize }">
+		                    	  		<c:set var="number"  value="${list2[count].num }" />
+				                    	  	<c:if test="${number == heart[num]}">
+				                    	  		<img src="/proxyProject/resources/image/heart.jpg" class="img_likes" id="img_heart${list2[count].num }" onclick="change_img_to_red(${list2[count].num})">
+				         	  					<c:set var="bool" value="true"/>
+				         	  				</c:if>
+		         	  				</c:forEach>
+	         	  					<c:if test="${bool == false}">
+	         	  						<img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart${list2[count].num }" onclick="change_img_to_red(${list2[count].num})">
+									</c:if>&nbsp;&nbsp; <span class="spanLikes" id="spanLikes${list2[count].num }">${list2[count].likes}</span>
 	                    
 	                    	  	
 	                    	  	<script>
@@ -281,5 +291,10 @@ function checkCookie() {
 			
 		</div>
 <!--paging 끝 -->
+
+
+	<!-- Footer Start -->
+		<%@ include file = "../common/footer.jsp" %>
+	<!-- Footer End -->
 </body>
 </html>

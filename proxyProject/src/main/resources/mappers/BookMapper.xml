@@ -3,6 +3,12 @@
     
    <mapper namespace="BookMapper">
    
+   
+   	<!--sellBookList 들어갔을때 찜 눌러놓은 거 있으면 빨간하트 띄워줄라고 -->
+   <select id="myHeart" resultType="int" parameterType="String">
+   	select num from MEMBERLIKEBOOKS where id=#{id}
+   </select>
+   
    <select id="BookLikes" resultType="com.choa.book.BookDTO">
    		select * from Book order by likes desc
    </select>

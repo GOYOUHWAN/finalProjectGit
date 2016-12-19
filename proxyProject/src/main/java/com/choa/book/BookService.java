@@ -17,6 +17,15 @@ public class BookService {
 
 	@Autowired
 	private BookDAO bookDAO;
+	
+	//sellBookList에서 하트 검증용
+	public List<Integer> myHeart(String id, Model model)throws Exception{
+		List<Integer> heart = bookDAO.myHeart(id);
+		model.addAttribute("heart", heart);
+		model.addAttribute("heartSize", heart.size());
+		return heart;
+	}
+	
 
 	//index에서 좋아요순으로 1~10 보여주기
 	public List<BookDTO> BookLikes(Model model)throws Exception{
@@ -77,6 +86,8 @@ public class BookService {
 		BookDTO bookDTO = bookDAO.sellBookView(num);
 		BookPictureDTO bookPictureDTO = bookDAO.sellBookPicture(num);
 		MemberDTO memberDTO = bookDAO.sellBookViewMember(id);
+		List<Integer> heartV = bookDAO.myHeart(id);
+		model.addAttribute("heartV", heartV);
 		model.addAttribute("view", bookDTO);
 		model.addAttribute("viewPicture", bookPictureDTO);
 		model.addAttribute("viewMember", memberDTO);
