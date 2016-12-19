@@ -106,7 +106,7 @@ function checkCookie() {
 	margin: 0 auto;
 	margin-bottom: 60px;
 /* 	border: 1px solid red;   */
-	float: left;
+	text-align: center;
 }
 .img_likes{
 	margin-top : 15px;

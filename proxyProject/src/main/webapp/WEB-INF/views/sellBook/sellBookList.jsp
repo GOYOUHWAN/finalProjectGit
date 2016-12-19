@@ -32,21 +32,20 @@
 	height: 400px;
 	margin-left: 100px;
 	margin-top: 100px;
+	border: 1px solid yellow;
 }
 #div_img{
-	/* border : 1px solid yellow; */
 	width: 100%;
 	height: 300px;
-/* 	border: 1px solid red; */
+	border: 1px solid red; 
 }
 #img{
 	border-radius : 0px;
 	size: inherit; 
 	width: 80%;
 	height: 100%;
-	/* border: 1px solid green; */
 	margin-left: 25px;
-/* 	border: 1px solid green; */
+	 border: 1px solid green; 
 	}
 #body_sellbooklist{
 	height: 1200px;
@@ -132,8 +131,11 @@
 </c:if>
 
 <!-- 리스트 시작 -->
+ <h2>${listsize%4 }</h2>
+   <c:if test="${listsize%4 == 1}">
+   		 <c:set var=""></c:set>
+   </c:if> 
           <table id="listTable">
-         
          <c:forEach begin="0" end="${listsize/4}">
             <tr >
                <c:forEach begin="0" end="3">
@@ -147,7 +149,7 @@
 	                     <td id="td_book">
 	                     <!--id 보여주는 곳  -->
 	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="span_id">${list[count].id}</span>
-	                     		넘버는 : ${list[count].num }
+	                     	
 	                        <div id="div_img">
 	                     <!--책 img 보여주는곳  -->
 	                       <a href="sellBookView?num=${list[count].num}&id=${member.id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}"> </a><br>

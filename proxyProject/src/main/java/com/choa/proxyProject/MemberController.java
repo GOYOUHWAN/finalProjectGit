@@ -78,7 +78,7 @@ public class MemberController {
 	}
 
    
-   @RequestMapping(value = "/manager/manageBlacklist")
+/*   @RequestMapping(value = "/manager/manageBlacklist")
    public String blackInfo(@RequestParam(defaultValue = "1") int curPage,
          @RequestParam(defaultValue = "10") int perPage, Model model) {
       try {
@@ -88,7 +88,7 @@ public class MemberController {
          e.printStackTrace();
       }
       return "member/manager/manageBlacklist";
-   }
+   }*/
    
    
 

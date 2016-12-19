@@ -107,8 +107,9 @@
 			<div id="a_header">			
 				<!--헤더에서 검색했을때 list 띄우는  -->
 				<form action="${pageContext.request.contextPath}/sellBook/sellBookSearch" method="get">	
-			
+				
 					<input type="text" id="header_text"  placeholder="예)나무" name="search">
+					<input type="hidden" name="id" value="${member.id }">
 					<input type="submit" value="검색" id="header_button" >
 				</form>	
 			</div>	

@@ -68,7 +68,7 @@
 	margin: 0 auto;
 	margin-bottom: 60px;
 /* 	border: 1px solid red;   */
-	float: left;
+	text-align: center;
 }
 .img_likes{
 	margin-top : 15px;
@@ -172,15 +172,15 @@
 	                    	  	<div id="div_likes" > 
 	                    	  	<c:set var="bool" value="false"/>
 		                    	  	<c:forEach var="num" begin="0" end="${heartSize }">
-		                    	  		<c:set var="number"  value="${list2[count].num }" />
+		                    	  		<c:set var="number"  value="${list[count].num }" />
 				                    	  	<c:if test="${number == heart[num]}">
-				                    	  		<img src="/proxyProject/resources/image/heart.jpg" class="img_likes" id="img_heart${list2[count].num }" onclick="change_img_to_red(${list2[count].num})">
+				                    	  		<img src="/proxyProject/resources/image/heart.jpg" class="img_likes" id="img_heart${list[count].num }" onclick="change_img_to_red(${list[count].num})">
 				         	  					<c:set var="bool" value="true"/>
 				         	  				</c:if>
 		         	  				</c:forEach>
 	         	  					<c:if test="${bool == false}">
-	         	  						<img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart${list2[count].num }" onclick="change_img_to_red(${list2[count].num})">
-									</c:if>&nbsp;&nbsp; <span class="spanLikes" id="spanLikes${list2[count].num }">${list2[count].likes}</span>
+	         	  						<img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart${list[count].num }" onclick="change_img_to_red(${list[count].num})">
+									</c:if>&nbsp;&nbsp; <span class="spanLikes" id="spanLikes${list[count].num }">${list[count].likes}</span>
 	                    
 	                    	  	
 	                    	  	<script>

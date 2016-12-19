@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +37,7 @@
 .mySlides{
 	width: 200px;
 	height: 250px;
-	display:none;
+	display:none;f
 
 }
 .p_text{
@@ -47,7 +48,37 @@
 	color: white;
 	 text-shadow: 1px 1px black;
 }
+#h3_for_black{
+	font-size:  30px;
+	margin: 0 auto;
+	margin-top: 100px;
+	text-align: center;
+/* 	border: 1px solid red; */
+}
+#p_black{
+	margin-top : 100px;
+	font-size: 15px;
+	color: white;/* #4d4d4d; */
+	margin: 0 auto;
+	width: 80%;
+	height: 100px;
+	text-align: center;
 
+	/* border: 1px solid red; */
+}
+#img_black{
+	margin: 0 auto;
+	margin-top: 50px;
+	width: 100%;
+	height: 100%;
+}
+#p_img{
+	width: 50%;
+	height: 150px;
+	margin: 0 auto;
+	margin-top: 100px;
+/* 	border: 1px solid green; */
+}
 </style>
 </head>
 <!--  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">   -->
@@ -63,8 +94,12 @@
 	
 	<!--section 시작  -->
 	<section id="section_wrap">
+
+	
+
 	<nav id="nav_all">
 	<%@ include file = "common/header.jsp" %>
+	<c:if test="${member.type != '4'}">
 	<div id="s_div1">
 	
 		<div id="s_div3">
@@ -121,6 +156,12 @@
 			</div>
 			</div>
 		</div>
+		</c:if>
+		<c:if test="${member.type == '4' }">
+			<p id="p_img"><img src="/proxyProject/resources/image/blacklist.jpg" id="img_black"></p>
+			<h3 id="h3_for_black">당신은 블랙리스트입니다</h3>
+			<p id="p_black">이의 신청은 02)123-1234로 전화바랍니다</p>
+		</c:if>
 	</nav>
 	</section>	
 	<!--section 끝  -->
