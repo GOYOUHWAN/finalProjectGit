@@ -178,7 +178,8 @@ table {
 	<!-- Header End -->
 <!-- info -->
 	<div id="info_div">
-<h2 style="text-align: center;margin-bottom:30px;">회원정보</h2>
+<h2 style="text-align: center;margin-bottom:20px;margin-top:10px;">블랙리스트 회원정보</h2>
+<p style="color: gray; text-align: center; margin-bottom: 10px;">신고되어 블랙리스트에 올라온 회원 정보입니다.</p>
 		<div id="info_sub_2">
 			<table>
 				<c:if test="${sessionScope.member.id eq dto.id || sessionScope.member.type eq '3'}">
@@ -223,7 +224,7 @@ table {
 		<div id="info_sub_3">
 			<button class="btn_d_02" id="btn4" style="margin-left: 90px;">목록으로</button>
 			<c:if test="${sessionScope.member.id eq dto.id || sessionScope.member.type eq '3'}">
-				<button class="btn_d_02" id="btn5">정보 변경</button>
+				<button class="btn_d_02" id="btn5">TYPE 변경</button>
 			</c:if>
 		</div>
 	</div>

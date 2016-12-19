@@ -38,7 +38,7 @@ a {
    background-image: none;
    border: 1px solid transparent;
    white-space: nowrap;
-   padding: 6px 12px;
+   /* padding: 6px 12px; */
    font-size: 14px;
    line-height: 1.42857;
    border-radius: 3px;
@@ -55,7 +55,7 @@ a {
 }
 
 .btn-expanded {
-   width: 100%;
+   width: 85%;
 }
 
 .mypage-menu {
@@ -200,7 +200,7 @@ a {
 }
 
 .mypageodr-delete-btn {
-   display: block;
+  /*  display: block; */
 }
 
 .mypage-page-wrapper {
@@ -223,6 +223,11 @@ a {
    border-radius: 3px;
    color: #fff
 }
+.mypage-header {
+    font-size: 24px;
+    padding: 22px 0 22px 34px;
+    border-bottom: 1px solid #d8d8d8;
+}
 </style>
 </head>
 <body>
@@ -242,12 +247,11 @@ a {
 		<div class="mypage-body ng-scope">
 			<div class="mypageodr-table-header">
 				<div class="mypageodr-header-info">ID</div>
-				<div class="mypageodr-header-info">이름</div>
+				<div class="mypageodr-header-info-tel">이름</div>
 				<div class="mypageodr-header-info-tel">전화번호</div>
 				<div class="mypageodr-header-info-tel">이메일</div>
 				<div class="mypageodr-header-info">등급</div>
 				<div class="mypageodr-header-info">타입</div>
-				<div class="mypageodr-header-info">관리</div>
 			</div>
 			<div>
 					<!-- 구매자 정보 -->
@@ -259,7 +263,7 @@ a {
 									href="${pageContext.request.contextPath }/blackList/blackmView?id=${f.id}">${f.id }</a>
 							</div>
 							<div
-								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.name }</div>
+								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.name }</div>
 							<div
 								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.tel }</div>
 							<div
@@ -268,10 +272,11 @@ a {
 								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.grade }</div>
 							<div
 								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.type }</div>
-							<div class="mypageodr-item-btn-wrapper">
+<%-- 							<div class="mypageodr-item-btn-wrapper">
 								<a class="btn btn-default btn-expanded mypageodr-delete-btn"
+									style="float: right;margin-top:10px;"
 									href="${pageContext.request.contextPath}/member/memberDelete?id=${f.id }">탈퇴</a>
-							</div>
+							</div> --%>
 						</div>
 						
 					</c:forEach>
