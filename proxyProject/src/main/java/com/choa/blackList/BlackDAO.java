@@ -28,10 +28,6 @@ public class BlackDAO {
 	public List<MemberDTO> memberInfo(MemberPageMaker mPageMaker) throws Exception{
 		return sqlSession.selectList(namespace+"memberInfo", mPageMaker);
 	}
-	//관리자부분 회원정보(리스트)
-	public List<MemberDTO> mmemberInfo(MemberPageMaker mPageMaker) throws Exception{
-		return sqlSession.selectList(namespace+"memberInfo", mPageMaker);
-	}
 	//전체회원수
 	public int memberCount(int type) throws Exception{
 		return sqlSession.selectOne(namespace+"memberCount", type);
@@ -39,6 +35,10 @@ public class BlackDAO {
 	//신고 글보기
 	public BlackDTO singoView(String sid) throws Exception{
 		return sqlSession.selectOne(namespace+"singoView", sid);
+	}
+	//신고 글 삭제
+	public int singoDelete(String sid) throws Exception{
+		return sqlSession.delete(namespace+"singoDelete", sid);
 	}
 	//회원정보보기
 	public MemberDTO blackmView(String id) throws Exception{

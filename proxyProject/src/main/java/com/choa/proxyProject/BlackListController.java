@@ -50,8 +50,23 @@ public class BlackListController {
 		rd.addFlashAttribute("message", message);
 		return path;
 	}
-	//블랙리스트
-	@RequestMapping(value ="/blackListForm")
+   //신고 글 삭제
+   @RequestMapping(value = "/singoDelete", method = { RequestMethod.GET, RequestMethod.POST })
+   public void memberDelete(String sid, HttpServletResponse response, HttpServletRequest request, Model model)
+         throws Exception {
+      request.setCharacterEncoding("UTF-8");
+      response.setCharacterEncoding("UTF-8");
+      int result = blackService.singoDelete(sid);
+      String message = "";
+      if (result > 0) {
+         message = "신고내용이 삭제되었습니다.";
+	      } else {
+         message = "신고내용 삭제 실패";
+      }
+      model.addAttribute("message", message);
+	   }
+   //블랙리스트
+   @RequestMapping(value ="/blackListForm")
 	public String memberInfo(@RequestParam(defaultValue = "1") int curPage,
 		@RequestParam(defaultValue = 
 		"10") int perPage, Model model,@RequestParam(defaultValue = "4") int type) {
@@ -87,7 +102,8 @@ public class BlackListController {
    }
    // 회원수정view
    @RequestMapping(value = "/blackmUpdate", method = RequestMethod.GET)
-   public void memberUpdate() {
+   public void memberUpdate(@RequestParam String id) {
+	   
    }
 
    // 회원수정

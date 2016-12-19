@@ -133,7 +133,11 @@ a {
    display: inline-block;
    text-align: center
 }
-
+.mypageodr-header-info2 {
+   width: 90px;
+   display: inline-block;
+   text-align: center
+}
 .mypageodr-header-info-tel {
    width: 150px;
    display: inline-block;
@@ -165,7 +169,14 @@ a {
 }
 
 .mypageodr-item-state {
-   width: 250px;
+   width: 200px;
+   display: inline-block;
+   font-size: 12px;
+   color: #000;
+   vertical-align: middle
+}
+.mypageodr-item-state2 {
+   width: 150px;
    display: inline-block;
    font-size: 12px;
    color: #000;
@@ -229,21 +240,22 @@ a {
 	<div class="mypage-menu">
 		<a class="mypage-menu-item" href="manageMember">구매자관리</a> <a
 			class="mypage-menu-item" href="manageSeller">판매자관리</a> <a
-			class="mypage-menu-item active" href="manageBlacklist">블랙리스트관리</a>
+			class="mypage-menu-item" href="manageBlacklist">블랙리스트관리</a>
 		<div class="mypage-menu-hr"></div>
 		<a class="mypage-menu-item" href="manageAccounting">회계관리</a>
 		<div class="mypage-menu-hr"></div>
 		<a class="mypage-menu-item" href="manageBoard">게시글관리</a>
-		<a class="mypage-menu-item" href="manageSingolist">신고글관리</a>
+		<a class="mypage-menu-item active" href="manageSingolist">신고글관리</a>
 	</div>
 	<div class="mypage-content">
 		<div class="mypage-header">신고글관리</div>
 		<div class="mypage-body ng-scope">
 			<div class="mypageodr-table-header">
-				<div class="mypageodr-header-info-tel">신고자 아이디</div>
-				<div class="mypageodr-header-info-tel">사기꾼 아이디</div>
+				<div class="mypageodr-header-info2">사기꾼 아이디</div>
+				<div class="mypageodr-header-info2" style="margin-left: 10px; margin-right:22px;">신고자 아이디</div>
 				<div class="mypageodr-header-info-tel">제목</div>
-				<div class="mypageodr-header-info">관리</div>
+				<div class="mypageodr-header-info" style="margin-left: 45px; margin-right:22px;">날짜</div>
+				<div class="mypageodr-header-info" style="margin-left: 36px;">관리</div>
 			</div>
 			<div>
 					<!-- 구매자 정보 -->
@@ -251,23 +263,20 @@ a {
 					
 						<div class="mypage-item-wrapper ng-scope">
 							<div class="mypageodr-item-info">
-								<a class="mypageodr-item-price ng-binding">${f.bid }</a>
+								<a class="mypageodr-item-price ng-binding"
+								href="${pageContext.request.contextPath }/blackList/blackmView?id=${f.sid}">${f.sid }</a>
 							</div>
 							<div
-								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.sid }</div>
+								class="mypageodr-item-state2 mypageodr-item-state-title ng-binding">${f.bid }</div>
 							<div
 								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">
 								<a href="${pageContext.request.contextPath }/blackList/singoView?sid=${f.sid}">${f.title}</a></div>
-<%-- 							<div
-								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.email }</div>
 							<div
-								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.grade }</div>
-							<div
-								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.type }</div> --%>
-<%-- 							<div class="mypageodr-item-btn-wrapper">
+								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.reg_date }</div>
+							<div class="mypageodr-item-btn-wrapper">
 								<a class="btn btn-default btn-expanded mypageodr-delete-btn"
-									href="${pageContext.request.contextPath}/member/memberDelete?id=${f.id }">탈퇴</a>
-							</div> --%>
+									href="${pageContext.request.contextPath}/blackList/singoDelete?sid=${f.sid }">삭제</a>
+							</div>
 						</div>
 						
 					</c:forEach>
@@ -275,13 +284,13 @@ a {
 					<!-- pageNumber -->
 					<c:if test="${listsize != '0' }">
 						<c:if test="${paging.curBlock > 1}">
-							<a href="manageMember?curPage=${paging.startNum-1}&perPage=10">이전</a>
+							<a href="manageSingolist?curPage=${paging.startNum-1}&perPage=10">이전</a>
 						</c:if>
 						<c:if test="${paging.totalBlock>0 }">
 						<c:forEach begin="${paging.startNum}" step="1"
 							end="${paging.lastNum}" var="i">
 							<a class="mypage-page"
-								href="manageMember?curPage=${i}&perPage=10" value="${i }">${i}</a>
+								href="manageSingolist?curPage=${i}&perPage=10" value="${i }">${i}</a>
 
 						</c:forEach>
 						</c:if>
@@ -289,7 +298,7 @@ a {
 							<h4>아직 신고글이 존재하지 않습니다.</h4>
 						</c:if>
 						<c:if test="${paging.curBlock < paging.totalBlock}">
-							<a href="manageMember?curPage=${paging.lastNum+1}&perPage=10" >다음</a>
+							<a href="manageSingolist?curPage=${paging.lastNum+1}&perPage=10" >다음</a>
 						</c:if>
 						<!-- PAGINATIOIN:E -->
 					</c:if>

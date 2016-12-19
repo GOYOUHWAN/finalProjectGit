@@ -255,7 +255,7 @@ a {
 						<div class="mypage-item-wrapper ng-scope">
 							<div class="mypageodr-item-info">
 								<a class="mypageodr-item-price ng-binding"
-									href="${pageContext.request.contextPath }/member/memberView?id=${f.id}">${f.id }</a>
+									href="${pageContext.request.contextPath }/blackList/blackmView?id=${f.id}">${f.id }</a>
 							</div>
 							<div
 								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.name }</div>
@@ -278,13 +278,13 @@ a {
 					<!-- pageNumber -->
 					<c:if test="${listsize != '0' }">
 						<c:if test="${paging.curBlock > 1}">
-							<a href="manageMember?curPage=${paging.startNum-1}&perPage=10">이전</a>
+							<a href="manageBlacklist?curPage=${paging.startNum-1}&perPage=10">이전</a>
 						</c:if>
 						<c:if test="${paging.totalBlock>0 }">
 						<c:forEach begin="${paging.startNum}" step="1"
 							end="${paging.lastNum}" var="i">
 							<a class="mypage-page"
-								href="manageMember?curPage=${i}&perPage=10" value="${i }">${i}</a>
+								href="manageBlacklist?curPage=${i}&perPage=10" value="${i }">${i}</a>
 
 						</c:forEach>
 						</c:if>
@@ -292,7 +292,7 @@ a {
 							<h4>아직 블랙리스트가 존재하지 않습니다.</h4>
 						</c:if>
 						<c:if test="${paging.curBlock < paging.totalBlock}">
-							<a href="manageMember?curPage=${paging.lastNum+1}&perPage=10" >다음</a>
+							<a href="manageBlacklist?curPage=${paging.lastNum+1}&perPage=10" >다음</a>
 						</c:if>
 						<!-- PAGINATIOIN:E -->
 					</c:if>
