@@ -230,4 +230,8 @@
 	}
 </script>
 <!-- javascript 끝 -->
+
+	<!-- Footer Start -->
+		<%@ include file = "../common/footer.jsp" %>
+	<!-- Footer End -->
 </html>

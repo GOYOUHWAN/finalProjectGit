@@ -231,7 +231,8 @@ a {
 			class="mypage-menu-item" href="manageSeller">판매자관리</a> <a
 			class="mypage-menu-item active" href="manageBlacklist">블랙리스트관리</a>
 		<div class="mypage-menu-hr"></div>
-		<a class="mypage-menu-item" href="manageAccounting">회계관리</a>
+			<a class="mypage-menu-item" href="manageAccounting">매출관리</a>
+		<a class="mypage-menu-item" href="manageDeal">거래관리</a>
 		<div class="mypage-menu-hr"></div>
 		<a class="mypage-menu-item" href="manageBoard">게시글관리</a>
 		<a class="mypage-menu-item" href="manageSingolist">신고글관리</a>

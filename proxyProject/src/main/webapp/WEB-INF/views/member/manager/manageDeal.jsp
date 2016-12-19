@@ -224,7 +224,8 @@ a {
 			class="mypage-menu-item" href="manageSeller">판매자관리</a> <a
 			class="mypage-menu-item" href="manageBlacklist">블랙리스트관리</a>
 		<div class="mypage-menu-hr"></div>
-		<a class="mypage-menu-item active" href="manageAccounting">회계관리</a>
+		<a class="mypage-menu-item " href="manageAccounting">매출관리</a>
+		<a class="mypage-menu-item active" href="manageDeal">거래관리</a>
 		<div class="mypage-menu-hr"></div>
 		<a class="mypage-menu-item" href="manageBoard">게시글관리</a>
 	</div>
@@ -232,43 +233,32 @@ a {
 		<div class="mypage-header"></div>
 		<div class="mypage-body ng-scope">
 			<div class="mypageodr-table-header">
-				<div class="mypageodr-header-info">ID</div>
-				<div class="mypageodr-header-info">이름</div>
-				<div class="mypageodr-header-info-tel">전화번호</div>
-				<div class="mypageodr-header-info-tel">이메일</div>
-				<div class="mypageodr-header-info">등급</div>
-				<div class="mypageodr-header-info">신고</div>
-				<div class="mypageodr-header-info">관리</div>
+				<div class="mypageodr-header-info">거래번호</div>
+				<div class="mypageodr-header-info">책이름</div>
+				<div class="mypageodr-header-info-tel">판매자ID</div>
+				<div class="mypageodr-header-info-tel">구매자ID</div>
+				<div class="mypageodr-header-info">거래일시</div>
+				<div class="mypageodr-header-info">거래상태</div>
+	
 			</div>
 			<div>
 					<!-- 구매자 정보 -->
-					<c:forEach items="${memberInfo}" var="f">
+					<c:forEach items="${dealList}" var="d">
 					
 						<div class="mypage-item-wrapper ng-scope">
-							<div class="mypageodr-item-info">
-								<a class="mypageodr-item-price ng-binding"
-									href="${pageContext.request.contextPath }/member/memberView?id=${f.id}">${f.id }</a>
-							</div>
-							<div
-								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.name }</div>
-							<div
-								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.tel }</div>
-							<div
-								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.email }</div>
-							<div
-								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.grade }</div>
-							<div
-								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.report }</div>
-							<div class="mypageodr-item-btn-wrapper">
-								<a class="btn btn-default btn-expanded mypageodr-delete-btn"
-									href="${pageContext.request.contextPath}/member/memberDelete?id=${f.id }">탈퇴</a>
-							</div>
+							<div class="mypageodr-item-info">${d.num }</div>
+							<div class="mypageodr-item-state mypageodr-item-state-title ng-binding">${d.product }</div>
+							<div class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${d.id_seller }</div>
+							<div class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${d.id_buyer }</div>
+							<div class="mypageodr-item-state mypageodr-item-state-title ng-binding">${d.deal_date}</div>
+							<div class="mypageodr-item-state mypageodr-item-state-title ng-binding">${d.status }</div>
+							<div class="mypageodr-item-btn-wrapper"></div>
 						</div>
 						
 					</c:forEach>
 				<div class="mypage-page-wrapper">
 					<!-- pageNumber -->
-					<c:if test="${listsize != '0' }">
+				<%-- 	<c:if test="${listsize != '0' }">
 						<c:if test="${paging.curBlock > 1}">
 							<a href="manageMember?curPage=${paging.startNum-1}&perPage=10">이전</a>
 						</c:if>
@@ -286,8 +276,8 @@ a {
 						<c:if test="${paging.curBlock < paging.totalBlock}">
 							<a href="manageMember?curPage=${paging.lastNum+1}&perPage=10" >다음</a>
 						</c:if>
+					</c:if> --%>
 						<!-- PAGINATIOIN:E -->
-					</c:if>
 				</div>
 			</div>
 		</div>

@@ -54,25 +54,7 @@ a:hover{
 	<div id="div_container_2">
 	<div id="div_container_3">
 		<div id="div_title"><h2>나의 좋아요 리스트</h2></div>
-		<%-- <form action="findList" method="post" role="search">
-			<div class="row">
-				<div class="col-lg-2">
-					<select name="type" class="form-control">
-						<option value="title">TITLE</option>
-						<option value="writer">WRITER</option>
-						<option value="contents">CONTENTS</option>
-					</select>
-				</div>
-				<div class="col-lg-3">
-					<div class="input-group">
-						<input type="hidden" name="board" value="${board}"> 
-						<input type="text" name="find" class="form-control" placeholder="Search for...">
-						<span ><input type="submit" ></span>
-					</div>
-				</div>
-			</div>
-		</form> --%>
-		
+	
 
 		<div class="panel panel-default">
 			<!-- Default panel contents -->
@@ -90,7 +72,7 @@ a:hover{
 						<c:when test="${booklist != null}">
 							<c:forEach items="${booklist}" var="list">
 								<tr>
-									<td>${list.product}</td>
+									<td><a href="../../sellBook/sellBookView?num=${list.num}&id=${list.id}">${list.product}</a></td>
 									<td>${list.id}</td>
 									<td>${list.price }원</td>
 								</tr>

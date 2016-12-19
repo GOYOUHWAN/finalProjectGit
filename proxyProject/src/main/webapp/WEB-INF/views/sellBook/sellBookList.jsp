@@ -35,7 +35,7 @@
 }
 #div_img{
 	/* border : 1px solid yellow; */
-	width: 100%;;
+	width: 100%;
 	height: 300px;
 /* 	border: 1px solid red; */
 }
@@ -72,7 +72,7 @@
 	margin: 0 auto;
 	margin-bottom: 60px;
 /* 	border: 1px solid red;   */
-	float: left;
+	text-align: center;
 }
 .img_likes{
 	margin-top : 15px;
@@ -123,10 +123,10 @@
 <c:if test="${list[count] != null }">
 <!--정렬 시작  -->
 <div id="line_order">
-	<a href="<%=application.getContextPath() %>/sellBook/sellBookList2" class="a_order"><div id="order_1" class="order">낮은가격순</div></a> 
-	<a href="<%=application.getContextPath() %>/sellBook/sellBookList3" class="a_order"><div id="order_2" class="order">높은가격순</div></a>
-	<a href="<%=application.getContextPath() %>/sellBook/sellBookList4" class="a_order"><div id="order_3" class="order"> 최신순</div></a>
-	<a href="<%=application.getContextPath() %>/sellBook/sellBookList5" class="a_order"><div id="order_4" class="order"> 좋아요순</div></a> 
+	<a href="${pageContext.request.contextPath}/sellBook/sellBookList2?id=${member.id}" class="a_order"><div id="order_1" class="order">낮은가격순</div></a> 
+	<a href="${pageContext.request.contextPath}/sellBook/sellBookList3?id=${member.id}" class="a_order"><div id="order_2" class="order">높은가격순</div></a>
+	<a href="${pageContext.request.contextPath}/sellBook/sellBookList4?id=${member.id}" class="a_order"><div id="order_3" class="order"> 최신순</div></a>
+	<a href="${pageContext.request.contextPath}/sellBook/sellBookList5?id=${member.id}" class="a_order"><div id="order_4" class="order"> 좋아요순</div></a> 
 </div>
 <!--정렬 끝  -->
 </c:if>
@@ -147,22 +147,32 @@
 	                     <td id="td_book">
 	                     <!--id 보여주는 곳  -->
 	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="span_id">${list[count].id}</span>
-	                     		
+	                     		넘버는 : ${list[count].num }
 	                        <div id="div_img">
 	                     <!--책 img 보여주는곳  -->
-	                       <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}"> </a><br>
+	                       <a href="sellBookView?num=${list[count].num}&id=${member.id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}"> </a><br>
 	                       </div>
 	                       
 	                        <div class="pad">
 	                        <!--각 책에대한 설명  -->
 	                       
 	                         	<span class="pink name">${list[count].product}</span><br><br>
-	                         	 <p id="p_price">${list[count].price}   </p> <p id="p_won">원</p>
-	                         	
+	                         	<p id="p_price">${list[count].price}   </p> <p id="p_won">원</p>
 	                    	  	&nbsp;&nbsp;&nbsp;&nbsp;
-	                    	  	
-	                    	  	<div id="div_likes" > <img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart${list[count].num }" onclick="change_img_to_red(${list[count].num})">
-	         	  		&nbsp;&nbsp; <span class="spanLikes" id="spanLikes${list[count].num }">${list[count].likes}</span>
+	                    	  	<!--하트 모양과 likes 숫자 표현  -->
+	                    	  	<div id="div_likes" > 
+	                    	 		<c:set var="bool" value="false"/>
+		                    	  	<c:forEach var="num" begin="0" end="${heartSize }">
+		                    	  		<c:set var="number"  value="${list[count].num }" />
+				                    	  	<c:if test="${number == heart[num]}">
+				                 
+				                    	  		<img src="/proxyProject/resources/image/heart.jpg" class="img_likes" id="img_heart${list[count].num }" onclick="change_img_to_red(${list[count].num})">
+				         	  					<c:set var="bool" value="true"/>
+				         	  				</c:if>
+		         	  				</c:forEach>
+	         	  					<c:if test="${bool == false}">
+	         	  						<img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart${list[count].num }" onclick="change_img_to_red(${list[count].num})">
+									</c:if>&nbsp;&nbsp; <span class="spanLikes" id="spanLikes${list[count].num }">${list[count].likes}</span>
 	                    
 	                    	  	
 	                    	  	<script>
@@ -197,7 +207,6 @@
 			                    					},
 			                    				});
 										 	 }	                      	 	
-									 
 	                    	  	 }
 	                	 
 									 </script>
@@ -237,7 +246,7 @@
 		</c:if>
 		<!-- 목차번호 -->
 		<c:forEach begin="${paging.startNum}" end="${paging.lastNum}" step="1" var="i">
-			<a href="sellBookList?curPage=${i}" class="paging_text">${i}</a>
+			<a href="sellBookList?curPage=${i}&id=${member.id}" class="paging_text">${i}</a>
 		</c:forEach>
 	
 		<!-- 앞으로 가기 -->
@@ -249,6 +258,9 @@
 		</c:if>
 <!--paging 끝 -->
          
+         	<!-- Footer Start -->
+		<%@ include file = "../common/footer.jsp" %>
+	<!-- Footer End -->
          
 </body>
 </html>

@@ -35,6 +35,9 @@ public class MemberController {
    @Autowired
    private FreeboardService freeboardService;
 
+   
+
+   
    @RequestMapping(value = "/manager/manageSeller")
    public String sellerInfo(@RequestParam(defaultValue = "1") int curPage,
          @RequestParam(defaultValue = "10") int perPage, Model model) {
@@ -46,6 +49,7 @@ public class MemberController {
       }
       return "member/manager/manageSeller";
    }
+
 	//블랙리스트
 	@RequestMapping(value ="/manager/manageBlacklist")
 	public String memberInfo(@RequestParam(defaultValue = "1") int curPage,
@@ -72,6 +76,22 @@ public class MemberController {
 		}
 		return "/member/manager/manageSingolist";
 	}
+
+   
+   @RequestMapping(value = "/manager/manageBlacklist")
+   public String blackInfo(@RequestParam(defaultValue = "1") int curPage,
+         @RequestParam(defaultValue = "10") int perPage, Model model) {
+      try {
+         memberService.memberInfo(curPage, perPage, model,4);
+      } catch (Exception e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
+      return "member/manager/manageBlacklist";
+   }
+   
+   
+
    // buyer 용
    // ==================================================================
    @RequestMapping(value = "/buyer/myPage")
