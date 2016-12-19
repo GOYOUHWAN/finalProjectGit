@@ -68,6 +68,7 @@ function checkCookie() {
 	height: 400px;
 	margin-left: 100px;
 	margin-top: 100px;
+		width : 25%;
 }
 #div_img{
 	/* border : 1px solid yellow; */
@@ -169,6 +170,7 @@ function checkCookie() {
 </c:if>
 
 <!-- 리스트 시작 -->
+<c:set var="size" value="${listsize5%4 }"/>
           <table id="listTable">
          
          <c:forEach begin="0" end="${listsize5/4}">
@@ -260,6 +262,21 @@ function checkCookie() {
                   </c:if>
                   <c:set var="count" value="${count+1}"/>
                </c:forEach>
+               <!--4개씩 보여지기 때문에 listsize를 4로 나눈 나머지가 생기면 list 모양이 깨져보임  에 대한 해결 = td 개수맞춰 더해주기  -->   
+             <c:choose>
+   				<c:when test="${size ==1 }">
+   					   <td class="td_book"></td>
+	                   <td class="td_book"></td>
+	                   <td class="td_book"></td>
+   				</c:when>
+   				<c:when test="${size == 2 }">
+   					   <td class="td_book"></td>
+	                   <td class="td_book"></td>
+   				</c:when>
+   				<c:when test="${ size == 3}">
+   					  <td class="td_book"></td>
+   				</c:when>
+   			</c:choose>
             </tr>
          </c:forEach>
          </table>
@@ -277,17 +294,17 @@ function checkCookie() {
 		<!-- 뒤로가기 -->
 
 		<c:if test="${paging5.curBlock>'1'}">
-			<a href="sellBookList5?curPage=${paging5.startNum-1}" class="paging_text"> 이전 </a>
+			<a href="sellBookList5?curPage=${paging5.startNum-1}&id=${member.id}" class="paging_text"> 이전 </a>
 		</c:if>
 		<!-- 목차번호 -->
 		
 		<c:forEach begin="${paging5.startNum}" end="${paging5.lastNum}" step="1" var="i">
-			<a href="sellBookList5?curPage=${i}" class="paging_text">${i}</a>
+			<a href="sellBookList5?curPage=${i}&id=${member.id}" class="paging_text">${i}</a>
 		</c:forEach>
 		
 		<!-- 앞으로 가기 -->
 		<c:if test="${paging5.curBlock < paging5.totalBlock}">
-			<a href="sellBookList5?curPage=${paging5.lastNum+1}" class="paging_text"> 다음 </a>
+			<a href="sellBookList5?curPage=${paging5.lastNum+1}&id=${member.id}" class="paging_text"> 다음 </a>
 		</c:if>
 			
 		</div>

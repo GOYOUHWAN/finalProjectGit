@@ -30,6 +30,7 @@
 	height: 400px;
 	margin-left: 100px;
 	margin-top: 100px;
+		width : 25%;
 }
 #div_img{
 	/* border : 1px solid yellow; */
@@ -139,6 +140,7 @@
 </c:if>
 
 <!-- 리스트 시작 -->
+<c:set var="size" value="${listsize%4 }"/>
           <table id="listTable">
    
        
@@ -232,6 +234,21 @@
                   </c:if>
                   <c:set var="count" value="${count+1}"/>
                </c:forEach>
+               <!--4개씩 보여지기 때문에 listsize를 4로 나눈 나머지가 생기면 list 모양이 깨져보임  에 대한 해결 = td 개수맞춰 더해주기  -->   
+             <c:choose>
+   				<c:when test="${size ==1 }">
+   					   <td class="td_book"></td>
+	                   <td class="td_book"></td>
+	                   <td class="td_book"></td>
+   				</c:when>
+   				<c:when test="${size == 2 }">
+   					   <td class="td_book"></td>
+	                   <td class="td_book"></td>
+   				</c:when>
+   				<c:when test="${ size == 3}">
+   					  <td class="td_book"></td>
+   				</c:when>
+   			</c:choose>
             </tr>
          </c:forEach>
          </table>
