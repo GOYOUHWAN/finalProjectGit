@@ -42,7 +42,7 @@
 
 #sub_div_2 {
 	width: 100%;
-	height: 30%;
+
 }
 
 table {
@@ -51,6 +51,7 @@ table {
 	border-collapse: collapse;
 	text-align: center;
 	width: 80%;
+	height: 500px;
 	margin: 0 auto;
 	color: #555;
 }
@@ -59,16 +60,20 @@ table {
 	width: 25%;
 	height: 50px;
 }
-
-
+.td_2 {
+	width: 70%;
+	height: 50px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
 #info_sub_3 {
 	width: 64%;
 	height: 100px;
 	margin: 0 auto;	
 }
 
-.btn_d_2 {
-	width: 50px;
+.btn_d_02 {
+	width: 150px;
 	height: 50px;
 	margin: 0 auto;
 	margin-bottom: 50px;
@@ -78,9 +83,10 @@ table {
 	background-color: white;
 	color: #737373;
 	outline: none;
+	margin-top: 20px;
 }
 
-.btn_d_2:HOVER {
+.btn_d_02:HOVER {
 	background-color: #737373;
 	border: 1px solid white;
 	color: white;
@@ -123,14 +129,15 @@ table {
 				<!-- contents -->
 				<tr>
 					<td class="td_1">내용</td>
-					<td>${ blackDTO.contents}</td>
+					<td class="td_2">${ blackDTO.contents}</td>
 				</tr>
+				<tr><td class="td_1"></td><td class="td_1"></td></tr>
 			</table>
 		</div>
 		<div id="info_sub_3">
-			<button class="btn_d_2" id="btn4">목록으로</button>
+			<button class="btn_d_02" id="btn4">목록으로</button>
 			<c:if test="${sessionScope.member.id eq dto.id || sessionScope.member.type eq '3'}">
-				<button class="btn_d_2" id="btn5">정보 변경</button>
+				<button class="btn_d_02" id="btn5">회원 정보</button>
 			</c:if>
 		</div>
 	</div>

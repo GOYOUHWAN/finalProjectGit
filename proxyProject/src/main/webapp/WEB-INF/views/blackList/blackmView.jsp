@@ -132,10 +132,11 @@ table {
 	margin: 0 auto;	
 }
 
-.btn_d_2 {
-	width: 33.3%;
+.btn_d_02 {
+	width: 150px;
 	height: 50px;
 	margin: 0 auto;
+	margin-top:20px;
 	margin-bottom: 50px;
 	float: left;	
 	font-size: 15px;
@@ -145,7 +146,7 @@ table {
 	outline: none;
 }
 
-.btn_d_2:HOVER {
+.btn_d_02:HOVER {
 	background-color: #737373;
 	border: 1px solid white;
 	color: white;
@@ -158,29 +159,14 @@ table {
 			$("#btn1").css("background-color", "#00ace6");
 			$("#btn1").css("color", "white");
 	
-			// HOME
+			//목록으로
 			$("#btn4").click(function() {
-				location.href = "../";
+				location.href = "blackListForm";
 			});
 	
 			// 회원 정보 변경
 			$("#btn5").click(function() {
-				location.href = "blackmUpdate?id=${ memberDTO.id }";
-			});
-	
-			// 회원 탈퇴
-			$("#btn6").click(function() {
-				 $.ajax({
-					url : "memberDelete",
-					type : "POST",
-					data : {
-						id : $("#getId").text()
-					},
-					success : function(result) {
-						alert(result);
-						location.href="../";
-					} 
-				});
+				location.href = "blackmUpdate?id=${blackm.id}";
 			});
 		});
 	</script>
@@ -194,56 +180,51 @@ table {
 	<div id="info_div">
 <h2 style="text-align: center;margin-bottom:30px;">회원정보</h2>
 		<div id="info_sub_2">
-		
 			<table>
 				<c:if test="${sessionScope.member.id eq dto.id || sessionScope.member.type eq '3'}">
 				<!-- type -->
 				<tr>
 					<td class="td_1">type</td>
-					<td id="getId">${ memberDTO.type }</td>
+					<td id="getType">${ blackm.type }</td>
 				</tr>
 				</c:if>
 				<!-- 아이디 -->
 				<tr>
 					<td class="td_1">아이디</td>
-					<td id="getId">${ memberDTO.id }</td>
-				</tr>
-				<!-- 비밀번호 -->
-				<tr>
-					<td class="td_1">비밀번호</td>
-					<td>${ memberDTO.pw }</td>
+					<td id="getId">${ blackm.id }</td>
 				</tr>
 				<!-- 이름 -->
 				<tr>
 					<td class="td_1">이름</td>
-					<td>${ memberDTO.name }</td>
+					<td>${ blackm.name }</td>
 				</tr>
 				<!-- 나이 -->
 				<tr>
 					<td class="td_1">생년월일</td>
-					<td>${ memberDTO.year }</td>
+					<td>${ blackm.year }</td>
 				</tr>
 				<!-- 휴대폰 번호 -->
 				<tr>
 					<td class="td_1">휴대폰 번호</td>
-					<td>${ memberDTO.tel }</td>
+					<td>${ blackm.tel }</td>
 				</tr>
 				<!-- E-MAIL -->
 				<tr>
 					<td class="td_1">E-MAIL</td>
-					<td>${ memberDTO.email }</td>
+					<td>${ blackm.email }</td>
 				</tr>
 				<!-- 주소 -->
 				<tr>
 					<td class="td_1">Address</td>
-					<td>${ memberDTO.address }</td>
+					<td>${ blackm.address }</td>
 				</tr>
 			</table>
 		</div>
 		<div id="info_sub_3">
-			<button class="btn_d_2" id="btn4">HOME</button>
-			<button class="btn_d_2" id="btn5">정보 변경</button>
-			<button class="btn_d_2" id="btn6">회원 탈퇴</button>
+			<button class="btn_d_02" id="btn4" style="margin-left: 90px;">목록으로</button>
+			<c:if test="${sessionScope.member.id eq dto.id || sessionScope.member.type eq '3'}">
+				<button class="btn_d_02" id="btn5">정보 변경</button>
+			</c:if>
 		</div>
 	</div>
 </body>

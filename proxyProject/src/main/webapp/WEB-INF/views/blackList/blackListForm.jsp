@@ -288,12 +288,11 @@ a {
          <div>
                <!-- 구매자 정보 -->
                <c:forEach items="${memberInfo}" var="f">
-               
                   <div class="mypage-item-wrapper ng-scope">
                      <div class="mypageodr-item-info">
                      <c:if test="${sessionScope.member.id != dto.id}">
                         <a class="mypageodr-item-price ng-binding"
-                           href="${pageContext.request.contextPath }/member/memberView?id=${f.id}">${f.id }</a>
+                           href="${pageContext.request.contextPath }/blackList/blackmView?id=${f.id}">${f.id }</a>
                      </c:if>
                      <c:if test="${sessionScope.member.id eq dto.id}">
                      	${f.id }

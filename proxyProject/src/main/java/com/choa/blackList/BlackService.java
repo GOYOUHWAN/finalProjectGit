@@ -20,6 +20,10 @@ public class BlackService {
 	public int singoWrite(BlackDTO blackDTO) throws Exception {
 		return blackDAO.singoWrite(blackDTO);
 	}
+	//신고 글 삭제
+	public int singoDelete(String sid)throws Exception{
+		return blackDAO.singoDelete(sid);
+	}
 	//회원정보열람
 	public void memberInfo(int curPage, int perPage, Model model, int type) throws Exception{
 		
@@ -51,7 +55,7 @@ public class BlackService {
 	//블랙멤버 정보보기
 	public MemberDTO blackmView(String id, Model model) throws Exception{
 		MemberDTO memberDTO = blackDAO.blackmView(id);
-	     model.addAttribute("memberDTO",memberDTO);
+	     model.addAttribute("blackm",memberDTO);
 	     
 	     return memberDTO;
 	}

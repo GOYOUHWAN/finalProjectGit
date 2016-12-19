@@ -72,11 +72,7 @@
 			$("#list").click(function() {
 				location.href = "${pageContext.request.contextPath}/blackList/blackListForm";
 			});
-			
-/* 			// 회원 정보 변경
-			$("#btn5").click(function() {
-				location.href = "memberUpdate";
-			}); */
+
 		});
 </script>
 </head>
@@ -89,7 +85,7 @@
 		<table style="padding-bottom: 10px; border: 1px solid #d8d8d8;">
 			<tr><td><br></td><td><br></td></tr>
 			<tr>
-				<td class="td_1">판매자아이디</td>
+				<td class="td_1">사기꾼아이디</td>
 				<td><input type="text" name="sid" class="write_text"></td>
 			</tr>
 			<tr>
