@@ -132,9 +132,9 @@
 
 <!-- 리스트 시작 -->
  <h2>${listsize%4 }</h2>
-   <c:if test="${listsize%4 == 1}">
+<%--    <c:if test="${listsize%4 == 1}">
    		 <c:set var=""></c:set>
-   </c:if> 
+   </c:if>  --%>
           <table id="listTable">
          <c:forEach begin="0" end="${listsize/4}">
             <tr >
