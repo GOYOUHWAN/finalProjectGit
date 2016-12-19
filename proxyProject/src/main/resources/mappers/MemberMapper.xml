@@ -7,11 +7,11 @@
 	<!--고유환이 만든부분 시작 -->
 	<!--index 에서 판매자 신용도에 따라 1~10위 보여주기  -->
 	<select id="sellerTrust" resultType="com.choa.member.MemberDTO">
-		select * from MEMBER order by seller_trust desc
+		select * from MEMBER where type != 4 order by seller_trust desc 
 	</select>
 	<!--index에서 구매자 신용도에 따라 1~10위 보여주기  -->
 	<select id="buyerTrust" resultType="com.choa.member.MemberDTO">
-		select * from MEMBER order by buyer_trust desc
+		select * from MEMBER where type != 4 order by buyer_trust desc 
 	</select>
 	<!--고유환이 만든부분 끝  -->
 

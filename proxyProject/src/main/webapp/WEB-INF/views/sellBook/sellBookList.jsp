@@ -25,19 +25,22 @@
 	width : 80%;
 	margin : 0 auto;
 	margin-top: 50px;
-	
+/* 	border: 1px solid black; */
 }
-#td_book{
-	/* border: 1px solid red; */
+#tr_list{
+	width: 100%;
+}
+.td_book{
 	height: 400px;
+	width : 25%;
 	margin-left: 100px;
 	margin-top: 100px;
-	border: 1px solid yellow;
+/* 	border: 1px solid yellow; */
 }
 #div_img{
 	width: 100%;
 	height: 300px;
-	border: 1px solid red; 
+/* 	border: 1px solid red;  */
 }
 #img{
 	border-radius : 0px;
@@ -45,7 +48,7 @@
 	width: 80%;
 	height: 100%;
 	margin-left: 25px;
-	 border: 1px solid green; 
+/* 	 border: 1px solid green;  */
 	}
 #body_sellbooklist{
 	height: 1200px;
@@ -131,13 +134,20 @@
 </c:if>
 
 <!-- 리스트 시작 -->
+
  <h2>${listsize%4 }</h2>
 <%--    <c:if test="${listsize%4 == 1}">
    		 <c:set var=""></c:set>
    </c:if>  --%>
+
+
+
+   	<c:set var="size" value="${listsize%4 }"/>
+
+
           <table id="listTable">
          <c:forEach begin="0" end="${listsize/4}">
-            <tr >
+            <tr id="tr_list">
                <c:forEach begin="0" end="3">
    
                <c:if test="${check}">  
@@ -146,7 +156,7 @@
 	                  </c:if>
 	                  
 	                  <c:if test="${listsize !='0' }">
-	                     <td id="td_book">
+	                     <td class="td_book">
 	                     <!--id 보여주는 곳  -->
 	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="span_id">${list[count].id}</span>
 	                     	
@@ -218,6 +228,8 @@
 	                        </div>
 	              
 	                     </td>
+	        
+	                   
 	                  </c:if>
               	  </c:if>  
                   <c:if test="${(count+1) ==listsize}">
@@ -225,8 +237,24 @@
                   </c:if>
                <c:set var="count" value="${count+1}"/>
                </c:forEach>
+            <!--4개씩 보여지기 때문에 listsize를 4로 나눈 나머지가 생기면 list 모양이 깨져보임  에 대한 해결 = td 개수맞춰 더해주기  -->   
+             <c:choose>
+   				<c:when test="${size ==1 }">
+   					   <td class="td_book"></td>
+	                   <td class="td_book"></td>
+	                   <td class="td_book"></td>
+   				</c:when>
+   				<c:when test="${size == 2 }">
+   					   <td class="td_book"></td>
+	                   <td class="td_book"></td>
+   				</c:when>
+   				<c:when test="${ size == 3}">
+   					  <td class="td_book"></td>
+   				</c:when>
+   			</c:choose>
             </tr>
          </c:forEach>
+         
          </table>
                
          <!-- 리스트 끝 -->
@@ -244,7 +272,7 @@
 		<div id="listnum">
 		<!-- 뒤로가기 -->
 		<c:if test="${paging.curBlock>'1'}">
-			<a href="sellBookList?curPage=${paging.startNum-1}" class="paging_text"> 이전 </a>
+			<a href="sellBookList?curPage=${paging.startNum-1}&id=${member.id}" class="paging_text"> 이전 </a>
 		</c:if>
 		<!-- 목차번호 -->
 		<c:forEach begin="${paging.startNum}" end="${paging.lastNum}" step="1" var="i">
@@ -253,7 +281,7 @@
 	
 		<!-- 앞으로 가기 -->
 		<c:if test="${paging.curBlock < paging.totalBlock}">
-			<a href="sellBookList?curPage=${paging.lastNum+1}" class="paging_text"> 다음 </a>
+			<a href="sellBookList?curPage=${paging.lastNum+1}&id=${member.id}" class="paging_text"> 다음 </a>
 		</c:if>
 			
 		</div>
