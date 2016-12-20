@@ -56,7 +56,7 @@
 
 .header_a:hover {
 	text-decoration: underline;
-	color: white;
+/* 	color: white; */
 }
 
 .acolor {
@@ -182,11 +182,10 @@
 				<ul id="h_ul1">
 
 					<li class="h_li1"><a
-						href="${pageContext.request.contextPath}/member/memberLogin"
-						class="acolor">로그인</a></li>
+						href="${pageContext.request.contextPath}/member/memberLogin"class="acolor">로그인</a></li>
 					<c:if test="${sessionScope.member ne null}">
 
-						<li><a href="${pageContext.request.contextPath}/memberLogout">로그아웃</a></li>
+						<li class="h_li1"><a href="${pageContext.request.contextPath}/memberLogout" class="acolor">로그아웃</a></li>
 					</c:if>
 					<li class="h_li1">
 						<!-- 일반 회원용 --> <c:if test="${member.type =='1'}">
@@ -248,18 +247,7 @@
 			<div id="header_div_5">
 				<ul id="h_ul2">
 
-					<li class="h_li2"><a
-						href="${pageContext.request.contextPath}/notice/noticeList"
-						class="header_a">공지사항</a></li>
-					<li class="h_li2"><a
-						href="${pageContext.request.contextPath}/freeboard/freList"
-						class="header_a">자유게시판</a></li>
-					<li class="h_li2"><a
-						href="${pageContext.request.contextPath}/sellBook/sellBookList?id=${member.id}"
-						class="header_a">물품 구매</a></li>
-					<li class="h_li2"><a
-						href="${pageContext.request.contextPath}/blackList/blackListForm"
-						class="header_a">블랙리스트</a></li>
+			
 
 					<li class="h_li2"><a href="${pageContext.request.contextPath}/notice/noticeList"class="header_a">공지사항</a></li>
 					<li class="h_li2"><a href="${pageContext.request.contextPath}/freeboard/freList" class="header_a">자유게시판</a></li>

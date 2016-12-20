@@ -21,6 +21,11 @@ public class BookDAO {
 	private String namespace= "BookMapper.";
 	
 	
+	
+	public int statusDeposit(int num)throws Exception{
+		return sqlSession.update(namespace+"statusDeposit", num);
+	}
+	
 	//sellBookList에서 하트 보여주기
 	public List<Integer> myHeart(String id)throws Exception{
 		return sqlSession.selectList(namespace+"myHeart", id);

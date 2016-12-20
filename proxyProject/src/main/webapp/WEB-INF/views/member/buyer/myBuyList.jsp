@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
 
 <title>MY_BUY_LIST</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -54,6 +54,8 @@ tr, th {
 #h_ul2{
 	height: 35px;
 }
+
+
 </style>
 </head>
 <body >
@@ -81,25 +83,7 @@ tr, th {
 						<th>책 제목</th>
 						<th>가격</th>
 						<th>구매 날짜</th>
-						
-						<th><div id="div_th">주문상태</div><div class="dropup"><button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-						  
-						    <span class="caret"></span></button>
-						    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-						      <li role="presentation"><!-- <a role="menuitem" tabindex="-1" href="#"> -->- 입금대기중</li>
-						      <li role="presentation"><!-- <a role="menuitem" tabindex="-1" href="#"> -->- 결제완료</li>
-						      <li role="presentation"><!-- <a role="menuitem" tabindex="-1" href="#"> -->- 배송준비중</li>
-						      <li role="presentation"><!-- <a role="menuitem" tabindex="-1" href="#"> -->- 배송완료</li>
-						      <li role="presentation"><!-- <a role="menuitem" tabindex="-1" href="#"> -->- 구매확정</li>
-						    </ul>
-						  </div>
-					<!-- 	<div id="div_status">
-						-입금대기중<br>
-						-결제완료<br>
-						-배송준비중<br>
-						-배송완료<br>
-						-구매확정<br>
-						</div> --></th>
+						<th>주문상태</th>
 						<th>기타</th>
 					
 					</tr>
@@ -111,11 +95,12 @@ tr, th {
 							<tr>
 								
 								<td><a href="<%=application.getContextPath()%>/sellBook/sellBookView?id=${list.id}&num=${list.num}">
-								${list.product}</a></td>
+										${list.product}</a></td>
 								<td>${list.price }</td>
 								<td>${list.buy_date}</td>
 								<td>${list.status}</td>
 								<td><a href="depositWrite?id=${member.id}&price=${list.price}&num=${list.num}&id=${list.id}"><button id="deposit"> 입금하기 </button></a>
+								
 							</tr>
 						</c:forEach>
 						</c:when>
