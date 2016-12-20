@@ -18,7 +18,7 @@
 		height: 100%;
 	    list-style-type: none;
 	    float: right;
-	    margin-top: 0px;
+	    margin-top: 10px;
 	    margin-right: 9px;
 	}
 	.h_li1{
@@ -60,7 +60,8 @@
     	margin-left: 15px;
 	}
 #h3_for_test{
-	color: black;
+	color: gray;
+	font-size: 16px;
 }	
 
 
@@ -74,10 +75,14 @@
 
 		<div id="header_div_1">
 			<div id="h_div1">
-				<h3 id="h3_for_test">${member.id }님 로그인   (로그인한 사람 확인용으로 썼어요)</h3>
+				
 				<ul id="h_ul1">
-					
+					<c:if test="${sessionScope.member == null}">
 					<li class="h_li1"><a href="${pageContext.request.contextPath}/member/memberLogin" class="acolor">로그인</a></li>
+					</c:if>
+					<c:if test="${sessionScope.member != null}">
+						<li class="h_li1"><a href="${pageContext.request.contextPath}/member/memberView" class="acolor">${member.id }님 로그인</a></li>
+					</c:if>
 					<li class="h_li1">
 				 		<!-- 일반 회원용 -->      
 						<c:if test="${member.type =='1'}"> 
@@ -95,10 +100,15 @@
 						      <c:if test="${member.type =='3'}">
 						<a href="<%=application.getContextPath()%>/member/manager/manageMember?type=${member.type}&id=${member.id}" class="acolor">관리자페이지</a>
 						   </c:if>
+					<c:if test="${sessionScope.member != null}">
+					<li class="h_li1"><a href="${pageContext.request.contextPath}/memberLogout" class="acolor">로그아웃</a></li>
+					</c:if>
 					</li>
+					<c:if test="${sessionScope.member == null}">
 					<li class="h_li1"><a href="${pageContext.request.contextPath}/member/memberJoin" class="acolor">회원가입</a></li>
-					<li class="h_li1"><a href="member/findID" class="acolor">아이디 찾기</a></li>
-					<li class="h_li1"><a href="member/findPW" class="acolor">비밀번호 찾기</a></li>
+					<li class="h_li1"><a href="${pageContext.request.contextPath}/member/findID" class="acolor">아이디 찾기</a></li>
+					<li class="h_li1"><a href="${pageContext.request.contextPath}/member/findPW" class="acolor">비밀번호 찾기</a></li>
+					</c:if>
 				</ul>
 			</div>
 			<div id="header_div_2">

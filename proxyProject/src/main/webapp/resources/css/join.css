@@ -84,7 +84,7 @@ table {
 
 #join_sub_2 {
 	width: 45%;
-	height: 60px;
+	height: 50px;
 	margin: 0 auto;
 	margin-top: 30px;
 }
@@ -94,27 +94,28 @@ table {
 	height: 100%;
 	margin-left: 30px;
 	float: left;
-	border: 1px solid #00ace6;
-	background-color: #00ace6;
+	border: 1px solid #7151FC;
+	background-color: #7151FC;
 	font-size: 20px;
 	color: white;
 }
 
 .btn2:HOVER {
-	border: 1px solid #00ace6;
+	border: 1px solid #7151FC;
 	background-color: white;
-	color: #00ace6;
+	color: #7151FC;
 }
 
 #btn3 {
 	border: 1px solid #737373;
-	background-color: #737373;
+	background-color: white;
+	color:#737373;
 	outline: none;
 }
 
 #btn3:HOVER {
 	border: 1px solid #737373;
-	background-color: white;
-	color: #737373;
+	background-color: #737373;
+	color: white;
 	outline: none;
 }

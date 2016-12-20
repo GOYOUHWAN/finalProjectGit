@@ -37,6 +37,7 @@
 	width: 200px;
 	height: 250px;
 	display:none;
+	border-radius: 15px;
 
 }
 .p_text{

@@ -10,6 +10,9 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/help_inquiry.css">
 </head>
 <body>
+    <!-- Header Start -->
+      <%@ include file = "../common/header.jsp" %>
+	<!-- Header End -->
 <section id="container" class="wrap_leave">
 	<div id="content" class="inquiry non_sign">
 		<div class="content_header">
@@ -26,7 +29,7 @@
 						
 						<c:choose>
 							<c:when test="${find eq null }">
-								<p>일치하는 ID가 없습니다.</p>
+								<p class="gulci">일치하는 ID가 없습니다.</p>
 							</c:when>
 							<c:otherwise>
 								<input type="radio">
@@ -52,6 +55,9 @@
 		</form>
 	</div>
 </section>
+	<!-- Footer Start -->
+		<%@ include file = "../common/footer.jsp" %>
+	<!-- Footer End -->
 </body>
 <script type="text/javascript">
 	
