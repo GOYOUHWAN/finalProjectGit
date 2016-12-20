@@ -114,11 +114,10 @@ tr, th {
 						  
 						    <span class="caret"></span></button>
 						    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-						      <li role="presentation"><!-- <a role="menuitem" tabindex="-1" href="#"> -->- 입금대기중</li>
-						      <li role="presentation"><!-- <a role="menuitem" tabindex="-1" href="#"> -->- 결제완료</li>
-						      <li role="presentation"><!-- <a role="menuitem" tabindex="-1" href="#"> -->- 배송준비중</li>
-						      <li role="presentation"><!-- <a role="menuitem" tabindex="-1" href="#"> -->- 배송완료</li>
-						      <li role="presentation"><!-- <a role="menuitem" tabindex="-1" href="#"> -->- 구매확정</li>
+						   	  <li role="presentation">- 입금대기중</li>
+						      <li role="presentation">- 결제완료</li>
+						      <li role="presentation">- 배송중</li>
+						      <li role="presentation">- 구매확정</li>
 						    </ul>
 						  </div>
 					<!-- 	<div id="div_status">

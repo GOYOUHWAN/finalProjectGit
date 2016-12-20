@@ -37,12 +37,7 @@
 .mySlides{
 	width: 200px;
 	height: 250px;
-<<<<<<< HEAD
-	display:none;f
-=======
-	display:none;
-	border-radius: 15px;
->>>>>>> refs/heads/songjoohyun
+
 
 }
 .p_text{

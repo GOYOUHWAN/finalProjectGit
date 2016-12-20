@@ -18,6 +18,11 @@ public class BookService {
 	@Autowired
 	private BookDAO bookDAO;
 	
+	public int statusDeposit(int num)throws Exception{
+		return bookDAO.statusDeposit(num);
+	}
+	
+	
 	//sellBookList에서 하트 검증용
 	public List<Integer> myHeart(String id, Model model)throws Exception{
 		List<Integer> heart = bookDAO.myHeart(id);
