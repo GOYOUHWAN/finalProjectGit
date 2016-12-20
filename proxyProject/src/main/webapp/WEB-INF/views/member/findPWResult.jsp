@@ -34,13 +34,16 @@ function equalPW(){
 </script>
 </head>
 <body>
+    <!-- Header Start -->
+      <%@ include file = "../common/header.jsp" %>
+	<!-- Header End -->
 <section id="container" class="wrap_leave">
 	<div id="content" class="inquiry non_sign">
 		<div class="content_header">
 			<h2>
 				<img alt="findid" src="${pageContext.request.contextPath}/resources/image/h_find_pw.gif">
 			</h2>
-			<ol class="process">
+			<ol class="process gulci">
 				<li>01. 본인 확인<span>></span></li>
 				<li class="on">02. 비밀번호 재설정</li>
 			</ol>
@@ -51,30 +54,30 @@ function equalPW(){
 		<div class="section_find">
 			<form action="findPWResult" method="post">
 				<div class="box6">
-					<dl class="n_id box_inn">
+					<dl class="n_id box_inn gulci">
 						<dt> ID <input type="hidden" name="id" value="${find }"> </dt>
 						<dd> ${find } </dd>
 						
 					</dl>
 					<dl>
 						<!-- 비밀번호 -->
-						<dt>
+						<dt style="margin-left: 17%;margin-bottom: 2%;margin-top:1%;">
 							<label class="td_1"></label>
-							<input type="password" class="input_txt" id="pw1" placeholder="새 비밀번호"
+							<input type="password" class="input_txt gulci blankset" id="pw1" placeholder="새 비밀번호"
 								onkeyup="rePW()">
 						</dt>
 						<!-- 비밀번호 재확인 -->
-						<dt>
+						<dt style="margin-left: 17%;">
 							<label class="td_1"></label>
-							<input type="password" class="input_txt" id="pw2" name="pw" placeholder="새 비밀번호 확인"
+							<input type="password" class="input_txt gulci blankset" id="pw2" name="pw" placeholder="새 비밀번호 확인"
 								onkeyup="equalPW()"> 
-								<span id="false">비밀번호 불일치</span> 
-								<span id="true">비밀번호 일치</span>
+								<span id="false" class="gulci">비밀번호 불일치</span> 
+								<span id="true" class="gulci">비밀번호 일치</span>
 						</dt>
 					</dl>
-					<ul class="find_notice">
+					<ul class="find_notice gulci">
 						<li>영문, 숫자, 특수문자를 함께 사용하면(6자 이상 16자 이하)보다 안전합니다.</li>
-						<li>다른 사이트와 다른 <strong>네이버 아이디만의 비밀번호</strong>를 만들어 주세요.</li>
+						<li>다른 사이트와 다른 <strong>proxy 아이디만의 비밀번호</strong>를 만들어 주세요.</li>
 					</ul>
 				</div>
 				<div class="btn_area">
@@ -83,7 +86,9 @@ function equalPW(){
 			</form>
 		</div>
 	</div>
-
 </section>
+	<!-- Footer Start -->
+		<%@ include file = "../common/footer.jsp" %>
+	<!-- Footer End -->
 </body>
 </html>

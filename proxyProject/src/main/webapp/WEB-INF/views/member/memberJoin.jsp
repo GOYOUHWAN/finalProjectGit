@@ -100,12 +100,18 @@
 		}
 	</script>
 	<!-- JavaScript 처리 끝 -->
+	<style type="text/css">
+		
+	</style>
 </head>
 <body>
-
+    <!-- Header Start -->
+      <%@ include file = "../common/header.jsp" %>
+	<!-- Header End -->
 	<!-- Join 시작 -->
 	<div id="join_div">
 		<!-- 입력 부분 시작 -->
+		<h2>회원가입</h2>
 		<div id="join_sub_1">
 		<!-- <form action="memberJoin" method="post"> -->
 			<table>
@@ -114,7 +120,7 @@
 					<td class="td_1">아이디</td>
 					<td>
 						<input type="text" name="id" class="categ1" id="id"> 
-						<button id="btn1">중복 확인</button>
+						<button id="btn1">중복 확인</button><br>
 						<span id="useridspan"></span>
 					</td>
 				</tr>
@@ -240,7 +246,8 @@
 		</div>
 	</div>
 	<!-- Join 끝 -->
-
-
+	<!-- Footer Start -->
+		<%@ include file = "../common/footer.jsp" %>
+	<!-- Footer End -->
 </body>
 </html>

@@ -12,8 +12,11 @@
     border: none;
    	
 	}
-img{
-	border-radius: 15px;
+.gulci {
+    font-family: '돋움',Dotum,AppleGothic,sans-serif;
+    font-size: 12px;
+    margin:0;
+    padding:0;
 }
  a{
 	text-decoration: none; 
@@ -425,7 +428,7 @@ ul.tab li a:focus, .active {
 
 .btn_d_2 {
 	float : left;
-	width: 33.333333%;
+	width: 25%;
 	height: 50px;
 	margin: 0 auto;
 	font-size: 15px;
@@ -486,3 +489,10 @@ ul.tab li a:focus, .active {
 /* 	border: 1px solid red; */
 }
 
+.blankset{
+	height: 23px;
+    padding-left: 3px;
+    border: 1px solid #ccc;
+    vertical-align: top;
+    line-height: 23px;
+}

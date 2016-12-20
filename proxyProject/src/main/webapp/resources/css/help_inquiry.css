@@ -5,6 +5,7 @@
 	height:903px;
     position: relative;
     margin: 0 auto;
+    margin-top: 20px;
 }
 #container #content {
     float: none;
@@ -33,7 +34,7 @@
     padding: 0 2px 0 1px;
     border-bottom: 2px solid #4d4d4d;
 }
-* {
+.gulci {
     font-family: '돋움',Dotum,AppleGothic,sans-serif;
     font-size: 12px;
     margin:0;
@@ -192,6 +193,7 @@
     background: url(../image/sp_find_idpw.png) no-repeat;
 }
 .btn_next2 {
+	margin-top: 20px;
     width: 60px;
     height: 33px;
     background-position: 0 0;
@@ -225,6 +227,7 @@
     width: 122px;
     height: 33px;
     background-position: 0 -140px;
+    background-color: #7151FC;
 }
 .btn_findpw {
     width: 112px;

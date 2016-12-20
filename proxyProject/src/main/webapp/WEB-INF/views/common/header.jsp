@@ -10,7 +10,11 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/common/common.css">
 <style type="text/css">
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
 #h_div1 {
 	width: 100%;
 	height: 30px;
@@ -43,7 +47,39 @@
 	background-color: #7151FC;
 	padding-top: 13px;
 	padding-left: 110px;
+=======
+	#h_div1{
+		width: 100%;
+		height: 30px;
+		/* border: 1px solid green; */
+	}
+	#h_ul1{
+		height: 100%;
+	    list-style-type: none;
+	    float: right;
+	    margin-top: 10px;
+	    margin-right: 9px;
+	}
+	.h_li1{
+		height: 100%;
+		float: left;
+		margin-left: 8px;
+		margin-right: 10px;
+		font-size: 16px;
+		/* border: 1px solid red; */
+	}
+	#h_ul2{
+		width: 100%;
+	    height: 35px;
+	    list-style-type: none;
+	    margin-top: 0px;
+	    text-align: center;
+	    background-color: #7151FC;
+	    padding-top: 13px;
+	    padding-left: 110px;
+>>>>>>> refs/heads/songjoohyun
 	/*    border: 2px solid green; */
+<<<<<<< HEAD
 }
 
 .h_li2 {
@@ -126,45 +162,31 @@
 
 
 }	
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
 
- .dropdown-content {
-	width : 100%;
-	height: 100%;
-    display: none;
-    position: absolute;
-    background-color:  #7151FC;
-  	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
-    z-index: 1;
-	color: white;
-
-}
-.dropdown .p_dropdown{
-    background-color:  #7151FC;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-/* 
-.p_dropdown{
-	color: white;
-}
-.p_dropdown:hover .p_dropdown{
-
-	color: white;
-}
-.p_dropdown:hover .a_drop{
-	color: white;
-} */
-.a_drop{
-	text-align: left;
-}
-.a_drop:hover{
-/* 	color: black; */
-}
+	}
+	.h_li2{
+		width: 250px;
+		height: 25px;
+		float: left;
+		margin: 0 auto;
+/* 		border: 1px solid red; */
+	
+	}
+	.header_a:hover{
+		text-decoration: underline;
+		color: white;
+	}
+	.acolor {
+    	color: gray;
+	}
+	.acolor2 {
+    	color: gray;
+    	margin-left: 15px;
+	}
+#h3_for_test{
+	color: gray;
+	font-size: 16px;
+}	
 
 
 
@@ -178,15 +200,26 @@
 
 		<div id="header_div_1">
 			<div id="h_div1">
-				<h3 id="h3_for_test">${member.id }님로그인(로그인한사람 확인용으로 썼어요)</h3>
+
+				<h3 id="h3_for_test">${member.id }님로그인</h3>
+
+				
+
 				<ul id="h_ul1">
+
 
 					<li class="h_li1"><a
 						href="${pageContext.request.contextPath}/member/memberLogin"
 						class="acolor">로그인</a></li>
 					<c:if test="${sessionScope.member ne null}">
-
 						<li><a href="${pageContext.request.contextPath}/memberLogout">로그아웃</a></li>
+					</c:if>
+					<c:if test="${sessionScope.member == null}">
+					<li class="h_li1"><a href="${pageContext.request.contextPath}/member/memberLogin" class="acolor">로그인</a></li>
+					</c:if>
+					<c:if test="${sessionScope.member != null}">
+						<li class="h_li1"><a href="${pageContext.request.contextPath}/member/memberView" class="acolor">${member.id }님 로그인</a></li>
+
 					</c:if>
 					<li class="h_li1">
 						<!-- 일반 회원용 --> <c:if test="${member.type =='1'}">
@@ -203,6 +236,7 @@
 							<a
 								href="<%=application.getContextPath()%>/member/manager/manageMember?type=${member.type}&id=${member.id}"
 								class="acolor">관리자페이지</a>
+
 						</c:if>
 
 						   
@@ -218,6 +252,24 @@
 						   </c:if>
 
 					</li>
+
+			
+						   
+						   <!--판매자용  -->
+						      <c:if test="${member.type =='2'}"> 
+						<a href="<%=application.getContextPath() %>/member/seller/myPage?type=${member.type}&id=${member.id}" class="acolor">마이페이지</a>
+					
+						   </c:if> 
+						   
+						   <!-- 관리자용 -->
+						      <c:if test="${member.type =='3'}">
+						<a href="<%=application.getContextPath()%>/member/manager/manageMember?type=${member.type}&id=${member.id}" class="acolor">관리자페이지</a>
+						   </c:if>
+					<c:if test="${sessionScope.member != null}">
+					<li class="h_li1"><a href="${pageContext.request.contextPath}/memberLogout" class="acolor">로그아웃</a></li>
+					</c:if>
+					</li>
+
 					<li class="h_li1"><a
 						href="${pageContext.request.contextPath}/member/memberJoin"
 						class="acolor">회원가입</a></li>
@@ -225,6 +277,11 @@
 							찾기</a></li>
 					<li class="h_li1"><a href="member/findPW" class="acolor">비밀번호
 							찾기</a></li>
+					<c:if test="${sessionScope.member == null}">
+					<li class="h_li1"><a href="${pageContext.request.contextPath}/member/memberJoin" class="acolor">회원가입</a></li>
+					<li class="h_li1"><a href="${pageContext.request.contextPath}/member/findID" class="acolor">아이디 찾기</a></li>
+					<li class="h_li1"><a href="${pageContext.request.contextPath}/member/findPW" class="acolor">비밀번호 찾기</a></li>
+					</c:if>
 				</ul>
 			</div>
 			<div id="header_div_2">
