@@ -52,7 +52,7 @@ table {
 	width: 20%;
 	height: 20px;
 	text-align: center;
-	font-size: 17px;
+	font-size: 16px;
 }
 
 .categ1 {
@@ -89,7 +89,7 @@ table {
 }
 
 .btn_d_2 {
-	width: 25%;
+	width: 20%;
 	height: 50px;
 	margin: 0 auto;
 	margin-top: 50px;
@@ -152,12 +152,11 @@ $(function() {
 	});
 
 	// ID 찾기
-	$("#btn4").click(
-			function() {
+	$("#btn4").click(function() {
 				// Opener 사용
-				var newWindow = window
-						.open("../member/findID.jsp?", "newWindow",
-								"height=150, width=500, resizable=yes");
+				var newWindow = window.open("../member/findID.jsp?", 
+						"newWindow",
+						"height=150, width=500, resizable=yes");
 				$("#id").focus();
 			});
 
@@ -183,6 +182,9 @@ $(function() {
 </script>
 </head>
 <body>
+    <!-- Header Start -->
+      <%@ include file = "../common/header.jsp" %>
+	<!-- Header End -->
 	<!-- Login 시작-->
 	<div id="login_div">
 		<!-- 버튼 처리 부분 -->
@@ -225,5 +227,8 @@ $(function() {
 		</div>
 	</div>
 	<!-- Login 끝 -->
+	<!-- Footer Start -->
+		<%@ include file = "../common/footer.jsp" %>
+	<!-- Footer End -->
 </body>
 </html>

@@ -11,7 +11,7 @@
 	width: 80%;
 	height: 800px;
 	margin: 0 auto;
-	margin-top: 50px;
+	margin-top: 30px;
 }
 
 #info_sub_1 {
@@ -127,7 +127,7 @@ table {
 }	
 
 #info_sub_3 {
-	width: 80%;
+	width: 70%;
 	height: 100px;
 	margin: 0 auto;	
 }
@@ -187,9 +187,12 @@ table {
 	
 </head>
 <body>
-<h2>회원정보</h2>
+    <!-- Header Start -->
+      <%@ include file = "../common/header.jsp" %>
+	<!-- Header End -->
 <!-- info -->
 	<div id="info_div">
+<h2 style="text-align: center;margin-bottom: 20px;">회원정보</h2>
 		<div id="info_sub_2">
 		
 			<table>
@@ -236,5 +239,8 @@ table {
 			<button class="btn_d_2" id="btn6">회원 탈퇴</button>
 		</div>
 	</div>
+	<!-- Footer Start -->
+		<%@ include file = "../common/footer.jsp" %>
+	<!-- Footer End -->
 </body>
 </html>
