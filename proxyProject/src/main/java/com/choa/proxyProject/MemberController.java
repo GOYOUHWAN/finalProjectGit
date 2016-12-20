@@ -163,7 +163,7 @@ public class MemberController {
 
 
 
-   @RequestMapping(value="/buyer/deposit")
+   @RequestMapping(value="/buyer/depositWrite")
    public String deposit(@RequestParam int num, String id,  Model model){
 
       try {
@@ -172,7 +172,7 @@ public class MemberController {
          // TODO Auto-generated catch block
          e.printStackTrace();
       }
-      return "/member/buyer/deposit";
+      return "/member/buyer/depositWrite";
    }
    
    // ============================================================

@@ -77,7 +77,6 @@
 .comment{
 	padding: 20px 0 20px 16px;
     border-bottom: 1px solid #ececec;
-
 }
 
 </style>
@@ -107,13 +106,13 @@
 								var c = data[i].contents;
 								result += "<tr><td>";
 								result += "WRITER : ";
-								result += data[i].writer;
+								result += data[i].id;
 								result += "</td><td>";
 								result += "Date : ";
 								result += data[i].redate;
 								result += "</td><td>";
 
-								if (id == data[i].writer
+								if (id == data[i].id
 										|| "${sessionScope.member.type}" == "3") {
 									result += "<input type='button' value='수정' style='background-color: white; border-radius: 10px' onclick='mod(";
 									result += data[i].reviewno;
@@ -148,7 +147,7 @@
 	$(function() {
 		commentList();
 		$("#submit").click(function(event) {
-			var pName = $("#writer").val();
+			var pName = $("#id").val();
 			var pText = $("#contents").val();
 			var pNo = $("#reviewno").val();
 
@@ -162,12 +161,12 @@
 						url : "/proxyProject/comment/commentWrite",
 						data : {
 							no : pNo,
-							writer : pName,
+							id : pName,
 							contents : pText
 						},
 						success : function() {
 							alert("댓글 등록!");
-							$("#writer").val();
+							$("#id").val();
 							$("#contents").val("");
 							commentList();
 						}
@@ -247,6 +246,7 @@
 				
 					<td>
 							<div class="form-group">
+								
 								 <input type="hidden" id="reviewno" name="reviewno" value="${dto.no}">
 							</div>		
 					</td>
@@ -258,6 +258,7 @@
 							<br>
 								
 			<div id="div_review" class="review1">
+					<input type="hidden" id="writer" name="id" value="${sessionScope.member.id}" maxlength="10">	
 					<center></center><!--  댓글 달리는곳 -->
 			</div>
 	</table>

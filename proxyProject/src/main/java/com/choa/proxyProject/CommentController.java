@@ -59,7 +59,7 @@ public class CommentController {
 	public @ResponseBody void commentWrite(HttpServletRequest request, Model model){
 		CommentDTO dto = new CommentDTO();
 		dto.setNo(Integer.parseInt(request.getParameter("no")));
-		dto.setWriter(request.getParameter("writer"));
+		dto.setId(request.getParameter("id"));
 		dto.setContents(request.getParameter("contents"));
 		CommentDAO dao = sqlSession.getMapper(CommentDAO.class);
 		dao.commentWrite(dto);

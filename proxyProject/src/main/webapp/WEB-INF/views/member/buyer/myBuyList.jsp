@@ -115,7 +115,7 @@ tr, th {
 								<td>${list.price }</td>
 								<td>${list.buy_date}</td>
 								<td>${list.status}</td>
-								<td><a href="deposit?id=${member.id}&price=${list.price}&num=${list.num}&id=${list.id}"><button id="deposit"> 입금하기 </button></a>
+								<td><a href="depositWrite?id=${member.id}&price=${list.price}&num=${list.num}&id=${list.id}"><button id="deposit"> 입금하기 </button></a>
 							</tr>
 						</c:forEach>
 						</c:when>
