@@ -21,15 +21,9 @@ public class BookDTO {
 	private String quality;
 	private String genre;
 	private String bookdate;
-	private String files1;
+
 	
-	
-	public String getFiles1() {
-		return files1;
-	}
-	public void setFiles1(String files1) {
-		this.files1 = files1;
-	}
+
 	public int getNum() {
 		return num;
 	}

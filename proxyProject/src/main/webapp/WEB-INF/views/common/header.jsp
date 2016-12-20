@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/common/common.css">
 <style type="text/css">
+
 #h_div1 {
 	width: 100%;
 	height: 30px;
@@ -67,9 +68,106 @@
 	margin-left: 15px;
 }
 
-#h3_for_test {
+	#h_div1{
+		width: 100%;
+		height: 30px;
+		/* border: 1px solid green; */
+	}
+	#h_ul1{
+		height: 100%;
+	    list-style-type: none;
+	    float: right;
+	    margin-top: 0px;
+	    margin-right: 9px;
+	}
+	.h_li1{
+		height: 100%;
+		float: left;
+		margin-left: 8px;
+		margin-right: 10px;
+		font-size: 16px;
+/* 		border: 1px solid black;  */
+	}
+	#h_ul2{
+		width: 80%;
+	    height: 35px;
+	    list-style-type: none;
+	    margin-top: 0px;
+	    margin : 0 auto;
+	    text-align: center;
+	    background-color: #7151FC;
+	    padding-top: 13px;
+		
+/*     border: 2px solid green;  */
+	}
+	.h_li2{
+		width : 24.8%;
+		height: 25px;
+		margin: 0 auto;
+		float: left;
+		text-align: center;
+/* 	border: 1px solid red;  */
+	
+	}
+	.header_a:hover{
+		text-decoration: underline;
+		color: white;
+	}
+	.acolor {
+    	color: gray;
+	}
+	.acolor2 {
+    	color: gray;
+    	margin-left: 15px;
+	}
+#h3_for_test{
+
 	color: black;
+
+
+}	
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
+
+ .dropdown-content {
+	width : 100%;
+	height: 100%;
+    display: none;
+    position: absolute;
+    background-color:  #7151FC;
+  	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+    z-index: 1;
+	color: white;
+
+}
+.dropdown .p_dropdown{
+    background-color:  #7151FC;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/* 
+.p_dropdown{
+	color: white;
+}
+.p_dropdown:hover .p_dropdown{
+
+	color: white;
+}
+.p_dropdown:hover .a_drop{
+	color: white;
+} */
+.a_drop{
+	text-align: left;
+}
+.a_drop:hover{
+/* 	color: black; */
+}
+
+
+
 </style>
 
 
@@ -106,6 +204,19 @@
 								href="<%=application.getContextPath()%>/member/manager/manageMember?type=${member.type}&id=${member.id}"
 								class="acolor">관리자페이지</a>
 						</c:if>
+
+						   
+						   <!--판매자용  -->
+						      <c:if test="${member.type =='2'}"> 
+						<a href="<%=application.getContextPath() %>/member/seller/myPage?type=${member.type}&id=${member.id}" class="acolor">마이페이지</a>
+						
+						   </c:if> 
+						   
+						   <!-- 관리자용 -->
+						      <c:if test="${member.type =='3'}">
+						<a href="<%=application.getContextPath()%>/member/manager/manageMember?type=${member.type}&id=${member.id}" class="acolor">관리자페이지</a>
+						   </c:if>
+
 					</li>
 					<li class="h_li1"><a
 						href="${pageContext.request.contextPath}/member/memberJoin"
@@ -136,6 +247,7 @@
 
 			<div id="header_div_5">
 				<ul id="h_ul2">
+
 					<li class="h_li2"><a
 						href="${pageContext.request.contextPath}/notice/noticeList"
 						class="header_a">공지사항</a></li>
@@ -148,6 +260,30 @@
 					<li class="h_li2"><a
 						href="${pageContext.request.contextPath}/blackList/blackListForm"
 						class="header_a">블랙리스트</a></li>
+
+					<li class="h_li2"><a href="${pageContext.request.contextPath}/notice/noticeList"class="header_a">공지사항</a></li>
+					<li class="h_li2"><a href="${pageContext.request.contextPath}/freeboard/freList" class="header_a">자유게시판</a></li>
+					
+					<c:choose>
+						<c:when test="${member.type != 2 }">
+							<li class="h_li2"><a href="${pageContext.request.contextPath}/sellBook/sellBookList?id=${member.id}"class="header_a">중고책 구매</a></li>
+						</c:when>
+						<c:when test="${member.type ==2 }">
+									<li class="h_li2">
+									<div class="dropdown"><span class="dropdown">중고책</span>
+										 <div class="dropdown-content">
+										   <p class="p_dropdown"><a href="${pageContext.request.contextPath}/sellBook/sellBookList?id=${member.id}" class="a_drop">중고책 구매</a></p>
+										   <p class="p_dropdown"><a href="${pageContext.request.contextPath}/sellBook/sellBookWrite" class="a_drop">중고책 판매 등록 </a></p>
+										  </div>
+										</div>
+										</li>
+						</c:when>
+					</c:choose>
+							
+								
+			
+					<li class="h_li2"><a href="${pageContext.request.contextPath}/blackList/blackListForm"class="header_a">블랙리스트</a></li>
+
 				</ul>
 			</div>
 
