@@ -3,6 +3,8 @@ package com.choa.proxyProject;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartRequest;
 
 import com.choa.book.BookDTO;
 import com.choa.book.BookPictureDTO;
@@ -79,12 +82,12 @@ public class SellBookController {
 	
 	//판매도서 등록
 	@RequestMapping(value="/sellBookWrite", method = RequestMethod.POST)
-	public void sellBookWrite(BookDTO bookDTO, BookPictureDTO bookPictureDTO, Model model){
+	public String sellBookWrite(BookDTO bookDTO, BookPictureDTO bookPictureDTO, MultipartRequest mr, HttpSession session, Model model){
 		System.out.println("sellbookController");
 		int result = 0;
 		String message = "";
 		try {
-			result = bookService.sellBookWrite(bookDTO, bookPictureDTO, model);
+			result = bookService.sellBookWrite(bookDTO, bookPictureDTO,mr, session);
 			System.out.println(result);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -96,6 +99,8 @@ public class SellBookController {
 			message="판매도서 등록실패";
 		}
 		System.out.println(message);
+		model.addAttribute("message", message);
+		return "sellBook/sellBookList";
 	}
 
 	@RequestMapping(value="/sellBookView")

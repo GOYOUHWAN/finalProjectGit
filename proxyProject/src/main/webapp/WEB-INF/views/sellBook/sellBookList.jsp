@@ -12,7 +12,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 
-
+$(function () {
+	var message='${message}';
+	if(message != ''){
+		alert(message);
+	}
+});
 
 
 </script>
@@ -157,7 +162,12 @@
 	                     	
 	                        <div id="div_img">
 	                     <!--책 img 보여주는곳  -->
+
 	                       <a href="sellBookView?num=${list[count].num}&id=${member.id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}"> </a><br>
+
+	                       <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> 
+	                       	<img class="img1" id="img" src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}" style="width:208px;"> 
+							</a>
 	                       </div>
 	                       
 	                        <div class="pad">

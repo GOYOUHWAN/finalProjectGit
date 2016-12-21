@@ -1,7 +1,10 @@
 package com.choa.book;
 
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,10 +66,20 @@ public class BookDAO {
 	
 	
 	//판매도서 등록. 이미지파일 같이 등록.
-	public int sellBookWrite(BookDTO bookDTO, BookPictureDTO bookPictureDTO) throws Exception{
+	public int sellBookWrite(BookDTO bookDTO, BookPictureDTO bookPictureDTO, ArrayList<String> fileNames) throws Exception{
 		int result = 0;
-		result = sqlSession.insert(namespace+"sellBookfile", bookPictureDTO);
-		result = result + sqlSession.insert(namespace+"sellBookWrite", bookDTO);
+		result = sqlSession.insert(namespace+"sellBookWrite", bookDTO);
+		System.out.println("fileNames : "+fileNames.size());
+		int fileNum = sqlSession.selectOne(namespace+"fileNum");
+		Map<String, Object> data = new HashMap<String, Object>();
+		for(int i=0;i<fileNames.size();i++){
+			data.put("refNum", 10);
+			data.put("fileName"+(i+1), fileNames.get(i));
+			System.out.println("파일이름 : "+fileNames.get(i));
+			
+		}
+		result = result + sqlSession.insert(namespace+"sellBookFileWrite", data);
+		System.out.println("result2 : "+result);
 		return result;
 	}
 	

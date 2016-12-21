@@ -21,8 +21,8 @@ public class BookDTO {
 	private String quality;
 	private String genre;
 	private String bookdate;
+	private int pictureNum;
 	private String files1;
-	
 	
 	
 
@@ -134,6 +134,12 @@ public class BookDTO {
 	}
 	public void setBookdate(String bookdate) {
 		this.bookdate = bookdate;
+	}
+	public int getPictureNum() {
+		return pictureNum;
+	}
+	public void setPictureNum(int pictureNum) {
+		this.pictureNum = pictureNum;
 	}
 	
 	

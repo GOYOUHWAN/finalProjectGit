@@ -3,33 +3,41 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="NoticeMapper">
-	<!-- 게시물 작성 -->
+	<!-- 공지사항 작성 -->
    <insert id="noticeWrite" parameterType="com.choa.notice.NoticeDTO">
       INSERT INTO notice VALUES(no_seq.nextval, #{title}, #{content}, sysdate, 0)
    </insert>
       
-   <!-- 게시물 보기 -->
+   <!-- 공지사항 글 하나 보기 -->
    <select id="noticeView" resultType="com.choa.notice.NoticeDTO">
       SELECT * FROM notice WHERE no=#{no}
    </select>
    
-   <!-- 게시물 수정 -->
-   <update id="noticeMod">
+   <!-- 공지사항 수정 -->
+   <update id="noticeMod" parameterType="com.choa.notice.NoticeDTO">
       UPDATE notice SET title=#{title}, content=#{content} WHERE no=#{no}
    </update>
    
-   <!-- 총 게시물 보기? -->
-   <select id="noticeList" resultType="Integer"> 
-      SELECT COUNT(*) FROM notice
+   <!-- 공지사항 리스트 -->
+   <select id="noticeList" parameterType="com.choa.util.PageMaker" resultType="com.choa.notice.NoticeDTO" >
+	SELECT * FROM 
+	(select rownum R, A.* from 
+	(SELECT * FROM notice order by no desc) A ) 
+	Where R between #{startRowNum} and #{lastLowNum}
    </select>
-   
-   <!-- 게시물 삭제 -->
-   <delete id="noticeDel">
+     
+   <!-- 공지사항 삭제 -->
+   <delete id="noticeDel" parameterType="int">
       DELETE FROM notice WHERE no=#{no}
    </delete>
    
    <!-- 조회수 -->
-   <update id="noticeHits">
-   	update notice set hits=#{hits} where no=#{no}
+   <update id="noticeHits" parameterType="com.choa.notice.NoticeDTO">
+   	update notice set hits=#{hits}+1 where no=#{no}
    </update>
+   
+   <!-- 글 전체 개수 -->
+   <select id="noticeCount" resultType="int">
+   	select count(*) from notice
+   </select>
 </mapper>
