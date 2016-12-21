@@ -12,7 +12,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
 
-
+$(function () {
+	var message='${message}';
+	if(message != ''){
+		alert(message);
+	}
+});
 
 //cookie 이용 script 구현 안되어있고 코드만 미리 가져다 놓음 ==>>>구현해줘야함.
 /* function setCookie(cname,cvalue,exdays) {
@@ -164,7 +169,9 @@ function checkCookie() {
 	                     		
 	                        <div id="div_img">
 	                     <!--책 img 보여주는곳  -->
-	                       <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}"> </a><br>
+	                       <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> 
+	                       	<img class="img1" id="img" src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}" style="width:208px;"> 
+	                       </a><br>
 	                       </div>
 	                       
 	                        <div class="pad">

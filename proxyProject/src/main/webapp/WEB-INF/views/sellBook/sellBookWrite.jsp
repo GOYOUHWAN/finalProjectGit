@@ -184,7 +184,7 @@
 		<!-- ###### -->
 		<input type="hidden" id="message" value="${ message }">
 		<input type="hidden" name="id" value="ff">
-		<input type="text" readonly="readonly" id="here" name="quality" value="상">
+		<input type="hidden" name="quality">
 		<input type="hidden" name="status" value="ff">
 		<!-- ###### -->
 			<!-- 상품등록 버튼 -->
@@ -223,11 +223,6 @@
 		
 
 	});
-	function radioch(ch){
-		alert("click");
-		alert(ch);
-		$("#here").attr("value",ch);
-	}
 </script>
 <!-- javascript 끝 -->
 </html>

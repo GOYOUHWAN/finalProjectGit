@@ -1,11 +1,19 @@
 package com.choa.book;
 
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartRequest;
 
 import com.choa.member.MemberDTO;
 import com.choa.member.MemberLikeBooksDTO;
@@ -65,14 +73,24 @@ public class BookService {
 	
 
 	//판매도서등록
-	public int sellBookWrite(BookDTO bookDTO, BookPictureDTO bookPictureDTO, Model model) throws Exception{
-		System.out.println("bookservice");
-		System.out.println(bookPictureDTO.getFiles1()+bookPictureDTO.getFiles2()+bookPictureDTO.getFiles3()+bookPictureDTO.getFiles4());
-		return bookDAO.sellBookWrite(bookDTO, bookPictureDTO);
+	public int sellBookWrite(BookDTO bookDTO, BookPictureDTO bookPictureDTO,  MultipartRequest mr,HttpSession session) throws Exception{
+		String path = session.getServletContext().getRealPath("resources/upload");
+		List<MultipartFile> files = mr.getFiles("fileName1");
+		files.add(mr.getFile("fileName2"));
+		files.add(mr.getFile("fileName3"));
+		files.add(mr.getFile("fileName4"));
+		ArrayList<String> fileNames = new ArrayList<>();
+		for(int i = 0; i<files.size(); i++){
+			MultipartFile mf = files.get(i);
+			String fileName = UUID.randomUUID().toString()+"_"+mf.getOriginalFilename();
+			File file  = new File(path, fileName);
+			mf.transferTo(file);
+			fileNames.add(fileName);
+		}
+		return bookDAO.sellBookWrite(bookDTO, bookPictureDTO, fileNames);
 	}
 	
 	public BookDTO sellBookView(int num, String id, Model model) throws Exception{
-		
 		BookDTO bookDTO = bookDAO.sellBookView(num);
 		BookPictureDTO bookPictureDTO = bookDAO.sellBookPicture(num);
 		MemberDTO memberDTO = bookDAO.sellBookViewMember(id);

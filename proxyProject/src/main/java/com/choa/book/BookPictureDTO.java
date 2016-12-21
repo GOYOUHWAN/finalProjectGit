@@ -8,7 +8,6 @@ public class BookPictureDTO {
 	private String files3;
 	private String files4;
 	
-	
 	public int getNum() {
 		return num;
 	}
@@ -39,4 +38,6 @@ public class BookPictureDTO {
 	public void setFiles4(String files4) {
 		this.files4 = files4;
 	}
+	
+	
 }
