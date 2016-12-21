@@ -103,11 +103,11 @@ header a{
     	
 }
 #sub_3{
-	width: 60%;
+	width: 50%;
 	height: 100px;
 	margin-top: 300px;
 	margin: 0 auto;
-	
+/* 	border: 1px solid green; */
 }
 
 #a_header{
@@ -427,8 +427,8 @@ ul.tab li a:focus, .active {
 
 
 .btn_d_2 {
-	float : left;
-	width: 25%;
+ 	float : left; 
+	width: 33.33%;
 	height: 50px;
 	margin: 0 auto;
 	font-size: 15px;
@@ -444,6 +444,26 @@ ul.tab li a:focus, .active {
 	color: white;
 	outline: none;
 }
+
+.btn_d_3 {
+ 	float : left; 
+	width: 24.5%;
+	height: 50px;
+	margin: 0 auto;
+	font-size: 15px;
+	border: 1px solid #737373;
+	background-color: white;
+	color: #737373;
+	outline: none;
+	margin-top: 50px;
+}
+.btn_d_3:HOVER {
+	background-color: #737373;
+	border: 1px solid white;
+	color: white;
+	outline: none;
+}
+
 #div_container_2{
 	border: 1px solid gray;
 	width: 80%;
