@@ -88,7 +88,7 @@ table {
 	margin: 0 auto;
 }
 
-.btn_d_2 {
+.btn_d_3 {
 	width: 20%;
 	height: 50px;
 	margin: 0 auto;
@@ -101,7 +101,7 @@ table {
 	outline: none;
 }
 
-.btn_d_2:HOVER {
+.btn_d_3:HOVER {
 	background-color: #737373;
 	border: 1px solid white;
 	color: white;
@@ -220,10 +220,10 @@ $(function() {
 		</div>
 		<!-- 회원가입, HOME -->
 		<div id="login_sub_3">
-			<button class="btn_d_2" id="btn4" tabindex="4">아이디 찾기</button>
-			<button class="btn_d_2" id="btn5" tabindex="5">비밀번호 찾기</button>
-			<button class="btn_d_2" id="btn6" tabindex="6">회원 가입</button>
-			<button class="btn_d_2" id="btn7" tabindex="7">HOME</button>
+			<button class="btn_d_3" id="btn4" tabindex="4">아이디 찾기</button>
+			<button class="btn_d_3" id="btn5" tabindex="5">비밀번호 찾기</button>
+			<button class="btn_d_3" id="btn6" tabindex="6">회원 가입</button>
+			<button class="btn_d_3" id="btn7" tabindex="7">HOME</button>
 		</div>
 	</div>
 	<!-- Login 끝 -->

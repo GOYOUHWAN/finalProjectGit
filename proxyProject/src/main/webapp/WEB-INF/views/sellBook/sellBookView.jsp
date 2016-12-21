@@ -148,10 +148,10 @@
 <div id="view_div_outside">
 <div id="view_div_inside">
 	<div id="view_div_1"class="w3-content" style="max-width:500px">
-	  <img class="mySlides" src="/proxyProject/resources/upload/${viewPicture.files1 }" >
-	  <img class="mySlides" src="/proxyProject/resources/upload/${viewPicture.files2 }" >
-	  <img class="mySlides" src="/proxyProject/resources/upload/${viewPicture.files3 }" >
-	    <img class="mySlides" src="/proxyProject/resources/upload/${viewPicture.files4 }" >
+	  <img class="mySlides" src="${pageContext.request.contextPath}/resources/upload/${viewPicture.files1 }" alt="the book images are here">
+	  <img class="mySlides" src="${pageContext.request.contextPath}/resources/upload/${viewPicture.files2 }" alt="the book images are here">
+	  <img class="mySlides" src="${pageContext.request.contextPath}/resources/upload/${viewPicture.files3 }" alt="the book images are here">
+	    <img class="mySlides" src="${pageContext.request.contextPath}/resources/upload/${viewPicture.files4 }" alt="the book images are here">
 	
 	  <div class="view_div w3-row-padding w3-section">
 	    <div class="view_div_img  w3-col s4">
@@ -208,7 +208,7 @@
 				<td id="td_space"></td>
 			</tr>
 			<tr>
-				<td><div id="div_button"><a href="basketBook"><input type="submit" class="view_button" id="view_button1" value="장바구니" ></a><a href="buyBook"><input type="submit"  id="view_button2"class="view_button" value="구매하기"></a></div></td>
+				<td><div id="div_button"><a href="buyBook"><input type="submit"  id="view_button2"class="view_button" value="구매하기"></a><a href="sellBookList?id=${member.id }"><input type="submit" class="view_button" id="view_button1" value="목록으로" ></a></div></td>
 			</tr>
 			<tr>
 				<td id="td_space"></td>

@@ -10,11 +10,6 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/common/common.css">
 <style type="text/css">
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://github.com/GOYOUHWAN/finalProjectGit.git
 #h_div1 {
 	width: 100%;
 	height: 30px;
@@ -28,39 +23,18 @@
 	margin-top: 0px;
 	margin-right: 9px;
 }
-
-.h_li1 {
-	height: 100%;
-	float: left;
-	margin-left: 8px;
-	margin-right: 10px;
-	font-size: 16px;
-	/* border: 1px solid red; */
-}
-
 #h_ul2 {
-	width: 100%;
+	width: 80%;
 	height: 35px;
 	list-style-type: none;
 	margin-top: 0px;
 	text-align: center;
 	background-color: #7151FC;
 	padding-top: 13px;
-	padding-left: 110px;
+	margin: 0 auto;
+/* 	border: 1px solid green; */
 }
-#h_div1{
-		width: 100%;
-		height: 30px;
-		/* border: 1px solid green; */
-	}
-#h_ul1{
-		height: 100%;
-	    list-style-type: none;
-	    float: right;
-	    margin-top: 10px;
-	    margin-right: 9px;
-	}
-	.h_li1{
+.h_li1{
 		height: 100%;
 		float: left;
 		margin-left: 8px;
@@ -68,18 +42,6 @@
 		font-size: 16px;
 		/* border: 1px solid red; */
 	}
-	#h_ul2{
-		width: 100%;
-	    height: 35px;
-	    list-style-type: none;
-	    margin-top: 0px;
-	    text-align: center;
-	    background-color: #7151FC;
-	    padding-top: 13px;
-	    padding-left: 110px;
-
-}
-
 .h_li2 {
 	width: 250px;
 	height: 25px;
@@ -102,62 +64,12 @@
 	margin-left: 15px;
 }
 
-	#h_div1{
-		width: 100%;
-		height: 30px;
-		/* border: 1px solid green; */
-	}
-	#h_ul1{
-		height: 100%;
-	    list-style-type: none;
-	    float: right;
-	    margin-top: 0px;
-	    margin-right: 9px;
-	}
-	.h_li1{
-		height: 100%;
-		float: left;
-		margin-left: 8px;
-		margin-right: 10px;
-		font-size: 16px;
-/* 		border: 1px solid black;  */
-	}
-	#h_ul2{
-		width: 80%;
-	    height: 35px;
-	    list-style-type: none;
-	    margin-top: 0px;
-	    margin : 0 auto;
-	    text-align: center;
-	    background-color: #7151FC;
-	    padding-top: 13px;
-		
-/*     border: 2px solid green;  */
-	}
-	.h_li2{
-		width : 24.8%;
-		height: 25px;
-		margin: 0 auto;
-		float: left;
-		text-align: center;
-/* 	border: 1px solid red;  */
-	
-	}
-	.header_a:hover{
-		text-decoration: underline;
-		color: white;
-	}
-	.acolor {
-    	color: gray;
-	}
-	.acolor2 {
-    	color: gray;
-    	margin-left: 15px;
-	}
+
+/* 
 #h3_for_test{
 	color: black;
 	font-size: 16px;
-}	
+}	 */
 /* 중고책 dropdown 관련 css */
 .dropdown {
     position: relative;
@@ -209,11 +121,11 @@
 					<li class="h_li1">
 						<!-- 일반 회원용 --> 
 						<c:if test="${member.type =='1'}">
-							<a href="<%=application.getContextPath() %>/member/buyer/myPage?type=${member.type}&id=${member.id}" class="acolor">마이페이지</a>
+							<a href="<%=application.getContextPath() %>/member/buyer/myBookList?type=${member.type}&id=${member.id}" class="acolor">마이페이지</a>
 						</c:if> 
 						<!--판매자용  --> 
 						<c:if test="${member.type =='2'}">
-							<a href="<%=application.getContextPath() %>/member/seller/myPage?type=${member.type}&id=${member.id}" class="acolor">마이페이지</a>
+							<a href="<%=application.getContextPath() %>/member/seller/myBookList?type=${member.type}&id=${member.id}" class="acolor">마이페이지</a>
 						</c:if> 
 						<!-- 관리자용 --> 
 						<c:if test="${member.type =='3'}">

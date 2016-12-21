@@ -272,6 +272,7 @@ $(function () {
     
 	
 <!--paging  시작 -->
+	<c:if test="${list != null}">
 	<c:if test="${paging != null }">
 		<!-- 목차, 글쓰기 -->
 		<div id="listnum">
@@ -290,6 +291,7 @@ $(function () {
 		</c:if>
 			
 		</div>
+		</c:if>
 		</c:if>
 <!--paging 끝 -->
          

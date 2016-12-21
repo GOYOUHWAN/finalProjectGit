@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
 
 <title>MY_BUY_LIST</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -14,12 +14,12 @@
 
 <!--  ================================================-->	
 <style>
-#sub_3 {
-	width: 60%;
+/* #sub_3 {
+	width: 50%;
 	height: 100px;
 	margin: 0 auto;
-
-}
+	border: 1px solid red;
+} */
 img, ul, li{
     margin: 0;
     padding: 0;
@@ -61,7 +61,7 @@ tr, th {
 <body >
 <%@ include file = "../../common/header.jsp" %>
 <div id="sub_3">
-					<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">좋아요 내역</button></a>
+			<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">좋아요 내역</button></a>
 			<a href="myBoardList?id=${member.id }"><button class="btn_d_2" id="btn5" tabindex="5">게시판 글 내역</button></a>
 			<a href="myBuyList?id=${member.id }"><button class="btn_d_2" id="btn6" tabindex="6">구매 내역</button></a>
 		</div>
