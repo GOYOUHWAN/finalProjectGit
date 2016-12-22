@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<%-- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css"> --%>
 <style type="text/css">
 * {
    -webkit-box-sizing: border-box;
@@ -59,11 +60,12 @@ a {
 }
 
 .mypage-menu {
-   display: inline-block;
-   width: 234px;
-   padding: 22px 0;
-   border-radius: 3px;
-   margin: 30px 14px 50px 0
+    display: inline-block;
+    width: 234px;
+    padding: 22px 0;
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+    margin: 30px 14px 50px 70px;
 }
 
 .mypage-menu-item {
@@ -84,7 +86,7 @@ a {
 }
 
 .mypage-content {
-   width: 732px;
+   width: 65%;
    vertical-align: top;
    display: inline-block;
    border: 1px solid #d8d8d8;
@@ -139,7 +141,7 @@ a {
    text-align: center
 }
 .mypageodr-header-info-tel {
-   width: 150px;
+   width: 190px;
    display: inline-block;
    text-align: center
 }
@@ -180,11 +182,12 @@ a {
    display: inline-block;
    font-size: 12px;
    color: #000;
-   vertical-align: middle
+   vertical-align: middle;
+   margin-left: 5%;
 }
 
 .mypageodr-item-tel {
-   width: 150px;
+   width: 180px;
    display: inline-block;
    font-size: 12px;
    color: #000;
@@ -239,17 +242,27 @@ a {
     padding: 22px 0 22px 34px;
     border-bottom: 1px solid #d8d8d8;
 }
+/* .mypage-menu {
+    display: inline-block;
+    width: 234px;
+    padding: 22px 0;
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+    margin: 30px 14px 50px 0;
+} */
 </style>
 </head>
 <body>
+    <!-- Header Start -->
+	<%@ include file = "../../common/header.jsp" %>
+	<!-- Header End -->
 	<div class="mypage-menu">
 		<a class="mypage-menu-item" href="manageMember">구매자관리</a> <a
 			class="mypage-menu-item" href="manageSeller">판매자관리</a> <a
 			class="mypage-menu-item" href="manageBlacklist">블랙리스트관리</a>
 		<div class="mypage-menu-hr"></div>
-		<a class="mypage-menu-item" href="manageAccounting">회계관리</a>
+			<a class="mypage-menu-item" href="manageDeal">거래관리</a>
 		<div class="mypage-menu-hr"></div>
-		<a class="mypage-menu-item" href="manageBoard">게시글관리</a>
 		<a class="mypage-menu-item active" href="manageSingolist">신고글관리</a>
 	</div>
 	<div class="mypage-content">
@@ -257,10 +270,10 @@ a {
 		<div class="mypage-body ng-scope">
 			<div class="mypageodr-table-header">
 				<div class="mypageodr-header-info2">사기꾼 아이디</div>
-				<div class="mypageodr-header-info2" style="margin-left: 10px; margin-right:22px;">신고자 아이디</div>
+				<div class="mypageodr-header-info2" style="margin-left: 5%; margin-right:22px;">신고자 아이디</div>
 				<div class="mypageodr-header-info-tel">제목</div>
-				<div class="mypageodr-header-info" style="margin-left: 45px; margin-right:22px;">날짜</div>
-				<div class="mypageodr-header-info" style="margin-left: 36px;">관리</div>
+				<div class="mypageodr-header-info" style="margin-left: 7%; margin-right:22px;">날짜</div>
+				<div class="mypageodr-header-info" style="margin-left: 6%;">관리</div>
 			</div>
 			<div>
 					<!-- 구매자 정보 -->
@@ -311,5 +324,8 @@ a {
 			</div>
 		</div>
 	</div>
+	<!-- Footer Start -->
+		<%@ include file = "../../common/footer.jsp" %>
+	<!-- Footer End -->
 </body>
 </html>

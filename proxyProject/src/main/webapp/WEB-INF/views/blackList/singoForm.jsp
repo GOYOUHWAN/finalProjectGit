@@ -9,8 +9,7 @@
 <style type="text/css">
 .mypage-header{
     font-size: 24px;
-    padding: 5px 0 22px 34px;
-    border-bottom: 1px solid #d8d8d8;
+    text-align: center;
 }
 .write_text{
 	margin-left: 20px;
@@ -28,7 +27,6 @@
    height: 530px;
    vertical-align: top;
    display: inline-block;
-   border: 1px solid #d8d8d8;
    border-radius: 3px;
    margin-top: 30px;
    margin-bottom: 50px;
@@ -38,8 +36,8 @@
     height: 70%;
     margin-left: 30px;
     float: left;
-    border: 1px solid #00ace6;
-    background-color: #00ace6;
+    border: 1px solid #7151FC;
+    background-color: #7151FC;
     font-size: 20px;
     color: white;
 }
@@ -76,11 +74,14 @@
 		});
 </script>
 </head>
-<body>	
+<body>
+	<!-- Header Start -->
+		<%@ include file = "../common/header.jsp" %>
+	<!-- Header End -->
 	<div id="singo_div">
 	<div id="join_div">
-	<div class="mypage-content">
 	<p class="mypage-header">신고하기</p>
+	<div class="mypage-content">
 	<form action="singoWrite" method="post">
 		<table style="padding-bottom: 10px; border: 1px solid #d8d8d8;">
 			<tr><td><br></td><td><br></td></tr>
@@ -110,5 +111,8 @@
 	</div>
 	</div>
 	</div>
+	<!-- Footer Start -->
+		<%@ include file = "../common/footer.jsp" %>
+	<!-- Footer End -->
 </body>
 </html>

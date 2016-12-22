@@ -141,5 +141,8 @@ table {
 			</c:if>
 		</div>
 	</div>
+	<!-- Footer Start -->
+		<%@ include file = "../common/footer.jsp" %>
+	<!-- Footer End -->
 </body>
 </html>

@@ -203,7 +203,8 @@
 					<li class="h_li1"><a href="${pageContext.request.contextPath}/member/memberLogin" class="acolor">로그인</a></li>
 					</c:if>
 						<c:if test="${sessionScope.member != null}">
-							<li class="h_li1"><a href="${pageContext.request.contextPath}/member/memberView" class="acolor">${member.id }님 로그인</a></li>
+							<li class="h_li1 acolor">${member.id }님</li>
+							<li class="h_li1"><a href="${pageContext.request.contextPath}/member/memberView" class="acolor">회원 정보</a></li>
 							<li class="h_li1"><a href="${pageContext.request.contextPath}/memberLogout" class="acolor">로그아웃</a></li>
 						</c:if>
 					<li class="h_li1">
@@ -253,7 +254,7 @@
 									<div class="dropdown"><span class="dropdown">중고책</span>
 										 <div class="dropdown-content">
 										   <p class="p_dropdown"><a href="${pageContext.request.contextPath}/sellBook/sellBookList?id=${member.id}" class="a_drop">중고책 구매</a></p>
-										   <p class="p_dropdown"><a href="${pageContext.request.contextPath}/sellBook/sellBookWrite" class="a_drop">중고책 판매 등록 </a></p>
+										   <p class="p_dropdown"><a href="${pageContext.request.contextPath}/sellBook/sellBookWrite" class="a_drop">중고책 판매 등록</a></p>
 										  </div>
 										</div>
 										</li>
