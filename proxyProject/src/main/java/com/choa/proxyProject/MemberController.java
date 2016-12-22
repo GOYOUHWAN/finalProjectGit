@@ -336,6 +336,6 @@ public class MemberController {
       }
       model.addAttribute("message", message);
       writer.println("<script>alert('" + message + "'); </script>");
-
+      writer.println("<script>location.href='../';</script>");
    }
 }

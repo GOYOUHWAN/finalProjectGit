@@ -64,7 +64,7 @@ a {
 	padding: 22px 0;
 	border: 1px solid #d8d8d8;
 	border-radius: 3px;
-	margin: 30px 14px 50px 0
+	margin: 30px 14px 50px 70px;
 }
 
 .mypage-menu-item {
@@ -85,7 +85,7 @@ a {
 }
 
 .mypage-content {
-	width: 732px;
+	width: 65%;
 	vertical-align: top;
 	display: inline-block;
 	border: 1px solid #d8d8d8;
@@ -119,7 +119,7 @@ a {
 }
 
 .mypageodr-header-info {
-	width:60px;
+	width: 8%;
 	display: inline-block;
 	text-align: center
 }
@@ -159,13 +159,20 @@ a {
 }
 
 .mypageodr-item-state {
-	width: 60px;
+	width: 10%;
 	display: inline-block;
 	font-size: 12px;
 	color: #000;
 	vertical-align: middle
 }
-
+.mypageodr-item-info-id {
+	width: 16%;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 12px;
+	color: #000;
+	text-align: center;
+}
 .mypageodr-item-tel {
 	width: 150px;
 	display: inline-block;
@@ -173,7 +180,13 @@ a {
 	color: #000;
 	vertical-align: middle
 }
-
+.mypageodr-item-date{
+	width: 14%;
+	display: inline-block;
+	font-size: 12px;
+	color: #000;
+	vertical-align: middle
+}
 .mypageodr-item-state-title {
 	font-size: 14px;
 	color: #000;
@@ -216,29 +229,43 @@ a {
 	border-radius: 3px;
 	color: #fff
 }
+.jump{
+	margin-left: 3%;
+}
+.jump2{
+	margin-left: 12%;
+}
+.jump3{
+	margin-left: 7%;
+}
+.jump4{
+	margin-left: 5.5%;
+}
 </style>
 </head>
 <body>
+    <!-- Header Start -->
+	<%@ include file = "../../common/header.jsp" %>
+	<!-- Header End -->
 	<div class="mypage-menu">
 		<a class="mypage-menu-item" href="manageMember?type=1">구매자관리</a> <a
 			class="mypage-menu-item" href="manageSeller">판매자관리</a> <a
 			class="mypage-menu-item" href="manageBlacklist">블랙리스트관리</a>
 		<div class="mypage-menu-hr"></div>
-		<a class="mypage-menu-item " href="manageAccounting">매출관리</a>
 		<a class="mypage-menu-item active" href="manageDeal">거래관리</a>
 		<div class="mypage-menu-hr"></div>
-		<a class="mypage-menu-item" href="manageBoard">게시글관리</a>
+		<a class="mypage-menu-item" href="manageSingolist">신고글관리</a>
 	</div>
 	<div class="mypage-content">
-		<div class="mypage-header"></div>
+		<div class="mypage-header">거래관리</div>
 		<div class="mypage-body ng-scope">
 			<div class="mypageodr-table-header">
 				<div class="mypageodr-header-info">거래번호</div>
-				<div class="mypageodr-header-info">책이름</div>
-				<div class="mypageodr-header-info-tel">판매자ID</div>
-				<div class="mypageodr-header-info-tel">구매자ID</div>
-				<div class="mypageodr-header-info">거래일시</div>
-				<div class="mypageodr-header-info">거래상태</div>
+				<div class="mypageodr-header-info-tel">책이름</div>
+				<div class="mypageodr-header-info jump">판매자ID</div>
+				<div class="mypageodr-header-info jump2">구매자ID</div>
+				<div class="mypageodr-header-info jump3">거래일시</div>
+				<div class="mypageodr-header-info jump4">거래상태</div>
 	
 			</div>
 			<div>
@@ -247,11 +274,11 @@ a {
 					
 						<div class="mypage-item-wrapper ng-scope">
 							<div class="mypageodr-item-info">${d.num }</div>
-							<div class="mypageodr-item-state mypageodr-item-state-title ng-binding">${d.product }</div>
-							<div class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${d.id_seller }</div>
-							<div class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${d.id_buyer }</div>
-							<div class="mypageodr-item-state mypageodr-item-state-title ng-binding">${d.deal_date}</div>
-							<div class="mypageodr-item-state mypageodr-item-state-title ng-binding">${d.status }</div>
+							<div class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${d.product }</div>
+							<div class="mypageodr-item-info-id mypageodr-item-state ng-binding">${d.id_seller }</div>
+							<div class="mypageodr-item-info-id mypageodr-item-state ng-binding jump">${d.id_buyer }</div>
+							<div class="mypageodr-item-date mypageodr-item-state-title ng-binding">${d.deal_date}</div>
+							<div class="mypageodr-item-state mypageodr-item-state-title ng-binding jump">${d.status }</div>
 							<div class="mypageodr-item-btn-wrapper"></div>
 						</div>
 						
@@ -282,6 +309,9 @@ a {
 			</div>
 		</div>
 	</div>
+	<!-- Footer Start -->
+		<%@ include file = "../../common/footer.jsp" %>
+	<!-- Footer End -->
 </body>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

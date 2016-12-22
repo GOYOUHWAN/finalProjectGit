@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Manager Page</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
 <style type="text/css">
 * {
 	-webkit-box-sizing: border-box;
@@ -64,7 +65,7 @@ a {
 	padding: 22px 0;
 	border: 1px solid #d8d8d8;
 	border-radius: 3px;
-	margin: 30px 14px 50px 0
+	margin: 30px 14px 50px 70px;
 }
 
 .mypage-menu-item {
@@ -85,7 +86,7 @@ a {
 }
 
 .mypage-content {
-	width: 732px;
+	width: 65%;
 	vertical-align: top;
 	display: inline-block;
 	border: 1px solid #d8d8d8;
@@ -127,9 +128,14 @@ a {
 .mypageodr-header-info-tel {
 	width: 150px;
 	display: inline-block;
+	text-align: center;
+	margin-left: 2.6%;
+}
+.mypageodr-header-info-id{
+	width: 100px;
+	display: inline-block;
 	text-align: center
 }
-
 .mypageodr-header-state {
 	width: 188px;
 	display: inline-block;
@@ -148,7 +154,12 @@ a {
 	margin-left: 20px;
 	vertical-align: middle
 }
-
+.mypageodr-item-info2 {
+	width: 80px;
+	display: inline-block;
+	margin-left: 20px;
+	vertical-align: middle
+}
 .mypageodr-item-price {
 	font-size: 14px;
 	text-align: center;
@@ -169,7 +180,13 @@ a {
 	color: #000;
 	vertical-align: middle
 }
-
+.mypageodr-item-tel2 {
+	width: 190px;
+	display: inline-block;
+	font-size: 12px;
+	color: #000;
+	vertical-align: middle
+}
 .mypageodr-item-state-title {
 	font-size: 14px;
 	color: #000;
@@ -215,40 +232,42 @@ a {
 </style>
 </head>
 <body>
+    <!-- Header Start -->
+	<%@ include file = "../../common/header.jsp" %>
+	<!-- Header End -->
 	<div class="mypage-menu">
 		<a class="mypage-menu-item" href="manageMember">구매자관리</a> <a
 			class="mypage-menu-item active" href="manageSeller">판매자관리</a> <a
 			class="mypage-menu-item" href="manageBlacklist">블랙리스트관리</a>
 		<div class="mypage-menu-hr"></div>
-			<a class="mypage-menu-item" href="manageAccounting">매출관리</a>
 		<a class="mypage-menu-item " href="manageDeal">거래관리</a>
 		<div class="mypage-menu-hr"></div>
-		<a class="mypage-menu-item" href="manageBoard">게시글관리</a>
+		<a class="mypage-menu-item" href="manageSingolist">신고글관리</a>
 	</div>
 	<div class="mypage-content">
 		<div class="mypage-header">판매자관리</div>
 		<div class="mypage-body ng-scope">
 			<div class="mypageodr-table-header">
-				<div class="mypageodr-header-info">ID</div>
+				<div class="mypageodr-header-info-id">ID</div>
 				<div class="mypageodr-header-info">이름</div>
 				<div class="mypageodr-header-info-tel">전화번호</div>
 				<div class="mypageodr-header-info-tel">이메일</div>
 				<div class="mypageodr-header-info">등급</div>
-				<div class="mypageodr-header-info-tel">관리</div>
+				<div class="mypageodr-header-info" style="margin-left: 4%;">관리</div>
 			</div>
 			<div>
 					<!-- 구매자 정보 -->
 					<c:forEach items="${memberInfo}" var="f">
 					
 						<div class="mypage-item-wrapper ng-scope">
-							<div class="mypageodr-item-info">
+							<div class="mypageodr-item-info2">
 								<a class="mypageodr-item-price ng-binding"
 									href="${pageContext.request.contextPath }/member/memberView?id=${f.id}">${f.id }</a>
 							</div>
 							<div
 								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.name }</div>
 							<div
-								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.tel }</div>
+								class="mypageodr-item-tel2 mypageodr-item-state-title ng-binding">${f.tel }</div>
 							<div
 								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.email }</div>
 							<div
@@ -256,7 +275,7 @@ a {
 
 							<div class="mypageodr-item-btn-wrapper">
 								<a class="btn btn-default btn-expanded mypageodr-delete-btn"
-									href="${pageContext.request.contextPath}/member/memberDelete?id=${f.id }">탈퇴</a>
+									href="${pageContext.request.contextPath}/member/memberDelete?id=${f.id }">삭제</a>
 							</div>
 						</div>
 						
@@ -265,13 +284,13 @@ a {
 					<!-- pageNumber -->
 					<c:if test="${listsize != '0' }">
 						<c:if test="${paging.curBlock > 1}">
-							<a href="manageMember?curPage=${paging.startNum-1}&perPage=10">이전</a>
+							<a href="manageSeller?curPage=${paging.startNum-1}&perPage=10">이전</a>
 						</c:if>
 						<c:if test="${paging.totalBlock>0 }">
 						<c:forEach begin="${paging.startNum}" step="1"
 							end="${paging.lastNum}" var="i">
 							<a class="mypage-page"
-								href="manageMember?curPage=${i}&perPage=10" value="${i }">${i}</a>
+								href="manageSeller?curPage=${i}&perPage=10" value="${i }">${i}</a>
 
 						</c:forEach>
 						</c:if>
@@ -279,7 +298,7 @@ a {
 							<h4>아직 판매자가 존재하지 않습니다.</h4>
 						</c:if>
 						<c:if test="${paging.curBlock < paging.totalBlock}">
-							<a href="manageMember?curPage=${paging.lastNum+1}&perPage=10" >다음</a>
+							<a href="manageSeller?curPage=${paging.lastNum+1}&perPage=10" >다음</a>
 						</c:if>
 						<!-- PAGINATIOIN:E -->
 					</c:if>
@@ -287,6 +306,9 @@ a {
 			</div>
 		</div>
 	</div>
+	<!-- Footer Start -->
+		<%@ include file = "../../common/footer.jsp" %>
+	<!-- Footer End -->
 </body>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

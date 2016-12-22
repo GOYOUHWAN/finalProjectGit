@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Manager Page</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
 <style type="text/css">
 * {
 	-webkit-box-sizing: border-box;
@@ -64,7 +65,7 @@ a {
 	padding: 22px 0;
 	border: 1px solid #d8d8d8;
 	border-radius: 3px;
-	margin: 30px 14px 50px 0
+	margin: 30px 14px 50px 70px;
 }
 
 .mypage-menu-item {
@@ -85,7 +86,7 @@ a {
 }
 
 .mypage-content {
-	width: 732px;
+	width: 65%;
 	vertical-align: top;
 	display: inline-block;
 	border: 1px solid #d8d8d8;
@@ -216,29 +217,39 @@ a {
 	border-radius: 3px;
 	color: #fff
 }
+.jump{
+	margin-left: 5%;
+}
+.jump2{
+	margin-left: 4%;
+}
+.jump3{
+	margin-left: 3%;
+}
 </style>
 </head>
 <body>
+    <!-- Header Start -->
+	<%@ include file = "../../common/header.jsp" %>
+	<!-- Header End -->
 	<div class="mypage-menu">
 		<a class="mypage-menu-item active" href="manageMember?type=1">구매자관리</a> <a
 			class="mypage-menu-item" href="manageSeller">판매자관리</a> <a
 			class="mypage-menu-item" href="manageBlacklist">블랙리스트관리</a>
 		<div class="mypage-menu-hr"></div>
-		<a class="mypage-menu-item " href="manageAccounting">매출관리</a>
 		<a class="mypage-menu-item " href="manageDeal">거래관리</a>
 		<div class="mypage-menu-hr"></div>
-		<a class="mypage-menu-item" href="manageBoard">게시글관리</a>
+		<a class="mypage-menu-item" href="manageSingolist">신고글관리</a>
 	</div>
 	<div class="mypage-content">
 		<div class="mypage-header">구매자관리</div>
 		<div class="mypage-body ng-scope">
 			<div class="mypageodr-table-header">
 				<div class="mypageodr-header-info">ID</div>
-				<div class="mypageodr-header-info">이름</div>
+				<div class="mypageodr-header-info-tel">이름</div>
 				<div class="mypageodr-header-info-tel">전화번호</div>
 				<div class="mypageodr-header-info-tel">이메일</div>
 				<div class="mypageodr-header-info">등급</div>
-				<div class="mypageodr-header-info">신고</div>
 				<div class="mypageodr-header-info">관리</div>
 			</div>
 			<div>
@@ -251,7 +262,7 @@ a {
 									href="${pageContext.request.contextPath }/member/memberView?id=${f.id}">${f.id }</a>
 							</div>
 							<div
-								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.name }</div>
+								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.name }</div>
 							<div
 								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.tel }</div>
 							<div
@@ -293,6 +304,9 @@ a {
 			</div>
 		</div>
 	</div>
+	<!-- Footer Start -->
+		<%@ include file = "../../common/footer.jsp" %>
+	<!-- Footer End -->
 </body>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -11,7 +11,7 @@
 <style>
 #join_div {
 	width: 80%;
-	height: 800px;
+
 	margin: 0 auto;
 	margin-top: 50px;
 }
@@ -194,5 +194,8 @@ table {
 		</div>
 	</div>
 </div>
+	<!-- Footer Start -->
+		<%@ include file = "../common/footer.jsp" %>
+	<!-- Footer End -->
 </body>
 </html>

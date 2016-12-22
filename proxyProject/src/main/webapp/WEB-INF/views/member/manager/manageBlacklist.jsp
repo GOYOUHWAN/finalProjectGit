@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Manager Page</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
 <style type="text/css">
 * {
    -webkit-box-sizing: border-box;
@@ -59,11 +60,12 @@ a {
 }
 
 .mypage-menu {
-   display: inline-block;
-   width: 234px;
-   padding: 22px 0;
-   border-radius: 3px;
-   margin: 30px 14px 50px 0
+    display: inline-block;
+    width: 234px;
+    padding: 22px 0;
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+    margin: 30px 14px 50px 70px;
 }
 
 .mypage-menu-item {
@@ -84,7 +86,7 @@ a {
 }
 
 .mypage-content {
-   width: 732px;
+   width: 65%;
    vertical-align: top;
    display: inline-block;
    border: 1px solid #d8d8d8;
@@ -153,7 +155,7 @@ a {
 }
 
 .mypageodr-item-info {
-   width: 40px;
+   width: 60px;
    display: inline-block;
    margin-left: 20px;
    vertical-align: middle
@@ -228,18 +230,28 @@ a {
     padding: 22px 0 22px 34px;
     border-bottom: 1px solid #d8d8d8;
 }
+.jump{
+	margin-left: 5%;
+}
+.jump2{
+	margin-left: 4%;
+}
+.jump3{
+	margin-left: 3%;
+}
 </style>
 </head>
 <body>
+    <!-- Header Start -->
+	<%@ include file = "../../common/header.jsp" %>
+	<!-- Header End -->
 	<div class="mypage-menu">
 		<a class="mypage-menu-item" href="manageMember">구매자관리</a> <a
 			class="mypage-menu-item" href="manageSeller">판매자관리</a> <a
 			class="mypage-menu-item active" href="manageBlacklist">블랙리스트관리</a>
 		<div class="mypage-menu-hr"></div>
-			<a class="mypage-menu-item" href="manageAccounting">매출관리</a>
 		<a class="mypage-menu-item" href="manageDeal">거래관리</a>
 		<div class="mypage-menu-hr"></div>
-		<a class="mypage-menu-item" href="manageBoard">게시글관리</a>
 		<a class="mypage-menu-item" href="manageSingolist">신고글관리</a>
 	</div>
 	<div class="mypage-content">
@@ -247,11 +259,11 @@ a {
 		<div class="mypage-body ng-scope">
 			<div class="mypageodr-table-header">
 				<div class="mypageodr-header-info">ID</div>
-				<div class="mypageodr-header-info-tel">이름</div>
+				<div class="mypageodr-header-info-tel jump3">이름</div>
 				<div class="mypageodr-header-info-tel">전화번호</div>
-				<div class="mypageodr-header-info-tel">이메일</div>
-				<div class="mypageodr-header-info">등급</div>
-				<div class="mypageodr-header-info">타입</div>
+				<div class="mypageodr-header-info-tel jump">이메일</div>
+				<div class="mypageodr-header-info jump2">등급</div>
+				<div class="mypageodr-header-info jump2">타입</div>
 			</div>
 			<div>
 					<!-- 구매자 정보 -->
@@ -267,11 +279,11 @@ a {
 							<div
 								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.tel }</div>
 							<div
-								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.email }</div>
+								class="mypageodr-item-tel mypageodr-item-state-title ng-binding jump">${f.email }</div>
 							<div
-								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.grade }</div>
+								class="mypageodr-item-state mypageodr-item-state-title ng-binding jump2">${f.grade }</div>
 							<div
-								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.type }</div>
+								class="mypageodr-item-state mypageodr-item-state-title ng-binding jump2">${f.type }</div>
 <%-- 							<div class="mypageodr-item-btn-wrapper">
 								<a class="btn btn-default btn-expanded mypageodr-delete-btn"
 									style="float: right;margin-top:10px;"
@@ -306,6 +318,9 @@ a {
 			</div>
 		</div>
 	</div>
+	<!-- Footer Start -->
+		<%@ include file = "../../common/footer.jsp" %>
+	<!-- Footer End -->
 </body>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
