@@ -3,6 +3,16 @@
     
    <mapper namespace="BookMapper">
    
+   <!--구매자가 물건을 받아서 확인하고 구매확정 버튼을 누르면 책의 status가 구매확정으로 바뀐다 -->
+   <update id="confirm" parameterType="int">
+   		update BOOK set status='구매확정' where num=#{num}
+   </update>
+
+   <!--판매자가 택배를 보내고 배송완료 버튼을 누르면 책의 status가 배송중으로 바뀐다  -->
+   <update id="delivery" parameterType="int">
+   		update BOOK set status='배송중' where num=#{num}
+   </update>
+   
    <update id="statusDeposit" parameterType="int">
    		update BOOK set status='결제완료' where num=#{num}
    </update>
@@ -27,8 +37,9 @@
 		where R between #{startRowNum} and #{lastLowNum})T, BOOK_PICTURE BP
    		 where (T.num=BP.num and T.product like '%'|| #{search} ||'%') 
    		 or (T.num=BP.num and T.publisher like '%'||#{search}||'%') 
-   		 or (T.num=BP.num and T.writer like '%'||#{search}||'%') 
+   		 or (T.num=BP.num and T.author like '%'||#{search}||'%') 
    		 or (T.num=BP.num and T.contents like '%'||#{search}||'%')
+   		 or (T.num=BP.num and T.genre like '%'||#{search}||'%')
 	</select>
    
    
@@ -92,7 +103,11 @@
 		from BOOK B, BUYERBUYBOOKS BBB, MEMBER M 
 		where (M.id=BBB.id and BBB.num_buy=B.num) and M.id=#{id}
 	</select>
-	
+	<select id="mySellList" resultType="com.choa.book.BookDTO" parameterType="String">
+		select * 
+		from BOOK
+		where id=#{id}
+	</select>
 	
 	<select id="sellBookList" resultType="com.choa.book.BookDTO" parameterType="com.choa.util.PageMaker">
   	select T.*, BP.* from

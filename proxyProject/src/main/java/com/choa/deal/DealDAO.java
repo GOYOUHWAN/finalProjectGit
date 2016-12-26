@@ -13,6 +13,12 @@ public class DealDAO {
 	private SqlSession sqlSession;
 	private String namespace="DealMapper.";
 	
+	//deal 하나 생성
+	public int insertDeal(DealDTO dealDTO)throws Exception{
+		return sqlSession.insert(namespace+"insertDeal"+dealDTO);
+		
+	}
+	
 	public List<DealDTO> manageDeal()throws Exception{
 		return sqlSession.selectList(namespace+"ManageDeal");
 	} 

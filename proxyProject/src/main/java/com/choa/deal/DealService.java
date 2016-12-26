@@ -13,6 +13,11 @@ public class DealService {
 	@Autowired
 	private DealDAO dealDAO;
 	
+	//deal 하나 만들기
+	public void insertDeal(DealDTO dealDTO)throws Exception{
+			dealDAO.insertDeal(dealDTO);
+	}
+	
 	public List<DealDTO> manageDeal(Model model)throws Exception{
 		List<DealDTO> ar = null;
 		ar = dealDAO.manageDeal();

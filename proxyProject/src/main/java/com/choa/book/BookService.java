@@ -26,10 +26,19 @@ public class BookService {
 	@Autowired
 	private BookDAO bookDAO;
 	
-	public int statusDeposit(int num)throws Exception{
-		return bookDAO.statusDeposit(num);
+	//구매자가 책 확인하고 구매확정 누르면 책의 status 구매확정으로 바꾸기
+	public int confirm(int num)throws Exception{
+		return bookDAO.confirm(num);
 	}
 	
+	//판매자가 택배 부치고나서 배송완료버튼 누르면 책의 status 배송중으로 바꾸기
+		public int delivery(int num)throws Exception{
+		return  bookDAO.delivery(num);
+	}
+		
+	public int statusDeposit(int num)throws Exception{ 
+		return bookDAO.statusDeposit(num);
+	}
 	
 	//sellBookList에서 하트 검증용
 	public List<Integer> myHeart(String id, Model model)throws Exception{
@@ -209,6 +218,12 @@ public class BookService {
 	public List<BookDTO> myBookList(String id, Model model)throws Exception{
 		List<BookDTO> ar = bookDAO.myBookList(id);
 		model.addAttribute("booklist", ar);
+		return ar;
+	}
+	
+	public List<BookDTO> mySellList(String id, Model model)throws Exception{
+		List<BookDTO> ar = bookDAO.mySellList(id);
+		model.addAttribute("sell", ar);
 		return ar;
 	}
 	

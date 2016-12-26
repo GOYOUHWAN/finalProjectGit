@@ -220,9 +220,8 @@
 				   	  <c:set var="number"  value="${view.num }" />
 		                    	  	<c:forEach var="num" begin="0" end="${heartSize }">
 				                    	  	<c:if test="${number == heartV[num]}">
-				                
 				                    	  		<img src="/proxyProject/resources/image/heart.jpg" class="img_likes" id="img_heart" onclick="change_img_to_red(${view.num})">
-				         	  					<c:set var="bool" value="true"/>
+				  						<c:set var="bool" value="true"/>
 				         	  				</c:if>
 		         	  				</c:forEach>
 	         	  					<c:if test="${bool == false}">
@@ -235,9 +234,11 @@
 
 	                    	  	 function change_img_to_red(num) {
 	          					 	
-	                    	  		var heart = document.getElementById("img_heart").src;
-										if(heart =="http://localhost:8080/proxyProject/resources/image/black_heart.png"){
-										 	 	document.getElementById("img_heart").src = "/proxyProject/resources/image/heart.jpg"; 
+	                    /* 	  		var heart = document.getElementById("img_heart").src; */
+	                    		var heart = $("#img_heart").attr("src").toString();
+	                 
+										if(heart =="${pageContext.request.contextPath}/resources/image/black_heart.png"){
+										 	 	document.getElementById("img_heart").src = "${pageContext.request.contextPath}/resources/image/heart.jpg"; 
 										 		$.ajax({
 			                    					url:'changeLikesBlack',
 			                    					type:'POST',
@@ -251,7 +252,7 @@
 			                    				});
 										 	 }else{
 										 		//여기로 들어오면 memberLikeBooks에 한줄 삭제하고 , books에 likes -1
-										 		document.getElementById("img_heart").src="/proxyProject/resources/image/black_heart.png";
+										 		document.getElementById("img_heart").src="${pageContext.request.contextPath}/resources/image/black_heart.png";
 										 		$.ajax({
 			                    					url:"changeLikesRed",
 			                    					type:"POST",

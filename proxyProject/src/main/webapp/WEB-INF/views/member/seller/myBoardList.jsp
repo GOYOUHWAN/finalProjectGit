@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
- <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> --> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
 <title>MY_BOARD_LIST</title>
 
 <style>
@@ -41,10 +41,12 @@ tr, th {
 </head>
 <body class="home">
 <%@ include file = "../../common/header.jsp" %>
-<div id="sub_3">
-				<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">좋아요 내역</button></a>
-			<a href="myBoardList?id=${member.id }"><button class="btn_d_2" id="btn5" tabindex="5">게시판 글 내역</button></a>
-			<a href="myBuyList?id=${member.id }"><button class="btn_d_2" id="btn6" tabindex="6">구매 내역</button></a>
+<div id="div_page">
+<div id="sub_4">
+			<a href="myBookList?id=${member.id }"><button class="btn_d_3" id="btn4" tabindex="4">좋아요 내역</button></a>
+			<a href="myBoardList?id=${member.id }"><button class="btn_d_3" id="btn5" tabindex="5">게시판 글 내역</button></a>
+			<a href="myBuyList?id=${member.id }"><button class="btn_d_3" id="btn6" tabindex="6">구매 내역</button></a>
+			<a href="mySellList?id=${member.id }"><button class="btn_d_3" id="btn7" tabindex="7">판매 내역</button></a>
 		</div>
 	<div class="container">
 	<div id="div_container_2">		
@@ -103,6 +105,7 @@ tr, th {
 		</div>
 		</div>
 		</div>
+	 	</div>
 	 	</div>
 	<!-- Footer:S -->
 	<%@ include file = "../../common/footer.jsp" %>

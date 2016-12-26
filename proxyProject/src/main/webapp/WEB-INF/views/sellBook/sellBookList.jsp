@@ -105,7 +105,6 @@ $(function () {
 	width : 100px;
 	height: 25px;
 	color: gray;
-
 	background-color: white;
 	border: 1px solid #bfbfbf;
 	border-radius: 15px;
@@ -139,6 +138,7 @@ $(function () {
 </c:if>
 		<c:if test="${member !=null}">
 <!-- 리스트 시작 -->
+
    	<c:set var="size" value="${listsize%4 }"/>
 
 
@@ -162,6 +162,7 @@ $(function () {
 
 	                       <a href="sellBookView?num=${list[count].num}&id=${member.id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}"> </a><br>
 
+
 	                       </div>
 	                       
 	                        <div class="pad">
@@ -176,25 +177,26 @@ $(function () {
 		                    	  	<c:forEach var="num" begin="0" end="${heartSize }">
 		                    	  		<c:set var="number"  value="${list[count].num }" />
 				                    	  	<c:if test="${number == heart[num]}">
-				                 
-				                    	  		<img src="/proxyProject/resources/image/heart.jpg" class="img_likes" id="img_heart${list[count].num }" onclick="change_img_to_red(${list[count].num})">
+				                    	  		<img src="/proxyProject/resources/image/heart.jpg" class="img_likes" id="img_heart${list[count].num }" onclick="change_img_to_red(${list[count].num})" data-src="0">
 				         	  					<c:set var="bool" value="true"/>
 				         	  				</c:if>
 		         	  				</c:forEach>
-	         	  					<c:if test="${bool == false}">
-	         	  						<img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart${list[count].num }" onclick="change_img_to_red(${list[count].num})">
-									</c:if>&nbsp;&nbsp; <span class="spanLikes" id="spanLikes${list[count].num }">${list[count].likes}</span>
+			         	  					<c:if test="${bool == false}">
+			         	  						<img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart${list[count].num }" onclick="change_img_to_red(${list[count].num})" data-src="1">
+											</c:if>&nbsp;&nbsp; <span class="spanLikes" id="spanLikes${list[count].num }">${list[count].likes}</span>
 	                    
 	                    	  	
 	                    	  	<script>
 	                    		var likess = "${list[count].likes}";
                 	  			var id = "${member.id}";
 
-	                    	  	 function change_img_to_red(num) {
-	          
-	                    	  		var heart = document.getElementById("img_heart"+num).src;
-										if(heart =="http://localhost:8080/proxyProject/resources/image/black_heart.png"){
-										 	 	document.getElementById("img_heart"+num).src = "/proxyProject/resources/image/heart.jpg"; 
+                	  		  	 function change_img_to_red(num) {
+                	  		          
+	                    	  	/* 	var heart = document.getElementById("img_heart"+num).src; */
+	                    	  		var heart = $("#img_heart"+num).attr("src").toString();
+	                    	  	
+										if(heart =="${pageContext.request.contextPath}/resources/image/black_heart.png"){
+										 	 	document.getElementById("img_heart"+num).src = "${pageContext.request.contextPath}/resources/image/heart.jpg"; 
 										 		$.ajax({
 			                    					url:'changeLikesBlack',
 			                    					type:'POST',
@@ -208,7 +210,7 @@ $(function () {
 			                    				});
 										 	 }else{
 										 		//여기로 들어오면 memberLikeBooks에 한줄 삭제하고 , books에 likes -1
-										 		document.getElementById("img_heart"+num).src="/proxyProject/resources/image/black_heart.png";
+										 		document.getElementById("img_heart"+num).src="${pageContext.request.contextPath}/resources/image/black_heart.png";
 										 		$.ajax({
 			                    					url:"changeLikesRed",
 			                    					type:"POST",
