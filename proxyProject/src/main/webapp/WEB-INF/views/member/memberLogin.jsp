@@ -59,6 +59,8 @@ table {
 	margin-left: 20px;
 	width: 80%;
 	height: 30px;
+	border: 1px solid #bdbdbd;
+	padding-left: 8px;
 }
 
 #img_div {
@@ -154,7 +156,7 @@ $(function() {
 	// ID 찾기
 	$("#btn4").click(function() {
 				// Opener 사용
-				var newWindow = window.open("../member/findID.jsp?", 
+				var newWindow = window.open("${pageContext.request.contextPath}/member/findID.jsp?", 
 						"newWindow",
 						"height=150, width=500, resizable=yes");
 				$("#id").focus();

@@ -39,12 +39,12 @@
 	color: white;
 }
 
-#info_sub_2 {
-	width: 80%;
+/* #info_sub_2 {
+	width: 60%;
 	height: 600px;
 	margin: 0 auto;
 }
-
+ */
 #sub_div_1 {
 	width: 100%;
 	height: 70%;
@@ -56,11 +56,10 @@
 }
 
 table {
-	border: 1px solid #cccccc;
 	border-spacing: 0px;
 	border-collapse: collapse;
 	text-align: center;
-	width: 80%;
+	width: 100%;
 	height: 100%;
 	margin: 0 auto;
 	color: #555;
@@ -80,12 +79,27 @@ table {
 	margin: 0 auto;
 	color: #555;
 }
-
 .td_1 {
-	width: 25%;
+	width: 5%;
 	height: 50px;
+	text-align: left;
+	font-size: 15px;
+	background-color: #eeeeee;
+	padding-left: 2%;
 }
-
+.td_2{
+	text-align: left;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	font-size: 14px;
+	padding-left: 4%;
+}
+.td_3{
+	width: 4%;
+	text-align: justify;
+	font-weight: bold;
+	padding-left: 4%;
+}
 #like1 {
 	font-weight: bold;
 	font-size: 20px;
@@ -150,6 +164,238 @@ table {
 	border: 1px solid white;
 	color: white;
 }
+* {
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: "NanumGothic", "Helvetica Neue", Helvetica, Arial,
+      sans-serif;
+   padding-bottom: 60px;
+   color: #141823;
+   line-height: 1.42857;
+}
+
+a {
+   color: #298cd8;
+   text-decoration: none;
+   cursor: pointer;
+   background: transparent;
+}
+
+.btn {
+   display: inline-block;
+   margin-bottom: 0;
+   font-weight: normal;
+   text-align: center;
+   vertical-align: middle;
+   cursor: pointer;
+   background-image: none;
+   border: 1px solid transparent;
+   white-space: nowrap;
+   /* padding: 6px 12px; */
+   font-size: 14px;
+   line-height: 1.42857;
+   border-radius: 3px;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+.btn-default {
+   color: #333;
+   background-color: #fff;
+   border-color: #ccc;
+}
+
+.btn-expanded {
+   width: 85%;
+}
+
+.mypage-menu {
+    display: inline-block;
+    width: 234px;
+    padding: 22px 0;
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+    margin: 30px 14px 50px 90px;
+}
+
+.mypage-menu-item {
+   padding: 8px 36px;
+   display: block;
+   font-size: 16px;
+   color: #1f1f1f
+}
+.mypage-menu-item2 {
+   padding: 5px 60px;
+   display: block;
+   font-size: 14px;
+   color: #1f1f1f
+}
+
+.mypage-menu-item.active {
+   font-weight: bold;
+   background-color: #f5f5f5
+}
+
+.mypage-menu-hr {
+   border-top: 1px solid #d8d8d8;
+   margin: 10px
+}
+
+.mypage-content {
+   width: 60%;
+   vertical-align: top;
+   display: inline-block;
+   border: 1px solid #d8d8d8;
+   border-radius: 3px;
+   margin-top: 30px;
+
+}
+
+.blacklist-header {
+   width: 70%;
+   float: left;
+}
+.blacklist-header2 {
+   width: 30%;
+    padding: 32px 0 20px 34px;
+    border-bottom: 1px solid #d8d8d8;
+   float: left;
+   margin-bottom: 20px;
+}
+#blacktitle {
+   font-size: 24px;
+   padding: 20px 0 20px 34px;
+   border-bottom: 1px solid #d8d8d8;
+}
+.mypage-body {
+   padding: 33px;
+}
+
+.mypage-item-wrapper {
+   padding: 16px 0;
+}
+
+.mypage-item-wrapper+.mypage-item-wrapper {
+   border-top: 1px solid #d8d8d8;
+}
+
+.mypageodr-table-header {
+   border-bottom: 1px solid #d8d8d8;
+   margin-top: 10px;
+   padding-bottom: 10px;
+   font-size: 14px
+}
+
+.mypageodr-header-info {
+   width: 60px;
+   display: inline-block;
+   text-align: center
+}
+
+.mypageodr-header-info-tel {
+   width: 150px;
+   display: inline-block;
+   text-align: center
+}
+
+.mypageodr-header-state {
+   width: 188px;
+   display: inline-block;
+   text-align: center;
+}
+
+.mypageodr-header-btns {
+   width: 120px;
+   display: inline-block;
+   text-align: center;
+}
+
+.mypageodr-item-info {
+   width: 60px;
+   display: inline-block;
+   margin-left: 20px;
+   vertical-align: middle
+}
+
+.mypageodr-item-price {
+   font-size: 14px;
+   text-align: center;
+}
+
+.mypageodr-item-state {
+   width: 60px;
+   display: inline-block;
+   font-size: 12px;
+   color: #000;
+   vertical-align: middle
+}
+
+.mypageodr-item-tel {
+   width: 150px;
+   display: inline-block;
+   font-size: 12px;
+   color: #000;
+   vertical-align: middle
+}
+
+.mypageodr-item-state-title {
+   font-size: 14px;
+   color: #000;
+   text-align: center
+}
+
+.mypageodr-item-btn-wrapper {
+   display: inline-block;
+   width: 90px;
+   padding: 0 20px;
+   text-align: center;
+   vertical-align: middle;
+}
+
+.mypageodr-item-btn-wrapper .btn+.btn {
+   margin-top: 6px;
+    text-align: center;
+}
+
+.mypageodr-delete-btn {
+  /*  display: block; */
+}
+
+.mypage-page-wrapper {
+   padding: 20px 0;
+   text-align: center;
+   border-top: 1px solid #d8d8d8
+}
+
+.mypage-page {
+   text-align: center;
+   width: 24px;
+   height: 24px;
+   font-size: 12px;
+   display: inline-block;
+   padding-top: 4px
+}
+
+.mypage-page.active {
+   background-color: #d8d8d8;
+   border-radius: 3px;
+   color: #fff
+}
+.mypage-header {
+    font-size: 24px;
+    padding: 22px 0 22px 34px;
+    border-bottom: 1px solid #d8d8d8;
+}
+.bottom-hr{
+	border-bottom: 1px solid #eeeeee;
+	border-right: 1px solid #eeeeee;
+}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
@@ -191,46 +437,54 @@ table {
       <%@ include file = "../common/header.jsp" %>
 	<!-- Header End -->
 <!-- info -->
-	<div id="info_div">
-<h2 style="text-align: center;margin-bottom: 20px;">회원정보</h2>
-		<div id="info_sub_2">
-		
+	<div class="mypage-menu">
+		<a class="mypage-menu-item active" href="${pageContext.request.contextPath}/member/memberView">회원정보</a> 
+		<div class="mypage-menu-hr"></div>
+		<div class="mypage-menu-item">마이페이지</div>
+		<a class="mypage-menu-item2" href="<%=application.getContextPath() %>/member/seller/myBookList?type=${member.type}&id=${member.id}">- 좋아요 내역</a>
+		<a class="mypage-menu-item2" href="<%=application.getContextPath() %>/member/seller/myBoardList?id=${member.id }">- 게시판 글 내역</a>
+		<a class="mypage-menu-item2" href="<%=application.getContextPath() %>/member/seller/myBuyList?id=${member.id }">- 구매 내역</a>
+	</div>
+	<div class="mypage-content">
+		<div class="mypage-header">회원 정보</div>	
 			<table>
 				<!-- 아이디 -->
 				<tr>
+					<td class="td_3">기본정보</td>
 					<td class="td_1">아이디</td>
-					<td id="getId">${ member.id }</td>
 				</tr>
-				<!-- 비밀번호 -->
 				<tr>
-					<td class="td_1">비밀번호</td>
-					<td>${ member.pw }</td>
-				</tr>
+					<td rowspan="9" class="bottom-hr"></td>
+					<td id="getId" class="td_2">${ member.id }</td></tr>
 				<!-- 이름 -->
 				<tr>
 					<td class="td_1">이름</td>
-					<td>${ member.name }</td>
 				</tr>
+				<tr><td class="td_2">${ member.name }</td></tr>
 				<!-- 나이 -->
 				<tr>
-					<td class="td_1">생년월일</td>
-					<td>${ member.year }</td>
-				</tr>
+					<td class="td_1">생년월일</td></tr>
+				<tr><td class="td_2">${ member.year }</td></tr>
 				<!-- 휴대폰 번호 -->
 				<tr>
-					<td class="td_1">휴대폰 번호</td>
-					<td>${ member.tel }</td>
-				</tr>
+					<td class="td_1">휴대폰 번호</td></tr>
+				<tr><td class="td_2">${ member.tel }</td></tr>
 				<!-- E-MAIL -->
 				<tr>
-					<td class="td_1">E-MAIL</td>
-					<td>${ member.email }</td>
-				</tr>
+					<td class="td_1">E-MAIL</td></tr>
+				<tr><td class="td_2">${ member.email }</td></tr>
 				<!-- 주소 -->
 				<tr>
-					<td class="td_1">Address</td>
-					<td>${ member.address }</td>
-				</tr>
+					<td class="td_3">배송정보</td>
+					<td class="td_1">Address</td></tr>
+				<tr><td rowspan="1" class="bottom-hr"></td>
+					<td class="td_2">${ member.address }</td></tr>
+				<!-- 계좌번호 -->
+				<tr>
+					<td class="td_3">계좌 정보</td>
+					<td class="td_1">계좌번호</td></tr>
+				<tr><td rowspan="1" class="bottom-hr"></td>
+					<td class="td_2">${ member.account }</td></tr>
 			</table>
 		</div>
 		<div id="info_sub_3">
@@ -238,7 +492,6 @@ table {
 			<button class="btn_d_2" id="btn5">정보 변경</button>
 			<button class="btn_d_2" id="btn6">회원 탈퇴</button>
 		</div>
-	</div>
 	<!-- Footer Start -->
 		<%@ include file = "../common/footer.jsp" %>
 	<!-- Footer End -->
