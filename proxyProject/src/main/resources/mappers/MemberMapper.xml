@@ -48,7 +48,7 @@
 	</select>
 	<update id="memberUpdate" parameterType="com.choa.member.MemberDTO">
 		update member
-		set pw=#{pw}, name=#{name}, tel=#{tel}, email=#{email}, address=#{address}
+		set pw=#{pw}, name=#{name}, tel=#{tel}, email=#{email}, address=#{address}, account=#{account}
 		where id=#{id}
 	</update>
 	<delete id="memberDelete" parameterType="String">

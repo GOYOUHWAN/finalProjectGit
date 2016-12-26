@@ -109,9 +109,8 @@
       <%@ include file = "../common/header.jsp" %>
 	<!-- Header End -->
 	<!-- Join 시작 -->
-	<div id="join_div">
 		<!-- 입력 부분 시작 -->
-		<h2>회원가입</h2>
+		<h2 style="text-align: center; margin-bottom: 20px; margin-top: 20px;">회원가입</h2>
 		<div id="join_sub_1">
 		<!-- <form action="memberJoin" method="post"> -->
 			<table>
@@ -119,21 +118,21 @@
 				<tr>
 					<td class="td_1">아이디</td>
 					<td>
-						<input type="text" name="id" class="categ1" id="id"> 
-						<button id="btn1">중복 확인</button><br>
+						<input type="text" name="id" class="categ1 teduri" id="id"> 
+						<button id="btn1" style="margin-left: 30px;">중복 확인</button><br>
 						<span id="useridspan"></span>
 					</td>
 				</tr>
 				<!-- 비밀번호 -->
 				<tr>
 					<td class="td_1">비밀번호</td>
-					<td><input type="password" class="categ1" id="pw1" onkeyup="rePW()"></td>
+					<td><input type="password" class="categ1 teduri" id="pw1" onkeyup="rePW()"></td>
 				</tr>
 				<!-- 비밀번호 재확인 -->
 				<tr>
 					<td class="td_1">비밀번호 재확인</td>
 					<td>
-						<input type="password" class="categ1" id="pw2" name="pw" onkeyup="equalPW()"> 
+						<input type="password" class="categ1 teduri" id="pw2" name="pw" onkeyup="equalPW()"> 
 						<span id="false">비밀번호 불일치</span> 
 						<span id="true">비밀번호 일치</span>
 					</td>
@@ -141,23 +140,23 @@
 				<!-- 이름 -->
 				<tr>
 					<td class="td_1">이름</td>
-					<td><input type="text" class="categ1" name="name" id="name"></td>
+					<td><input type="text" class="categ1 teduri" name="name" id="name"></td>
 				</tr>
 				<!-- 나이 -->
 				<tr>
 					<td class="td_1">생년 월일</td>
 					<td>		
-						<select class="categ2" id="year" name="year">
+						<select class="categ2 teduri" id="year" name="year">
 							<c:forEach begin="1" end="77" varStatus="status">
 								<option>${ 2017-status.count }</option>
 							</c:forEach>
 						</select> 년
-						<select class="categ3" id="month" name="month">
+						<select class="categ3 teduri" id="month" name="month">
 							<c:forEach begin="1" end="12" varStatus="status">
 								<option>${ status.count }</option>
 							</c:forEach>
 						</select> 월
-						<select class="categ3" id="day" name="day">
+						<select class="categ3 teduri" id="day" name="day">
 							<c:forEach begin="1" end="31" varStatus="status">
 								<option>${ status.count }</option>
 							</c:forEach>
@@ -168,28 +167,28 @@
 				<tr>
 					<td class="td_1">휴대폰 번호</td>
 					<td>
-						<select class="categ2" id="tel" name="tel">
+						<select class="categ2 teduri" id="tel" name="tel">
 							<option>SKT</option>
 							<option>KT</option>
 							<option>LGU+</option>
 						</select> 
-						<select class="categ3" id="pFirst" name="pFirst">
+						<select class="categ3 teduri" id="pFirst" name="pFirst">
 							<option>010</option>
 							<option>011</option>
 							<option>017</option>
 							<option>019</option>
 						</select> - 
-						<input type="text" class="categ3" id="pSecond" name="pSecond" maxlength="4"> - 
-						<input type="text" class="categ3" id="pThird" name="pThird" maxlength="4">
+						<input type="text" class="categ3 teduri" id="pSecond" name="pSecond" maxlength="4"> - 
+						<input type="text" class="categ3 teduri" id="pThird" name="pThird" maxlength="4">
 					</td>
 				</tr>
 				<!-- E-MAIL -->
 				<tr>
 					<td class="td_1">E-MAIL</td>
 					<td>
-						<input type="text" class="categ2" id="email_1" name="email">
+						<input type="text" class="categ2 teduri" id="email_1" name="email">
 						@ 
-						<select class="categ4" id="email_2">
+						<select class="categ4 teduri" id="email_2">
 							<option>hanmail.net</option>
 							<option>naver.com</option>
 							<option>nate.com</option>
@@ -201,7 +200,7 @@
 				<!-- 주소 -->
 				<tr>
 					<td class="td_1">주소</td>
-					<td><input type="text" name="address" id="address" class="categ1"></td>
+					<td><input type="text" name="address" id="address" class="categ1 teduri"></td>
 				</tr>
 				
 				<!-- 계좌번호 -->
@@ -210,7 +209,7 @@
 					<td>
 						<div>
 							<div class="form_wrap select card_type form_bg" >
-								<select id="accountBank">
+								<select id="accountBank" class="teduri" style="margin-bottom: 7px; height: 20px;">
 									<option>은행을 선택하세요</option>
 									<option id="NH농협">NH농협</option>
 									<option id="국민은행">국민은행</option>
@@ -227,9 +226,9 @@
 						<div>
 							<div class="form_wrap text card_no form_bg" >
 								<label for="lp_card_no1">예금주명</label> 
-								<input id="accountName" type="text" maxlength="5">
+								<input id="accountName" class="teduri" type="text" maxlength="5" style="height: 20px;">
 								<label for="lp_card_no1">계좌번호</label> 
-								<input id="accountNum" type="text" maxlength="15">
+								<input id="accountNum" class="teduri" type="text" maxlength="15" style="height: 20px;">
 							</div>
 						</div>
 					</td>
@@ -244,7 +243,6 @@
 			<button class="btn2" id="btn3">HOME</button> 
 			<button class="btn2" id="btn4">가 입</button>
 		</div>
-	</div>
 	<!-- Join 끝 -->
 	<!-- Footer Start -->
 		<%@ include file = "../common/footer.jsp" %>
