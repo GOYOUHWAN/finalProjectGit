@@ -8,6 +8,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
+//최근 본 상품 저장
+$(function () {
+	$.ajax({
+		url : "sellBookCookieProcess",
+		type : "POST",
+		data : {
+			num:$("#viewnum").val()
+		},
+		success : function(result){
+			alert($("#viewnum").val());
+			alert("성공");
+		}
+	});
+});
 
 </script>
 <title>Insert title here</title>
@@ -143,6 +157,7 @@
 
 </head>
 <body>
+<input type="hidden" value="${view.num }" id="viewnum">
 <%@ include file = "../common/header.jsp" %>
 
 <div id="view_div_outside">
