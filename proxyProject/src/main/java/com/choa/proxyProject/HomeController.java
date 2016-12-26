@@ -70,7 +70,7 @@ public class HomeController {
 		@RequestMapping(value="/memberLogout")
 		public String memberLogout(HttpSession session){
 			session.invalidate();
-			return "index";
+			return "redirect:/";
 		}
 		
 }

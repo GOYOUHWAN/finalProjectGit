@@ -19,7 +19,6 @@ $(function () {
 	}
 });
 
-
 </script>
 
 
@@ -125,7 +124,27 @@ $(function () {
 	</style>
 </head>
 <body id="body_sellbooklist">
-<%@ include file = "../common/header.jsp" %>
+
+	<%
+
+		//쿠키여러개꺼내오기
+		Cookie[] cookies = request.getCookies(); //몇갠지 모르니까 배열로 만든거다
+		if (cookies != null) {
+			for (int i = 0; i < cookies.length; i++) {
+	%>
+	<p>
+		쿠키 이름 :
+		<%=cookies[i].getName()%>
+	</p>
+	<p>
+		쿠키 값 :
+		<%=cookies[i].getValue()%>
+	</p>
+	<%
+			}	
+		}
+	%>
+	<%@ include file = "../common/header.jsp" %>
 
 <c:if test="${list[count] != null }">
 <!--정렬 시작  -->
