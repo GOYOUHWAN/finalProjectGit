@@ -83,7 +83,7 @@ public class SellBookController {
 	//판매도서 등록
 	@RequestMapping(value="/sellBookWrite", method = RequestMethod.POST)
 	public String sellBookWrite(BookDTO bookDTO, BookPictureDTO bookPictureDTO, MultipartRequest mr, HttpSession session, Model model){
-		System.out.println("sellbookController");
+		
 		int result = 0;
 		String message = "";
 		try {
@@ -98,7 +98,6 @@ public class SellBookController {
 		}else{
 			message="판매도서 등록실패";
 		}
-		System.out.println(message);
 		model.addAttribute("message", message);
 		return "sellBook/sellBookList";
 	}

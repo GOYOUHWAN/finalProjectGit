@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,6 +12,8 @@
 </head>
 <body>
 	<div id="contents" class="seller_contents">
+	
+		<c:if test="${member !=null}">
 	<form action="sellBookWrite" method="post" enctype="multipart/form-data" >
 		<div class="product_information" style="display: block;">
 			<!-- ===============================================================상품 기본정보========================================== -->
@@ -193,6 +196,7 @@
 			</div>
 		</div>
 		</form>
+		</c:if>
 	</div>
 	
 </body>

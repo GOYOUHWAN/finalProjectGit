@@ -137,11 +137,8 @@ $(function () {
 </div>
 <!--정렬 끝  -->
 </c:if>
-
+		<c:if test="${member !=null}">
 <!-- 리스트 시작 -->
-
-
-
    	<c:set var="size" value="${listsize%4 }"/>
 
 
@@ -165,9 +162,6 @@ $(function () {
 
 	                       <a href="sellBookView?num=${list[count].num}&id=${member.id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}"> </a><br>
 
-	                       <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> 
-	                       	<img class="img1" id="img" src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}" style="width:208px;"> 
-							</a>
 	                       </div>
 	                       
 	                        <div class="pad">
@@ -294,6 +288,7 @@ $(function () {
 		</c:if>
 		</c:if>
 <!--paging 끝 -->
+         </c:if>
          
          	<!-- Footer Start -->
 		<%@ include file = "../common/footer.jsp" %>
