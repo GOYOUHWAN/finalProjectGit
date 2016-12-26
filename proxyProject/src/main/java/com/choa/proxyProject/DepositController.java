@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.choa.book.BookDAO;
 import com.choa.book.BookDTO;
 import com.choa.book.BookService;
+import com.choa.deal.DealDTO;
+import com.choa.deal.DealService;
 import com.choa.deposit.DepositDAO;
 import com.choa.deposit.DepositDTO;
 import com.choa.freeboard.FreeboardDAO;
@@ -24,6 +26,8 @@ public class DepositController {
 	   private SqlSession sqlSession;
 	@Autowired
 		private BookService bookService; 
+	@Autowired
+		private DealService dealService;
 	
 	 //  글쓰기폼
 	   @RequestMapping("/DepositWriteForm")
@@ -34,12 +38,14 @@ public class DepositController {
 	   
 	   //  글쓰기   
 	   @RequestMapping("/DepositWrite")
-	   public String depositWrite(DepositDTO dto, Model model){
+	   public String depositWrite(DepositDTO dto, DealDTO dealDTO, Model model){
+		   System.out.println("여기로 들어오는가");
 		   DepositDAO dao = sqlSession.getMapper(DepositDAO.class);
 		   dao.depositWrite(dto);
 		   try {
 			   System.out.println(dto.getNum());
 			bookService.statusDeposit(dto.getNum());
+			dealService.insertDeal(dealDTO);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -300,10 +300,13 @@ table tr, td {
 							<button class="sellbtn" id="sellbtn">입금하기</button>
 						</div>
 				</div>
+				<input type="hidden" value="${view.id}" name="id_seller">
+				<input type="hidden" value="${member.id }" name="id_buyer">
 				<input type="hidden" value="${view.num}" name="num">
 				<input type="hidden" value="${sessionScope.member.id}" name="id">
 				<input type="hidden" value="${view.price}" name="price">
 				<input type="hidden" value="${view.name}" name="name">
+				<input type="hidden" value="${view.status }" name="status">
 		</form>
 	</section>
 	<%@ include file="../../common/footer.jsp"%>

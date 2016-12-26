@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.choa.book.BookDTO;
 import com.choa.book.BookService;
 import com.choa.freeboard.FreeboardService;
 import com.choa.member.MemberDTO;
@@ -26,6 +27,32 @@ public class MemberController {
    private MemberService memberService;
    @Autowired
    private BookService bookService;
+   
+   @ResponseBody
+   @RequestMapping(value="/buyer/confirm")
+   public void confirm(@RequestParam int num){
+	   try {
+		bookService.confirm(num);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+   }
+   
+   @ResponseBody
+	@RequestMapping(value="/seller/delivery")
+	public void delivery(@RequestParam int num){
+	   try {
+			bookService.delivery(num );
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	}
+   
+   
+   
    
    //Manager=======================================================
    //관리자페이지
@@ -133,6 +160,16 @@ public class MemberController {
       return "/member/seller/myBoardList";
    }
 
+   @RequestMapping(value="/seller/mySellList")
+   public String mySellList(@RequestParam String id, Model model ){
+	   try {
+		bookService.mySellList(id, model);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	   return "/member/seller/mySellList";
+   }
 
    @RequestMapping(value="/seller/myPage")
    public void myPageS(){}
@@ -284,8 +321,7 @@ public class MemberController {
 
    // 로그인
    @RequestMapping(value = "/memberLogin", produces = "application/json; charset=utf-8")
-   public void memberLogin(MemberDTO memberDTO, HttpSession session, HttpServletResponse response,
-         HttpServletRequest request) throws Exception {
+   public void memberLogin(MemberDTO memberDTO, HttpSession session, HttpServletResponse response, HttpServletRequest request) throws Exception {
       request.setCharacterEncoding("UTF-8");
       response.setCharacterEncoding("UTF-8");
       memberDTO = memberService.memberLogin(memberDTO);

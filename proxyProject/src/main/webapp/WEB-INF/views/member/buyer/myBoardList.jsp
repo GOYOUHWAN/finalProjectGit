@@ -42,10 +42,11 @@ tr, th {
 </head>
 <body class="home">
 <%@ include file = "../../common/header.jsp" %>
+<div id="div_page">
 <div id="sub_3">
-			<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">myBookList(내가 팔고있는 책들)</button></a>
-			<a href="myBoardList?id=${member.id }"><button class="btn_d_2" id="btn5" tabindex="5">myBoardList(내가 쓴 글들)</button></a>
-			<a href="myBuyList?id=${member.id }"><button class="btn_d_2" id="btn6" tabindex="6">myBuyList(내가 산 책들)</button></a>
+			<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">좋아요 내역</button></a>
+			<a href="myBoardList?id=${member.id }"><button class="btn_d_2" id="btn5" tabindex="5">게시판 글 내역</button></a>
+			<a href="myBuyList?id=${member.id }"><button class="btn_d_2" id="btn6" tabindex="6">구매 내역</button></a>
 		</div>
 	<div class="container">
 	<div id="div_container_2">		
@@ -105,6 +106,7 @@ tr, th {
 		</div>
 		</div>
 		</div>
+	 	</div>
 	 	</div>
 	<!-- Footer:S -->
 	<%@ include file = "../../common/footer.jsp" %>

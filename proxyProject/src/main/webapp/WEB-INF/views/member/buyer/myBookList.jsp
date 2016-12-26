@@ -45,6 +45,7 @@ a:hover{
 </head>
 <body class="home">
 <%@ include file = "../../common/header.jsp" %>
+<div id="div_page">
 	<div id="sub_3">
 						<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">좋아요 내역</button></a>
 			<a href="myBoardList?id=${member.id }"><button class="btn_d_2" id="btn5" tabindex="5">게시판 글 내역</button></a>
@@ -88,6 +89,7 @@ a:hover{
 	 	</div>
 	 	</div>
 	 	</div>
+	 </div>
 	<!-- Footer:S -->
 	<!-- Footer:E -->	
 	<%@ include file = "../../common/footer.jsp" %>
