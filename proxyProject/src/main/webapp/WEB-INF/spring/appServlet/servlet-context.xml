@@ -29,6 +29,27 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+	<beans:bean id="memberCheck" class="com.choa.inter.MemberCheck"></beans:bean>
+	<beans:bean id="log" class="com.choa.inter.LoginInterCeptor"></beans:bean>
+	<interceptors>
+		<interceptor>
+			<mapping path="/freeboard/*"/>
+			<mapping path="/blackList/*"/>
+			<mapping path="/book/*"/>
+			<mapping path="/notice/*"/>
+			<mapping path="/sellBook/*"/>
+			<mapping path="/member/memberView"/>
+			<mapping path="/member/manager/*"/>
+			<mapping path="/member/buyer/*"/>
+			<mapping path="/member/seller/*"/>
+			<beans:ref bean="memberCheck"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/member/memberLogin"/>
+			<beans:ref bean="log"/>
+		</interceptor>
+		
+	</interceptors>
 	
 	<context:component-scan base-package="com.choa.proxyProject" />
 	<context:component-scan base-package="com.choa.freeboard" />

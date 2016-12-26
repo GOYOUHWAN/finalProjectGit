@@ -21,6 +21,7 @@ import com.choa.member.MemberService;
 @Controller
 @RequestMapping(value = "/member")
 public class MemberController {
+	
 
    @Autowired
    private MemberService memberService;
@@ -290,13 +291,19 @@ public class MemberController {
       response.setCharacterEncoding("UTF-8");
       memberDTO = memberService.memberLogin(memberDTO);
       session.setAttribute("member", memberDTO);
+      chmember(memberDTO);
       PrintWriter writer = response.getWriter();
       writer.println("<script>location.href='../';</script>");
    }
-
+   
+   //회원 체크
+   private MemberDTO chmember(MemberDTO memberDTO){
+	   return memberDTO;
+   }
+   
    // 회원정보view
    @RequestMapping(value = "/memberView", method = RequestMethod.GET)
-   public void memberView() {
+   public void memberView() { 
    }
 
    // 회원수정view
@@ -332,7 +339,7 @@ public class MemberController {
          message = "탈퇴되었습니다.<br>이용해주셔서 감사합니다.";
 
       } else {
-         message = "탈퇴안됨 가지마";
+         message = "ERROR";
       }
       model.addAttribute("message", message);
       writer.println("<script>alert('" + message + "'); </script>");
