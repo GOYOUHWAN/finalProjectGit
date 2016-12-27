@@ -102,13 +102,13 @@ a {
 }
 
 .blacklist-header {
-   width: 70%;
+   width: 65%;
    float: left;
    border-bottom: 1px solid #d8d8d8;
 }
 .blacklist-header2 {
-   width: 30%;
-    padding: 32px 0 20px 34px;
+   width: 35%;
+    padding: 13px 0 17px 20px;
     border-bottom: 1px solid #d8d8d8;
    float: left;
    margin-bottom: 20px;
@@ -119,7 +119,7 @@ a {
    float: left;
 }
 .mypage-body {
-   padding: 33px;
+   padding: 63px;
 }
 
 .mypage-item-wrapper {
@@ -245,6 +245,7 @@ a {
 	background-color: #8c72fd;
 	color: white;
 	padding: 10px 10px 10px 10px;
+	margin-left: 10px;
 }
 .singgo:hover{
 	background-color: #7151FC;
@@ -266,15 +267,18 @@ a {
       <br>
       </c:if>
       	<c:if test="${sessionScope.member.id != dto.id}">
-      		<c:if test="${sessionScope.member.type eq '3'}"><br></c:if>
+      		<c:if test="${sessionScope.member.type eq '3'}"><br><br></c:if>
       		<c:if test="${sessionScope.member.type != '3'}">
-      			<a href="singoForm" class="singgo">신고하기</a>
+      	<a href="singoForm">
+      	<img alt="" src="${pageContext.request.contextPath }/resources/image/siren.jpg" 
+      		style="float: left; margin-left:20%; margin-bottom: 9px;" width="35px;" height="35px;"></a>
+      			<a href="singoForm" class="singgo" style="float: left;">신고하기</a>
       		</c:if>
       	</c:if>
       	</div>
       <div class="mypage-body ng-scope2">
          <div class="mypageodr-table-header">
-         <div class="mypageodr-header-info2"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <div class="mypageodr-header-info2"></div><div class="mypageodr-header-info2"></div>
             <div class="mypageodr-header-info">ID</div>
             <div class="mypageodr-header-info2"></div>
             <div class="mypageodr-header-info2"></div>
@@ -283,7 +287,10 @@ a {
             <div class="mypageodr-header-info-tel">이메일</div>
             <div class="mypageodr-header-info2"></div>
             <div class="mypageodr-header-info2"></div>
-            <div class="mypageodr-header-info">등급</div>
+    <!--         <div class="mypageodr-header-info">등급</div>
+            <div class="mypageodr-header-info2"></div>
+            <div class="mypageodr-header-info2"></div> -->
+            <div class="mypageodr-header-info">기타</div>
          </div>
          <div>
                <!-- 구매자 정보 -->
@@ -306,8 +313,8 @@ a {
                         class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.tel }</div>
                      <div
                         class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.email }</div>
-                     <div
-                        class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.grade }</div>
+<%--                      <div
+                        class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.grade }</div> --%>
 
                       <div class="mypageodr-item-info2">
                       <c:if test="${sessionScope.member.id != dto.id}">

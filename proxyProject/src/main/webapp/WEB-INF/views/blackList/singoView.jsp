@@ -8,31 +8,49 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
 <title>Insert title here</title>
 <style type="text/css">
-#info_div {
-	width: 80%;
-	margin: 0 auto;
-	margin-top: 70px;
+.mypage-menu {
+    display: inline-block;
+    width: 234px;
+    padding: 22px 0;
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+    margin: 30px 14px 50px 90px;
 }
-.btn_d_1 {
-	width: 33.3%;
-	height: 50px;
-	margin: 0 auto;
-	margin-top: 50px;
-	float: left;	
-	font-size: 20px;
-	background-color: #A5E0EB;
-	border: 1px solid #A5E0EB;
-	color: #555;
-	outline: none;
+
+.mypage-menu-item {
+   padding: 8px 36px;
+   display: block;
+   font-size: 16px;
+   color: #1f1f1f
 }
-.btn_d_1:HOVER {
-	background-color: #00ace6;
-	border: 1px solid #00ace6;
-	color: white;
+.mypage-menu-item2 {
+   padding: 5px 60px;
+   display: block;
+   font-size: 14px;
+   color: #1f1f1f
 }
-#info_sub_2 {
-	width: 80%;
-	margin: 0 auto;
+
+.mypage-menu-item.active {
+   font-weight: bold;
+   background-color: #f5f5f5
+}
+
+.mypage-menu-hr {
+   border-top: 1px solid #d8d8d8;
+   margin: 10px
+}
+.mypage-content {
+   width: 60%;
+   vertical-align: top;
+   display: inline-block;
+   border: 1px solid #d8d8d8;
+   border-radius: 3px;
+   margin-top: 30px;
+}
+.mypage-header {
+    font-size: 24px;
+    padding: 22px 0 22px 34px;
+    border-bottom: 1px solid #d8d8d8;
 }
 
 #sub_div_1 {
@@ -46,28 +64,41 @@
 }
 
 table {
-	border: 1px solid #cccccc;
 	border-spacing: 0px;
 	border-collapse: collapse;
 	text-align: center;
-	width: 80%;
-	height: 500px;
+	width: 100%;
 	margin: 0 auto;
 	color: #555;
 }
 
 .td_1 {
-	width: 25%;
+	width: 10%;
 	height: 50px;
+	text-align: center;
+	font-size: 15px;
+	background-color: #eeeeee;
 }
-.td_2 {
-	width: 70%;
-	height: 50px;
-	padding-left: 50px;
-	padding-right: 50px;
+.td_2{
+	text-align: left;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	font-size: 14px;
+	padding-left: 4%;
+	padding-right: 4%;
+	border-bottom: 1px solid #eee;
+}
+.td_3{
+	width: 20%;
+	text-align: justify;
+	font-weight: bold;
+	padding-left: 2%;
+	font-size: 18px;
+	padding-top: 6px;
+	color: #C40303;
 }
 #info_sub_3 {
-	width: 64%;
+	width: 45%;
 	height: 100px;
 	margin: 0 auto;	
 }
@@ -112,26 +143,29 @@ table {
       <%@ include file = "../common/header.jsp" %>
 	<!-- Header End -->
 <!-- info -->
-	<div id="info_div">
-		<p style="width: 100%; float: left; text-align: center; font-size: 24px; margin-bottom: 30px;">신고 내용</p>
-		<div id="info_sub_2">		
+	<div class="mypage-menu">
+		<a class="mypage-menu-item" href="${pageContext.request.contextPath }/blackList/blackmView?id=${blackDTO.sid}" style="color:gray;">블랙 회원 정보</a> 
+		<div class="mypage-menu-item active"><a href="${pageContext.request.contextPath }/blackList/singoView?sid=${blackDTO.sid}" style="color: gray;">신고 글 보기</a></div>
+	</div>
+	<div class="mypage-content">
+		<div class="mypage-header">신고글 내용</div>
 			<table>
 				<!-- 아이디 -->
 				<tr>
-					<td class="td_1">사기꾼 아이디</td>
-					<td id="getId">${ blackDTO.sid }</td>
+					<td id="getId" class="td_3">${ blackDTO.sid }<p style="color: gray; font-size: 12px;">(사기꾼 아이디)</p></td>
+					<td class="td_1">날짜</td>
+					<td class="td_2">${blackDTO.reg_date }</td>
 				</tr>
-				<!-- title -->
 				<tr>
+					<td class="td_3" rowspan="6"></td>
 					<td class="td_1">제목</td>
-					<td>${ blackDTO.title }</td>
+					<td class="td_2">${ blackDTO.title }</td>
 				</tr>
 				<!-- contents -->
 				<tr>
 					<td class="td_1">내용</td>
-					<td class="td_2">${ blackDTO.contents}</td>
+					<td class="td_2" style="line-height:200%">${ blackDTO.contents}</td>
 				</tr>
-				<tr><td class="td_1"></td><td class="td_1"></td></tr>
 			</table>
 		</div>
 		<div id="info_sub_3">
@@ -140,7 +174,6 @@ table {
 				<button class="btn_d_02" id="btn5">회원 정보</button>
 			</c:if>
 		</div>
-	</div>
 	<!-- Footer Start -->
 		<%@ include file = "../common/footer.jsp" %>
 	<!-- Footer End -->

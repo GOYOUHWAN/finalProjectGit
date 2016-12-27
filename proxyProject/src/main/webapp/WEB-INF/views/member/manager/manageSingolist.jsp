@@ -187,7 +187,7 @@ a {
 }
 
 .mypageodr-item-tel {
-   width: 180px;
+   width: 160px;
    display: inline-block;
    font-size: 12px;
    color: #000;
@@ -273,7 +273,7 @@ a {
 				<div class="mypageodr-header-info2" style="margin-left: 5%; margin-right:22px;">신고자 아이디</div>
 				<div class="mypageodr-header-info-tel">제목</div>
 				<div class="mypageodr-header-info" style="margin-left: 7%; margin-right:22px;">날짜</div>
-				<div class="mypageodr-header-info" style="margin-left: 6%;">관리</div>
+				<div class="mypageodr-header-info" style="margin-left: 4%;">관리</div>
 			</div>
 			<div>
 					<!-- 구매자 정보 -->

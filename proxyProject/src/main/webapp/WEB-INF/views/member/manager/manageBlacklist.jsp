@@ -262,8 +262,8 @@ a {
 				<div class="mypageodr-header-info-tel jump3">이름</div>
 				<div class="mypageodr-header-info-tel">전화번호</div>
 				<div class="mypageodr-header-info-tel jump">이메일</div>
-				<div class="mypageodr-header-info jump2">등급</div>
-				<div class="mypageodr-header-info jump2">타입</div>
+<!-- 				<div class="mypageodr-header-info jump2">등급</div>
+				<div class="mypageodr-header-info jump2">타입</div> -->
 			</div>
 			<div>
 					<!-- 구매자 정보 -->
@@ -280,10 +280,10 @@ a {
 								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.tel }</div>
 							<div
 								class="mypageodr-item-tel mypageodr-item-state-title ng-binding jump">${f.email }</div>
-							<div
+<%-- 							<div
 								class="mypageodr-item-state mypageodr-item-state-title ng-binding jump2">${f.grade }</div>
 							<div
-								class="mypageodr-item-state mypageodr-item-state-title ng-binding jump2">${f.type }</div>
+								class="mypageodr-item-state mypageodr-item-state-title ng-binding jump2">${f.type }</div> --%>
 <%-- 							<div class="mypageodr-item-btn-wrapper">
 								<a class="btn btn-default btn-expanded mypageodr-delete-btn"
 									style="float: right;margin-top:10px;"

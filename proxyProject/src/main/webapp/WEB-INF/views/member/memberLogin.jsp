@@ -71,17 +71,17 @@ table {
 
 #btn3 {
 	width: 100px;
-	height: 100px;
+	height: 110px;
 	font-size: 20px;
-	background-color: #475AA6;
+	background-color: #6E9907;
 	color: white;
 	outline: none;
 }
 
 #btn3:ACTIVE {
-	border: 1px solid #475AA6;
+	border: 1px solid #6E9907;
 	background-color: white;
-	color: #475AA6;
+	color: #6E9907;
 }
 
 #login_sub_3 {
@@ -221,12 +221,12 @@ $(function() {
 			<div id="img_div"></div>
 		</div>
 		<!-- 회원가입, HOME -->
-		<div id="login_sub_3">
+<!-- 		<div id="login_sub_3">
 			<button class="btn_d_3" id="btn4" tabindex="4">아이디 찾기</button>
 			<button class="btn_d_3" id="btn5" tabindex="5">비밀번호 찾기</button>
 			<button class="btn_d_3" id="btn6" tabindex="6">회원 가입</button>
 			<button class="btn_d_3" id="btn7" tabindex="7">HOME</button>
-		</div>
+		</div> -->
 	</div>
 	<!-- Login 끝 -->
 	<!-- Footer Start -->

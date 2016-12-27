@@ -10,10 +10,10 @@
 <title>Insert title here</title>
 <style>
 #join_div {
-	width: 80%;
-
+	width: 100%;
 	margin: 0 auto;
 	margin-top: 50px;
+	text-align: center;
 }
 
 #join_sub_1 {
@@ -22,21 +22,29 @@
 }
 
 table {
-	border: 1px solid #cccccc;
 	border-spacing: 0px;
 	border-collapse: collapse;
-	width: 80%;
+	width: 100%;
 	height: 100%;
 	margin: 0 auto;
 	color: #555;
 }
-
 .td_1 {
-	width: 25%;
+	width: 20%;
 	height: 50px;
 	text-align: center;
+	font-size: 15px;
+	background-color: #eeeeee;
+	border: 1px solid #dbdada;
 }
-
+.td_2{
+	text-align: left;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	font-size: 14px;
+	padding-left: 4%;
+	border: 1px solid #cccccc;
+}
 #btn1 {
 	width: 80px;
 	height: 30px;
@@ -69,10 +77,9 @@ table {
 	height:30px;
 }
 .categ1 {
-	margin-left: 20px;
 	width: 60%;
 	height: 20px;
-	font-size: 20px;
+	font-size: 19px;
 }
 
 .categ2 {
@@ -93,27 +100,27 @@ table {
 
 
 #join_sub_2 {
-	width: 45%;
-	height: 60px;
+	width: 40%;
+	height: 50px;
 	margin: 0 auto;
 	margin-top: 30px;
 }
 
 .btn2 {
-	width: 35%;
+	width: 30%;
 	height: 80%;
 	margin-left: 30px;
 	float: left;
-	border: 1px solid #7151FC;
-	background-color: #7151FC;
+	border: 1px solid #6E9907;
+	background-color: #6E9907;
 	font-size: 20px;
 	color: white;
 }
 
 .btn2:HOVER {
-	border: 1px solid #7151FC;
+	border: 1px solid #6E9907;
 	background-color: white;
-	color: #7151FC;
+	color: #6E9907;
 }
 
 #btn3 {
@@ -128,6 +135,18 @@ table {
 	background-color: #737373;
 	color: white;
 	outline: none;
+}
+.mypage-content {
+   width: 60%;
+   vertical-align: top;
+   display: inline-block;
+   border: 1px solid #d8d8d8;
+   border-radius: 3px;
+}
+.mypage-header {
+    font-size: 24px;
+    padding: 22px 0 22px 34px;
+    text-align: left;
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -160,40 +179,39 @@ table {
       <%@ include file = "../common/header.jsp" %>
 	<!-- Header End -->
 <div id="join_div">
-<h2 style="text-align: center; margin-bottom: 30px;">TYPE 변경</h2>
 <!-- Join 시작 -->
 		<!-- 입력 부분 시작 -->
-		<div id="join_sub_1">
+		<div class="mypage-content">
+		<div class="mypage-header">TYPE 변경</div>
 		<!-- <form action="memberJoin" method="post"> -->
 			<table>
-				<tr><td style="height: 20px;"></td><td></td></tr>
 				<!-- 아이디 -->
 				<tr>
 					<td class="td_1">아이디</td>
-					<td>
+					<td class="td_2">
 						<input type="text" value="${param.id }" class="categ1" id="id" readonly="readonly"> 
 					</td>
 				</tr>
 				<!-- type -->
 				<tr>
 					<td class="td_1">type</td>
-					<td>
-						<input type="text" value="${param.type}" id="type" style="border: 1px solid gray;height: 25px;"> 
+					<td class="td_2">
+						<input type="text" placeholder="ex) 4" id="type" style="border: 1px solid #dbdada;height: 25px;"> 
 					</td>
 				</tr>
 				<tr>
 					<td class="td_1"></td>
-					<td>&nbsp;type 1 = 구매자<br>&nbsp;type 2 = 판매자<br>&nbsp;type 4 = 블랙리스트</td>
+					<td class="td_2"><p style="color: #C40303;">**숫자만 입력 바랍니다**</p><br>
+					&nbsp;- type 1 = 구매자<br>&nbsp;- type 2 = 판매자<br>&nbsp;- type 4 = 블랙리스트</td>
 				</tr>
-				<tr><td style="height: 30px;"></td><td></td></tr>
 			</table>
+	</div>
 		<!-- 버튼처리 부분 -->
 		<div id="join_sub_2">
 			<button class="btn2" id="btn3">HOME</button>
 			<button class="btn2" id="btn4">수정완료</button>
 		</div>
 	</div>
-</div>
 	<!-- Footer Start -->
 		<%@ include file = "../common/footer.jsp" %>
 	<!-- Footer End -->
