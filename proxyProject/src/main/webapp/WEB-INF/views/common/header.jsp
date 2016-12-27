@@ -150,7 +150,7 @@
 				</ul>
 			</div>
 			<div id="header_div_2">
-				<a href="/proxyProject"><img src="${pageContext.request.contextPath}/resources/image/logo2.png" id="img_logo" width="150" height="60"></a>
+				<a href="/proxyProject"><img src="${pageContext.request.contextPath}/resources/image/logo3.png" id="img_logo" width="150" height="60"></a>
 			</div>
 			<div id="a_header">
 				<!--헤더에서 검색했을때 list 띄우는  -->

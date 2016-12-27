@@ -11,37 +11,37 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
-	<div class="content_wrap">
-		<div id="n2_nboard">
-			<div class="option"></div>
-			<div class="n2_skin_wrap">
+<%@ include file = "../common/header.jsp" %>
+   <div class="mypage-menu">
+   <div class="mypage-content">
+      <div class="blacklist-header"><p id="blacktitle">블랙리스트</p></div>
 				<!-- 상단 -->
-				<div class="skin">
-					<div class="subject">제목</div>
-					<div class="date">작성일</div>
-					<div class="hits">조회수</div>
-				</div>
-				<!-- 목록 -->
-				<ul class="list">
-				<c:set var="count" value="-1"/>
+			     <div class="mypage-body ng-scope2">
+		         <div class="mypageodr-table-header">
+		         <div class="mypageodr-header-info2"></div><div class="mypageodr-header-info2"></div>
+		            <div class="mypageodr-header-info">NO</div>
+		            <div class="mypageodr-header-info">제목</div>
+		            <div class="mypageodr-header-info-tel">작성일</div>
+		            <div class="mypageodr-header-info-tel">조회수</div>
+		<!-- 목록 -->
+		<c:set var="count" value="-1"/>
 				<c:forEach var="notice" items="${noticeList}">
 				<c:set var="count" value="${count+1}"/>	
-					<li>
-						<em class="num">${notice.no}</em>
-						<div class="subject">
+					<tr>
+						<td class="num">${notice.no}</td>
+						<td class="subject">
 							<span>
 								<a href="noticeView?no=${notice.no}">
 									<span>${notice.title}</span>   
 								</a>
 							</span>
-						</div>
-						<em class="date">
+						</td>
+						<td class="date">
 							<fmt:formatDate value="${notice.reg_date}" pattern="yyyy.MM.dd" />
-						</em>
-						<em class="hits">${notice.hits}</em>
-					</li>
+						</td>
+						<td class="hits">${notice.hits}</td>
 				</c:forEach>
-				</ul>
+				</div>
 			</div>
 			<div id="pageing">
 				<c:if test="${page.curBlock > 1 }">
@@ -62,5 +62,8 @@
 			</div>
 		</div>
 	</div>
+	<!-- Footer Start -->
+		<%@ include file = "../common/footer.jsp" %>
+	<!-- Footer End -->
 </body>
 </html>
