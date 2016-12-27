@@ -29,7 +29,8 @@ public class SellBookController {
 	private BookService bookService;
 	
 
-
+	@RequestMapping(value="/sellBookCookieProcess")
+	public void sellBookCookie(){}
 	
 	@RequestMapping(value="/sellBookSearch")
 	public String sellBookListS(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, @RequestParam String search, @RequestParam String id,Model model){

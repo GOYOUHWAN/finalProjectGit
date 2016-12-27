@@ -2,12 +2,19 @@ package com.choa.member;
 
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartRequest;
 
 import com.choa.blackList.BlackDTO;
 import com.choa.util.MemberPageMaker;
 import com.choa.util.PageMaker;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +23,21 @@ import org.springframework.stereotype.Service;
 public class MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
+	
+	public int approve(ApproveDTO approveDTO,  MultipartRequest mr,HttpSession session) throws Exception{
+		String path = session.getServletContext().getRealPath("resources/upload");
+		List<MultipartFile> files = mr.getFiles("identitycard");
+		files.add(mr.getFile("bank"));
+		ArrayList<String> fileNames = new ArrayList<String>();
+		for(int i = 0; i<files.size(); i++){
+			MultipartFile mf = files.get(i);
+			String fileName = UUID.randomUUID().toString()+"_"+mf.getOriginalFilename();
+			File file  = new File(path, fileName);
+			mf.transferTo(file);
+			fileNames.add(fileName);
+		}
+		return memberDAO.approve(approveDTO, fileNames);
+	}
 
 	//고유환이 만든부분 시작
 	//sellerTrust로 index에서 1~10위 보여주기
@@ -81,6 +103,8 @@ public class MemberService {
 		}
 	
 	// 회원메뉴=================================================
+		
+		
 	// ID찾기
 	public void findID(String find, Model model) throws Exception {
 		model.addAttribute("find", memberDAO.findID(find));

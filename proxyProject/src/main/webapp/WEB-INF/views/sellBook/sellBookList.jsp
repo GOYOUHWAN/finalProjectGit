@@ -6,8 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/visitedbook.css">
 
-<title>Insert title here</title>
+<title>PROXY : 대한민국 대표 중고도서</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -123,28 +124,7 @@ $(function () {
 	</style>
 </head>
 <body id="body_sellbooklist">
-
-	<%
-
-		//쿠키여러개꺼내오기
-		Cookie[] cookies = request.getCookies(); //몇갠지 모르니까 배열로 만든거다
-		if (cookies != null) {
-			for (int i = 0; i < cookies.length; i++) {
-	%>
-	<p>
-		쿠키 이름 :
-		<%=cookies[i].getName()%>
-	</p>
-	<p>
-		쿠키 값 :
-		<%=cookies[i].getValue()%>
-	</p>
-	<%
-			}	
-		}
-	%>
-	<%@ include file = "../common/header.jsp" %>
-
+<%@ include file = "../common/header.jsp" %>
 <c:if test="${list[count] != null }">
 <!--정렬 시작  -->
 <div id="line_order">
@@ -159,7 +139,6 @@ $(function () {
 <!-- 리스트 시작 -->
 
    	<c:set var="size" value="${listsize%4 }"/>
-
 
           <table id="listTable">
          <c:forEach begin="0" end="${listsize/4}">
@@ -273,6 +252,41 @@ $(function () {
    				</c:when>
    			</c:choose>
             </tr>
+            
+            <!-- 최근 본 상품 목록 시작 -->
+          <div class="hm-visited-wrapper">
+         	<div class="hm-visited-items">
+				<div class="hm-visited-title">최근 본 상품</div>
+				<!-- 이미지 영역 -->
+					<div>
+						<%	//쿠키여러개꺼내오기
+							Cookie[] cookies = request.getCookies(); //몇갠지 모르니까 배열로 만든거다
+							int size = cookies.length;
+							if (cookies != null) {
+								%><c:set var="doneLoop" value="false" /><%
+								for (int i =size-1 ; i>=0 ; i--) {
+									if(cookies[i].getName().contains("JSESSIONID")){
+									}else{
+						%>
+								<c:if test="${not doneLoop}">
+								<div ng-repeat="order in currentItems">
+									<a href="sellBookView?num=<%=cookies[i].getValue()%>&id=${member.id}">
+										<div class="hm-visited-image">
+										<img src="<%=application.getContextPath() %>/resources/upload/<%=cookies[i].getName()%>">
+								</div>
+							</a>
+						</div>
+						<%if(i==size-6){ %>
+							<c:set var="doneLoop" value="true" />
+						<%} %>
+						</c:if>
+							<%}
+							}
+						}%>
+					</div>
+				</div>
+         </div> 
+         <!-- 최근 본 상품 목록 끝 -->
          </c:forEach>
          
          </table>
@@ -280,7 +294,7 @@ $(function () {
          <!-- 리스트 끝 -->
          <c:if test="${no}">
           <p id="tagisp"><img src="${pageContext.request.contextPath}/resources/image/warn.png"><br><br>
-            조회된 결과가 없습니다. 다른 조건으로 검색해보세요!</p>
+          	조회된 결과가 없습니다. 다른 조건으로 검색해보세요!</p>
          </c:if> 
          
          

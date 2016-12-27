@@ -4,7 +4,7 @@
     pageEncoding="UTF-8"%>
 <html>
 <head>
-	<title>Home</title>
+	<title>PROXY : 대한민국 대표 중고도서</title>
 </head>
 
 <body>
