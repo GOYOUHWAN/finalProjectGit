@@ -8,10 +8,22 @@
 </head>
 <body>
 	<%	//쿠키저장
+		String pic = request.getParameter("pic");
 		String num = request.getParameter("num");
-		Cookie c = new Cookie("viewnum", num);
-		c.setMaxAge(60*60*24*7);
-		response.addCookie(c);
+		Cookie[] cookies = request.getCookies(); 
+		for(int i=0;i<cookies.length;i++){
+			System.out.println(i+"쿠키 "+cookies[i]);
+			if(cookies[i].equals(pic)){ //쿠키 중복되면 이전 쿠키 삭제
+				
+				Cookie kc = new Cookie(pic, null) ;
+				kc.setMaxAge(0) ;
+				response.addCookie(kc) ;
+			}
+			Cookie c = new Cookie(pic, num);
+			c.setMaxAge(60); 
+			response.addCookie(c);
+		}
+		
 	%>
 </body>
 <script type="text/javascript">

@@ -12,12 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartRequest;
 
 import com.choa.book.BookDTO;
 import com.choa.book.BookService;
 import com.choa.freeboard.FreeboardService;
 import com.choa.member.MemberDTO;
 import com.choa.member.MemberService;
+import com.choa.member.ApproveDTO;
 
 @Controller
 @RequestMapping(value = "/member")
@@ -35,7 +37,6 @@ public class MemberController {
 	   try {
 		bookService.confirm(num);
 	} catch (Exception e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
    }
@@ -46,7 +47,6 @@ public class MemberController {
 	   try {
 			bookService.delivery(num );
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	
@@ -72,7 +72,6 @@ public class MemberController {
       try {
          memberService.memberInfo(curPage, perPage, model,2);
       } catch (Exception e) {
-         // TODO Auto-generated catch block
          e.printStackTrace();
       }
       return "member/manager/manageSeller";
@@ -86,7 +85,6 @@ public class MemberController {
 		try {
 			memberService.memberInfo(curPage, perPage, model, type);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "/member/manager/manageBlacklist";
@@ -99,7 +97,6 @@ public class MemberController {
 		try {
 			memberService.manageSingolist(curPage, perPage, model);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "/member/manager/manageSingolist";
@@ -119,7 +116,6 @@ public class MemberController {
       try {
          freeboardService.myBoardList(id, model);
       } catch (Exception e) {
-         // TODO Auto-generated catch block
          e.printStackTrace();
       }
       return "/member/buyer/myBoardList";
@@ -130,7 +126,6 @@ public class MemberController {
       try {
          bookService.myBuyList(id, model);
       } catch (Exception e) {
-         // TODO Auto-generated catch block
          e.printStackTrace();
       }
       return "/member/buyer/myBuyList";
@@ -141,7 +136,6 @@ public class MemberController {
       try {
          bookService.myBookList(id, model);
       } catch (Exception e) {
-         // TODO Auto-generated catch block
          e.printStackTrace();
       }
 
@@ -149,13 +143,28 @@ public class MemberController {
    }
 
 
+   //구매자->판매자로 신청form
+   @RequestMapping(value="/buyer/buyerUpgrade", method=RequestMethod.GET)
+   public void buyerUpgrade(){}
+   
+   @RequestMapping(value="/buyer/buyerUpgrade", method=RequestMethod.POST)
+   public void buyerUpgrade(ApproveDTO approveDTO, MultipartRequest mr, HttpSession session, Model model){
+	   int result = 0;
+	   try {
+		result = memberService.approve(approveDTO, mr, session);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	  
+   }
+
    // =========================================================
    @RequestMapping(value = "/seller/myBoardList")
    public String myBoardListS(@RequestParam String id, Model model) {
       try {
          freeboardService.myBoardList(id, model);
       } catch (Exception e) {
-         // TODO Auto-generated catch block
          e.printStackTrace();
       }
       return "/member/seller/myBoardList";
@@ -166,7 +175,6 @@ public class MemberController {
 	   try {
 		bookService.mySellList(id, model);
 	} catch (Exception e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 	   return "/member/seller/mySellList";
@@ -182,7 +190,6 @@ public class MemberController {
       try {
          bookService.myBuyList(id, model);
       } catch (Exception e) {
-         // TODO Auto-generated catch block
          e.printStackTrace();
       }
       return "/member/seller/myBuyList";
@@ -193,7 +200,6 @@ public class MemberController {
       try {
          bookService.myBookList(id, model);
       } catch (Exception e) {
-         // TODO Auto-generated catch block
          e.printStackTrace();
       }
       return "/member/seller/myBookList";
@@ -207,7 +213,6 @@ public class MemberController {
       try {
          bookService.deposit(num, id, model);
       } catch (Exception e) {
-         // TODO Auto-generated catch block
          e.printStackTrace();
       }
       return "/member/buyer/depositWrite";
@@ -218,6 +223,8 @@ public class MemberController {
 
 
    // MEMBER============================================================
+   
+   
    //ID찾기
    @RequestMapping(value="findID", method=RequestMethod.GET)
    public void findID(){}
@@ -282,7 +289,6 @@ public class MemberController {
       try {
          result = memberService.checkid(id);
       } catch (Exception e) {
-         // TODO Auto-generated catch block
          e.printStackTrace();
       }
       HashMap<String, Object> hashmap = new HashMap<String, Object>();

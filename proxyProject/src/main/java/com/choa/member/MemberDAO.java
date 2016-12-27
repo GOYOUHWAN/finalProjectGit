@@ -2,7 +2,10 @@ package com.choa.member;
 
 import static org.hamcrest.CoreMatchers.nullValue;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +25,23 @@ public class MemberDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private String namespace = "MemberMapper.";
+	
+	public int approve(ApproveDTO approveDTO, ArrayList<String> fileNames) throws Exception{
+		int result = 0;
+		//result = sqlSession.insert(namespace+"approve", approveDTO);
+		System.out.println("fileNames : "+fileNames.size());
+		int fileNum = sqlSession.selectOne(namespace+"fileNum");
+		Map<String, Object> data = new HashMap<String, Object>();
+		for(int i=0;i<fileNames.size();i++){
+			data.put("refNum", 10);
+			data.put("fileName"+(i+1), fileNames.get(i));
+			System.out.println("파일이름 : "+fileNames.get(i));
+			
+		}
+		result = result + sqlSession.insert(namespace+"approve", data);
+		System.out.println("result2 : "+result);
+		return result;
+	}
 	
 	//고유환이 만든부분 시작
 	//index 에서 판매자seller_trust에 따라 순위 1~10위 보여주기

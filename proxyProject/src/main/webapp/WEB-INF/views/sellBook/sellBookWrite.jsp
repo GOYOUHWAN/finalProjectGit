@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>PROXY : 대한민국 대표 중고도서</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/layout_new.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/seller.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/sellbook.css">

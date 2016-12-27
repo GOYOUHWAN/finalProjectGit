@@ -43,11 +43,12 @@ tr, th {
 <body class="home">
 <%@ include file = "../../common/header.jsp" %>
 <div id="div_page">
-<div id="sub_3">
-			<a href="myBookList?id=${member.id }"><button class="btn_d_2" id="btn4" tabindex="4">좋아요 내역</button></a>
-			<a href="myBoardList?id=${member.id }"><button class="btn_d_2" id="btn5" tabindex="5">게시판 글 내역</button></a>
-			<a href="myBuyList?id=${member.id }"><button class="btn_d_2" id="btn6" tabindex="6">구매 내역</button></a>
-		</div>
+	<div id="sub_4">
+		<a href="myBookList?id=${member.id }"><button class="btn_d_3" id="btn4" tabindex="4">좋아요 내역</button></a>
+		<a href="myBoardList?id=${member.id }"><button class="btn_d_3" id="btn5" tabindex="5">게시판 글 내역</button></a>
+		<a href="myBuyList?id=${member.id }"><button class="btn_d_3" id="btn6" tabindex="6">구매 내역</button></a>
+		<a href="buyerUpgrade?id=${member.id }"><button class="btn_d_3" id="btn7" tabindex="7">판매자등록</button></a>
+	</div>
 	<div class="container">
 	<div id="div_container_2">		
 	<div id="div_container_3">
