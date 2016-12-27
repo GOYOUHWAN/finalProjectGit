@@ -19,6 +19,10 @@
     		select * from DEAL order by num asc
     	</select>
     	
+    	<select id="dealNumBook" resultType="com.choa.deal.DealDTO">
+    		select num_book from DEAL order by num asc
+    	</select>
+    	
     	<insert id="insertDeal" parameterType="com.choa.deal.DealDTO">
 			insert into DEAL values(deal_seq.nextval, #{num}, #{product}, #{id_buyer}, #{id_seller}, sysdate, #{status} ) 
     	</insert>

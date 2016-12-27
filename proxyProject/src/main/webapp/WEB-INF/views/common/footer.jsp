@@ -13,21 +13,27 @@
 
 #div_span{
 	width: 100%;
-	height: 50px;
+	height: 1px;
 	border-bottom: 1px;
 	border-bottom-color: gray;
 	border-bottom-style: solid;
 
 
 }
+/* #section_div_1{
+		background-color: rgb(110, 153, 7, 0.1);
+}
+#footer_body{
+		background: rgb(110, 153, 7, 0.1);
+} */
 </style>
 
 </head>
-<body>
+<body id="footer_body">
 	<footer id="footer_wrap">
 		<div id="div_span"></div>
 	
-		<div id="section_div_1">	
+		<div id="section_div_1" style="background-color: rgb(110, 153, 7, 0.1);">	
 			<div id="footer_div_1">
 				주식회사 PROXY  |  사업자등록번호:105-87-98417  |  통신판매업 신고번호:제2015-서울성동-0822호  |  의료기기판매업 신고번호:제1152호  | <br>
 				서울특별시 강남구 역삼동 823-24 남도빌딩 2F, 3F, 4F  |  대표자:김대현  |  전화번호:1833-6279 <br>

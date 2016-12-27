@@ -55,8 +55,49 @@ tr, th {
 	height: 35px;
 }
 
+.thumbs{
+	width: 20px;
+	height: 20px;
+/* 	border: 1px solid red; */
+	display: inline-block;
+}
+.img_thumb{
+	/* border: 1px solid green; */
+	size: inherit;
+	width: 100%;
+	height: 100%;
+}
+#span_thumb{
+	display:inline-block;
+	
+	margin: a auto;
+	text-align: center;
+	vertical-align: top;
+	}
+
+.btn{
+	width: 70px;
+	height: 30px;
+	size: inherit;
+	text-align : left;
+	margin-bottom: 0px;
+	border: none;
+	
+}	
+#span_status{
+	display: inline-block;
+	float: right;
+	font-size: 10px;
+}
 
 </style>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+	 	$(".xxx").hide(); 
+	});
+
+</script>
 </head>
 <body >
 <%@ include file = "../../common/header.jsp" %>
@@ -117,28 +158,56 @@ tr, th {
 									<a href="depositWrite?id=${member.id}&price=${list.price}&num=${list.num}&id=${list.id}"><button id="deposit"> 입금하기 </button></a>
 								</c:if>
 								<c:if test="${list.status == '배송중' }">
-								<button id="btn_confirm">구매확정</button>
+								<button id="btn_confirm${list.num }" onclick="numclick(${list.num});">구매확정</button>
 									<script type="text/javascript">
-									
-											var number=${list.num};
-											alert(number);
-											$("#btn_confirm").click(function(){
+											function numclick(number){
 												$.ajax({
 			                    					url:'confirm',
 			                    					type:'POST',
 			                    					data : {num:number}, 	
 			                    					success:function(result) {    //여기서 result는 ajax 실행했을때 컨트롤러에서 받는 리턴을 의미
 				                    					$("#td_status"+number).html("구매확정");
+				                    					$("#hide"+number).show();
+				                    					$("#btn_confirm"+number).hide();
+			                    					},
+			                    					error:function(e){
+			                    						alert("실패했습니다.");
+			                    					}
+			                    				});
+											};
+										</script>
+								</c:if>
+				<!--status가 구매확정일 경우 상대방 평가하기  -->
+				
+								<div class="xxx" id="hide${list.num }">	
+														
+									<%--  <c:if test="${list.status == '구매확정' }">  --%>
+											<div id="span_thumb${list.num }">거래상대 평가</div>
+									<!--상대방 신용도 +1  -->
+											<div class="thumbs" id="thumb${list.num }"><img onclick="clickup(${list.num});" id="btn_img" class="img_thumb" src="${pageContext.request.contextPath}/resources/image/up.png">	</div>&nbsp;&nbsp;
+											
+											<script type="text/javascript">
+											function clickup(number){
+											 	$.ajax({
+			                    					url:'addPointSeller',
+			                    					type:'POST',
+			                    					data : {num:number}, 	
+			                    					success:function(result) {    //여기서 result는 ajax 실행했을때 컨트롤러에서 받는 리턴을 의미
+				                    					$("#td_status"+number).html("구매자 평가 완료");
 				                    					$("#td_status2"+number).html("");
 			                    					},
 			                    					error:function(e){
-			                    						alert("구매확정이 실패했습니다. 새로고침 후 다시 버튼을 눌러주세요");
+			                    						alert("실패했습니다");
 			                    					}
-			                    				});
-											});
+			                    				}); 
+											};
 									
+											
 										</script>
-								</c:if>
+									<!--상대방 신용도 -1  -->	
+											<div class="thumbs"><a href="deletePoint?num=${list.num }"><img class="img_thumb" src="${pageContext.request.contextPath}/resources/image/down.png"></a></div>
+									<%-- </c:if>   --%>
+									</div>
 							</tr>
 						</c:forEach>
 						</c:when>

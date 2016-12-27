@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartRequest;
 import com.choa.book.BookDTO;
 import com.choa.book.BookPictureDTO;
 import com.choa.book.BookService;
+import com.choa.deal.DealService;
 import com.choa.member.MemberLikeBooksDTO;
 import com.choa.util.PageMaker;
 
@@ -27,15 +28,16 @@ public class SellBookController {
 	
 	@Autowired
 	private BookService bookService;
+	@Autowired
+	private DealService dealService;
 	
-
-
-	
+	//sellBookList search
 	@RequestMapping(value="/sellBookSearch")
 	public String sellBookListS(@RequestParam(defaultValue="1") int curPage, @RequestParam(defaultValue="20")int perPage, @RequestParam String search, @RequestParam String id,Model model){
 	  try {	
 		  bookService.myHeart(id, model);
 		 bookService.sellBookSearch(curPage, perPage, search, model);
+		 dealService.dealNumBook(model);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -120,6 +122,8 @@ public class SellBookController {
 	  try {
 		bookService.myHeart(id, model);
 		bookService.sellBookList(curPage, perPage, model);
+	/*	dealService.manageDeal(model);*/
+		dealService.dealNumBook(model);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -131,6 +135,7 @@ public class SellBookController {
 	  try {
 		  bookService.myHeart(id, model);
 		bookService.sellBookList2(curPage, perPage, model);
+		dealService.dealNumBook(model);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -142,6 +147,7 @@ public class SellBookController {
 	  try {
 		  bookService.myHeart(id, model);
 		bookService.sellBookList3(curPage, perPage, model);
+		dealService.dealNumBook(model);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -153,6 +159,7 @@ public class SellBookController {
 	  try {
 		  bookService.myHeart(id, model);
 		bookService.sellBookList4(curPage, perPage, model);
+		dealService.dealNumBook(model);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -164,6 +171,7 @@ public class SellBookController {
 	  try {
 		  bookService.myHeart(id, model);
 		bookService.sellBookList5(curPage, perPage, model);
+		dealService.dealNumBook(model);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
