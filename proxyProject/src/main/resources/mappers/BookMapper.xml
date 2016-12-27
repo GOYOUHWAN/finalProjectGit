@@ -3,6 +3,14 @@
     
    <mapper namespace="BookMapper">
    
+   <!--판매자가 평가완료했을때 책의 status "판매/평가 완료"  로 바뀌는 부분 -->
+   <update id="addPointSuccessBuyer" parameterType="int">
+   		update BOOK set status='구매자 평가 완료' where num=#{num}
+   </update>
+     <update id="addPointSuccessSeller" parameterType="int">
+   		update BOOK set status='판매/평가 완료' where num=#{num}
+   </update>
+   
    <!--구매자가 물건을 받아서 확인하고 구매확정 버튼을 누르면 책의 status가 구매확정으로 바뀐다 -->
    <update id="confirm" parameterType="int">
    		update BOOK set status='구매확정' where num=#{num}

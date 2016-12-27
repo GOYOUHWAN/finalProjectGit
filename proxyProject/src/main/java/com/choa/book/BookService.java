@@ -26,6 +26,13 @@ public class BookService {
 	@Autowired
 	private BookDAO bookDAO;
 	
+	
+	public int addPointSuccessBuyer(int num)throws Exception{
+		return bookDAO.addPointSuccessBuyer(num);
+	}
+	public int addPointSuccessSeller(int num)throws Exception{
+		return bookDAO.addPointSuccessSeller(num);
+	}
 	//구매자가 책 확인하고 구매확정 누르면 책의 status 구매확정으로 바꾸기
 	public int confirm(int num)throws Exception{
 		return bookDAO.confirm(num);

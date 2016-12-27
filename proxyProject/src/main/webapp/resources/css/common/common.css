@@ -9,7 +9,7 @@
 	padding: 0;
 	list-style: none;
 	font-family: Daum_Regular;
-    border: none;
+   /*  border: none; */
    	
 	}
 .gulci {
@@ -33,7 +33,7 @@ header a{
 }
 #header_wrap {
 	width: 100%;
-	height: 180px;
+	height: 194px;
 	background: rgba(255,255,255,0.5);
 	margin-top: 0px;
 	margin-left: 0px;
@@ -47,8 +47,8 @@ header a{
 	margin: 0 auto;
 	color : white;
 	font-size: 18px;
-	margin-top: 0px;
 
+	margin-bottom: 0px;
 }
 /* proxy 로고 들어가는 div */
 #header_div_2{
@@ -71,7 +71,12 @@ header a{
 	text-align: center;
 	margin: 0 auto;
 /* 	border: 2px solid red; */
-	background-color: rgb(113, 81, 252);
+/* 	background-color: rgb(113, 81, 252);  */
+/* 	background-image : url("/proxyProject/resources/image/tree.jpg"); */
+/* background-color: #336600; */
+background-color: rgba(110, 153, 7, 0.7);
+
+	
 }
 
 #header_button{
@@ -127,15 +132,12 @@ header a{
 body{
 	border-top: 0.1px solid white;
 }
-#section_wrap{
-	width: 100%;
-	height: 900px;
-	margin-bottom: 0px;
-}
+
 #footer_wrap{
 	width: 100%;
 	height: 150px;
 	margin-top: 0px;
+
 }
 #footer_submit{
 	width: 50px;
@@ -145,15 +147,17 @@ body{
 	width: 70%;
 	height: 60%;
 	margin: 0 auto;
-	margin-top:20px;
+	margin-top:0px;
 	font-size: 13px;
+		
 }
 #section_div_1{
 	width: 80%;
 	height: 100%;
 	margin-top: 10px;
 	overflow: hidden;
-	background: white;
+/* 	background: white; */
+
 }
 #section_div_2{
 	width:250px;
@@ -385,7 +389,7 @@ ul.tab li a:focus, .active {
 }
 #nav_all{
 	width:100%;
-	height: 890px;
+	height: 800px;
 	background-image: url('/proxyProject/resources/image/center4.PNG');
 	background-size: 110%;
 	overflow: hidden;
@@ -396,14 +400,14 @@ ul.tab li a:focus, .active {
 	margin: 0 auto;
 	overflow: hidden;	
 }
-#section_div_1{
+/* #section_div_1{
 	width: 100%;
 	height: 100%;
 	margin-top: 0px;
-	overflow: hidden;0
+	overflow: hidden;
 	background: rgba(0,230,230,0.5);
 	
-}
+} */
 #section_div_2{
 	width:200px;
 	height : 30px;

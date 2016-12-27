@@ -26,6 +26,7 @@ public class MemberDAO {
 	private SqlSession sqlSession;
 	private String namespace = "MemberMapper.";
 	
+
 	public int approve(ApproveDTO approveDTO, ArrayList<String> fileNames) throws Exception{
 		int result = 0;
 		//result = sqlSession.insert(namespace+"approve", approveDTO);
@@ -42,16 +43,24 @@ public class MemberDAO {
 		System.out.println("result2 : "+result);
 		return result;
 	}
+
+	public int addPointBuyer(int num)throws Exception{
+		return sqlSession.update(namespace+"addPointBuyer", num );
+	}
+	public int addPointSeller(int num)throws Exception{
+		return sqlSession.update(namespace+"addPointSeller", num );
+
+	}
 	
 	//고유환이 만든부분 시작
-	//index 에서 판매자seller_trust에 따라 순위 1~10위 보여주기
-	public List<MemberDTO> sellerTrust()throws Exception{
-		return sqlSession.selectList(namespace+"sellerTrust");
+	//index 에서 trust에 따라 순위 1~10위 보여주기
+	public List<MemberDTO> trust()throws Exception{
+		return sqlSession.selectList(namespace+"trust");
 	}
 	//index 에서 판매자 buyer_trust에 따라 순위 1~10위 보여주기
-	public List<MemberDTO> buyerTrust()throws Exception{
+	/*public List<MemberDTO> buyerTrust()throws Exception{
 		return sqlSession.selectList(namespace+"buyerTrust");
-	}
+	}*/
 	//고유환이 만든부분 끝
 	
 	

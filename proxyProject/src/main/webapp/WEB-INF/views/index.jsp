@@ -11,12 +11,12 @@
 <style type="text/css">
 #s_div1{
 	width: 100%;
-	height: 300px;
-	margin-top: 150px;
+	height: 400px;
+	margin-top: 90px;
 	/* border: 1px solid green; */
 }
 .s_div2{
-	width:  200px;
+	width:  300px;
 	height: 100%;
 	margin-left: 6%;
 	float: left;
@@ -32,19 +32,21 @@
 	width: 90%;
 	height: 100%;
 	margin: 0 auto;
-/* 	border: 1px solid yellow; */
+/* 	border: 1px solid yellow;  */
 }
 .mySlides{
 	width: 200px;
-	height: 250px;
+	height: 350px;
 
 
 }
 .p_text{
+	font-size : 20px;
 	color: white;
 	margin-top: 10px;
 }
 .class_text{
+	font-size : 25px;
 	color: white;
 	 text-shadow: 1px 1px black;
 }
@@ -57,7 +59,7 @@
 }
 #p_black{
 	margin-top : 100px;
-	font-size: 15px;
+	font-size: 20px;
 	color: white;/* #4d4d4d; */
 	margin: 0 auto;
 	width: 80%;
@@ -102,7 +104,7 @@
 	<div id="s_div1">
 	
 		<div id="s_div3">
-			<div class="w3-content w3-section s_div2" style="max-width:200px" >
+			<div class="w3-content w3-section s_div2"  >
 			<h3 class="class_text">추천</h3>
 			  <img class="mySlides" src="/proxyProject/resources/upload/dogani.jpg" style="width:100%">
 			  <img class="mySlides" src="/proxyProject/resources/upload/osaka.jpg" style="width:100%">
@@ -140,19 +142,19 @@
 				</c:forEach>
 			</div>
 			<div class="s_div2">
-				<h3 class="class_text">판매자 신용도</h3>
+				<h3 class="class_text">신용도</h3>
 				<c:forEach begin="1" end="${listsizeT}">
-					<p class="p_text">${countT+1}위&nbsp; ${sellerTrust[countT].id}</p>
+					<p class="p_text">${countT+1}위&nbsp; ${trust[countT].id}</p>
 						<c:set var="countT" value="${countT+1 }"/>
 				</c:forEach>
 			</div>
-			<div class="s_div2">
-				<h3 class="class_text">구매자 신용도</h3>
+			<%--  <div class="s_div2">
+				<h3 class="class_text"></h3>
 				<c:forEach begin="1" end="${listsizeB }">
 					<p class="p_text">${countB+1 }위&nbsp; ${buyerTrust[countB].id }</p>
 						<c:set var="countB" value="${countB+1 }"/>				
 				</c:forEach>
-			</div>
+			</div>  --%>
 			</div>
 		</div>
 		</c:if>

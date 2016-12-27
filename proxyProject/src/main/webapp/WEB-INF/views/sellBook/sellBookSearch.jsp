@@ -92,7 +92,7 @@
 	border-bottom-style: solid;
 	width: 80%;
 	margin: 0 auto;
-	margin-top: 150px;
+	margin-top: 70px;
 }
 #tagisp{
 	width : 80%;
@@ -158,9 +158,31 @@
 	                     <!--id 보여주는 곳  -->
 	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="span_id">${list[count].id}</span>
 	                     		
-	                        <div id="div_img">
-	                     <!--책 img 보여주는곳  -->
-	                       <a href="sellBookView?num=${list[count].num}&id=${list[count].id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}"> </a><br>
+	                       <div id="div_img">
+	                     <!--책 img 보여주는곳  -->	
+	<!-- blur 처리 하는 부분 시작 -->			
+		
+								<c:set var="boole" value="true"/>				
+								<c:forEach begin="1" end="${nSize }" var="nB" >
+					
+									
+									<c:if test="${boole == true }">
+									   	<c:if test="${numBook[nB-1].num_book == list[count].num }"> 
+									   		<!-- 첫번째 -->
+											 <img class="img1" id="img" src="${pageContext.request.contextPath}/resources/image/altbook2.png" > 
+											<c:set var="boole" value="false"/>										
+										</c:if>
+									</c:if>
+									</c:forEach>
+									
+									<c:if test="${boole == true }">		
+										<c:if test="${numBook[nB-1].num_book != list[count].num }">
+										<!-- 두번째 -->
+											  <a href="sellBookView?num=${list2[count].num}&id=${member.id}"> 
+		                     		    	<img class="img1" id="img"src="${pageContext.request.contextPath}/resources/upload/${list[count].files1}"></a> 			
+										</c:if>  
+									</c:if>	
+	<!--blur 끝나는 부분  -->			
 	                       </div>
 	                
 	                       

@@ -131,7 +131,7 @@ function checkCookie() {
 	border-bottom-style: solid;
 	width: 80%;
 	margin: 0 auto;
-	margin-top: 150px;
+	margin-top: 70px;
 }
 .order{
 	width : 100px;
@@ -188,14 +188,36 @@ function checkCookie() {
 	                     <!--id 보여주는 곳  -->
 	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="span_id">${list2[count].id}</span>
 	                     		
-	                        <div id="div_img">
-	                     <!--책 img 보여주는곳  -->
-	                       <a href="sellBookView?num=${list2[count].num}&id=${list2[count].id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list2[count].files1}">  </a><br>
+	                     <div id="div_img">
+	                     <!--책 img 보여주는곳  -->	
+	<!-- blur 처리 하는 부분 시작 -->			
+							
+								<c:set var="boole" value="true"/>				
+								<c:forEach begin="1" end="${nSize }" var="nB" >
+		
+									
+									<c:if test="${boole == true }">
+									   	<c:if test="${numBook[nB-1].num_book == list2[count].num }"> 
+									   		<!-- 첫번째 -->
+											 <img class="img1" id="img" src="${pageContext.request.contextPath}/resources/image/altbook2.png" > 
+											<c:set var="boole" value="false"/>										
+										</c:if>
+									</c:if>
+									</c:forEach>
+									
+									<c:if test="${boole == true }">		
+										<c:if test="${numBook[nB-1].num_book != list2[count].num }">
+										<!-- 두번째 -->
+											  <a href="sellBookView?num=${list2[count].num}&id=${member.id}"> 
+		                     		    	<img class="img1" id="img"src="${pageContext.request.contextPath}/resources/upload/${list2[count].files1}"></a> 			
+										</c:if>  
+									</c:if>	
+	<!--blur 끝나는 부분  -->			
 	                       </div>
 	                       
 	                        <div class="pad">
-	                        <!--각 책에대한 설명  -->
-	                       
+	                <!-- 책설명  -->
+
 	                         	<span class="pink name">${list2[count].product}</span><br><br>
 	                         	 <p id="p_price">${list2[count].price}</p> <p id="p_won">원</p>
 	                    	  	&nbsp;&nbsp;&nbsp;&nbsp;

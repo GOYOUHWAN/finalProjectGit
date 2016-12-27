@@ -99,7 +99,7 @@ $(function () {
 	border-bottom-style: solid;
 	width: 80%;
 	margin: 0 auto;
-	margin-top: 150px;
+	margin-top: 70px;
 }
 .order{
 	width : 100px;
@@ -121,10 +121,19 @@ $(function () {
 	font-size: 23px;
 	color: gray;
 }
+#img_blur{
+	z-index: 10;
+	
+}
+
 	</style>
 </head>
 <body id="body_sellbooklist">
 <%@ include file = "../common/header.jsp" %>
+<<<<<<< HEAD
+=======
+	
+>>>>>>> refs/heads/12_26
 <c:if test="${list[count] != null }">
 <!--정렬 시작  -->
 <div id="line_order">
@@ -135,16 +144,13 @@ $(function () {
 </div>
 <!--정렬 끝  -->
 </c:if>
-		<c:if test="${member !=null}">
+		<c:if test="${member != null}">
 <!-- 리스트 시작 -->
-
    	<c:set var="size" value="${listsize%4 }"/>
 
           <table id="listTable">
          <c:forEach begin="0" end="${listsize/4}">
-            <tr id="tr_list">
                <c:forEach begin="0" end="3">
-   
                <c:if test="${check}">  
 	                  <c:if test="${listsize =='0' }">
 	                 	 <c:set var="no" value="true"/>
@@ -154,13 +160,32 @@ $(function () {
 	                     <td class="td_book">
 	                     <!--id 보여주는 곳  -->
 	                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="span_id">${list[count].id}</span>
-	                     	
+	                 
 	                        <div id="div_img">
-	                     <!--책 img 보여주는곳  -->
-
-	                       <a href="sellBookView?num=${list[count].num}&id=${member.id}"> <img class="img1" id="img"src="<%=application.getContextPath() %>/resources/upload/${list[count].files1}"> </a><br>
-
-
+	                     <!--책 img 보여주는곳  -->	
+	<!-- blur 처리 하는 부분 시작 -->			
+		
+								<c:set var="boole" value="true"/>				
+								<c:forEach begin="1" end="${nSize }" var="nB" >
+							
+									
+									<c:if test="${boole == true }">
+									   	<c:if test="${numBook[nB-1].num_book == list[count].num }"> 
+									   		<!-- 첫번째 -->
+											 <img class="img1" id="img" src="${pageContext.request.contextPath}/resources/image/altbook2.png" > 
+											<c:set var="boole" value="false"/>										
+										</c:if>
+									</c:if>
+									</c:forEach>
+									
+									<c:if test="${boole == true }">		
+										<c:if test="${numBook[nB-1].num_book != list[count].num }">
+										<!-- 두번째 -->
+											  <a href="sellBookView?num=${list[count].num}&id=${member.id}"> 
+		                     		    	<img class="img1" id="img"src="${pageContext.request.contextPath}/resources/upload/${list[count].files1}"></a> 			
+										</c:if>  
+									</c:if>	
+	<!--blur 끝나는 부분  -->			
 	                       </div>
 	                       
 	                        <div class="pad">

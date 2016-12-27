@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
 
 import com.choa.blackList.BlackDTO;
+import com.choa.book.BookDAO;
 import com.choa.util.MemberPageMaker;
 import com.choa.util.PageMaker;
 
@@ -39,24 +40,50 @@ public class MemberService {
 		return memberDAO.approve(approveDTO, fileNames);
 	}
 
+	public int addPointBuyer(int num, Model model)throws Exception{
+		int number = memberDAO.addPointBuyer(num);
+		
+		String success = null;
+		if(number >0){
+			success = "구매자의 신용도를 +1 하였습니다!";
+		}else{
+			success = "실패!";
+		}
+		model.addAttribute("success", success);
+		return number;
+	}
+	public int addPointSeller(int num, Model model)throws Exception{
+		int number = memberDAO.addPointSeller(num);
+		
+		String success = null;
+		if(number >0){
+			success = "판매자의 신용도를 +1 하였습니다!";
+		}else{
+			success = "실패!";
+		}
+		model.addAttribute("success", success);
+		return number;
+	}
+	
+	
 	//고유환이 만든부분 시작
 	//sellerTrust로 index에서 1~10위 보여주기
-	public List<MemberDTO> sellerTrust(Model model)throws Exception{
-		 List<MemberDTO> ar = memberDAO.sellerTrust();
-		model.addAttribute("sellerTrust", ar);
+	public List<MemberDTO> trust(Model model)throws Exception{
+		 List<MemberDTO> ar = memberDAO.trust();
+		model.addAttribute("trust", ar);
 		model.addAttribute("countT", 0);
 		model.addAttribute("listsizeT", ar.size());
 		return ar;
 	}
 	
 	//buyerTrust로 index 에서 1~10위 보여쥐
-	public List<MemberDTO> buyerTrust(Model model)throws Exception{
+/*	public List<MemberDTO> buyerTrust(Model model)throws Exception{
 		List<MemberDTO> ar = memberDAO.buyerTrust();
 		model.addAttribute("buyerTrust", ar);
 		model.addAttribute("countB", 0);
 		model.addAttribute("listsizeB", ar.size());
 		return ar;
-	}
+	}*/
 	//고유환인 만든부분 끝
 	
 	

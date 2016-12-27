@@ -25,5 +25,13 @@ public class DealService {
 		return ar;
 	}
 	
+	public List<Integer> dealNumBook(Model model)throws Exception{
+		List<Integer> ar = null;
+		ar= dealDAO.dealNumBook();
+		model.addAttribute("numBook", ar);
+		model.addAttribute("nSize", ar.size());
+		return ar;
+	}
+	
 	
 }

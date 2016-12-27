@@ -31,6 +31,34 @@ public class MemberController {
    @Autowired
    private BookService bookService;
    
+
+
+   @ResponseBody
+   @RequestMapping(value="/seller/addPointBuyer")
+   public void addPointBuyer(@RequestParam int num, Model model){
+	   try {
+		memberService.addPointBuyer(num, model);
+		bookService.addPointSuccessSeller(num);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	   
+   }
+   
+   @ResponseBody
+   @RequestMapping(value="/buyer/addPointSeller")
+   public void addPointseller(@RequestParam int num, Model model){
+	   try {
+		memberService.addPointSeller(num, model);
+		bookService.addPointSuccessBuyer(num);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	   
+   }
+   
    @ResponseBody
    @RequestMapping(value="/buyer/confirm")
    public void confirm(@RequestParam int num){
@@ -45,11 +73,10 @@ public class MemberController {
 	@RequestMapping(value="/seller/delivery")
 	public void delivery(@RequestParam int num){
 	   try {
-			bookService.delivery(num );
+			bookService.delivery(num);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	
 	}
    
    

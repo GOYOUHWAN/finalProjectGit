@@ -4,15 +4,27 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MemberMapper">
 
+	<update id="addPointBuyer" parameterType="int" >
+		update member
+		set trust=trust+1
+		where id = (select distinct D.id_buyer from BOOK B, DEAL D where B.num = D.num_book and B.num=#{num})
+	</update>
+	<update id="addPointSeller" parameterType="int" >
+		update member
+		set trust=trust+1
+		where id = (select distinct D.id_seller from BOOK B, DEAL D where B.num = D.num_book and B.num=#{num})
+	</update>
+
+
 	<!--고유환이 만든부분 시작 -->
 	<!--index 에서 판매자 신용도에 따라 1~10위 보여주기  -->
-	<select id="sellerTrust" resultType="com.choa.member.MemberDTO">
-		select * from MEMBER where type != 4 order by seller_trust desc 
+	<select id="trust" resultType="com.choa.member.MemberDTO">
+		select * from MEMBER where type != 4 order by trust desc 
 	</select>
 	<!--index에서 구매자 신용도에 따라 1~10위 보여주기  -->
-	<select id="buyerTrust" resultType="com.choa.member.MemberDTO">
+	<!-- <select id="buyerTrust" resultType="com.choa.member.MemberDTO">
 		select * from MEMBER where type != 4 order by buyer_trust desc 
-	</select>
+	</select> -->
 	<!--고유환이 만든부분 끝  -->
 
 	<!-- manager -->	

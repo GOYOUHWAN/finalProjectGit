@@ -29,10 +29,13 @@
 	list-style-type: none;
 	margin-top: 0px;
 	text-align: center;
-	background-color: #7151FC;
+/* 	background-image : url("/proxyProject/resources/image/tree.jpg"); */
+/* 	background-color: #7151FC; */
 	padding-top: 13px;
 	margin: 0 auto;
 /* 	border: 1px solid green; */
+/* background-color: #336600; */
+/* background-color: rgba(110, 153, 7, 0.5); */
 }
 .h_li1{
 		height: 100%;
@@ -80,7 +83,7 @@
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #336600;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 
@@ -88,10 +91,16 @@
 }
 
 .dropdown:hover .dropdown-content {
+	margin-top: 17px;
     display: block;
-        background-color: #7151FC;
+        background-color:  rgba(110, 153, 7, 0.8); /* 여기가 호버했을때 색깔이다. */
         text-align: left;
+        
 }
+.a_drop{
+	color: white;
+}
+
 /* dropdown 관련 css 끝 */
 
 
@@ -146,7 +155,7 @@
 			<div id="a_header">
 				<!--헤더에서 검색했을때 list 띄우는  -->
 				<form action="${pageContext.request.contextPath}/sellBook/sellBookSearch" method="get">
-					<input type="text" id="header_text" placeholder="예)나무"
+					<input type="text" id="header_text" placeholder="검색어를 입력해주세요"
 						name="search"> <input type="hidden" name="id"
 						value="${member.id }"> <input type="submit" value="검색"
 						id="header_button">
@@ -163,10 +172,11 @@
 						</c:when>
 						<c:when test="${member.type ==2 }">
 									<li class="h_li2">
-									<div class="dropdown"><span class="dropdown">중고책</span>
+									<div class="dropdown">
+									<span class="dropdown header_a">중고책</span>
 										 <div class="dropdown-content">
-										   <p class="p_dropdown"><a href="${pageContext.request.contextPath}/sellBook/sellBookList?id=${member.id}" class="a_drop">중고책 구매</a></p>
-										   <p class="p_dropdown"><a href="${pageContext.request.contextPath}/sellBook/sellBookWrite" class="a_drop">중고책 판매 등록</a></p>
+										   <p class="p_dropdown"><a href="${pageContext.request.contextPath}/sellBook/sellBookList?id=${member.id}" class="a_drop" style="color:white;">중고책 구매</a></p>
+										   <p class="p_dropdown"><a href="${pageContext.request.contextPath}/sellBook/sellBookWrite" class="a_drop" style="color : white;">중고책 판매 등록</a></p>
 										  </div>
 										</div>
 										</li>

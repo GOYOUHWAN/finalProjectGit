@@ -36,11 +36,48 @@ tr, th {
 	width: 227px;
 	height: 40px;
 	margin: 0 auto;
+
 }
 
 #div_th{
 	float: left;
-	margin-top: 20px;
+	border : 1px solid red;
+		vertical-align: bottom;
+	/* margin-top: 20px; */
+}
+
+.thumbs{
+	width: 20px;
+	height: 20px;
+/* 	border: 1px solid red; */
+	display: inline-block;
+}
+.img_thumb{
+	/* border: 1px solid green; */
+	size: inherit;
+	width: 100%;
+	height: 100%;
+}
+#span_thumb{
+	display:inline-block;
+	
+	margin: a auto;
+	text-align: center;
+	vertical-align: top;
+	}
+.btn{
+	width: 70px;
+	height: 30px;
+	size: inherit;
+	text-align : left;
+	margin-bottom: 0px;
+	border: none;
+	
+}	
+#span_status{
+	display: inline-block;
+	float: right;
+	font-size: 10px;
 }
 
 </style>
@@ -59,7 +96,7 @@ tr, th {
 	<div class="container">
 	<div id="div_container_2">
 	<div id="div_container_3">
-		<div id="div_title"><h2>판매내역</h2></div>
+		<div id="div_title"><h2 id="h2">판매내역</h2> </div>
 		
 
 		
@@ -72,18 +109,7 @@ tr, th {
 						<th>가격</th>
 						<th>구매 날짜</th>
 						
-						<th><div id="div_th">주문상태</div>
-						<div class="dropup">
-						<button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-						    <span class="caret"></span></button>
-						    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-						   	  <li role="presentation">- 입금대기중</li>
-						      <li role="presentation">- 결제완료</li>
-						      <li role="presentation">- 배송중</li>
-						      <li role="presentation">- 구매확정</li>
-						    </ul>
-						  </div>
-						</th>
+						<th>주문상태</th>
 						<th>기타</th>
 					
 					</tr>
@@ -108,29 +134,59 @@ tr, th {
 									</c:if>
 									<!--구매자가 입금해서 책의 status가 '결제완료' 로 변경되면 아래의 배송완료 버튼이 판매자에게 생긴다.  -->
 									<c:if test="${list.status == '결제완료' }">
-										<button id="btn_delivery">배송완료시 눌러주세요</button>
+										<button id="btn_delivery${list.num }" onclick="numclick(${list.num});">배송완료시 눌러주세요</button>
 									<!--배송완료 버튼을 누르면 book 테이블에 status가 배송중으로 바뀜.  -->	
 										<script type="text/javascript">
 									
-											var number=${list.num};
-											$("#btn_delivery").click(function(){
+											
+											function numclick(numnum){
+												
 												$.ajax({
 			                    					url:'delivery',
 			                    					type:'POST',
-			                    					data : {num:number}, 	
+			                    					data : {num:numnum}, 	
 			                    					success:function(result) {    //여기서 result는 ajax 실행했을때 컨트롤러에서 받는 리턴을 의미
-				                    					$("#td_status"+number).html("배송중");
-				                    					$("#td_status2"+number).html("");
+				                    					$("#td_status"+numnum).html("배송중");
+				                    					$("#td_status2"+numnum).html("");
 			                    					},
 			                    					error:function(e){
 			                    						alert("배송완료가 실패했습니다. 새로고침 후 다시 버튼을 눌러주세요");
 			                    					}
 			                    				});
-											});
+											};
 									
 											
 										</script>
 									</c:if>
+<!--status가 구매확정일 경우 상대방 평가하기  -->									
+									<c:if test="${list.status == '구매자 평가 완료' }">
+											<div id="span_thumb${list.num }">거래상대 평가</div>
+									<!--상대방 신용도 +1  -->
+											<div class="thumbs" id="thumb${list.num }"><img onclick="clickup(${list.num});" id="btn_img" class="img_thumb" src="${pageContext.request.contextPath}/resources/image/up.png">	</div>&nbsp;&nbsp;
+											
+											<script type="text/javascript">
+										
+											function clickup(number){
+											 	$.ajax({
+			                    					url:'addPointBuyer',
+			                    					type:'POST',
+			                    					data : {num:number}, 	
+			                    					success:function(result) {    //여기서 result는 ajax 실행했을때 컨트롤러에서 받는 리턴을 의미
+				                    					$("#td_status"+number).html("판매/평가 완료");
+				                    					$("#td_status2"+number).html("");
+			                    					},
+			                    					error:function(e){
+			                    						alert("실패했습니다. 새로고침 후 다시 버튼을 눌러주세요");
+			                    					}
+			                    				}); 
+											};
+									
+											
+										</script>
+									<!--상대방 신용도 -1  -->	
+											<div class="thumbs"><a href="deletePoint?num=${list.num }"><img class="img_thumb" src="${pageContext.request.contextPath}/resources/image/down.png"></a></div>
+									</c:if>
+									
 								</td>
 								
 							</tr>

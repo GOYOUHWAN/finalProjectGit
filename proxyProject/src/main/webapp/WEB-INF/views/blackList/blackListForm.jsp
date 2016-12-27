@@ -242,13 +242,13 @@ a {
    color: #fff
 }
 .singgo{
-	background-color: #8c72fd;
+	background-color:#b30000; /* red; *//* #8c72fd; */
 	color: white;
 	padding: 10px 10px 10px 10px;
 	margin-left: 10px;
 }
 .singgo:hover{
-	background-color: #7151FC;
+	background-color: #002db3;/* #7151FC; */
 	color: white;
 	text-decoration: none;
 }

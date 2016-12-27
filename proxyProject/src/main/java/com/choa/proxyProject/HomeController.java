@@ -49,8 +49,8 @@ public class HomeController {
 		
 		try {
 			 bookService.BookLikes(model);
-			 memberService.sellerTrust(model);
-			 memberService.buyerTrust(model);
+			 memberService.trust(model);
+			 /*memberService.buyerTrust(model);*/
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

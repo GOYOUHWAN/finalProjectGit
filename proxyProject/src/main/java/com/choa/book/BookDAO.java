@@ -24,11 +24,19 @@ public class BookDAO {
 	private String namespace= "BookMapper.";
 	private String namespace2="DealMapper.";
 	
+	
+	public int addPointSuccessBuyer(int num)throws Exception{
+		return sqlSession.update(namespace+"addPointSuccessBuyer", num);
+	}
+	public int addPointSuccessSeller(int num)throws Exception{
+		return sqlSession.update(namespace+"addPointSuccessSeller", num);
+	}
+	
+	
 	//구매자가 택배 받아서 구매확정 버튼 누르면 책의 status 를 구매확정으로 바꾸기
 	public int confirm(int num)throws Exception{
 		sqlSession.update(namespace2+"confirmDeal", num);
 		return sqlSession.update(namespace+"confirm", num );
-		
 	}
 	
 	//판매자가 택배 보내고나서 배송완료 버튼 누르면 책의 status를 배송중으로 바꾸기
