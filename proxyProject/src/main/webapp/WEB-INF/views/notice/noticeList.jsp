@@ -14,34 +14,32 @@
 <%@ include file = "../common/header.jsp" %>
    <div class="mypage-menu">
    <div class="mypage-content">
-      <div class="blacklist-header"><p id="blacktitle">블랙리스트</p></div>
+      <div class="blacklist-header"><p id="blacktitle">공지사항</p></div>
 				<!-- 상단 -->
 			     <div class="mypage-body ng-scope2">
 		         <div class="mypageodr-table-header">
 		         <div class="mypageodr-header-info2"></div><div class="mypageodr-header-info2"></div>
 		            <div class="mypageodr-header-info">NO</div>
-		            <div class="mypageodr-header-info">제목</div>
-		            <div class="mypageodr-header-info-tel">작성일</div>
-		            <div class="mypageodr-header-info-tel">조회수</div>
+		            <div class="mypageodr-header-state">제목</div>
+		            <div class="mypageodr-header-tel">작성일</div>
+		            <div class="mypageodr-header-tel2">조회수</div>
+				</div>
 		<!-- 목록 -->
-		<c:set var="count" value="-1"/>
+		<div class="mypage-item-wrapper ng-scope">
+			<c:set var="count" value="-1"/>
 				<c:forEach var="notice" items="${noticeList}">
 				<c:set var="count" value="${count+1}"/>	
-					<tr>
-						<td class="num">${notice.no}</td>
-						<td class="subject">
-							<span>
-								<a href="noticeView?no=${notice.no}">
-									<span>${notice.title}</span>   
-								</a>
-							</span>
-						</td>
-						<td class="date">
-							<fmt:formatDate value="${notice.reg_date}" pattern="yyyy.MM.dd" />
-						</td>
-						<td class="hits">${notice.hits}</td>
+					<div style="border-bottom: 1px solid #eee; text-align: left; padding-left: 50px;">
+                     <div class="mypageodr-item-state mypageodr-item-state-title ng-binding">${notice.no}</div>
+                     <div class="mypageodr-header-info2"></div>
+                     <div class="mypageodr-item-tel mypageodr-item-state-title ng-binding">
+                        <a href="noticeView?no=${notice.no}">${notice.title}</a></div>
+                        <div class="mypageodr-header-info2"></div><div class="mypageodr-header-info2"></div>
+                     <div class="mypageodr-item-price mypageodr-item-state-title ng-binding">
+                     <fmt:formatDate value="${notice.reg_date}" pattern="yyyy.MM.dd" /></div>
+					 <div class="mypageodr-item-price mypageodr-item-state-title ng-binding">${notice.hits}</div>
+					</div>
 				</c:forEach>
-				</div>
 			</div>
 			<div id="pageing">
 				<c:if test="${page.curBlock > 1 }">
@@ -56,11 +54,13 @@
 					<a href="/proxyProject/notice/noticeList?page=${page.lastNum+1}">&ensp; [다음]</a>
 				</c:if>
 				<br> <br>
-
+				<c:if test="${sessionScope.member.id eq dto.id || sessionScope.member.type eq '3'}">
 				<button id="write" onclick="location.href='noticeWrite'">
 					글쓰기</button>
+				</c:if>
 			</div>
 		</div>
+	</div>
 	</div>
 	<!-- Footer Start -->
 		<%@ include file = "../common/footer.jsp" %>

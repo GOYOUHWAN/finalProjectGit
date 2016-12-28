@@ -22,17 +22,113 @@
 	});
 </script>
 <style type="text/css">
-#center {
-	margin-top: 50px;
-	width: 600px;
-	text-align: center;
-	margin: 0 auto;
+.mypage-content {
+   width: 60%;
+   vertical-align: top;
+   display: inline-block;
+   border: 1px solid #d8d8d8;
+   border-radius: 3px;
+   margin-top: 30px;
 }
-
+.mypage-header {
+    font-size: 24px;
+    padding: 22px 0 22px 34px;
+    border-bottom: 1px solid #d8d8d8;
+    text-align: left;
+}
 #save{
+	width: 50%;
+    height: 70%;
+    margin-left: 30px;
+    float: left;
+    border: 1px solid #6E9907;
+    background-color: #6E9907;
+    font-size: 18px;
+    color: white;
+}
+#save:hover{
+	width: 50%;
+    height: 70%;
+    margin-left: 30px;
+    float: left;
+    border: 1px solid #6E9907;
+    background-color: white;
+    font-size: 18px;
+    color: #6E9907;
+}
+#list{
+    border: 1px solid #737373;
+    background-color: #737373;
+    outline: none;
+	width: 40%;
+    height: 70%;
+    margin-left: 30px;
+    float: left;
+    font-size: 18px;
+    color: white;
+}
+#list:hover{
+    border: 1px solid #737373;
+    background-color: white;
+    outline: none;
+	width: 40%;
+    height: 70%;
+    margin-left: 30px;
+    float: left;
+    font-size: 18px;
+    color: #737373;
+}
+#btnhere{
+    margin: 0 auto;
+    width: 30%;
+    height: 55px;
+    margin-top: 20px;
+}
+#singo_div{
+	width:100%;
+	text-align: center;
+}
+.td_1 {
+	width: 30%;
+	height: 60px;
+	text-align: center;
+	font-size: 15px;
+	background-color: #eeeeee;
+	border-bottom: 1px solid #dbdada;
+}
+.td_2{
+	text-align: left;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	margin-left: 10%;
+	font-size: 14px;
+	border-bottom: 1px solid #dbdada;
+}
+table {
+	border-spacing: 0px;
+	border-collapse: collapse;
+	text-align: center;
 	width: 100%;
-	float: right;
-	background-color: #7151FC;
+	margin: 0 auto;
+	color: #555;
+}
+.write_text{
+	width: 70%;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	margin-left: 10%;
+	font-size: 14px;
+	border: 1px solid #dbdada;
+}
+.write_contents{
+	width: 70%;
+	height: 130px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	margin-left: 10%;
+	font-size: 14px;
+	border: 1px solid #dbdada;
+	line-height: 180%;
 }
 </style>
 </head>
@@ -40,21 +136,27 @@
 	<%@ include file="../common/header.jsp"%>
 	<!-- header End -->
 <body>
-	<section class="contents">	
-		<div class="container" align="center">
-				<form action="noticeWrite" method="post" id="frm" style="background-color: white;">
-					<div id="center" style="background-color:white;font-weight: bold; color: gray;">
-						제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-						<input type="text" name="title" id="title" style="width: 300px; background-color: #FAFAFA;" placeholder="제목을 작성하세요">
-						<br>
-						<br> 내용	<textarea name="content" id="content" style="width:100%; height:500px"></textarea>
-						<br><div style="width: 100px; height: 20px; text-align: center; margin:0 auto; margin-top: 10px">
-							<button id="save">글 작 성</button>
-						</div>
+	<div id="singo_div">
+	<div id="join_div">
+		<div class="mypage-content">
+		<div class="mypage-header">신고하기</div>
+				<form action="noticeWrite" method="post" id="frm">
+					<table>
+						<tr>
+							<td class="td_1">제목</td>
+							<td class="td_2"><input type="text" name="title" id="title" placeholder="제목을 작성하세요" class="write_text"></td>
+						</tr>
+						<tr>
+							<td class="td_1">내용</td>
+							<td class="td_2"><textarea name="content" id="content" style="width:70%; height:200px" class="write_text"></textarea></td>
+					</table>
+					<div id="btnhere">
+						<button id="save">작성 완료</button>
 					</div>
 				</form>
+				</div>
+			</div>
 		</div>
-	</section>
 	<!-- Footer Start -->
 	<%@ include file="../common/footer.jsp"%>
 	<!-- Footer End -->

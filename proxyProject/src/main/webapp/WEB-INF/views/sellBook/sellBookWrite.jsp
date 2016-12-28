@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/sellbook.css">
 </head>
 <body>
+<%@ include file = "../common/header.jsp" %>
 	<div id="contents" class="seller_contents">
 	
 		<c:if test="${member !=null}">
@@ -22,7 +23,7 @@
 					<p class="info"><em>*</em> <span>필수입력항목  입니다. 등록한 상품은 수정할 수 없습니다. 신중하게 입력해주세요.</span></p>
 				<div class="basic_info_books">
 					<table>
-						<tbody>
+						<tbody> 
 							<!-- 상품명 -->
 							<tr>
 								<th scope="row" class="first">

@@ -38,7 +38,13 @@
 #write{
 	width: 10%;
 	float: right;
-	background-color: #7151FC;
+	background-color: #6e9907;
+	color: white;
+	border: none;
+	padding: 10px 10px;
+}
+#write:hover{
+	background-color: #7dad09;
 }
 #pageing {
    width: 50%;
