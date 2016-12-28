@@ -114,8 +114,8 @@ $(function () {
 
 .order:hover{
 	color: white;
-	background-color:#8c72fd;
-	border-color: #8c72fd;
+	background-color:#6e9907;
+	border-color: #6e9907;
 }
 .paging_text{
 	font-size: 23px;
@@ -130,10 +130,6 @@ $(function () {
 </head>
 <body id="body_sellbooklist">
 <%@ include file = "../common/header.jsp" %>
-<<<<<<< HEAD
-=======
-	
->>>>>>> refs/heads/12_26
 <c:if test="${list[count] != null }">
 <!--정렬 시작  -->
 <div id="line_order">

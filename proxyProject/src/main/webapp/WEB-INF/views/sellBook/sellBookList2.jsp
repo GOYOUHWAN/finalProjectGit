@@ -147,8 +147,8 @@ function checkCookie() {
 
 .order:hover{
 	color: white;
-	background-color:#8c72fd;
-	border-color: #8c72fd;
+	background-color:#6e9907;
+	border-color: #6e9907;
 }
 .paging_text{
 	font-size: 23px;

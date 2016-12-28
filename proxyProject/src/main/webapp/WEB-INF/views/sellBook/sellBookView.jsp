@@ -125,7 +125,8 @@ $(function () {
 }
 #view_button2{
 	float: right;
-	background-color:  #7151FC;
+	background-color:  #6e9907;
+	color: white;
 }
 #div_likes{
 	border: 0.5px solid gray;
