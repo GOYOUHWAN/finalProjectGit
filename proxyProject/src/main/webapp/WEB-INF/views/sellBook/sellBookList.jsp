@@ -130,10 +130,7 @@ $(function () {
 </head>
 <body id="body_sellbooklist">
 <%@ include file = "../common/header.jsp" %>
-<<<<<<< HEAD
-=======
-	
->>>>>>> refs/heads/12_26
+
 <c:if test="${list[count] != null }">
 <!--정렬 시작  -->
 <div id="line_order">

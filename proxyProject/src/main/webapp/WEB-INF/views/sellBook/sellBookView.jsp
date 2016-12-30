@@ -134,8 +134,9 @@ $(function () {
 	border-radius: 100%;
 	text-align: center;
 	margin: 0 auto;
+	vertical-align: middle;
 }
-
+	
 
 #p_id{
 	font-size: 20px;
@@ -152,7 +153,20 @@ $(function () {
 /* 	border: 1px solid red; */
 }
 #spanLikes{
-	margin-top: 0px;
+	margin-right: 10px;
+	float: right;
+	display: inline-block;
+	border-radius: 0px;
+    width: 20px;
+    height: 20px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+#div_likes2{
+/* 	border: 1px solid green; */
+	height: 20px;
+	width: 80%;
+	margin: 0 auto;
 }
 </style>
 
@@ -243,8 +257,10 @@ $(function () {
 				         	  				</c:if>
 		         	  				</c:forEach>
 	         	  					<c:if test="${bool == false}">
-	         	  						<img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart" onclick="change_img_to_red(${view.num})">
-									</c:if><span class="spanLikes" id="spanLikes">${view.likes}</span>
+	         	  						<div id="div_likes2"><img src="/proxyProject/resources/image/black_heart.png" class="img_likes" id="img_heart" onclick="change_img_to_red(${view.num})"><div class="spanLike" id="spanLikes">${view.likes}</div>
+									</div>
+									</c:if>
+									
 				   	  </div>
 				   	  	<script>
 	                    	
