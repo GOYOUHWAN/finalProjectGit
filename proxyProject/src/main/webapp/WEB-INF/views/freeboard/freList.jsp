@@ -29,23 +29,6 @@
 	});
 </script>
 <style type="text/css">
-#s_div1{
-	width: 100%;
-	height: 300px;
-	margin-top: 280px;
-	border: 1px solid green;
-}
-#write{
-	width: 10%;
-	float: right;
-	background-color: #6e9907;
-	color: white;
-	border: none;
-	padding: 10px 10px;
-}
-#write:hover{
-	background-color: #7dad09;
-}
 #pageing {
    width: 50%;
    height: 40px;
@@ -54,51 +37,68 @@
 }
 .page {
    display: inline-block;
-   color: black;
    border-radius: 0.2em;
    width: 7%;
-   height: 40px;
+   height: 30px;
    line-height: 35px;
    text-align: center;
-   border: 1px solid #B4B4B4;
+   border: 1px solid #dbdada;
+   background-color: #dbdada;
+   color: white;
 }
-#t1 td {
-	border-bottom: 1px solid black;
-	padding: 12px;
-	padding-left: 20px;
-	text-align:center;
+.mypage-menu {
+	text-align: center;
+	padding-top: 50px;
+	min-height: 500px;
 }
-
-.t2 td {
-	border-bottom: 1px dotted gray;
-	padding: 12px;
-	padding-left: 20px;
+.mypage-content {
+   width: 860px;
+   vertical-align: top;
+   display: inline-block;
+   border: 1px solid #d8d8d8;
+   border-radius: 3px;
+   margin-top: 30px;
+   margin-bottom: 50px;
+   margin: 0 auto;
 }
-
-.t21{
-	width:7%;
-	color:gray;
-	text-align:center;
+.blacklist-header {
+   width: 100%;
+   float: left;
+   border-bottom: 1px solid #d8d8d8;
 }
-.t22{
-	width:55%;
-	margin-left: 30px;
-	
+#blacktitle {
+   font-size: 24px;
+   padding: 20px 0 20px 34px;
+   float: left;
 }
-.t23,.t24{
-	text-align:center;
-	color:gray;
+table{
+	margin: 0 auto;
+	width: 80%;
+	padding-top: 20px;
 }
-.t25{
-	width:15%;
-	color : gray;
-	text-align :center;
+hr{
+	border: 2px solid #eee;
 }
-table {
-	width: 90%;
-	margin: 0px auto;
-	border-spacing: 0px;
-	border-collapse: collapse;
+.td_1{
+	border-bottom: 1px solid #eee;
+	padding: 10px 10px;
+	font-size: 14px;
+}
+.td_2{
+	font-size: 16px;
+	padding: 10px 10px;
+}
+#write{
+	background-color: #6e9907;
+	border: none;
+	color: white;
+	padding: 10px 10px;
+	float: right;
+	margin-bottom: 20px;
+	margin-right: 80px;
+}
+#write:hover{
+	background-color: #7dad09;
 }
 </style>
 </head>
@@ -112,39 +112,43 @@ table {
 		<%@ include file = "../common/header.jsp" %>
 	<!-- Header End -->
 </div>
-	
-		<div>
-			<h2>Freeboard</h2>
+   <div class="mypage-menu">
+   <div class="mypage-content">
+      <div class="blacklist-header"><p id="blacktitle">Freeboard</p></div>
 
 			<br>
 			<table id="s_div1">
 				<tr id="t1">
-					<td>NO</td>
-					<td>글제목</td>
-					<td>작성자</td>
-					<td>작성일</td>
+					<td class="td_2">NO</td>
+					<td class="td_2">글제목</td>
+					<td class="td_2">작성자</td>
+					<td class="td_2">작성일</td>
+				</tr>
+				<tr>
+					<td colspan="4"><hr></td>
 				</tr>
 				<c:set var="count" value="-1"/>
 				<c:forEach var="FreeboardDTO" items="${freList}">
 				<c:set var="count" value="${count+1}"/>	
 					<tr class="t2">
-						<td class="t21">${FreeboardDTO.no}</td>
-						<td class="t22"><a href="freView?no=${FreeboardDTO.no}">
+						<td class="t21 td_1">${FreeboardDTO.no}</td>
+						<td class="t22 td_1"><a href="freView?no=${FreeboardDTO.no}">
 								${FreeboardDTO.title}
 						</a>
 							<c:if test="${replyCount[count]!='0'}">
 								<span id="replyCount" class="pink">${replyCount[count]}</span> 
 							</c:if>
 						</td>
-						<td class="t24">${FreeboardDTO.id}</td>
-						<td class="t25">
+						<td class="t24 td_1">${FreeboardDTO.id}</td>
+						<td class="t25 td_1">
 						<fmt:formatDate
 						value="${FreeboardDTO.date2}" pattern="yyyy-MM-dd" /></strong></td>
 					</tr>
 				</c:forEach>
 			</table>
-
 			<br>
+				<button id="write" onclick="location.href='freWriteForm'">
+					글쓰기</button>
 			<div id="pageing">
 				<c:if test="${page.linePerPage > 1 }">
 					<a href="/proxyProject/freeboard/freList?page=${page.startNum-1}">[이전]&ensp;</a>
@@ -159,8 +163,8 @@ table {
 				</c:if>
 				<br> <br>
 
-				<button id="write" onclick="location.href='freWriteForm'">
-					글쓰기</button>
+
+			</div>
 		</div>
 	</div>
 	<!-- Footer Start -->

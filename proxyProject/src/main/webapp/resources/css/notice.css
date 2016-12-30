@@ -15,10 +15,7 @@ body {
 	background-color: #6e9907;
 	color: white;
 	border: none;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding: 10px 10px;
 	border-color: none;
 	float: right;
 }
@@ -118,7 +115,7 @@ a {
 }
 
 .mypage-item-wrapper {
-   padding: 16px 0;
+   padding: 10px 0;
 }
 
 .mypage-item-wrapper+.mypage-item-wrapper {
@@ -191,6 +188,8 @@ a {
    font-size: 12px;
    padding-left: 100px;
    text-align: center;
+   padding-top: 10px;
+   padding-bottom: 10px;
 }
 
 .mypageodr-item-state {
@@ -199,16 +198,19 @@ a {
    font-size: 12px;
    color: #000;
    vertical-align: middle;
+   padding-top: 10px;
+   padding-bottom: 10px;
 }
 
 .mypageodr-item-tel {
-   width: 100px;
+   width: 200px;
    display: inline-block;
    font-size: 12px;
    color: #000;
    vertical-align: middle;
    margin-left: 20px;
-   margin-right: 50px;
+   padding-top: 10px;
+   padding-bottom: 10px;
 }
 
 .mypageodr-item-state-title {
@@ -264,4 +266,21 @@ a {
 	background-color: #002db3;/* #7151FC; */
 	color: white;
 	text-decoration: none;
+}
+#pageing {
+   width: 50%;
+   height: 40px;
+   margin: 0 auto;
+   text-align : center;
+}
+.page {
+   display: inline-block;
+   border-radius: 0.2em;
+   width: 7%;
+   height: 30px;
+   line-height: 35px;
+   text-align: center;
+   border: 1px solid #dbdada;
+   background-color: #dbdada;
+   color: white;
 }

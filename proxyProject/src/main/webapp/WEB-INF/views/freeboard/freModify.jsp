@@ -66,28 +66,84 @@ $(function(){
 	});
 </script>
 <style type="text/css">
+#center {
+	margin-top: 50px;
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
+}
 
+#save{
+	width: 100%;
+	float: right;
+	background-color: #6e9907;
+	color: white;
+	border: none;
+	padding: 10px;
+}
+.contents{
+	min-height: 740px;
+}
+table{
+	width: 60%;
+	margin: 0 auto;
+}
+.td_1{
+	width: 30%;
+	background-color: #eee;
+	text-align: center;
+	border: 1px solid #eee;
+	padding: 12px 15px;
+}
+.td_2{
+	background-color: #eee;
+	text-align: center;
+	border: 1px solid #eee;
+	padding: 12px 15px;
+}
+.tableheader{
+	text-align: left;
+	font-size: 20px;
+	padding: 20px 20px;
+	border: 1px solid #eee;
+}
+.writeform{
+	padding: 10px 10px;
+	border-color: #eee;
+}
 </style>
-<title>공지사항</title>
+<title>자유게시판 글 수정</title>
 </head>
+	<!-- header Start -->
+		<%@ include file = "../common/header.jsp" %>
+	<!-- header End -->
 <body>
-<!-- header 시작 -->
-<!-- header 끝 -->
 
 
-	<section>
-		<div align="center">
-		<h2>FreeboardWrite</h2>
+	<section class="contents">	
+		<div class="container" align="center">
 			<form action="freModify" method="post" id="frm">
-				<div>
-					<input type="hidden" name="no" value="${dto.no }">
-					제목:
-					 <input type="text" name="title" id="title" value="${dto.title}"><br>
-					작성자:
-					<input type="text" name="id" value="${dto.id}"
-						readonly="readonly"><br> 내용
-					<textarea name="content" id="ir1" style="width:100%; height:500px">${dto.content}</textarea>
-					<div>
+				<div id="center" style="background-color:white; color: gray;">
+					<table>
+						<tr>
+							<td colspan="2" class="tableheader">글 수정</td>
+						</tr>
+						<tr>
+							<td class="td_1">제목</td>
+							<td><input type="text" class="writeform" name="title" id="title" style="width: 300px;" value="${dto.title}"></td>
+						</tr>
+						<tr>
+							<td class="td_1">작성자</td>
+							<td><input type="text" class="writeform" value="${sessionScope.member.id}" name="id"readonly="readonly" style="width: 300px;background-color: #FAFAFA;"></td>
+						</tr>
+						<tr>
+							<td colspan="2" class="td_2">내용</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="padding-top: 2px;"><textarea name="content" id="ir1" style="width:100%; height:400px">${dto.content}</textarea></td>
+						</tr>
+					</table>
+					<div style="width: 100px; height: 20px; text-align: center; margin:0 auto; margin-top: 10px; margin-bottom: 10px">
 						<input type="button" value="수정하기" id="save">
 					</div>
 				</div>
