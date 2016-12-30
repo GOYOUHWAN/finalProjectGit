@@ -3,6 +3,10 @@
     font-family: 'Daum_Regular';
     src: url(Daum_Regular.ttf) format('truetype');
 }
+body{
+	background-color: rgba(255,247,229,0.5);
+	
+}
 *{
 	margin-top:0px;
 	margin: 0;
@@ -47,7 +51,7 @@ header a{
 	margin: 0 auto;
 	color : white;
 	font-size: 18px;
-
+	background-color: rgba(255,247,229,0.5);
 	margin-bottom: 0px;
 }
 /* proxy 로고 들어가는 div */
