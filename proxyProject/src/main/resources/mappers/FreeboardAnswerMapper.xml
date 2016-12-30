@@ -6,6 +6,6 @@
 <mapper namespace="com.choa.freeboard.FreeboardAnswerDAO">
 	<!-- 게시물 작성 -->
 	<insert id="freAnswerWrite">
-		INSERT INTO FREEBOARD_ANSWER VALUES(ans_seq.nextval, #{aName}, #{aTitle}, #{aContent} sysdate)
+		INSERT INTO FREEBOARD_ANSWER VALUES(ans_seq.nextval, #{aName}, #{aTitle}, #{aContent}, sysdate)
 	</insert>
 </mapper>

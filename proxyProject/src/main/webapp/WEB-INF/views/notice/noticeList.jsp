@@ -34,13 +34,17 @@
                      <div class="mypageodr-header-info2"></div>
                      <div class="mypageodr-item-tel mypageodr-item-state-title ng-binding">
                         <a href="noticeView?no=${notice.no}">${notice.title}</a></div>
-                        <div class="mypageodr-header-info2"></div><div class="mypageodr-header-info2"></div>
+                        <!-- <div class="mypageodr-header-info2"></div> -->
                      <div class="mypageodr-item-price mypageodr-item-state-title ng-binding">
                      <fmt:formatDate value="${notice.reg_date}" pattern="yyyy.MM.dd" /></div>
 					 <div class="mypageodr-item-price mypageodr-item-state-title ng-binding">${notice.hits}</div>
 					</div>
 				</c:forEach>
 			</div>
+							<c:if test="${sessionScope.member.id eq dto.id || sessionScope.member.type eq '3'}">
+				<button id="write" onclick="location.href='noticeWrite'">
+					글쓰기</button>
+				</c:if>
 			<div id="pageing">
 				<c:if test="${page.curBlock > 1 }">
 					<a href="/proxyProject/notice/noticeList?page=${page.startNum-1}">[이전]&ensp;</a>
@@ -54,10 +58,6 @@
 					<a href="/proxyProject/notice/noticeList?page=${page.lastNum+1}">&ensp; [다음]</a>
 				</c:if>
 				<br> <br>
-				<c:if test="${sessionScope.member.id eq dto.id || sessionScope.member.type eq '3'}">
-				<button id="write" onclick="location.href='noticeWrite'">
-					글쓰기</button>
-				</c:if>
 			</div>
 		</div>
 	</div>

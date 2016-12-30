@@ -60,7 +60,7 @@ $(function(){
 <style type="text/css">
 #center {
 	margin-top: 50px;
-	width: 600px;
+	width: 100%;
 	text-align: center;
 	margin: 0 auto;
 }
@@ -68,7 +68,40 @@ $(function(){
 #save{
 	width: 100%;
 	float: right;
-	background-color: #7151FC;
+	background-color: #6e9907;
+	color: white;
+	border: none;
+	padding: 10px;
+}
+.contents{
+	min-height: 740px;
+}
+table{
+	width: 60%;
+	margin: 0 auto;
+}
+.td_1{
+	width: 30%;
+	background-color: #eee;
+	text-align: center;
+	border: 1px solid #eee;
+	padding: 12px 15px;
+}
+.td_2{
+	background-color: #eee;
+	text-align: center;
+	border: 1px solid #eee;
+	padding: 12px 15px;
+}
+.tableheader{
+	text-align: left;
+	font-size: 20px;
+	padding: 20px 20px;
+	border: 1px solid #eee;
+}
+.writeform{
+	padding: 10px 10px;
+	border-color: #eee;
 }
 </style>
 </head>
@@ -80,18 +113,34 @@ $(function(){
 	<section class="contents">	
 		<div class="container" align="center">
 				<form action="freWrite" method="post" id="frm" style="background-color: white;">
-					<div id="center" style="background-color:white;font-weight: bold; color: gray;">
-						제목&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="title" id="title" style="width: 300px; background-color: #FAFAFA;" placeholder="제목을 작성하세요">
-						<br>작성자&nbsp;&nbsp; <input type="text" value="${sessionScope.member.id}" name="id"readonly="readonly" style="width: 300px;background-color: #FAFAFA;">
-						<br>
-						<br> 내용	<textarea name="content" id="ir1" style="width:100%; height:500px"></textarea>
-						<br><div style="width: 100px; height: 20px; text-align: center; margin:0 auto; margin-top: 10px">
+					<div id="center" style="background-color:white; color: gray;">
+					<table>
+						<tr>
+							<td colspan="2" class="tableheader">글 등록</td>
+						</tr>
+						<tr>
+							<td class="td_1">제목</td>
+							<td><input type="text" class="writeform" name="title" id="title" style="width: 300px;" placeholder="제목을 작성하세요"></td>
+						</tr>
+						<tr>
+							<td class="td_1">작성자</td>
+							<td><input type="text" class="writeform" value="${sessionScope.member.id}" name="id"readonly="readonly" style="width: 300px;background-color: #FAFAFA;"></td>
+						</tr>
+						<tr>
+							<td colspan="2" class="td_2">내용</td>
+						</tr>
+						<tr>
+							<td colspan="2" style="padding-top: 2px;"><textarea name="content" id="ir1" style="width:100%; height:400px"></textarea></td>
+						</tr>
+					</table>
+					</div>
+						<div style="width: 100px; height: 20px; text-align: center; margin:0 auto; margin-top: 10px; margin-bottom: 10px">
 							<button id="save">글 작 성</button>
 						</div>
-					</div>
 				</form>
 		</div>
 	</section>
+	
 	<!-- Footer Start -->
 		<%@ include file = "../common/footer.jsp" %>
 	<!-- Footer End -->

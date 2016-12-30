@@ -84,7 +84,7 @@ $(function () {
 .view_button{
 	width: 40%;
 	height: 40px;
-	border: 1px solid #7151FC;
+	border: 1px solid #6e9907;
 
 }
 #img_face{
@@ -227,7 +227,7 @@ $(function () {
 				<td id="td_space"></td>
 			</tr>
 			<tr>
-				<td><div id="div_button"><a href="buyBook"><input type="submit"  id="view_button2"class="view_button" value="구매하기"></a><a href="sellBookList?id=${member.id }"><input type="submit" class="view_button" id="view_button1" value="목록으로" ></a></div></td>
+				<td><div id="div_button"><a href="buyBook"><input type="submit"  id="view_button2"class="view_button" value="구매하기"></a><a href="sellBookList?id=${member.id }"><input type="submit" class="view_button" id="view_button1" value="목록으로" style="border: 1px solid gray;"></a></div></td>
 			</tr>
 			<tr>
 				<td id="td_space"></td>

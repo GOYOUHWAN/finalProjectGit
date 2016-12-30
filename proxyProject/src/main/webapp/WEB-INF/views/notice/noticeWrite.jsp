@@ -29,6 +29,7 @@
    border: 1px solid #d8d8d8;
    border-radius: 3px;
    margin-top: 30px;
+   margin-bottom: 30px;
 }
 .mypage-header {
     font-size: 24px;
@@ -139,7 +140,7 @@ table {
 	<div id="singo_div">
 	<div id="join_div">
 		<div class="mypage-content">
-		<div class="mypage-header">신고하기</div>
+		<div class="mypage-header">공지사항 등록</div>
 				<form action="noticeWrite" method="post" id="frm">
 					<table>
 						<tr>

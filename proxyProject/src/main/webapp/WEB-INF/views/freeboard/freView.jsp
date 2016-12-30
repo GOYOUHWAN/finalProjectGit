@@ -7,9 +7,15 @@
 <head>
 <style type="text/css">
 #submit{
-	width: 10%;
+	width: 8%;
 	float: right;
-	background-color: #7151FC;
+	background-color: #6e9907;
+	border: none;
+	color: white;
+	padding: 10px;
+}
+#submit:hover{
+	background-color: #7dad09;
 }
 #s_div1 {
 	width: 50%;
@@ -32,47 +38,10 @@
 	border-bottom: 1px solid #ececec;
 	
 }
-
-#contents {
-	border: 1px solid #dbdbdb;
-	width: 100%;
-	height: 150px;
-}
-
 #review3 {
 	border: 1px solid black;
 	width: 100%;
 	height: 150px;
-}
-
-#section {
-	padding: 0 50px;
-}
-
-#title {
-	font-size: 30px;
-	line-height: 42px;
-	color: #1f1f1f;
-}
-
-#writer {
-	border-bottom: 1px solid #ececec;
-	margin-bottom: 150px;
-	float:right;
-}
-#content{
-	margin-left: 250px;
-	font-size: 50px;
-	margin:0 auto;
-}
-#tr2{
-	margin: auto;
-}
-#date{
-	float:left;
-}
-#writer{
-	float:left;
 }
 .comment{
 	padding: 20px 0 20px 16px;
