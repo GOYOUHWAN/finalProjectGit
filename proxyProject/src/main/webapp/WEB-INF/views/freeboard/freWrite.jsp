@@ -113,7 +113,7 @@ table{
 	<section class="contents">	
 		<div class="container" align="center">
 				<form action="freWrite" method="post" id="frm" style="background-color: white;">
-					<div id="center" style="background-color:white; color: gray;">
+					<div id="center" style="background-color:rgba(255,247,229,0.5); color: gray;">
 					<table>
 						<tr>
 							<td colspan="2" class="tableheader">글 등록</td>
@@ -130,7 +130,7 @@ table{
 							<td colspan="2" class="td_2">내용</td>
 						</tr>
 						<tr>
-							<td colspan="2" style="padding-top: 2px;"><textarea name="content" id="ir1" style="width:100%; height:400px"></textarea></td>
+							<td colspan="2" style="padding-top: 2px;"><textarea name="content" id="ir1" style="width:100%; height:400px; background-color: white;"></textarea></td>
 						</tr>
 					</table>
 					</div>

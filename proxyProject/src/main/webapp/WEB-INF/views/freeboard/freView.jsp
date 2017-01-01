@@ -6,6 +6,40 @@
 <html lang="en">
 <head>
 <style type="text/css">
+#fre-section{
+	margin: 0 auto;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.mypage-content {
+   width: 60%;
+   vertical-align: top;
+   display: inline-block;
+   border: 1px solid #d8d8d8;
+   border-radius: 3px;
+   margin-bottom: 30px;
+   margin-top: 70px;
+}
+.mypage-content2 {
+   width: 60%;
+   vertical-align: top;
+   display: inline-block;
+   border: 1px solid #d8d8d8;
+   border-radius: 3px;
+   margin-bottom: 30px;
+   margin-top: 5px;
+}
+.mypage-header {
+    font-size: 24px;
+    padding: 22px 0 22px 34px;
+    border-bottom: 1px solid #d8d8d8;
+    text-align: left;
+    margin: 0 auto;
+}
+#s_div1 {
+	width: 100%;
+	margin: 0 auto;
+}
 #submit{
 	width: 8%;
 	float: right;
@@ -17,14 +51,6 @@
 #submit:hover{
 	background-color: #7dad09;
 }
-#s_div1 {
-	width: 50%;
-	height: 300px;
-	margin-top: 350px;
-	border: 1px solid green;
-	margin-left: 350px;
-}
-
 #re1 {
 	padding: 88px 0 24px;
     color: #1f1f1f;
@@ -32,8 +58,8 @@
 }
 
 .review1 {
-	margin: 50px 50px 50px 50px;
-	padding: 20px 0 20px 20px;
+	margin: 0px 5px 5px 5px;
+	padding: 20px 20px 20px 20px;
 	background-color: #f8f8f8;
 	border-bottom: 1px solid #ececec;
 	
@@ -47,7 +73,74 @@
 	padding: 20px 0 20px 16px;
     border-bottom: 1px solid #ececec;
 }
-
+.td_1 {
+	width: 10%;
+	height: 50px;
+	text-align: center;
+	font-size: 15px;
+	background-color: #eeeeee;
+}
+.td_2{
+	text-align: left;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	font-size: 14px;
+	padding-left: 4%;
+	line-height: 200%;
+}
+.td_3{
+	width: 30%;
+	text-align: justify;
+	padding-left: 4%;
+}
+.btnhere{
+	text-align: left;
+	width: 60%;
+	margin: 0 auto;
+	height: 45px;
+}
+.btnstyle{
+	border: 1px solid #c9c9c9;
+	padding: 10px 30px;
+	color: gray;
+	background-color: white;
+}
+.btnstyle:hover{
+	text-decoration: none;
+	background-color: gray;
+	color: white;
+}
+.writetext{
+	width: 85%;
+	height: 37px;
+	padding: 5px 5px;
+}
+.reply{
+	width: 100%;
+	padding: 5px 5px;
+}
+.btn_td{
+	text-align: right;
+}
+.date_td{
+	text-align: right;
+}
+.contents_td{
+	width: 100%;
+	border-bottom: 1px solid #c9c9c9;
+	padding-bottom: 5px;
+	height: 20px;
+}
+.replybtn{
+	border: 1px solid #6e9907;
+	background-color: white;
+	color: #6e9907;
+	padding: 4px 3px;
+}
+.replybtn:hover{
+	color: white;
+	background-color: #6e9907;
+}
 </style>
 <script type="text/javascript"
 	src="/proxyProject/resources/js/jquery-1.11.3.min.js"></script>
@@ -67,7 +160,7 @@
 						var result = "";
 						if (data.length > 0) {
 							result += "<center>";
-							result += "<table>";
+							result += "<table class='reply'>";
 							result += "<tr>";
 							result += "<td colspan='3'></td>"
 							result += "</tr>";
@@ -76,32 +169,40 @@
 								result += "<tr><td>";
 								result += "WRITER : ";
 								result += data[i].id;
-								result += "</td><td>";
+								result += "</td><td class='date_td'>";
 								result += "Date : ";
 								result += data[i].redate;
-								result += "</td><td>";
+								result += "</td><td class='btn_td'>";
 
 								if (id == data[i].id
 										|| "${sessionScope.member.type}" == "3") {
-									result += "<input type='button' value='수정' style='background-color: white; border-radius: 10px' onclick='mod(";
+									result += "<input type='button' value='수정' class='replybtn' onclick='mod(";
 									result += data[i].reviewno;
 									result += ", ";
 									result += i;
 									result += ")'>";
-									result += " <input type='button' value='삭제'  onclick='del(";
+									result += " <input type='button' value='삭제' class='replybtn' onclick='del(";
 									result += data[i].reviewno;
 									result += ")'>";
 									result += "</td>";
 
-									result += "</td>";
-								}
 								result += "</tr>";
 								result += "<tr>";
 								result += "<td colspan='5'>";
-								result += "<textarea name='contents'>";
+								result += "<textarea name='contents' class='contents_td'>";
 								result += data[i].contents;
 								result += "</textarea></td>";
 								result += "</tr>";
+								}
+								else{
+									result += "</td>";
+									result += "</tr>";
+									result += "<tr>";
+									result += "<td colspan='5' style='padding-top:3px; padding-left:6px; border-bottom: 1px solid #c9c9c9; margin-bottom:3px;'>";
+									result += data[i].contents;
+									result += "</td>";
+									result += "</tr>";
+								}
 							}
 							result += "</table>";
 							result += "</center>";
@@ -182,58 +283,57 @@
 		<%@ include file = "../common/header.jsp" %>
 	<!-- Header End -->
 </div>
-	<section id="section">
+<section id="fre-section">
+<div style="width: 100%; text-align: center;">
+	<div class="mypage-content">
+	<div class="mypage-header">글 상세보기</div>
 	<table id="s_div1">
 		<tr>
-			<td id="title">${dto.title}</td>
+			<td class="td_3">작성자 : ${dto.id}</td>
+			<td class="td_1">제목</td>
+			<td class="td_2">${dto.title}</td>
 		</tr>
 		<tr>
-			<td id="content">${dto.content}</td>
-			<div id="tr2">
-			<td id="writer">작성자 :&nbsp;</td>
-			<td id="writer">${dto.id}</td><br>
-			<td id="date">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;날 짜 :&nbsp;</td>
-			<td id="date"><fmt:formatDate value="${dto.date2}"
-					pattern="yyyy/MM/dd hh:mm" /></td>
-			</div>
-		</tr>	
-			<c:if
-				test="${sessionScope.member.id eq dto.id || sessionScope.member.type eq '3'}">
-				<a href="freModifyForm?no=${dto.no}">수정</a>
+			<td rowspan="2" class="td_3"></td>
+			<td class="td_1">날짜</td>
+			<td class="td_2"><fmt:formatDate value="${dto.date2}" pattern="yyyy/MM/dd hh:mm" /></td>
+		</tr>
+		<tr>
+			<td class="td_1">내용</td>
+			<td class="td_2">${dto.content}</td>
+		</tr>
+	</table>
+	</div>
+</div>
+	<c:if test="${sessionScope.member.id eq dto.id || sessionScope.member.type eq '3'}">
+		<div class="btnhere">
+				<a href="freModifyForm?no=${dto.no}" class="btnstyle">수정</a>
 
 				<a href="freDelete?no=${dto.no}"
-					onclick="return confirm('정말 삭제하시겠습니까?')">삭제</a>
-			</c:if>
-
-			<a href="freList">목록</a>
-
-			<td><input type="hidden" value="${member.id}" id="id"></td>
-			<table class="table table-condensed" align="center">
-				<tr>
-					<h2 id="re1">댓글</h2>
-					<h2 id="re2"></h2>
-				
-					<td>
-							<div class="form-group">
-								
+					onclick="return confirm('정말 삭제하시겠습니까?')" class="btnstyle">삭제</a>
+		</div>
+	</c:if>
+		<input type="hidden" value="${member.id}" id="id">
+		<div style="width: 100%; text-align: center;">
+			<div class="mypage-content2">
+				<div class="mypage-header">댓글</div>
+							<div class="form-group">	
 								 <input type="hidden" id="reviewno" name="reviewno" value="${dto.no}">
-							</div>		
-					</td>
-				</tr>
-			</table>
-			<textarea id="contents" placeholder="댓글입니다."></textarea>
-							<button type="button" id="submit">댓글등록</button>
-							<br>
-							<br>
-								
+							</div>	
+			<div style="padding: 10px;">
+			<textarea id="contents" placeholder="댓글입니다." class="writetext"></textarea>
+							<button type="button" id="submit">댓글<br>등록</button>
+			</div>			
 			<div id="div_review" class="review1">
 					<input type="hidden" id="writer" name="id" value="${sessionScope.member.id}" maxlength="10">	
 					<center></center><!--  댓글 달리는곳 -->
 			</div>
-	</table>
-	</section>
-	<!--==============================
-              footer
-=================================-->
+		</div>
+			<div style="text-align: center;">
+				<a href="freList" class="btnstyle">목록</a>
+			</div>
+		</div>
+</section>
 </body>
+	<%@ include file = "../common/footer.jsp" %>
 </html>

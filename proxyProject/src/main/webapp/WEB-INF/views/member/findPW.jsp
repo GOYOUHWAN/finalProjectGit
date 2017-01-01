@@ -68,16 +68,6 @@ function pay() {
 									</label>
 								</dt>
 									<dd>
-										<!-- <span class="country_code">
-										<span class="sel_value" id="input_internationalCode">+82</span>
-										<select id="internationalCode" name="internationalCode" title="국가코드" class="country_sel">
-											<option value="82">대한민국 +82
-										</select>
-									</span>
-									<span class="int_mob">
-										<input type="text" class="input_txt" placeholder="휴대전화번호" >
-									</span> -->
-										
 										<select id="tel" name="tel" class="blankset gulci">
 											<option>SKT</option>
 											<option>KT</option>

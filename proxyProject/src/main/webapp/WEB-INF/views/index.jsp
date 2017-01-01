@@ -81,6 +81,11 @@
 	margin-top: 100px;
 /* 	border: 1px solid green; */
 }
+#indexunder{
+	width: 77%;
+	height: 450px;
+	margin: 0 auto;
+}
 </style>
 </head>
 <!--  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">   -->
@@ -164,12 +169,15 @@
 			<p id="p_black">이의 신청은 02)123-1234로 전화바랍니다</p>
 		</c:if>
 	</nav>
+	<div id="indexunder">
+		<img alt="" src="/proxyProject/resources/image/Indexunder.png" width="100%" height="100%">
+	</div>
 	</section>	
 	<!--section 끝  -->
+</div>
 	
 	<!-- Footer Start -->
 		<%@ include file = "common/footer.jsp" %>
 	<!-- Footer End -->
-</div>
 </body>
 </html>

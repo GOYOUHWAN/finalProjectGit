@@ -13,14 +13,22 @@ public class NoticeService {
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
+	
 	//조회수
-	public void noticeView(NoticeDTO noticeDTO){
-		noticeDAO.noticeView(noticeDTO);
+	public NoticeDTO noticeView(int no, Model model){
+		NoticeDTO noticeDTO = null;
+		noticeDTO = noticeDAO.noticeView(no);
+		model.addAttribute("noticeDTO", noticeDTO);
+		return noticeDTO; 
 	}
 	
 	//공지사항 작성
 	public int noticeWrite(NoticeDTO noticeDTO){
 		return noticeDAO.noticeWrite(noticeDTO);
+	}
+	
+	public int noticeDel(int no){
+		return noticeDAO.noticeDel(no);
 	}
 	
 	//공지사항 목록

@@ -70,7 +70,8 @@ a {
 
 .mypage-menu {
 	text-align: center;
-	padding-top: 50px;
+	padding-top: 90px;
+	margin-bottom: 40px;
 }
 
 .mypage-menu-item {

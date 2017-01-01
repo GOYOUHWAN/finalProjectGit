@@ -106,6 +106,7 @@ $(function () {
 }
 .gray{
 	color: gray;
+	font-size: 16px;
 }
 #img_heart{
 	border-radius : 0px;
@@ -221,7 +222,7 @@ $(function () {
 			</tr>
 			<tr>
 
-				<td><h3>줄거리 : <span class="gray">${view.contents }</span></h3></td>
+				<td><h3>책 소개 <br></h3><span class="gray">${view.contents }</span></td>
 
 			<%-- 	<td><p class="gray">${view.contents }</p></td> --%>
 

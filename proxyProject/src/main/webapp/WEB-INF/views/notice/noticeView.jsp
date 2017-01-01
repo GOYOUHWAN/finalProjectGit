@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,39 +8,112 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/notice.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<style type="text/css">
+.td_1 {
+	width: 10%;
+	height: 50px;
+	text-align: center;
+	font-size: 15px;
+	background-color: #eeeeee;
+}
+.td_2{
+	text-align: left;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	font-size: 14px;
+	padding-left: 4%;
+	line-height: 200%;
+}
+.td_3{
+	width: 30%;
+	text-align: justify;
+	padding-left: 4%;
+}
+.td_4{
+	height: 200px;
+}
+#fre-section{
+	margin: 0 auto;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	text-align: center;
+}
+.mypage-content {
+   width: 60%;
+   vertical-align: top;
+   display: inline-block;
+   border: 1px solid #d8d8d8;
+   border-radius: 3px;
+   margin-bottom: 30px;
+   margin-top: 70px;
+}
+.mypage-header {
+    font-size: 24px;
+    padding: 22px 0 22px 34px;
+    border-bottom: 1px solid #d8d8d8;
+    text-align: left;
+    margin: 0 auto;
+}
+#s_div1 {
+	width: 100%;
+	margin: 0 auto;
+}
+.btnhere{
+	text-align: center;
+}
+.btn{
+	text-decoration: none;
+	border: 1px solid gray;
+	background-color: white;
+	padding: 5px 10px;
+	color: gray;
+	font-size: 18px;
+}
+.btn:hover{
+	background-color: gray;
+	color: white;
+	text-decoration: none;
+}
+</style>
 </head>
 <body>
-	<div class="content_wrap">
-		<div id="n2_nboard">
-			<!-- 목록버튼 -->
+<%@ include file = "../common/header.jsp" %>
+<section id="fre-section">
+<%-- 			<!-- 목록버튼 -->
 			<div class="option">
 				<a href="noticeList" class="list_button">
 					<img src = "${pageContext.request.contextPath}/resources/image/btn_list.gif">
 				</a>
-			</div>
-			<div class="view">
-				<div class="toparea_wrap">
-					<div>
-						<!-- title -->
-						<div id="n2_elTitleContainer" class="title_wrap">
-							<h3 class="title">[복구완료] 12/12 (월), '백과사전' 서비스의 장애 현상이 정상화
-								되었음을 알려드립니다.</h3>
-							<div class="add_info">조회 102</div>
-						</div>
-						<!-- 날짜 -->
-						<div class="private_wrap">
-							<div class="date">16.12.14.&nbsp;&nbsp;&nbsp;
-								<span class="time">19:00</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- content -->
-				<div class="content_wrap">안녕하세요. 19시 23분부터 19시 54분까지 백과사전
-					서비스에서 웹페이지에 접속되지않는 현상이 발생하였고, 긴급하게 수정작업을 진행하여 현재는 정상적으로 서비스를 이용하실 수
-					있습니다. 보다 안정적인 서비스를 위해 최선을 다하는 네이버가 되겠습니다. 감사합니다. 2016년 12월 12일</div>
-			</div>
-			<div class="list">
+			</div> --%>
+<div class="mypage-content">
+	<div class="mypage-header">공지사항</div>
+	<table id="s_div1">
+	<c:set var="n" value="${noticeDTO}"/>	
+		<tr>
+			<%-- <td class="td_3">작성자 : ${dto.id}</td> --%>
+			<td class="td_1">제목</td>
+			<td class="td_2">${n.title}</td>
+		</tr>
+		<tr>
+			<!-- <td rowspan="2" class="td_3"></td> -->
+			<td class="td_1">날짜</td>
+			<td class="td_2">${n.reg_date}</td>
+		</tr>
+		<tr>
+			<td class="td_1 td_4">내용</td>
+			<td class="td_2 td_4">${n.content}</td>
+		</tr>
+		
+	</table>
+	</div>
+	<div class="btnhere">
+		<c:if test="${sessionScope.member.type eq '3'}">
+			<a href="noticeDel?no=${n.no}"
+				onclick="return confirm('정말 삭제하시겠습니까?')" class="btn">삭제</a>
+		</c:if>
+		<a href="noticeList" class="btn">목록</a>
+	</div>
+<!-- 			<div class="list">
 				<div class="list_paging">
 					<ul class="list_ul">
 						<li>
@@ -56,8 +130,8 @@
 						</li>
 					</ul>
 				</div>
-			</div>
-		</div>
-	</div>
+			</div> -->
+</section>
+<%@ include file = "../common/footer.jsp" %>
 </body>
 </html>

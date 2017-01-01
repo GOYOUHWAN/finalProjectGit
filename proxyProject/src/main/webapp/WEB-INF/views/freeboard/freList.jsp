@@ -48,7 +48,7 @@
 }
 .mypage-menu {
 	text-align: center;
-	padding-top: 50px;
+	padding-top: 100px;
 	min-height: 500px;
 }
 .mypage-content {

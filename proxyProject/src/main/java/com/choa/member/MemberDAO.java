@@ -29,18 +29,12 @@ public class MemberDAO {
 
 	public int approve(ApproveDTO approveDTO, ArrayList<String> fileNames) throws Exception{
 		int result = 0;
-		//result = sqlSession.insert(namespace+"approve", approveDTO);
-		System.out.println("fileNames : "+fileNames.size());
-		int fileNum = sqlSession.selectOne(namespace+"fileNum");
 		Map<String, Object> data = new HashMap<String, Object>();
-		for(int i=0;i<fileNames.size();i++){
-			data.put("refNum", 10);
-			data.put("fileName"+(i+1), fileNames.get(i));
-			System.out.println("파일이름 : "+fileNames.get(i));
-			
-		}
+		data.put("id", approveDTO.getId());
+		data.put("filename1", fileNames.get(0));
+		data.put("filename2", fileNames.get(1));
 		result = result + sqlSession.insert(namespace+"approve", data);
-		System.out.println("result2 : "+result);
+		System.out.println("result : "+result);
 		return result;
 	}
 
@@ -66,6 +60,20 @@ public class MemberDAO {
 	
 	
 	//관리자메뉴=================================================
+	//판매자 승인
+	public int memberApprove(String id) throws Exception{
+		return sqlSession.update(namespace+"memberApprove", id);
+	}
+	
+	//판매자 승인요청 전체 건수 
+	public int appCount()throws Exception{
+		return sqlSession.selectOne(namespace+"appCount");
+	}
+	//판매자 승인 정보리스트
+	public List<ApproveDTO> approveInfo(PageMaker pageMaker)throws Exception{
+		System.out.println("DAO list");
+		return sqlSession.selectList(namespace+"approveInfo", pageMaker);
+	}
 	//회원정보열람
 	public List<MemberDTO> memberInfo(MemberPageMaker mPageMaker) throws Exception{
 		return sqlSession.selectList(namespace+"memberInfo", mPageMaker);
@@ -85,9 +93,11 @@ public class MemberDAO {
 	}
 	//회원메뉴=================================================
 		//id찾기
-		public String findID(String find) throws Exception{
-			find = sqlSession.selectOne(namespace+"findID", find);
-			return find;
+		public String findID(MemberDTO memberDTO) throws Exception{
+			System.out.println("memberDAO"+memberDTO.getName()+memberDTO.getEmail()+memberDTO.getTel());
+			String result = sqlSession.selectOne(namespace+"findID", memberDTO);
+			System.out.println("아이디찾기결과 : "+result);
+			return result;
 		}
 		
 		public int updatePW(String id, String pw) throws Exception{

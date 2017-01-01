@@ -11,8 +11,11 @@
 <!-- JavaScript 처리  시작 -->
 	<script type="text/javascript">
 		$(function() {
-			var idck=0;
-			
+			$("#idcheck").css("display", "none");
+			$("#pwcheck").css("display", "none");
+			var idck=0; 
+			var idck2=0;
+			var pwck=0;
 			//home버튼
 			$("#btn3").click(function() {
 				location.href="../";
@@ -20,7 +23,7 @@
 			
 			// 회원 가입 버튼
 			$("#btn4").click(function (){
-				if(idck!=0){
+				if(idck==1 && idck2==1 && pwck==1){
 				$.post("memberJoin", {
 					id : $("#id").val(),
 					pw : $("#pw2").val(),
@@ -42,10 +45,16 @@
 					alert("가입성공");
 					location.href="../";
 				});
+				}else{
+					alert("모든항목을 다 입력하세요");
 				}
-				else{
+				/* if else(idck==0){
 					alert("ID중복체크를 하세요.");
-				}
+				}if else(pwck==0){
+					alert("비밀번호가 올바르지 않습니다.");
+				}if else(idck2==0){
+					alert("아이디가 올바르지 않습니다.");
+				} */
 			});
 			
 			//ID중복체크
@@ -77,6 +86,25 @@
 		function getId(getId) {
 			$("#id").val(getId);
 		}
+		function chID(){
+			var id = $("#id").val();
+			var num = id.search(/[0-9]/g);
+			 var eng = id.search(/[a-z]/ig);
+			 var spe = id.search(/[-_]/gi);
+			 if(id.length < 5 || id.length > 21){
+				 $("#idcheck").css("display", "inline");
+			 }else{
+			 if(id.search(/₩s/) != -1){
+				 $("#idcheck").css("display", "inline");
+			 } if(num < 0 || eng < 0 || spe < 0 ){
+				 $("#idcheck").css("display", "inline");
+			 }
+			 else{
+				 $("#idcheck").css("display", "none");
+				 idck2=1;
+			 }
+			 }
+		}
 
 		// PW 일치, 불일치
 		function equalPW() {
@@ -92,8 +120,26 @@
 			}
 		}
 
-		// 비밀번호 초기화
+
+		// 비밀번호 검사& 초기화
 		function rePW() {
+			var pw = $("#pw1").val();
+			var num = pw.search(/[0-9]/g);
+			 var eng = pw.search(/[a-z]/ig);
+			 var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+			 if(pw.length < 8 || pw.length > 20){
+				 $("#pwcheck").css("display", "inline");
+			 }else{
+			 if(pw.search(/₩s/) != -1){
+				 $("#pwcheck").css("display", "inline");
+			 } if(num < 0 || eng < 0 || spe < 0 ){
+				 $("#pwcheck").css("display", "inline");
+			 }
+			 else{
+				 $("#pwcheck").css("display", "none");
+				 pwck=1;
+			 }
+			 }
 			$("#pw2").val("");
 			$("#true").css("display", "none");
 			$("#false").css("display", "none");
@@ -118,15 +164,19 @@
 				<tr>
 					<td class="td_1">아이디</td>
 					<td>
-						<input type="text" name="id" class="categ1 teduri" id="id"> 
+						<input type="text" name="id" class="categ1 teduri" id="id" onkeyup="chID()"> 
 						<button id="btn1" style="margin-left: 30px;">중복 확인</button><br>
 						<span id="useridspan"></span>
+						<br><span id="idcheck">5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.</span>
 					</td>
 				</tr>
 				<!-- 비밀번호 -->
 				<tr>
-					<td class="td_1">비밀번호</td>
-					<td><input type="password" class="categ1 teduri" id="pw1" onkeyup="rePW()"></td>
+					<td class="td_1">비밀번호</td><!-- 아이디비밀번호길이제한특수문자입력 -->
+					<td>
+						<input type="password" class="categ1 teduri" id="pw1" onkeyup="rePW()">
+						<br><span id="pwcheck">8~20자 영문 대 소문자, 숫자, 특수문자를 사용하세요.</span>
+					</td>
 				</tr>
 				<!-- 비밀번호 재확인 -->
 				<tr>

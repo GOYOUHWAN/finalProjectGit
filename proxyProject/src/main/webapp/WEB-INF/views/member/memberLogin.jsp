@@ -19,7 +19,7 @@
 	margin: 0 auto;
 	margin-top: 50px;
 	border-bottom: 1px solid #737373;
-	background-color: white;
+	background-color: rgba(255,247,229,0.5);
 	color: #737373;
 	font-size: 15px;
 }

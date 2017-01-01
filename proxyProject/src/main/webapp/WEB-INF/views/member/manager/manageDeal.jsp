@@ -252,6 +252,7 @@ a {
 			class="mypage-menu-item" href="manageSeller">판매자관리</a> <a
 			class="mypage-menu-item" href="manageBlacklist">블랙리스트관리</a>
 		<div class="mypage-menu-hr"></div>
+		<a class="mypage-menu-item" href="manageApprove">판매자 승인</a>
 		<a class="mypage-menu-item active" href="manageDeal">거래관리</a>
 		<div class="mypage-menu-hr"></div>
 		<a class="mypage-menu-item" href="manageSingolist">신고글관리</a>
