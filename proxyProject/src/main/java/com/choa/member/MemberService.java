@@ -67,6 +67,30 @@ public class MemberService {
 		model.addAttribute("success", success);
 		return number;
 	}
+	public int downPointBuyer(int num, Model model)throws Exception{
+		int number = memberDAO.downPointBuyer(num);
+		
+		String success = null;
+		if(number >0){
+			success = "구매자의 신용도를 -1 하였습니다!";
+		}else{
+			success = "실패!";
+		}
+		model.addAttribute("success", success);
+		return number;
+	}
+	public int downPointSeller(int num, Model model)throws Exception{
+		int number = memberDAO.downPointSeller(num);
+		
+		String success = null;
+		if(number >0){
+			success = "판매자의 신용도를 -1 하였습니다!";
+		}else{
+			success = "실패!";
+		}
+		model.addAttribute("success", success);
+		return number;
+	}
 	
 	
 	//고유환이 만든부분 시작

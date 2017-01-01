@@ -102,7 +102,7 @@ hr{
 }
 </style>
 </head>
-
+<body>
 <!--=====================
           Content
 ======================-->
@@ -112,7 +112,7 @@ hr{
 		<%@ include file = "../common/header.jsp" %>
 	<!-- Header End -->
 </div>
-   <div class="mypage-menu">
+   <div class="mypage-menu" style="border: 1px solid red;">
    <div class="mypage-content">
       <div class="blacklist-header"><p id="blacktitle">Freeboard</p></div>
 

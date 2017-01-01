@@ -274,11 +274,11 @@ a {
 					<c:forEach items="${dealList}" var="d">
 					
 						<div class="mypage-item-wrapper ng-scope">
-							<div class="mypageodr-item-info">${d.num }</div>
+							<div class="mypageodr-item-info">${d.numBook }</div>
 							<div class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${d.product }</div>
-							<div class="mypageodr-item-info-id mypageodr-item-state ng-binding">${d.id_seller }</div>
-							<div class="mypageodr-item-info-id mypageodr-item-state ng-binding jump">${d.id_buyer }</div>
-							<div class="mypageodr-item-date mypageodr-item-state-title ng-binding">${d.deal_date}</div>
+							<div class="mypageodr-item-info-id mypageodr-item-state ng-binding">${d.idSeller }</div>
+							<div class="mypageodr-item-info-id mypageodr-item-state ng-binding jump">${d.idBuyer }</div>
+							<div class="mypageodr-item-date mypageodr-item-state-title ng-binding">${d.dealdate}</div>
 							<div class="mypageodr-item-state mypageodr-item-state-title ng-binding jump">${d.status }</div>
 							<div class="mypageodr-item-btn-wrapper"></div>
 						</div>

@@ -1,10 +1,16 @@
 package com.choa.deposit;
 
-import com.choa.deposit.DepositDTO;
 
-public interface DepositDAO {
+
+public class DepositDAO {
 
 	//입금하기.
-	public void depositWrite(DepositDTO dto);
+	public int depositWrite(int num, String id)throws Exception{
+		
 	
+	return num;
+	}
+			
+			
+			
 }

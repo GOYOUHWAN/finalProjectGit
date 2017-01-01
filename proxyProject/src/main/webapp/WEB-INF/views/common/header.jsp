@@ -55,6 +55,7 @@
 
 .header_a:hover {
 	text-decoration: underline;
+	z-index: 9;
 /* 	color: white; */
 }
 
@@ -77,7 +78,7 @@
 .dropdown {
     position: relative;
     display: inline-block;
-
+	z-index: 9;
 }
 
 .dropdown-content {
@@ -87,7 +88,7 @@
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 
-    z-index: 1;
+    z-index: 9;
 }
 
 .dropdown:hover .dropdown-content {
@@ -95,10 +96,11 @@
     display: block;
         background-color:  rgba(110, 153, 7, 0.8); /* 여기가 호버했을때 색깔이다. */
         text-align: left;
-        
+        z-index: 9;
 }
 .a_drop{
 	color: white;
+z-index: 9;
 }
 
 /* dropdown 관련 css 끝 */
@@ -172,9 +174,9 @@
 						</c:when>
 						<c:when test="${member.type ==2 }">
 									<li class="h_li2">
-									<div class="dropdown">
-									<span class="dropdown header_a">중고책</span>
-										 <div class="dropdown-content">
+									<div class="dropdown" style="">
+									<span class="dropdown header_a" style="">중고책</span>
+										 <div class="dropdown-content" style="">
 										   <p class="p_dropdown"><a href="${pageContext.request.contextPath}/sellBook/sellBookList?id=${member.id}" class="a_drop" style="color:white;">중고책 구매</a></p>
 										   <p class="p_dropdown"><a href="${pageContext.request.contextPath}/sellBook/sellBookWrite" class="a_drop" style="color : white;">중고책 판매 등록</a></p>
 										  </div>

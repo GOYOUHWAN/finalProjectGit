@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="com.choa.reviewBook.ReviewBookDAO">
+    	<!-- 댓글작성 -->
+    	<insert id="reviewBookWrite">
+    		INSERT INTO review_book VALUES(#{num},re_book_seq.nextval,#{id},#{contents},sysdate)
+    	</insert>
+    	
+    	<!-- 작성 댓글 보기 -->
+    	<select id="reviewBookView" resultType="com.choa.reviewBook.ReviewBookDTO">
+    		SELECT * FROM review_book WHERE num=#{num}    	
+    	</select>
+    	
+    	<!-- 댓글 뿌려주기 -->
+    	<select id="reviewBookList" resultType="com.choa.reviewBook.ReviewBookDTO">
+    		SELECT * FROM review_book where num=#{num} order by num_review desc
+    	</select>
+    	
+    	<!-- 댓글 삭제하기 -->
+    	<delete id="reviewBookDelete">
+    		DELETE FROM review_book WHERE num_review=#{num_review}
+    	</delete>
+    	
+    	<!-- 댓글 수정하기 -->
+    	<update id="reviewBookModify">
+    		UPDATE review_book SET CONTENTS=#{contents} WHERE num_review=#{num_review}
+    	</update>
+    </mapper>

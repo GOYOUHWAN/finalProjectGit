@@ -17,6 +17,7 @@ public class MemberDTO {
 	private int report;
 	private Date joinDate;
 	
+
 	public int getTrust() {
 		return trust;
 	}

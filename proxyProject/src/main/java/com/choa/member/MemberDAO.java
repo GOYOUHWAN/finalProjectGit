@@ -43,7 +43,12 @@ public class MemberDAO {
 	}
 	public int addPointSeller(int num)throws Exception{
 		return sqlSession.update(namespace+"addPointSeller", num );
-
+	}
+	public int downPointBuyer(int num)throws Exception{
+		return sqlSession.update(namespace+"downPointBuyer", num );
+	}
+	public int downPointSeller(int num)throws Exception{
+		return sqlSession.update(namespace+"downPointSeller", num );
 	}
 	
 	//고유환이 만든부분 시작

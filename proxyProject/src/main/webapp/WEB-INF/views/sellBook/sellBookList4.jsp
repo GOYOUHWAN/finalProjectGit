@@ -154,6 +154,10 @@ function checkCookie() {
 	font-size: 23px;
 	color: gray;
 }
+#span_sellingprice{
+	font-size: 24px;
+	float: right;
+}
 	</style>
 </head>
 <body id="body_sellbooklist">
@@ -217,9 +221,12 @@ function checkCookie() {
 	                       
 	                        <div class="pad">
 	                        <!--각 책에대한 설명  -->
-	                       
-	                         	<span class="pink name">${list4[count].product}</span><br><br>
-	                         	 <p id="p_price">${list4[count].price}</p> <p id="p_won">원</p>
+	                       		<span class="pink name">${list4[count].product}</span><br><br>
+	                         	<p id="p_price">${list4[count].price}원 </p><br><div id="span_sellingprice">${list4[count].sellingprice }원</div>
+	                         	<div> <c:set var="num1"  value="${list4[count].sellingprice / list4[count].price *100}" /> 
+	                         				<c:set var="number" value="${num1-(num1%1) }"></c:set>
+	                      
+	                         	${100- number }% <p style="font-weight: bold; display: inline-block;">↓</p></div> <!-- <p id="p_won">원</p> -->
 	                    	  	&nbsp;&nbsp;&nbsp;&nbsp;
 	                    	  	
 	                    	  	<div id="div_likes" >

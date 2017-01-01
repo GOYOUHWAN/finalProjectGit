@@ -13,6 +13,13 @@ public class DealDAO {
 	private SqlSession sqlSession;
 	private String namespace="DealMapper.";
 	
+	
+	public DealDTO selectDelivery(int num)throws Exception{
+		System.out.println("num은 몇인가" + num);
+		return sqlSession.selectOne(namespace+"selectDelivery", num);
+	}
+	
+	
 	public List<Integer> dealNumBook()throws Exception{
 		return sqlSession.selectList(namespace+"dealNumBook" );
 	}
@@ -20,7 +27,9 @@ public class DealDAO {
 	
 	//deal 하나 생성
 	public int insertDeal(DealDTO dealDTO)throws Exception{
-		return sqlSession.insert(namespace+"insertDeal"+dealDTO);
+		System.out.println("딜 디에오");
+		System.out.println("책 번호 "+dealDTO.getNumBook());
+		return sqlSession.insert(namespace+"insertDeal",dealDTO);
 		
 	}
 	

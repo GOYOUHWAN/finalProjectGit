@@ -15,13 +15,18 @@
    <update id="confirm" parameterType="int">
    		update BOOK set status='구매확정' where num=#{num}
    </update>
+   <update id="depositSuccess" parameterType="int">
+   		update BOOK set status='결제완료' where num=#{num}
+   </update>
 
    <!--판매자가 택배를 보내고 배송완료 버튼을 누르면 책의 status가 배송중으로 바뀐다  -->
    <update id="delivery" parameterType="int">
    		update BOOK set status='배송중' where num=#{num}
    </update>
    
-   <update id="statusDeposit" parameterType="int">
+   
+   
+   <update id="statusDeposit" parameterType="com.choa.deposit.DepositDTO">
    		update BOOK set status='결제완료' where num=#{num}
    </update>
    
@@ -49,12 +54,16 @@
    		 or (T.num=BP.num and T.contents like '%'||#{search}||'%')
    		 or (T.num=BP.num and T.genre like '%'||#{search}||'%')
 	</select>
-   
-   
+   <!-- 구매 후 자신이 산 책 db에 넣기 -->   
+  	<insert id="insertBBB" parameterType="com.choa.deal.DealDTO">
+  		insert into BUYERBUYBOOKS	values(#{idBuyer}, #{numBook})
+  	</insert>
    <!-- 하트눌렀을때 MemberLikeBooks 의  해당 한줄 삽입하기  -->
    <insert id="insertMLB" parameterType="com.choa.member.MemberLikeBooksDTO">
-   		insert into MEMBERLIKEBOOKS values(#{id}, #{num}) 
+   		insert into MEMBERLIKEBOOKS values(#{id}, #{numBooks}) 
    </insert>
+
+   
    <!--하트 눌렀을때 Book의 likes 하나 더하기  -->
    <update id="changeLikesAdd" parameterType="int">
    		update BOOK set likes=likes+1 where num=#{num}

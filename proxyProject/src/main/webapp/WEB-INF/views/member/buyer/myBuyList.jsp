@@ -124,7 +124,7 @@ tr, th {
 				<thead>
 					<tr>
 						<th>책 제목</th>
-						<th>가격</th>
+						<th>가격+수수료+배송</th>
 						<th>구매 날짜</th>
 						<th><div id="div_th">주문상태</div>
 						<div class="dropup">
@@ -151,12 +151,28 @@ tr, th {
 								
 								<td><a href="<%=application.getContextPath()%>/sellBook/sellBookView?id=${list.id}&num=${list.num}">
 										${list.product}</a></td>
-								<td>${list.price }</td>
+								<td>${list.sellingprice + 3000}원</td>
 								<td>${list.buy_date}</td>
 								<td id="td_status${list.num}">${list.status}</td>
 								<td id="td_status2${list.num }">
 								<c:if test="${list.status == '입금대기중' }">
-									<a href="depositWrite?id=${member.id}&price=${list.price}&num=${list.num}&id=${list.id}"><button id="deposit"> 입금하기 </button></a>
+									<button id="deposit${list.num }" onclick="depositSuccess(${list.num});"> 입금완료 </button>
+										<script type="text/javascript">
+											function depositSuccess(number){
+												$.ajax({
+			                    					url:'depositSuccess',
+			                    					type:'POST',
+			                    					data : {num:number}, 	
+			                    					success:function(result) {    //여기서 result는 ajax 실행했을때 컨트롤러에서 받는 리턴을 의미
+				                    					$("#td_status"+number).html("결제완료");
+				                    					$("#deposit"+number).hide();
+			                    					},
+			                    					error:function(e){
+			                    						alert("실패했습니다.");
+			                    					}
+			                    				});
+											};
+										</script>
 								</c:if>
 								<c:if test="${list.status == '배송중' }">
 								<button id="btn_confirm${list.num }" onclick="numclick(${list.num});">구매확정</button>
@@ -186,7 +202,8 @@ tr, th {
 											<div id="span_thumb${list.num }">거래상대 평가</div>
 									<!--상대방 신용도 +1  -->
 											<div class="thumbs" id="thumb${list.num }"><img onclick="clickup(${list.num});" id="btn_img" class="img_thumb" src="${pageContext.request.contextPath}/resources/image/up.png">	</div>&nbsp;&nbsp;
-											
+									<!--상대방 신용도 -1  -->			
+											<div class="thumbs"><div class="thumbs" id="thumb${list.num }"><img onclick="clickdown(${list.num});" id="btn_img" class="img_thumb" src="${pageContext.request.contextPath}/resources/image/down.png"></div>
 											<script type="text/javascript">
 											function clickup(number){
 											 	$.ajax({
@@ -202,12 +219,25 @@ tr, th {
 			                    					}
 			                    				}); 
 											};
-									
+											
+											function clickdown(number){
+											 	$.ajax({
+			                    					url:'downPointSeller',
+			                    					type:'POST',
+			                    					data : {num:number}, 	
+			                    					success:function(result) {    //여기서 result는 ajax 실행했을때 컨트롤러에서 받는 리턴을 의미
+				                    					$("#td_status"+number).html("구매자 평가 완료");
+				                    					$("#td_status2"+number).html("");
+			                    					},
+			                    					error:function(e){
+			                    						alert("실패했습니다");
+			                    					}
+			                    				}); 
+											};
 											
 										</script>
-									<!--상대방 신용도 -1  -->	
-											<div class="thumbs"><a href="deletePoint?num=${list.num }"><img class="img_thumb" src="${pageContext.request.contextPath}/resources/image/down.png"></a></div>
-									<%-- </c:if>   --%>
+									
+							
 									</div>
 							</tr>
 						</c:forEach>
