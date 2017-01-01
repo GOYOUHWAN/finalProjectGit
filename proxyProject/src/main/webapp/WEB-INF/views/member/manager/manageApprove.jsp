@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<%-- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css"> --%>
+<title>Manager Page</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/common/common.css">
 <style type="text/css">
 * {
    -webkit-box-sizing: border-box;
@@ -39,7 +39,7 @@ a {
    background-image: none;
    border: 1px solid transparent;
    white-space: nowrap;
-   padding: 6px 12px;
+   /* padding: 6px 12px; */
    font-size: 14px;
    line-height: 1.42857;
    border-radius: 3px;
@@ -56,7 +56,7 @@ a {
 }
 
 .btn-expanded {
-   width: 100%;
+   width: 85%;
 }
 
 .mypage-menu {
@@ -135,13 +135,9 @@ a {
    display: inline-block;
    text-align: center
 }
-.mypageodr-header-info2 {
-   width: 90px;
-   display: inline-block;
-   text-align: center
-}
+
 .mypageodr-header-info-tel {
-   width: 190px;
+   width: 150px;
    display: inline-block;
    text-align: center
 }
@@ -159,7 +155,7 @@ a {
 }
 
 .mypageodr-item-info {
-   width: 40px;
+   width: 60px;
    display: inline-block;
    margin-left: 20px;
    vertical-align: middle
@@ -171,23 +167,15 @@ a {
 }
 
 .mypageodr-item-state {
-   width: 200px;
+   width: 60px;
    display: inline-block;
    font-size: 12px;
    color: #000;
    vertical-align: middle
 }
-.mypageodr-item-state2 {
-   width: 150px;
-   display: inline-block;
-   font-size: 12px;
-   color: #000;
-   vertical-align: middle;
-   margin-left: 5%;
-}
 
 .mypageodr-item-tel {
-   width: 160px;
+   width: 150px;
    display: inline-block;
    font-size: 12px;
    color: #000;
@@ -214,7 +202,7 @@ a {
 }
 
 .mypageodr-delete-btn {
-   display: block;
+  /*  display: block; */
 }
 
 .mypage-page-wrapper {
@@ -242,14 +230,65 @@ a {
     padding: 22px 0 22px 34px;
     border-bottom: 1px solid #d8d8d8;
 }
-/* .mypage-menu {
+.mypageodr-item-btn-wrapper {
     display: inline-block;
-    width: 234px;
-    padding: 22px 0;
-    border: 1px solid #d8d8d8;
+    width: 126px;
+    padding: 0 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
     border-radius: 3px;
-    margin: 30px 14px 50px 0;
-} */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.btn-expanded {
+    width: 100%;
+}
+.mypageodr-delete-btn {
+    display: block;
+}
+.jump{
+	margin-left: 5%;
+}
+.jump2{
+	margin-left: 4%;
+}
+.jump3{
+	margin-left: 3%;
+}
+.pictext:hover{
+	color: #6e9907;
+	font-weight: bold;
+}
+.ohho{
+	padding: 10px 25px;
+	background-color:white;
+	border: 1px solid #d8d8d8;
+}
+.ohho:hover{
+	color: white;
+	background-color: gray;
+}
 </style>
 </head>
 <body>
@@ -261,63 +300,61 @@ a {
 			class="mypage-menu-item" href="manageSeller">판매자관리</a> <a
 			class="mypage-menu-item" href="manageBlacklist">블랙리스트관리</a>
 		<div class="mypage-menu-hr"></div>
-		<a class="mypage-menu-item" href="manageApprove">판매자 승인</a>
-			<a class="mypage-menu-item" href="manageDeal">거래관리</a>
+		<a class="mypage-menu-item active" href="manageApprove">판매자 승인</a>
+		<a class="mypage-menu-item" href="manageDeal">거래관리</a>
 		<div class="mypage-menu-hr"></div>
-		<a class="mypage-menu-item active" href="manageSingolist">신고글관리</a>
+		<a class="mypage-menu-item" href="manageSingolist">신고글관리</a>
 	</div>
 	<div class="mypage-content">
-		<div class="mypage-header">신고글관리</div>
+		<div class="mypage-header">블랙리스트관리</div>
 		<div class="mypage-body ng-scope">
 			<div class="mypageodr-table-header">
-				<div class="mypageodr-header-info2">사기꾼 아이디</div>
-				<div class="mypageodr-header-info2" style="margin-left: 5%; margin-right:22px;">신고자 아이디</div>
-				<div class="mypageodr-header-info-tel">제목</div>
-				<div class="mypageodr-header-info" style="margin-left: 7%; margin-right:22px;">날짜</div>
-				<div class="mypageodr-header-info" style="margin-left: 4%;">관리</div>
+				<div class="mypageodr-header-info-tel">구매자 ID</div>
+				<div class="mypageodr-header-info-tel jump">주민등록증</div>
+				<div class="mypageodr-header-info-tel jump">통장 사본</div>
+				<div class="mypageodr-header-info-tel jump">승인 관리</div>
 			</div>
 			<div>
 					<!-- 구매자 정보 -->
-					<c:forEach items="${manageSingolist}" var="f">
+					<c:forEach items="${approveInfo}" var="f">
 					
 						<div class="mypage-item-wrapper ng-scope">
-							<div class="mypageodr-item-info">
-								<a class="mypageodr-item-price ng-binding"
-								href="${pageContext.request.contextPath }/blackList/blackmView?id=${f.sid}">${f.sid }</a>
+							<div class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.id }</div>
+							<div class="mypageodr-item-tel mypageodr-item-state-title ng-binding jump">
+								<p id="name1${f.id }" onclick="name1click(${f.id })" class="pictext">주민등록증</p>
 							</div>
-							<div
-								class="mypageodr-item-state2 mypageodr-item-state-title ng-binding">${f.bid }</div>
-							<div
-								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">
-								<a href="${pageContext.request.contextPath }/blackList/singoView?sid=${f.sid}">${f.title}</a></div>
-							<div
-								class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.reg_date }</div>
-							<div class="mypageodr-item-btn-wrapper">
-								<a class="btn btn-default btn-expanded mypageodr-delete-btn"
-									href="${pageContext.request.contextPath}/blackList/singoDelete?sid=${f.sid }">삭제</a>
+							<div class="mypageodr-item-tel mypageodr-item-state-title ng-binding jump">
+								<p id="name2${f.id }" onclick="name2click(${f.id })" class="pictext">통장 사본</p>
 							</div>
+							<div class="mypageodr-item-tel mypageodr-item-state-title ng-binding jump" id="approve${f.id }"><button onclick="memberApprove(${f.id })" class="ohho">승인</button></div>
 						</div>
-						
+						<!-- 사진가져오기 -->
+						<div class="mypage-item-wrapper divhide" id="img1${f.id }">
+							<img class="img1" id="img" src="${pageContext.request.contextPath}/resources/upload/${f.filename1}" > 
+						</div>
+						<div class="mypage-item-wrapper divhide" id="img2${f.id }">
+							<img class="img1" id="img" src="${pageContext.request.contextPath}/resources/upload/${f.filename2}" > 
+						</div>
 					</c:forEach>
 				<div class="mypage-page-wrapper">
 					<!-- pageNumber -->
 					<c:if test="${listsize != '0' }">
 						<c:if test="${paging.curBlock > 1}">
-							<a href="manageSingolist?curPage=${paging.startNum-1}&perPage=10">이전</a>
+							<a href="manageApprove?curPage=${paging.startNum-1}&perPage=10">이전</a>
 						</c:if>
 						<c:if test="${paging.totalBlock>0 }">
 						<c:forEach begin="${paging.startNum}" step="1"
 							end="${paging.lastNum}" var="i">
 							<a class="mypage-page"
-								href="manageSingolist?curPage=${i}&perPage=10" value="${i }">${i}</a>
+								href="manageApprove?curPage=${i}&perPage=10" value="${i }">${i}</a>
 
 						</c:forEach>
 						</c:if>
 						<c:if test="${paging.totalBlock==0 }">
-							<h4>아직 신고글이 존재하지 않습니다.</h4>
+							<h4>아직 블랙리스트가 존재하지 않습니다.</h4>
 						</c:if>
 						<c:if test="${paging.curBlock < paging.totalBlock}">
-							<a href="manageSingolist?curPage=${paging.lastNum+1}&perPage=10" >다음</a>
+							<a href="manageApprove?curPage=${paging.lastNum+1}&perPage=10" >다음</a>
 						</c:if>
 						<!-- PAGINATIOIN:E -->
 					</c:if>
@@ -329,4 +366,37 @@ a {
 		<%@ include file = "../../common/footer.jsp" %>
 	<!-- Footer End -->
 </body>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {	
+	$(".mypage-page:eq(${totalBlock})").addClass("active");
+	$(".divhide").hide();
+});
+//판매자 승인 
+function memberApprove(memberid){
+	alert("memberid : "+memberid);
+$.ajax({
+	url:"upgrade",
+	dataType : "json",
+	type:"POST",
+	data : {id:memberid},
+	success:function(data) {
+		alert("승인완료");
+	},
+    error : function(jqXHR, textStatus, errorThrown) {
+        $("#approve"+memberid).html("승인완료");
+    }
+});
+}
+
+function name1click(memberid){
+	$("#img2"+memberid).hide();
+	$("#img1"+memberid).show();
+}
+function name2click(memberid){
+	$("#img1"+memberid).hide();
+	$("#img2"+memberid).show();
+}
+</script>
 </html>

@@ -2,25 +2,25 @@ package com.choa.member;
 
 public class ApproveDTO {
 	private String id;
-	private String identitycard;
-	private String bank;
+	private String filename1;
+	private String filename2;
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getIdentitycard() {
-		return identitycard;
+	public String getFilename1() {
+		return filename1;
 	}
-	public void setIdentitycard(String identitycard) {
-		this.identitycard = identitycard;
+	public void setFilename1(String filename1) {
+		this.filename1 = filename1;
 	}
-	public String getBank() {
-		return bank;
+	public String getFilename2() {
+		return filename2;
 	}
-	public void setBank(String bank) {
-		this.bank = bank;
+	public void setFilename2(String filename2) {
+		this.filename2 = filename2;
 	}
 	
 	

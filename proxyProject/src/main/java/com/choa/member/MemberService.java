@@ -25,6 +25,8 @@ public class MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
 	
+	
+	//구매자가 판매자 승인 신청요청
 	public int approve(ApproveDTO approveDTO,  MultipartRequest mr,HttpSession session) throws Exception{
 		String path = session.getServletContext().getRealPath("resources/upload");
 		List<MultipartFile> files = mr.getFiles("identitycard");
@@ -33,6 +35,7 @@ public class MemberService {
 		for(int i = 0; i<files.size(); i++){
 			MultipartFile mf = files.get(i);
 			String fileName = UUID.randomUUID().toString()+"_"+mf.getOriginalFilename();
+			System.out.println("memberService "+fileName);
 			File file  = new File(path, fileName);
 			mf.transferTo(file);
 			fileNames.add(fileName);
@@ -89,23 +92,41 @@ public class MemberService {
 	
 	
 	//관리자메뉴=================================================
+	//판매자 승인
+	public int memberApprove(String id) throws Exception{
+		return memberDAO.memberApprove(id);
+	}
+	
+	//관리자가 판매자 승인리스트
+	public void manageApprove(int curPage, int perPage, Model model)throws Exception{	
+		System.out.println("memberService");
+		int totalCount = memberDAO.appCount();
+		System.out.println("totalCount : "+totalCount);
+		List<ApproveDTO> ar = null;
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCurPage(curPage);
+		pageMaker.setPerPage(perPage);
+		pageMaker.makeRow();
+		pageMaker.makePage(totalCount);
+		ar = memberDAO.approveInfo(pageMaker);
+		System.out.println("ar id: "+ar.get(0).getId());
+		System.out.println("ar 1: "+ar.get(0).getFilename1());
+		System.out.println("ar 2: "+ar.get(0).getFilename2());
+		model.addAttribute("approveInfo", ar);
+		
+		model.addAttribute("paging", pageMaker);
+	}
 	//회원정보열람
 	public void memberInfo(int curPage, int perPage, Model model, int type) throws Exception{		
 		int totalCount = memberDAO.memberCount(type);
+		List<MemberDTO> ar = null;
 		MemberPageMaker mPageMaker = new MemberPageMaker();
 		mPageMaker.setType(type);
 		mPageMaker.setCurPage(curPage);
 		mPageMaker.setPerPage(perPage);
 		mPageMaker.makeRow();
-		List<MemberDTO> ar = null;
-		
-		try{
-			mPageMaker.makePage(totalCount);
-			ar = memberDAO.memberInfo(mPageMaker);
-		}catch (Exception e){
-			e.printStackTrace();
-		}
-		
+		mPageMaker.makePage(totalCount);
+		ar = memberDAO.memberInfo(mPageMaker);
 		model.addAttribute("memberInfo", ar);
 		model.addAttribute("paging", mPageMaker);
 	}
@@ -133,8 +154,10 @@ public class MemberService {
 		
 		
 	// ID찾기
-	public void findID(String find, Model model) throws Exception {
-		model.addAttribute("find", memberDAO.findID(find));
+	public void findID(MemberDTO memberDTO, Model model) throws Exception {
+		System.out.println("memberService"+memberDTO.getName()+memberDTO.getEmail()+memberDTO.getTel());
+		
+		model.addAttribute("find", memberDAO.findID(memberDTO));
 	}
 	
 	// PW변경

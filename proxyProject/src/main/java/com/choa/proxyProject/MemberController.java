@@ -103,12 +103,38 @@ public class MemberController {
       }
       return "member/manager/manageSeller";
    }
+   //판매자 신청 승인
+   @RequestMapping(value = "/manager/upgrade", produces = "application/json; charset=utf-8")
+   public void memberApprove(@RequestParam String id, HttpServletResponse response)throws Exception{
+	   String message="";
+	   PrintWriter writer = response.getWriter();
+	   int result = memberService.memberApprove(id);
+	   if (result > 0) {
+	         message = "승인완료.";
+	      } else {
+	         message = "승인실패";
+	      }
+	      writer.println("<script>alert('" + message + "'); </script>");
+   }
 
+
+   //판매자 신청승인 리스트
+   @RequestMapping(value="/manager/manageApprove")
+   public String manageApprove(@RequestParam(defaultValue = "1") int curPage,
+		   @RequestParam(defaultValue ="10") int perPage, Model model){
+	   System.out.println("memberController");
+	   try {
+		memberService.manageApprove(curPage, perPage, model);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	   return "/member/manager/manageApprove";
+   }
+   
 	//블랙리스트
 	@RequestMapping(value ="/manager/manageBlacklist")
 	public String memberInfo(@RequestParam(defaultValue = "1") int curPage,
-		@RequestParam(defaultValue = 
-		"10") int perPage, Model model,@RequestParam(defaultValue = "4") int type) {
+		@RequestParam(defaultValue = "10") int perPage, Model model,@RequestParam(defaultValue = "4") int type) {
 		try {
 			memberService.memberInfo(curPage, perPage, model, type);
 		} catch (Exception e) {
@@ -175,15 +201,17 @@ public class MemberController {
    public void buyerUpgrade(){}
    
    @RequestMapping(value="/buyer/buyerUpgrade", method=RequestMethod.POST)
-   public void buyerUpgrade(ApproveDTO approveDTO, MultipartRequest mr, HttpSession session, Model model){
+   public String buyerUpgrade(@RequestParam String id, ApproveDTO approveDTO, MultipartRequest mr, HttpSession session, Model model){
 	   int result = 0;
+	   approveDTO.setId(id);
 	   try {
+		System.out.println("memberController"+approveDTO.getFilename1()+approveDTO.getId()+approveDTO.getFilename2());
 		result = memberService.approve(approveDTO, mr, session);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	  
+	  return "redirect:/";
    }
 
    // =========================================================
@@ -258,28 +286,29 @@ public class MemberController {
    //ID찾기
    @RequestMapping(value="findID", method=RequestMethod.POST)
    public String findID(@RequestParam String tel,@RequestParam String pFirst,@RequestParam String pSecond,@RequestParam String pThird, 
-		   @RequestParam String email_1, @RequestParam String email_2, @RequestParam int ch, Model model){
+		   @RequestParam String email_1, @RequestParam String email_2,@RequestParam String name, Model model){
 	   String find = "";
-	   String page = "";
+	   MemberDTO memberDTO = new MemberDTO();
+	   name = name.replaceAll(",", "");
+	   memberDTO.setName(name);
 	   if(pThird!=null){
 		   find = "["+tel+"]"+pFirst+"-"+pSecond+"-"+ pThird;
 		   find = find.replace(",","");
+		   memberDTO.setTel(find);
+		   System.out.println("컨트롤러 :phone "+find);
 	   }else{
 		   find = email_1+"@"+email_2;
 		   find = find.replace(",","");
+		   memberDTO.setEmail(find);
+		   System.out.println("컨트롤러 :email "+find);
 	   }
-	   
+	  
 	   try {
-		memberService.findID(find, model);
+		memberService.findID(memberDTO, model);
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
-	   if(ch=='1'){
-		   page = "member/findIDResult";
-	   }else{
-		   page = "member/findPWResult";
-	   }
-	  return page;
+	  return "member/findIDResult";
    }
    
    //ID찾기결과

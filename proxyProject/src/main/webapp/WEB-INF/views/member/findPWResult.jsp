@@ -9,11 +9,28 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 $(function () {
+	 $("#pwcheck").css("display", "none");
 	$("#true").css("display", "none");
 	$("#false").css("display", "none");
 });
-//pw초기화
-function rePW(){
+//비밀번호 검사& 초기화
+function rePW() {
+	var pw = $("#pw1").val();
+	var num = pw.search(/[0-9]/g);
+	 var eng = pw.search(/[a-z]/ig);
+	 var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+	 if(pw.length < 8 || pw.length > 20){
+		 $("#pwcheck").css("display", "inline");
+	 }else{
+	 if(pw.search(/₩s/) != -1){
+		 $("#pwcheck").css("display", "inline");
+	 } if(num < 0 || eng < 0 || spe < 0 ){
+		 $("#pwcheck").css("display", "inline");
+	 }
+	 else{
+		 $("#pwcheck").css("display", "none");
+	 }
+	 }
 	$("#pw2").val("");
 	$("#true").css("display", "none");
 	$("#false").css("display", "none");
@@ -65,6 +82,7 @@ function equalPW(){
 							<label class="td_1"></label>
 							<input type="password" class="input_txt gulci blankset" id="pw1" placeholder="새 비밀번호"
 								onkeyup="rePW()">
+							<br><span id="pwcheck">8~20자 영문 대 소문자, 숫자, 특수문자를 사용하세요.</span>
 						</dt>
 						<!-- 비밀번호 재확인 -->
 						<dt style="margin-left: 17%;">

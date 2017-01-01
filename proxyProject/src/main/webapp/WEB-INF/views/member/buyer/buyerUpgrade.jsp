@@ -68,18 +68,17 @@ tr, th {
 								<thead>
 									<tr>
 										<td class="td_1">회 원 &nbsp;&nbsp;&nbsp;I D</td>
-										<td><input type="text" class="write_text" name="bid"
+										<td><input type="text" class="write_text" name="id"
 											value="${sessionScope.member.id}" readonly="readonly"></td>
 									</tr>
 									<tr>
 										<td class="td_1">주민 등록증</td>
-										<td><input type="file" id="file_1" class="categ0"
-											name="fileName1"></td>
+										<td><input type="file" class="categ0"
+											name="identitycard"></td>
 									</tr>
 									<tr>
 										<td class="td_1">통 장&nbsp;&nbsp;사 본</td>
-										<td><input type="file" id="file_1" class="categ0"
-											name="fileName1"></td>
+										<td><input type="file" name="bank"></td>
 									</tr>
 								</thead>
 								<tbody>
