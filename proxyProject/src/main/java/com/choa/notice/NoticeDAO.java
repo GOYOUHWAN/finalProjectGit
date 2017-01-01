@@ -18,16 +18,20 @@ public class NoticeDAO {
 	private String namespace = "NoticeMapper.";
 	
 	//공지사항 글 하나 보기
-	public void noticeView(NoticeDTO noticeDTO){
+	public NoticeDTO noticeView(int no){
 		//조회수 증가
-		sqlSession.update(namespace+"noticeHits", noticeDTO);
-		sqlSession.selectOne(namespace+"noticeView", noticeDTO);
+		sqlSession.update(namespace+"noticeHits", no);
+		return sqlSession.selectOne(namespace+"noticeView", no);
 	}
 	
 	//공지사항 작성
 	public int noticeWrite(NoticeDTO noticeDTO){
 		System.out.println(noticeDTO.getContent()+"공지사항DAO"+noticeDTO.getTitle());
 		return sqlSession.insert(namespace+"noticeWrite", noticeDTO);
+	}
+	
+	public int noticeDel(int no){
+		return sqlSession.delete(namespace+"noticeDel", no);
 	}
 	
 	//공지사항 목록
@@ -40,8 +44,11 @@ public class NoticeDAO {
 	}
 	//공지사항 수정
 	public void noticeMod(NoticeDTO noticeDTO){}
+	
 	//공지사항 글 삭제
-	public void noticeDelte(int no){}
+	public void noticeDelete(int no){
+		
+	}
 	
 	//전체 글 개수
 	public int noticeCount() throws Exception {

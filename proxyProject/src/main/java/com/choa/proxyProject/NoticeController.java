@@ -2,12 +2,14 @@ package com.choa.proxyProject;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.choa.freeboard.FreeboardDAO;
 import com.choa.freeboard.FreeboardDTO;
@@ -21,31 +23,35 @@ import com.choa.util.PageVo;
 public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
+	private String namespace = "NoticeMapper.";
 	
 	//공지사항 글쓰기
 	@RequestMapping(value="noticeWrite", method=RequestMethod.GET)
 	public void noticeWrite(){}
 	
 	@RequestMapping(value="noticeWrite", method=RequestMethod.POST)
-	public void noticeWrite(@RequestParam String title, @RequestParam String content){
+	public String noticeWrite(@RequestParam String title, @RequestParam String content, RedirectAttributes rd){
 		String message = "";
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setTitle(title);
 		noticeDTO.setContent(content);
 		int result = noticeService.noticeWrite(noticeDTO);
 		if(result>0){
-			message="글등록성공";
+			message="글 등록 성공";
 		}else{
 			message="등록 실패";
 		}
 		System.out.println(message);
+		rd.addFlashAttribute("message", message);
+		return "redirect:noticeList";
 	}
 		
 	
 	//공지사항 글하나보기 
-	@RequestMapping(value="noticeView", method=RequestMethod.GET)
-	public void noticeView(@RequestParam NoticeDTO noticeDTO){
-		noticeService.noticeView(noticeDTO);
+	@RequestMapping(value="noticeView")
+	public String noticeView(int no, Model model){
+		noticeService.noticeView(no, model);
+		return "notice/noticeView";
 	}
 
 	
@@ -62,6 +68,11 @@ public class NoticeController {
 	public void noticeMod(){}
 	
 	//공지사항 글 삭제
-	@RequestMapping(value="noticeDel", method=RequestMethod.GET)
-	public void noticeDel(){}
+	@RequestMapping(value = "noticeDel")
+	public String noticeDelete(@RequestParam int no){
+		System.out.println("noticeController"+no);
+		int result = noticeService.noticeDel(no);
+		System.out.println("result : "+result);
+		return "notice/noticeList";
+	}
 }

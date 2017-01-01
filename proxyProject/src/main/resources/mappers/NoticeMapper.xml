@@ -32,8 +32,8 @@
    </delete>
    
    <!-- 조회수 -->
-   <update id="noticeHits" parameterType="com.choa.notice.NoticeDTO">
-   	update notice set hits=#{hits}+1 where no=#{no}
+   <update id="noticeHits" parameterType="int">
+   	update notice set hits=hits+1 where no=#{no}
    </update>
    
    <!-- 글 전체 개수 -->

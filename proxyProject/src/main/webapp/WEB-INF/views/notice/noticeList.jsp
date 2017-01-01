@@ -9,6 +9,14 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/notice.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    var message='${message}';
+    if(message!=''){
+       alert(message);
+    }
+});
+</script>
 </head>
 <body>
 <%@ include file = "../common/header.jsp" %>
