@@ -45,8 +45,6 @@ function pay() {
 		<p class="content_summary gulci">아이디 찾는 방법을 선택해 주세요.</p>
 		<div class="section_find">
 			<form action="findID" method="post"> 
-			<!-- id찾기 변수ch -->
-			<input type="hidden" name="ch" value="1">
 				<div class="box6">
 					<!-- 휴대전화로 찾기 -->
 					<div id="div_tel" class="box_inn">
@@ -61,7 +59,7 @@ function pay() {
 									</label>
 								</dt>
 								<dd>
-									<input type="text" id="phoneNm" class="input_txt gulci" style="width:225px;" name="name" maxlength="5" placeholder="이름">
+									<input type="text" id="name" class="input_txt gulci" style="width:225px;" name="name" maxlength="5" placeholder="이름">
 								</dd>
 								<dt>
 									<label for="t_pn1" class="label_txt gulci">
@@ -69,16 +67,6 @@ function pay() {
 									</label>
 								</dt>
 									<dd>
-										<!-- <span class="country_code">
-										<span class="sel_value" id="input_internationalCode">+82</span>
-										<select id="internationalCode" name="internationalCode" title="국가코드" class="country_sel">
-											<option value="82">대한민국 +82
-										</select>
-									</span>
-									<span class="int_mob">
-										<input type="text" class="input_txt" placeholder="휴대전화번호" >
-									</span> -->
-										
 										<select id="tel" name="tel" class="blankset gulci">
 											<option>SKT</option>
 											<option>KT</option>
@@ -114,7 +102,7 @@ function pay() {
 									</label>
 								</dt>
 								<dd>
-									<input type="text" id="name" class="input_txt gulci" style="width:225px;" maxlength="5" >
+									<input type="text" id="name" name="name" class="input_txt gulci" style="width:225px;" maxlength="5" >
 								</dd>
 								<dt>
 									<label for="t_pn1" class="label_txt gulci">

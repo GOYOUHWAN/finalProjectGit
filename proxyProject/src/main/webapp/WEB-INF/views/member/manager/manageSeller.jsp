@@ -195,7 +195,7 @@ a {
 
 .mypageodr-item-btn-wrapper {
 	display: inline-block;
-	width: 126px;
+	width: 140px;
 	padding: 0 20px;
 	text-align: center;
 	vertical-align: middle
@@ -229,6 +229,17 @@ a {
 	border-radius: 3px;
 	color: #fff
 }
+.ohho{
+	padding: 10px 25px;
+	background-color:white;
+	border: 1px solid #d8d8d8;
+	color: black;
+}
+.ohho:hover{
+	color: white;
+	background-color: gray;
+	text-decoration: none;
+}
 </style>
 </head>
 <body>
@@ -240,6 +251,7 @@ a {
 			class="mypage-menu-item active" href="manageSeller">판매자관리</a> <a
 			class="mypage-menu-item" href="manageBlacklist">블랙리스트관리</a>
 		<div class="mypage-menu-hr"></div>
+		<a class="mypage-menu-item" href="manageApprove">판매자 승인</a>
 		<a class="mypage-menu-item " href="manageDeal">거래관리</a>
 		<div class="mypage-menu-hr"></div>
 		<a class="mypage-menu-item" href="manageSingolist">신고글관리</a>
@@ -274,7 +286,7 @@ a {
 								class="mypageodr-item-state mypageodr-item-state-title ng-binding">${f.grade }</div>
 
 							<div class="mypageodr-item-btn-wrapper">
-								<a class="btn btn-default btn-expanded mypageodr-delete-btn"
+								<a class="ohho"
 									href="${pageContext.request.contextPath}/member/memberDelete?id=${f.id }">삭제</a>
 							</div>
 						</div>

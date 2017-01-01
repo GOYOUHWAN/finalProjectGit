@@ -3,7 +3,16 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MemberMapper">
-
+	<update id="memberApprove" parameterType="String">
+		update member set type=2 where id=#{id}
+	</update>
+	<select id="appCount" resultType="int">
+		select count(*) from approve
+	</select>
+	<insert id="approve" parameterType="java.util.HashMap">
+		insert into approve values(
+		#{id}, #{filename1}, #{filename2})
+	</insert>
 	<update id="addPointBuyer" parameterType="int" >
 		update member
 		set trust=trust+1
@@ -28,6 +37,12 @@
 	<!--고유환이 만든부분 끝  -->
 
 	<!-- manager -->	
+	<select id="approveInfo" parameterType="com.choa.util.PageMaker" resultType="com.choa.member.ApproveDTO">
+		select * from
+		(select rownum R, F.* from 
+		(select * from approve) F) 
+		where R between #{startRowNum} and #{lastLowNum}
+	</select>
 	<!-- 회원리스트 type별로 판매자,구매자,블랙리스트불러오기 -->
 	<select id="memberInfo" parameterType="com.choa.util.PageMaker" resultType="com.choa.member.MemberDTO"> 
 		select * from 
@@ -52,7 +67,7 @@
 	<!-- member -->	
 	<insert id="memberJoin" parameterType="com.choa.member.MemberDTO">
 		insert into member
-		values(#{id},#{pw},#{name},#{tel},#{year},#{email},#{address},1,1,0,#{account})
+		values(#{id},#{pw},#{name},#{tel},#{year},#{email},#{address},1,1,#{account},0,sysdate,0)
 	</insert>
 
 	<select id="memberLogin" resultType="com.choa.member.MemberDTO" parameterType="com.choa.member.MemberDTO">
@@ -69,8 +84,9 @@
 	<select id="checkID" resultType="int" parameterType="String">
 		select count(*) from member where id=#{id}
 	</select>
-	<select resultType="String" parameterType="String" id="findID"> 
-	select id from member where email=#{find} or tel=#{find} 
+	<select resultType="String" parameterType="com.choa.member.MemberDTO" id="findID"> 
+	select id from member where name=#{name} and tel=#{tel}
+	
 	</select>
 	<update parameterType="com.choa.member.MemberDTO" id="updatePW"> 
 	update member set pw=#{pw} where id=#{id} 

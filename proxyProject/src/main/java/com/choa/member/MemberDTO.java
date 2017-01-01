@@ -12,23 +12,16 @@ public class MemberDTO {
 	private String address;
 	private int type;
 	private int grade;
-	private int buyer_trust;
-	private int seller_trust;
+	private int trust;
 	private String account;
 	private int report;
 	private Date joinDate;
 	
-	public int getBuyer_trust() {
-		return buyer_trust;
+	public int getTrust() {
+		return trust;
 	}
-	public void setBuyer_trust(int buyer_trust) {
-		this.buyer_trust = buyer_trust;
-	}
-	public int getSeller_trust() {
-		return seller_trust;
-	}
-	public void setSeller_trust(int seller_trust) {
-		this.seller_trust = seller_trust;
+	public void setTrust(int trust) {
+		this.trust = trust;
 	}
 	public String getId() {
 		return id;
