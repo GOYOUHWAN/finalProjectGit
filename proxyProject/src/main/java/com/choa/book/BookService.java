@@ -118,6 +118,25 @@ public class BookService {
 
 	//판매도서등록
 	public int sellBookWrite(BookDTO bookDTO, BookPictureDTO bookPictureDTO,  MultipartRequest mr,HttpSession session) throws Exception{
+		System.out.println(bookDTO.getId());
+		System.out.println(bookDTO.getProduct());
+		System.out.println(bookDTO.getPublisher());
+		System.out.println(bookDTO.getContents());
+		System.out.println(bookDTO.getPrice());
+		System.out.println(bookDTO.getBuy_date());
+		System.out.println(bookDTO.getK_id());
+		System.out.println(bookDTO.getLikes());
+		System.out.println(bookDTO.getPages());
+		System.out.println(bookDTO.getStatus());
+		System.out.println(bookDTO.getAuthor());
+		System.out.println(bookDTO.getSellingprice());
+		System.out.println(bookDTO.getQuality());
+		System.out.println(bookDTO.getGenre());
+		System.out.println(bookDTO.getBookdate());
+		System.out.println(bookPictureDTO.getFiles1());
+		System.out.println(bookPictureDTO.getNum());
+		System.out.println(bookDTO.getPictureNum());
+
 		String path = session.getServletContext().getRealPath("resources/upload");
 		List<MultipartFile> files = mr.getFiles("fileName1");
 		files.add(mr.getFile("fileName2"));

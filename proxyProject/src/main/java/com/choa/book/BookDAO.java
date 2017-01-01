@@ -108,7 +108,7 @@ public class BookDAO {
 		int result = 0;
 		result = sqlSession.insert(namespace+"sellBookWrite", bookDTO);
 		System.out.println("fileNames : "+fileNames.size());
-		int fileNum = sqlSession.selectOne(namespace+"fileNum");
+	
 		Map<String, Object> data = new HashMap<String, Object>();
 		for(int i=0;i<fileNames.size();i++){
 			data.put("refNum", 10);

@@ -389,7 +389,7 @@ $(function () {
 				   	  <c:set var="number"  value="${view.num }" />
 		                    	  	<c:forEach var="num" begin="0" end="${heartSize }">
 				                    	  	<c:if test="${number == heartV[num]}">
-				                    	  		<img src="/proxyProject/resources/image/heart.jpg" class="img_likes" id="img_heart" onclick="change_img_to_red(${view.num})">
+				                    	  		<img src="/proxyProject/resources/image/heart.jpg" class="img_likes" id="img_heart" onclick="change_img_to_red(${view.num})"><div class="spanLike" id="spanLikes">${view.likes}</div>
 				  						<c:set var="bool" value="true"/>
 				         	  				</c:if>
 		         	  				</c:forEach>

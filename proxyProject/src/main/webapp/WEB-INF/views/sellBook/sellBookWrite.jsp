@@ -157,9 +157,9 @@
 									<label for="quality">품질상태 <span class="asterisk">*</span></label> 
 								</th>
 								<td colspan="3">
-									<input type="radio" name="quality1" value="상" onclick="radioch('상');"><label for="상">상</label>
-									<input type="radio" name="quality1" value="중" onclick="radioch('중');"><label for="중">중</label>
-									<input type="radio" name="quality1" value="하" onclick="radioch('하');"><label for="하">하</label>
+									<input type="radio" name="quality" value="상" onclick="radioch('상');"><label for="상">상</label>
+									<input type="radio" name="quality" value="중" onclick="radioch('중');"><label for="중">중</label>
+									<input type="radio" name="quality" value="하" onclick="radioch('하');"><label for="하">하</label>
 								</td>
 							</tr>
 							<!-- 카카오톡 ID -->
@@ -200,9 +200,9 @@
 			<!-- 메시지를 받아옴 -->
 		<!-- ###### -->
 		<input type="hidden" id="message" value="${ message }">
-		<input type="hidden" name="id" value="ff">
-		<input type="hidden" name="quality">
-		<input type="hidden" name="status" value="ff">
+		<input type="hidden" name="id" value="${member.id }">
+		<!-- <input type="hidden" name="quality"> -->
+		<input type="hidden" name="status" value="입금대기중">
 		<!-- ###### -->
 			<!-- 상품등록 버튼 -->
 			<div class="button_product_register">
@@ -218,9 +218,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function () {
-		if ($("#message").val() == "등록 성공!") {
+		if ($("#message").val() == "등록 성공") {
 			alert($("#message").val());
-		} else if ($("#message").val() == "등록 실패..") {
+		} else if ($("#message").val() == "등록 실패") {
 			alert($("#message").val());
 		} 
 		

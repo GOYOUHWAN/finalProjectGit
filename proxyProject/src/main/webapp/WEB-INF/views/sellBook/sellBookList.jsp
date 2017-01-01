@@ -172,10 +172,10 @@ $(function () {
 		
 								<c:set var="boole" value="true"/>				
 								<c:forEach begin="1" end="${nSize }" var="nB" >
-										<h2>${nB }</h2>
-											여기
+								
+									
 									<c:if test="${boole == true }">
-										첫번째
+							
 									   	<c:if test="${numBook[nB-1].numBook == list[count].num }"> 
 									   		<!-- 첫번째 -->
 											 <img class="img1" id="img" src="${pageContext.request.contextPath}/resources/image/altbook2.png" > 
@@ -185,7 +185,7 @@ $(function () {
 									</c:forEach>
 									
 									<c:if test="${boole == true }">		
-									두번째
+							
 										<c:if test="${numBook[nB-1].numBook != list[count].num }">
 										<!-- 두번째 -->
 											  <a href="sellBookView?num=${list[count].num}&id=${member.id}"> 

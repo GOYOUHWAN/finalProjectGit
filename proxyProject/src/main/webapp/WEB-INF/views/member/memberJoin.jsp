@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -10,12 +10,47 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- JavaScript 처리  시작 -->
 	<script type="text/javascript">
+	var idck=0; 
+	var idck2=0;
+	var pwck=0;
+	function chID(){
+		if(idck2==1){
+			idck2 = 0;
+			$("#useridspan").html("");
+			$("#useridspan").css("display","inline");
+		}
+		var id = $("#id").val();
+		 if(id==''){
+			 $("#idspan").css("display","none");
+			$("#useridspan").css("display","none");
+		} 
+		var num = id.search(/[0-9]/g);
+		 var eng = id.search(/[a-z]/ig);
+		 if(id.length < 5 || id.length > 19 ){
+			 if(id.length == 0){
+				 $("#idcheck").css("display","none");
+			 }else{
+			 $("#idcheck").css("display", "inline");
+			 }
+		 }else{
+		 if(id.search(/₩s/) != -1){
+			 $("#idcheck").css("display", "inline");
+		 } 
+		 if(num < 0 || eng < 0 ){
+			 $("#idcheck").css("display", "inline");
+		 }
+		 else{
+			 $("#idcheck").css("display", "none");
+			 idck2=1;
+			 $("#idspan").css("display", "none");
+		 }
+		 }
+		
+	}
 		$(function() {
 			$("#idcheck").css("display", "none");
 			$("#pwcheck").css("display", "none");
-			var idck=0; 
-			var idck2=0;
-			var pwck=0;
+			var id = $("#id").val();
 			//home버튼
 			$("#btn3").click(function() {
 				location.href="../";
@@ -48,17 +83,11 @@
 				}else{
 					alert("모든항목을 다 입력하세요");
 				}
-				/* if else(idck==0){
-					alert("ID중복체크를 하세요.");
-				}if else(pwck==0){
-					alert("비밀번호가 올바르지 않습니다.");
-				}if else(idck2==0){
-					alert("아이디가 올바르지 않습니다.");
-				} */
 			});
 			
 			//ID중복체크
 			$("#btn1").click(function () {
+				if(idck2==1){
 				$("#useridspan").html("확인중입니다");
 				var idd= $("#id").val();
 				$.ajax({
@@ -67,6 +96,7 @@
 					type:"POST",
 					data : {id:idd},
 					success:function(data) {
+						
 						var d = data.KEY;
 						$("#useridspan").html(d);
 						if(d=="이미있는 id입니다."){
@@ -79,32 +109,18 @@
 				        alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
 				    }
 				});
+				}else{
+					$("idspan").html("id를 올바르게 입력하세요.");
+				}
 			});
+			//functino 끝
 		});
 		
 		// ID 얻기
 		function getId(getId) {
 			$("#id").val(getId);
 		}
-		function chID(){
-			var id = $("#id").val();
-			var num = id.search(/[0-9]/g);
-			 var eng = id.search(/[a-z]/ig);
-			 var spe = id.search(/[-_]/gi);
-			 if(id.length < 5 || id.length > 21){
-				 $("#idcheck").css("display", "inline");
-			 }else{
-			 if(id.search(/₩s/) != -1){
-				 $("#idcheck").css("display", "inline");
-			 } if(num < 0 || eng < 0 || spe < 0 ){
-				 $("#idcheck").css("display", "inline");
-			 }
-			 else{
-				 $("#idcheck").css("display", "none");
-				 idck2=1;
-			 }
-			 }
-		}
+		
 
 		// PW 일치, 불일치
 		function equalPW() {
@@ -112,8 +128,13 @@
 			var pw2 = $("#pw2").val();
 
 			if (pw1 == pw2) {
-				$("#true").css("display", "inline");
-				$("#false").css("display", "none");
+				if(pw1==''){
+					$("#true").css("display", "none");
+					$("#false").css("display", "none");
+				}else{
+					$("#true").css("display", "inline");
+					$("#false").css("display", "none");
+				}
 			} else {
 				$("#true").css("display", "none");
 				$("#false").css("display", "inline");
@@ -144,6 +165,19 @@
 			$("#true").css("display", "none");
 			$("#false").css("display", "none");
 		}
+		
+		function showKeyCode(event) {
+			event = event || window.event;
+			var keyID = (event.which) ? event.which : event.keyCode;
+			if( ( keyID >=48 && keyID <= 57 ) || ( keyID >=96 && keyID <= 105 ) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 )
+			{
+				return;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	</script>
 	<!-- JavaScript 처리 끝 -->
 	<style type="text/css">
@@ -167,7 +201,8 @@
 						<input type="text" name="id" class="categ1 teduri" id="id" onkeyup="chID()"> 
 						<button id="btn1" style="margin-left: 30px;">중복 확인</button><br>
 						<span id="useridspan"></span>
-						<br><span id="idcheck">5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.</span>
+						<span id="idspan"></span>
+						<br><span id="idcheck">5~20자의 영문 소문자, 숫자만 사용 가능합니다.</span>
 					</td>
 				</tr>
 				<!-- 비밀번호 -->
@@ -228,8 +263,8 @@
 							<option>017</option>
 							<option>019</option>
 						</select> - 
-						<input type="text" class="categ3 teduri" id="pSecond" name="pSecond" maxlength="4"> - 
-						<input type="text" class="categ3 teduri" id="pThird" name="pThird" maxlength="4">
+						<input type="text" class="categ3 teduri" id="pSecond" name="pSecond" maxlength="4" onkeydown="return showKeyCode(event)"> - 
+						<input type="text" class="categ3 teduri" id="pThird" name="pThird" maxlength="4" onkeydown="return showKeyCode(event)">
 					</td>
 				</tr>
 				<!-- E-MAIL -->
@@ -245,12 +280,17 @@
 							<option>gmail.com</option>
 							<option>hotmail.com</option>
 						</select>
+						<br>
+						<span style="color:red;">WARN : 이메일 오기입에 대한 책임은 당사자에게 있습니다.</span>
 					</td>
 				</tr>
 				<!-- 주소 -->
 				<tr>
 					<td class="td_1">주소</td>
-					<td><input type="text" name="address" id="address" class="categ1 teduri"></td>
+					<td>
+						<input type="text" name="address" id="address" class="categ1 teduri"><br>
+						<span style="color:red;">WARN : 주소 오기입에 대한 책임은 당사자에게 있습니다.</span>
+					</td>
 				</tr>
 				
 				<!-- 계좌번호 -->

@@ -103,9 +103,9 @@ public class SellBookController {
 			e.printStackTrace();
 		}
 		if(result>0){
-			message="판매도서 등록성공";
+			message="등록성공";
 		}else{
-			message="판매도서 등록실패";
+			message="등록실패";
 		}
 		model.addAttribute("message", message);
 		return "sellBook/sellBookList";

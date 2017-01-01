@@ -43,7 +43,7 @@ function pay() {
 		</div>
 		<p class="content_summary gulci">비밀번호 찾는 방법을 선택해 주세요.</p>
 		<div class="section_find">
-			<form action="findID" method="post">
+			<form action="findPW2" method="get">
 			<!-- pw찾기 변수ch -->
 			<input type="hidden" name="ch" value="2">
 				<div class="box6">

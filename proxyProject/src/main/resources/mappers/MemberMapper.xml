@@ -79,7 +79,7 @@
 	<!-- member -->	
 	<insert id="memberJoin" parameterType="com.choa.member.MemberDTO">
 		insert into member
-		values(#{id},#{pw},#{name},#{tel},#{year},#{email},#{address},1,1,#{account},0,sysdate,0)
+		values(#{id},#{pw},#{name},#{tel},#{email}, #{address},1,1,0,#{account},#{year}, 0, sysdate)
 	</insert>
 
 	<select id="memberLogin" resultType="com.choa.member.MemberDTO" parameterType="com.choa.member.MemberDTO">

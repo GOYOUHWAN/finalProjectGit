@@ -126,7 +126,7 @@ z-index: 9;
 					<li class="h_li1"><a href="${pageContext.request.contextPath}/member/memberLogin" class="acolor">로그인</a></li>
 					</c:if>
 						<c:if test="${sessionScope.member != null}">
-							<li class="h_li1 acolor">${member.id }님</li>
+							<li class="h_li1 acolor">${member.name }님</li>
 							<li class="h_li1"><a href="${pageContext.request.contextPath}/member/memberView" class="acolor">회원 정보</a></li>
 							<li class="h_li1"><a href="${pageContext.request.contextPath}/memberLogout" class="acolor">로그아웃</a></li>
 						</c:if>

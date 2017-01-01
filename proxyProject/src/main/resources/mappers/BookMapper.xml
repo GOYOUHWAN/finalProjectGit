@@ -58,12 +58,14 @@
   	<insert id="insertBBB" parameterType="com.choa.deal.DealDTO">
   		insert into BUYERBUYBOOKS	values(#{idBuyer}, #{numBook})
   	</insert>
+  	
+  	
+  	
+  	
    <!-- 하트눌렀을때 MemberLikeBooks 의  해당 한줄 삽입하기  -->
    <insert id="insertMLB" parameterType="com.choa.member.MemberLikeBooksDTO">
-   		insert into MEMBERLIKEBOOKS values(#{id}, #{numBooks}) 
+   		insert into MEMBERLIKEBOOKS values(#{id}, #{num}) 
    </insert>
-
-   
    <!--하트 눌렀을때 Book의 likes 하나 더하기  -->
    <update id="changeLikesAdd" parameterType="int">
    		update BOOK set likes=likes+1 where num=#{num}
@@ -85,8 +87,8 @@
 	<insert id="sellBookWrite" parameterType="com.choa.book.BookDTO"> 
 		insert into book 
 		values(b_seq.nextval, #{id}, #{product}, #{publisher},  #{contents},
-		 #{price}, #{buy_date}, #{k_id}, 0, 0, sysdate, #{status},
-		 #{author}, #{sellingprice}, #{quality}, #{genre}, #{bookdate}, b_seq.nextval )
+		 #{price}, #{buy_date}, #{k_id}, 0, #{pages}, sysdate, #{status},
+		 #{author}, #{sellingprice}, #{quality}, #{genre}, #{bookdate}  )
 	</insert>
 	<!-- 판매 도서num -->
 	<select resultType="int" id="fileNum">
@@ -94,7 +96,7 @@
 	</select>
 	<!-- 판매 도서 이미지파일 등록 -->
 	<insert id="sellBookFileWrite" parameterType="java.util.HashMap"> 
-		insert into book_picture values(b_seq.currval,#{fileName1},#{fileName2},#{fileName3},#{fileName4})
+		insert into book_picture values(b_seq.nextval-1,#{fileName1},#{fileName2},#{fileName3},#{fileName4})
 	</insert>
 	
 	<select id="sellBookViewFiles" resultType="com.choa.book.BookPictureDTO" parameterType="int">

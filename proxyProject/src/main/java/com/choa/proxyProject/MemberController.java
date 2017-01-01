@@ -397,6 +397,37 @@ public class MemberController {
    //PW찾기
    @RequestMapping(value="findPW", method=RequestMethod.GET)
    public void findPW(){}
+   //ID찾기결과
+   @RequestMapping(value="findPWResult", method=RequestMethod.GET)
+   public void findPWResult(){}
+   //pw찾기-중간단계
+   @RequestMapping(value="findPW2", method=RequestMethod.GET)
+   public String findPW2(@RequestParam String tel,@RequestParam String pFirst,@RequestParam String pSecond,@RequestParam String pThird, 
+		   @RequestParam String email_1, @RequestParam String email_2,@RequestParam String name, Model model){
+	   String find = "";
+	   MemberDTO memberDTO = new MemberDTO();
+	   name = name.replaceAll(",", "");
+	   memberDTO.setName(name);
+	   if(pThird!=null){
+		   find = "["+tel+"]"+pFirst+"-"+pSecond+"-"+ pThird;
+		   find = find.replace(",","");
+		   memberDTO.setTel(find);
+		   System.out.println("컨트롤러 :phone "+find);
+	   }else{
+		   find = email_1+"@"+email_2;
+		   find = find.replace(",","");
+		   memberDTO.setEmail(find);
+		   System.out.println("컨트롤러 :email "+find);
+	   }
+	  
+	   try {
+		memberService.findID(memberDTO, model);
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	  return "member/findPWResult";
+   }
+   
    //PW찾기결과
    @RequestMapping(value="findPWResult", method=RequestMethod.POST)
    public String findPWResult(@RequestParam String id, @RequestParam String pw, Model model, HttpServletResponse response )throws Exception{
@@ -433,7 +464,7 @@ public class MemberController {
       } else {
          res = "사용가능한 id입니다.";
       }
-      hashmap.put("KEY", res);
+      hashmap.put("KEY", res); 
       return hashmap;
    }
 
@@ -467,11 +498,16 @@ public class MemberController {
    public void memberLogin(MemberDTO memberDTO, HttpSession session, HttpServletResponse response, HttpServletRequest request) throws Exception {
       request.setCharacterEncoding("UTF-8");
       response.setCharacterEncoding("UTF-8");
+      PrintWriter writer = response.getWriter();
       memberDTO = memberService.memberLogin(memberDTO);
+      if(memberDTO!=null){
       session.setAttribute("member", memberDTO);
       chmember(memberDTO);
-      PrintWriter writer = response.getWriter();
-      writer.println("<script>location.href='../';</script>");
+      
+      writer.println("<script>location.href='../';</script>");}
+      else{
+    	  writer.println("<script>alert('ID/PW를 확인하세요.');location.href='memberLogin';</script>");
+      }
    }
    
    //회원 체크
