@@ -9,9 +9,20 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/layout_new.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/seller.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/sellbook.css">
+<style type="text/css">
+	#div_basic2{
+		width: 60%;
+		height : 800px;
+		margin: 0 auto;
+		margin-top : 60px;
+		/*  border: 1px solid red;  */
+	}
+</style>
 </head>
+
 <body>
 <%@ include file = "../common/header.jsp" %>
+	<div id="div_basic2">
 	<div id="contents" class="seller_contents">
 	
 		<c:if test="${member !=null}">
@@ -128,6 +139,8 @@
 					</table>
 				</div>
 			</div>
+			
+		
 			<!-- ================================================================판매정보========================================== -->
 			<div class="sale_information" style="display: block;">
 				<h4>판매정보</h4>
@@ -199,7 +212,7 @@
 		</form>
 		</c:if>
 	</div>
-	
+</div>
 </body>
 <!-- javascript 시작 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

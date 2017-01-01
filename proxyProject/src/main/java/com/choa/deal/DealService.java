@@ -13,9 +13,20 @@ public class DealService {
 	@Autowired
 	private DealDAO dealDAO;
 	
+	
+	public DealDTO selectDelivery(int num, Model model)throws Exception{
+		DealDTO dealDTO = null;
+		dealDTO = dealDAO.selectDelivery(num);
+		model.addAttribute("delivery", dealDTO);
+		return dealDTO;
+	}
+	
+	
 	//deal 하나 만들기
-	public void insertDeal(DealDTO dealDTO)throws Exception{
-			dealDAO.insertDeal(dealDTO);
+	public int insertDeal(DealDTO dealDTO)throws Exception{
+			System.out.println("딜 서비스");
+			int num = dealDAO.insertDeal(dealDTO);
+			return num;
 	}
 	
 	public List<DealDTO> manageDeal(Model model)throws Exception{

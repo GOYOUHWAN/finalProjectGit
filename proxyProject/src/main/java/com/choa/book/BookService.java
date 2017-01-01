@@ -15,6 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartRequest;
 
+import com.choa.deal.DealDTO;
+import com.choa.deposit.DepositDTO;
 import com.choa.member.MemberDTO;
 import com.choa.member.MemberLikeBooksDTO;
 import com.choa.util.PageMaker;
@@ -27,24 +29,35 @@ public class BookService {
 	private BookDAO bookDAO;
 	
 	
+	public int insertBBB(DealDTO dealDTO)throws Exception{
+		return bookDAO.insertBBB(dealDTO);
+	}
+	
+	
 	public int addPointSuccessBuyer(int num)throws Exception{
 		return bookDAO.addPointSuccessBuyer(num);
 	}
 	public int addPointSuccessSeller(int num)throws Exception{
 		return bookDAO.addPointSuccessSeller(num);
 	}
+	
+	
 	//구매자가 책 확인하고 구매확정 누르면 책의 status 구매확정으로 바꾸기
 	public int confirm(int num)throws Exception{
 		return bookDAO.confirm(num);
 	}
-	
+	public int depositSuccess(int num)throws Exception{
+		return bookDAO.depositSuccess(num);
+	}
 	//판매자가 택배 부치고나서 배송완료버튼 누르면 책의 status 배송중으로 바꾸기
 		public int delivery(int num)throws Exception{
 		return  bookDAO.delivery(num);
 	}
 		
-	public int statusDeposit(int num)throws Exception{ 
-		return bookDAO.statusDeposit(num);
+	//book의 status스 결제완료로 바꿔줄라고 만든 소스	
+	public int statusDeposit(DepositDTO depositDTO)throws Exception{ 
+		System.out.println("북디에오에 디파짓에들어온다");
+		return bookDAO.statusDeposit(depositDTO);
 	}
 	
 	//sellBookList에서 하트 검증용
@@ -241,10 +254,10 @@ public class BookService {
 	}
 	
 	//구매
-	public List<BookDTO> deposit(int num, String id, Model model)throws Exception{
-		BookPictureDTO bookPictureDTO = bookDAO.sellBookPicture(num);
-		List<BookDTO> ar = bookDAO.deposit(id);
-		BookDTO bookDTO = bookDAO.sellBookView(num);
+	public List<BookDTO> deposit(DepositDTO depositDTO, Model model)throws Exception{
+		BookPictureDTO bookPictureDTO = bookDAO.sellBookPicture(depositDTO.getNum());
+		List<BookDTO> ar = bookDAO.deposit(depositDTO.getId());
+		BookDTO bookDTO = bookDAO.sellBookView(depositDTO.getNum());
 		model.addAttribute("viewPicture", bookPictureDTO);
 		model.addAttribute("view", bookDTO);
 		model.addAttribute("deposit", ar);

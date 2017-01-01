@@ -5,29 +5,42 @@
     
     <mapper namespace="DealMapper">
     
+    <update id="depositSuccessDeal" parameterType="int">
+   		update DEAL set status='결제완료' where numBook=#{num}
+   </update>
+    <!--판매자가 택배를 보내고 배송완료 버튼을 누르면 책의 status가 배송중으로 바뀐다  -->
+   <update id="deliveryDeal" parameterType="int">
+   		update DEAL set status='배송중' where numBook=#{num}
+   </update>
    <!--구매자가 물건을 받아서 확인하고 구매확정 버튼을 누르면 책의 status가 구매확정으로 바뀐다 -->
    <update id="confirmDeal" parameterType="int">
-   		update DEAL set status='구매확정' where num=#{num}
+   		update DEAL set status='구매확정' where numBook=#{num}
    </update>
-
-   <!--판매자가 택배를 보내고 배송완료 버튼을 누르면 책의 status가 배송중으로 바뀐다  -->
-   <update id="deliveryDeal" parameterType="int">
-   		update DEAL set status='배송중' where num=#{num}
+   <!--판매자가 평가완료했을때 책의 status "판매/평가 완료"  로 바뀌는 부분 -->
+   <update id="addPointSuccessBuyerDeal" parameterType="int">
+   		update DEAL set status='구매자 평가 완료' where numBook=#{num}
    </update>
+     <update id="addPointSuccessSellerDeal" parameterType="int">
+   		update DEAL set status='판매/평가 완료' where numBook=#{num}
+   </update>
+  
+    
     
     	<select id="ManageDeal" resultType="com.choa.deal.DealDTO">
     		select * from DEAL order by num asc
     	</select>
     	
     	<select id="dealNumBook" resultType="com.choa.deal.DealDTO">
-    		select num_book from DEAL order by num asc
+    		select numBook from DEAL order by num asc
     	</select>
     	
     	<insert id="insertDeal" parameterType="com.choa.deal.DealDTO">
-			insert into DEAL values(deal_seq.nextval, #{num}, #{product}, #{id_buyer}, #{id_seller}, sysdate, #{status} ) 
+			insert into DEAL values(#{numBook}, #{product}, #{idSeller}, #{idBuyer}, #{status}, #{name}, #{tel}, #{email}, #{address}, deal_seq.nextval, sysdate ) 
     	</insert>
     	
-       
+       <select id="selectDelivery" parameterType="int" resultType="com.choa.deal.DealDTO">
+		select * from DEAL where numBook=#{num}
+		</select>
 
     	
     	

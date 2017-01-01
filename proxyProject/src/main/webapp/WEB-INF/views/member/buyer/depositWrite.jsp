@@ -6,8 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>예약하기</title>
-<link rel="stylesheet" type="text/css"
+<title>구매페이지</title>
+<%-- <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/reservation/ticket.css">
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/reservation/reservation_tnb.css">
@@ -16,11 +16,15 @@
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/reservation/reservation_step3_step1.css">
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources/css/reservation/reservation_step3_step2.css">
+	href="${pageContext.request.contextPath}/resources/css/reservation/reservation_step3_step2.css"> --%>
 <style type="text/css">
 .ts3_titlebar {
 	font-size: 30px;
-	padding: 22px 0 22px 28px;
+	width:98.4%;
+	height: 50px;
+ 	vertical-align: middle;
+ 	padding-top:20px;
+ 	padding-left: 20px;
 	border-bottom: 1px solid #d8d8d8;
 }
 
@@ -40,7 +44,7 @@
 }
 
 #address {
-	width: 250px;
+	width: 400px;
 }
 
 .mySlides {
@@ -54,10 +58,11 @@
 }
 
 .view_img {
-	width: 100px;
-	height: 100px;
+	width: 150px;
+	height: 150px;
 	float: left;
 	margin: 0 auto;
+	margin-top: 20px;
 }
 
 .view_div {
@@ -72,10 +77,15 @@
 }
 
 #view_div_1 {
+	text-align: center;
+	height: 200px;
+	padding: 0px;
 	margin-top: 50px;
-	width: 300px;
+	width: 100%;
 	border: 1px solid #d8d8d8;
-	float: right;
+	border-left : none;
+	border-right : none;
+	margin: 0 auto;
 }
 
 #view_div_outside {
@@ -118,8 +128,8 @@ table tr, td {
 }
 
 #div_product {
-	border: 1px solid #d8d8d8;
-	height: 50px;
+	/* border: 1px solid #d8d8d8; */
+	height: 100%;
 }
 
 .one {
@@ -127,24 +137,37 @@ table tr, td {
 }
 
 #sellbtn {
-	background-color: #8C72FD;
-	border: 1px solid #8C72FD;
-	width: 100%;
+	margin: 0 auto;
+	background-color: #336600;
+/* 	border: 1px solid #8C72FD; */
+	width: 30%;
+	height: 50px;
 	font-size: 30px;
 	line-height: 1.33;
 	border-radius: 3px;
 	color: #fff;
 	margin: 0 auto;
+	margin-left: 30px;
 }
 
 #view_div_3 {
+		/* display: inline-block; */
 	margin-top: 50px;
-	width: 750px;
+	margin: 0 auto;
+	width: 49%;
 	heght: 850px;
-	border: 1px solid #d8d8d8;
+/* 	border: 1px solid #d8d8d8; */
+	float: right;
+}
+#view_div_5 {
+		/* display: inline-block; */
+	margin-top: 50px;
+	margin: 0 auto;
+	width: 49%;
+	heght: 850px;
+	/* border: 1px solid #d8d8d8; */
 	float: left;
 }
-
 .body_title {
 	font-size: 18px;
 	margin-bottom: 20px;
@@ -152,7 +175,7 @@ table tr, td {
 
 .text {
 	display: block;
-	width: 30%;
+	width: 70%;
 	height: 34px;
 	padding: 6px 12px;
 	font-size: 14px;
@@ -160,7 +183,7 @@ table tr, td {
 	color: #555555;
 	background-color: #fff;
 	background-image: none;
-	border: 1px solid #ccc;
+/* 	border: 1px solid #ccc; */
 	border-radius: 3px;
 }
 
@@ -174,7 +197,7 @@ table tr, td {
 	color: #555555;
 	background-color: #fff;
 	background-image: none;
-	border: 1px solid #ccc;
+/* 	border: 1px solid #ccc; */
 	border-radius: 3px;
 	margin-right: 100px;
 }
@@ -189,14 +212,14 @@ table tr, td {
 	color: #555555;
 	background-color: #fff;
 	background-image: none;
-	border: 1px solid #ccc;
+/* 	border: 1px solid #ccc; */
 	border-radius: 3px;
 }
 
 .mu {
 	color: #7151FC;
 	background-color: #fff;
-	border: 1px solid #7151FC;
+	/* border: 1px solid #7151FC; */
 	display: inline-block;
 	background-color: #ecf0f1;
 	border-radius: 3px;
@@ -208,38 +231,84 @@ table tr, td {
 	height: 81px;
 	vertical-align: top;
 }
+#view_div_4{
+/* 	border: 1px solid red; */
+	width: 80%;
+	height: 1200px;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
 
 #phone {
 	float: left;
 }
+.v_1{
+	float:left;
+/* 	border:1px solid black; */
+	width:36%;
+	height:100%;
+	display: inline-block;
 }
+.v2{
+	margin-top : 0px;
+	float: left;
+/* 	border: 1px solid yellow; */
+	width: 18%;
+	height: 100%;
+}
+#span_book{
+	margin-top:20px;
+	width: 50%;
+	height: 150px;
+	float: left;
+	display: inline-block;
+	text-align: left;
+	/* border: 1px solid blue; */
+}
+#btn_same{
+	width: 50px;
+	height: 50px;
+	border: none;
+	float: right;
+}
+#view_div_6{
+	width: 80%;
+	margin: 0 auto;
+}
+
+
 </style>
 <script type="text/javascript">
-	$(function(){
+	/*  $(function(){
 	      $("#sellbtn").click(function(){
-	          document.depositFrm.submit();
+	          document.depositFrm.submit(); 
 
-	       /*   var name= $("#name").val();
+	          var name= $("#name").val();
 	          var tel = $("#tel").val();
 	          var email = $("#email").val();
-	          var address = $("address").val();*/
-	 /*      $.ajax({
-	          type:"POST",
-	          url:"depositWrite",
-	          data:{
-	             name:name,
-	             tel:tel,
-	             email:email,
-	             address:address
-	             
-	          },
-	          success:function(data){
-	             
-	             alert(data);
-	          }
-	       });*/
+	          var address = $("address").val();
+	 	     $.ajax({
+		          type:"POST",
+		          url:"depositWrite",
+		          data:{
+		             name:name,
+		             tel:tel,
+		             email:email,
+		             address:address
+		             
+		          },
+		          success:function(data){
+		             
+		             alert(data);
+		          }
 	       });
-</script>
+ */
+
+	      
+	      </script>
+
+
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -248,67 +317,119 @@ table tr, td {
 
 <body>
 	<%@ include file="../../common/header.jsp"%>
-	<section>
-		<form action="depositWrite" method="post" name="depositFrm">
-			<div id="view_div_inside">
-				<div id="view_div_3">
-					<h5 class="ts3_titlebar">주문하기</h5>
-					<h5 class="ts3_titlebar2">배송정보</h5>
-					<h5 class="ts3_titlebar3">
-						이름 <input type="text" class="text" placeholder="이름" name="name">
-					</h5>
-					<h5 class="ts3_titlebar3">
-						<div>
-							<div id="phone">
-								전화번호 <input type="text" class="text3" name="tel" id="tel"
-									placeholder="전화번호"> <br> <br>
-							</div>
-							<div id="email">
-								이메일 <input type="text" class="text" name="email" id="email"
-									placeholder="이메일"> <br> <br>
-							</div>
+	
+		
+		<div id="view_div_4">
+			
+				<h5 class="ts3_titlebar">주문하기</h5>
+				
+				<div id="view_div_1"  style=" margin-top: 50px;">
+					<div id="view_div_2" class="v_1">
+						<h2>구매 정보</h2> <img class="view_img demo w3-opacity w3-hover-opacity-off" src="/proxyProject/resources/upload/${viewPicture.files1 }" style="border-radius: 20%;"> 
+						<div id="span_book">
+							제목 : ${view.product} <br>
+							상태 : ${view.quality }<br>
+							장르 : ${view.genre }
 						</div>
-						주소 <input type="text" class="text2" id="address" name="address"
-							placeholder="주소">
-					</h5>
+						
+					</div>
+					<div id=div_product class="v2">	
+							<h2>상품 가격 <br><br><br> ${view.sellingprice}원 </h2>
+						</div>
+						<span style="width: 30px; height:30px; float: left;  font-size: 30px;  margin-top: 80px;" > +</span>
+					<div id="div_product" class="v2">
+						<h2>수수료 + 택배<br><br><br> 3000 원</h2>
+					</div>
+						<span style="width: 30px; height:30px; float: left;  font-size: 30px;  margin-top: 80px;" > =</span>
+					<div id="div_product" class="v2">
+						<h2>결제 금액 <br><br><br> ${view.sellingprice + 3000 }원 </h2>
+					</div>
+						
+				</div>
+				<div id="view_div_6">
+				<div id="view_div_5">
+					<h5 class="ts3_titlebar2">구매자 정보</h5>
+					<h5 class="ts3_titlebar3" style="margin-top: 18px;">
+						 이름<input type="text" class="text" placeholder="이름" id="name_buyer"  value="${member.name }" readonly="readonly"></h5>
+					<h5 class="ts3_titlebar3">
+						휴대폰 번호 <input type="text" class="text"  id="tel_buyer" placeholder="휴대폰 번호" value="${member.tel }" readonly="readonly"></h5> 
+					<h5 class="ts3_titlebar3">	
+						이메일 <input type="text" class="text" id="email_buyer" placeholder="이메일" value="${member.email }" readonly="readonly"></h5> 
+					
+				
+				</div>
+				<div id="view_div_3">
+					
+					<h5 class="ts3_titlebar2">배송 정보    </h5> <input type="checkbox" id="btn_same"  ><div style="text-align: right;">구매자 정보와 동일</div>
+					<script type="text/javascript">
+						/* $("#btn_same").click(function(){
+							var checked = $("#btn_same").attr("checked");
+								alert(checked);
+						}); */
+						
+						
+					$(document).ready(function(){
+						var name_buyer =  $("#name_buyer").val(); 
+						var tel_buyer = $("#tel_buyer").val();
+						var email_buyer = $("#email_buyer").val();
+						
+						$("#btn_same").click(function(){
+						
+							var checked = $("#btn_same").val();
+					
+								if(checked == 'on'){   //일단 조건 들어간다
+									$("#name").val(name_buyer);
+									$("#tel").val(tel_buyer);
+									$("#email").val(email_buyer);
+									var checked = $("#btn_same").val('off');	
+								}else if(checked == 'off'){
+									$("#name").val("");
+									$("#tel").val("");
+									$("#email").val("");
+									var checked = $("#btn_same").val('on');	
+								}
+							
+					
+							
+						});
+					});
+						
+						  
+					</script>
+					<form action="depositFinish" method="get" >
+	<input type="hidden" value="${view.num}" name="numBook">
+	<input type="hidden" value="${view.product}" name="product">
+	<input type="hidden" value="${view.id}" name="idSeller">
+	<input type="hidden" value="${member.id }" name="idBuyer">
+	<input type="hidden" value="${view.status }" name="status" >
+
+					<h5 class="ts3_titlebar3">
+						받는 사람 <input type="text" class="text" placeholder="이름" name="name" id="name"></h5>
+					<h5 class="ts3_titlebar3">
+						휴대폰 번호 <input type="text" class="text" name="tel" id="tel" placeholder="휴대폰 번호"></h5> 
+					<h5 class="ts3_titlebar3">	
+						이메일 <input type="text" class="text" name="email" id="email"placeholder="이메일"></h5> 
+					<h5 class="ts3_titlebar3">	
+						주소 <input type="text" class="text" id="address" name="address" placeholder="주소"></h5>
 					<h5 class="ts3_titlebar2">
-						<button class="mu">
+						<!-- <button class="mu">
 							무통장입금(가상계좌)
 							<div class="su">수수료 500원</div>
-						</button>
+						</button> -->
+						
 					</h5>
+				<div id="sellbtndiv">
+					<input type="submit" class="sellbtn" id="sellbtn" value="주문 완료">
+				</div>	
+						</form>
 				</div>
-
-				<div id="view_div_1" class="w3-content" style="max-width: 500px">
-					<div id="view_div_2">
-						<td><h1>결제 상품</h1></td> <br> <img
-							class="view_img demo w3-opacity w3-hover-opacity-off"
-							src="/proxyProject/resources/upload/${viewPicture.files1 }"
-							onclick="currentDiv(1)"> <br>
-					</div>
-					<td class="one"><h2>[중]${view.product}</h2></td> <br>
-					<td class="two"><h2>${view.price}</h2> <br>
-						<div id="div_product">
-							<td><h3>
-									상품 가격 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${view.price}원
-								</h3></td>
-						</div>
-						<div id="div_product">
-							<td><h3>결제 수수료 :</h3></td>
-						</div>
-						<div id="sellbtndiv">
-							<button class="sellbtn" id="sellbtn">입금하기</button>
-						</div>
 				</div>
-				<input type="hidden" value="${view.id}" name="id_seller">
-				<input type="hidden" value="${member.id }" name="id_buyer">
-				<input type="hidden" value="${view.num}" name="num">
-				<input type="hidden" value="${sessionScope.member.id}" name="id">
-				<input type="hidden" value="${view.price}" name="price">
-				<input type="hidden" value="${view.name}" name="name">
-				<input type="hidden" value="${view.status }" name="status">
-		</form>
-	</section>
+				
+			</div>	
+			
+	
+		
+	
 	<%@ include file="../../common/footer.jsp"%>
 </body>
 </html>

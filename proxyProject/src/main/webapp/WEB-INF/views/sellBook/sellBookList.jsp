@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ page import="java.text.*" %>
 <!DOCTYPE html >
 <html>
 <head>
@@ -91,6 +92,8 @@ $(function () {
 #p_won{
 	font-size: 13px;
 	color: gray;
+	display: inline-block;
+	
 	margin-top: 6px;
 }
 #line_order{
@@ -125,7 +128,10 @@ $(function () {
 	z-index: 10;
 	
 }
-
+#span_sellingprice{
+	font-size: 24px;
+	float: right;
+}
 	</style>
 </head>
 <body id="body_sellbooklist">
@@ -166,10 +172,11 @@ $(function () {
 		
 								<c:set var="boole" value="true"/>				
 								<c:forEach begin="1" end="${nSize }" var="nB" >
-							
-									
+										<h2>${nB }</h2>
+											여기
 									<c:if test="${boole == true }">
-									   	<c:if test="${numBook[nB-1].num_book == list[count].num }"> 
+										첫번째
+									   	<c:if test="${numBook[nB-1].numBook == list[count].num }"> 
 									   		<!-- 첫번째 -->
 											 <img class="img1" id="img" src="${pageContext.request.contextPath}/resources/image/altbook2.png" > 
 											<c:set var="boole" value="false"/>										
@@ -178,7 +185,8 @@ $(function () {
 									</c:forEach>
 									
 									<c:if test="${boole == true }">		
-										<c:if test="${numBook[nB-1].num_book != list[count].num }">
+									두번째
+										<c:if test="${numBook[nB-1].numBook != list[count].num }">
 										<!-- 두번째 -->
 											  <a href="sellBookView?num=${list[count].num}&id=${member.id}"> 
 		                     		    	<img class="img1" id="img"src="${pageContext.request.contextPath}/resources/upload/${list[count].files1}"></a> 			
@@ -191,7 +199,11 @@ $(function () {
 	                        <!--각 책에대한 설명  -->
 	                       
 	                         	<span class="pink name">${list[count].product}</span><br><br>
-	                         	<p id="p_price">${list[count].price}   </p> <p id="p_won">원</p>
+	                         	<p id="p_price">${list[count].price}원 </p><br><div id="span_sellingprice">${list[count].sellingprice }원</div>
+	                         	<div> <c:set var="num1"  value="${list[count].sellingprice / list[count].price *100}" /> 
+	                         				<c:set var="number" value="${num1-(num1%1) }"></c:set>
+	                      
+	                         	${100- number }% <p style="font-weight: bold; display: inline-block;">↓</p></div> <!-- <p id="p_won">원</p> -->
 	                    	  	&nbsp;&nbsp;&nbsp;&nbsp;
 	                    	  	<!--하트 모양과 likes 숫자 표현  -->
 	                    	  	<div id="div_likes" > 

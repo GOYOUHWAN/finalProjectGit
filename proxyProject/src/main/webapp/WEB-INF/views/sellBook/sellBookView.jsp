@@ -24,6 +24,129 @@ $(function () {
 });
 
 </script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+	function reviewBookList() {
+		var id = $("#id").val();
+		var pNo = $("#num_review").val();
+		$.ajax({
+					url : "/proxyProject/reviewBook/reviewBookList",
+					data : {
+						num : pNo
+					},
+					success : function(data) {
+						var result = "";
+						if (data.length > 0) {
+							result += "<center>";
+							result += "<table>";
+							result += "<tr>";
+							result += "<td colspan='3'></td>"
+							result += "</tr>";
+							for (var i = 0; i < data.length; i++) {
+								var c = data[i].contents;
+								result += "<tr><td>";
+								result += "WRITER : ";
+								result += data[i].id;
+								result += "</td><td>";
+								result += "Date : ";
+								result += data[i].redate;
+								result += "</td><td>";
+
+								if (id == data[i].id
+										|| "${sessionScope.member.type}" == "3") {
+									result += "<input type='button' value='수정' style='background-color: white; border-radius: 10px' onclick='mod(";
+									result += data[i].num_review;
+									result += ", ";
+									result += i;
+									result += ")'>";
+									result += " <input type='button' value='삭제'  onclick='del(";
+									result += data[i].num_review;
+									result += ")'>";
+									result += "</td>";
+
+									result += "</td>";
+								}
+								result += "</tr>";
+								result += "<tr>";
+								result += "<td colspan='5'>";
+								result += "<textarea name='contents'>";
+								result += data[i].contents;
+								result += "</textarea></td>";
+								result += "</tr>";
+							}
+							result += "</table>";
+							result += "</center>";
+							$("#div_review").html(result);
+						} else {
+							$("#div_review").html(
+									"<center>등록된 댓글이 없습니다</center>");
+						}
+					}
+				});
+	}
+	$(function() {
+		reviewBookList();
+		$("#submit").click(function(event) {
+			var pName = $("#id").val();
+			var pText = $("#contents").val();
+			var pNo = $("#num_review").val();
+
+			if ("${sessionScope.member.id}" == "") {
+				alert("로그인 후 댓글을 작성하실 수 있습니다.");
+			} else {
+				if (pText == "") {
+					alert("내용을 입력해 주세요.");
+				} else {
+					$.ajax({
+						url : "/proxyProject/reviewBook/reviewBookWrite",
+						data : {
+							num : pNo,
+							id : pName,
+							contents : pText
+						},
+						success : function() {
+							alert("댓글 등록!");
+							$("#id").val();
+							$("#contents").val("");
+							reviewBookList();
+						}
+					});
+				}
+			}
+		});
+	});
+	function del(r) {
+		$.ajax({
+			url : "/proxyProject/reviewBook/reviewBookDelete",
+			data : {
+				num_review : r
+			},
+			success : function() {
+				alert("댓글 삭제!");
+				reviewBookList();
+			}
+		});
+	}
+	function mod(no, i) {
+		var data = document.getElementsByName("contents");
+		var contents = data[i].value;
+		//alert($().val());
+		$.ajax({
+			url : "/proxyProject/reviewBook/reviewBookModify",
+			data : {
+				num_review : num,
+				contents : contents
+			},
+			success : function() {
+				alert("댓글 수정!");
+				/* $("#contents").val(""); */
+				reviewBookList();
+			}
+		});
+	}
+</script>
+
 <title>PROXY : 대한민국 대표 중고도서</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/visitedbook.css">
 <style type="text/css">
@@ -57,7 +180,7 @@ $(function () {
 }
 #view_div_outside{
 	width: 100%;
-	height: 1000px;
+	height: 1100px;
 	padding-top: 0px;
 /* 	border: 1px solid black; */
 }
@@ -169,6 +292,14 @@ $(function () {
 	width: 80%;
 	margin: 0 auto;
 }
+/* tr, td{
+	border: 1px solid black;
+} */
+#span_sellingprice{
+	font-size: 24px;
+	text-align: center;
+	
+}
 </style>
 
 </head>
@@ -178,7 +309,7 @@ $(function () {
 <input type="hidden" value="${view.num }" id="viewnum">
 <%@ include file = "../common/header.jsp" %>
 
-<div id="view_div_outside">
+<div id="view_div_outside" style="">
 <div id="view_div_inside">
 	<div id="view_div_1"class="w3-content" style="max-width:500px">
 	  <img class="mySlides" src="${pageContext.request.contextPath}/resources/upload/${viewPicture.files1 }" alt="the book images are here">
@@ -200,7 +331,7 @@ $(function () {
 		<table id="view_table">
 			<tr>
 				<td><img src="/proxyProject/resources/upload/lim.jpg" id="img_face"><p id="p_id">&nbsp;&nbsp;${view.id }</p>
-								<p class="gray">&nbsp;&nbsp;&nbsp;판매자 신용도  ${viewMember.seller_trust }</p>
+								<p class="gray">&nbsp;&nbsp;&nbsp;판매자 신용도  ${viewMember.trust }</p>
 				</td>
 			</tr>
 			<tr>
@@ -234,14 +365,18 @@ $(function () {
 
 			</tr>
 			<tr>
-				<td><p id="p_price">${view.price } </p><p id="won">원</p></td>
+				<td><p id="p_price">${view.price}원 </p><br><div id="span_sellingprice">${view.sellingprice }원</div>
+	                         	<div> <c:set var="num1"  value="${view.sellingprice / view.price *100}" /> 
+	                         				<c:set var="number" value="${num1-(num1%1) }"></c:set>
+	                      
+	                         	${100- number }% <p style="font-weight: bold; display: inline-block;">↓</p></div> </td>
 			</tr>
 		
 			<tr>
 				<td id="td_space"></td>
 			</tr>
 			<tr>
-				<td><div id="div_button"><a href="buyBook"><input type="submit"  id="view_button2"class="view_button" value="구매하기"></a><a href="sellBookList?id=${member.id }"><input type="submit" class="view_button" id="view_button1" value="목록으로" style="border: 1px solid gray;"></a></div></td>
+				<td><div id="div_button"><a href="../member/buyer/depositWrite?num=${view.num}&id=${member.id}"><input type="submit"  id="view_button2"class="view_button" value="구매하기"></a><a href="sellBookList?id=${member.id }"><input type="submit" class="view_button" id="view_button1" value="목록으로" style="border: 1px solid gray;"></a></div></td>
 			</tr>
 			<tr>
 				<td id="td_space"></td>
@@ -341,11 +476,43 @@ $(function () {
          </div> 
          <!-- 최근 본 상품 목록 끝 -->
 		</table>
-	</div>
-	
-	
-</div>
-</div>
+		
+	</div><br>
+<!--책 리뷰 작성  -->		 
+
+
+<!--댓글  -->
+<%-- <div style="border: 1px solid black; width: 100%; height: 300px; text-align:center; margin: 0 auto; margin-top: 20px; display: inline-block;">
+
+<div style="width: 100%; text-align: center;">
+
+   
+      <input type="hidden" value="${member.id}" id="id">
+      <div style="width: 100%; text-align: center;">
+         <div class="mypage-content2">
+            <div class="mypage-header">댓글</div>
+                     <div class="form-group">   
+                         <input type="hidden" id="num_review" name="num_review" value="${view.num}">
+                     </div>   
+         <div style="padding: 10px;">
+         <textarea id="contents" placeholder="댓글입니다." class="writetext"></textarea>
+                     <button type="button" id="submit">댓글<br>등록</button>
+         </div>         
+         <div id="div_review" class="review1">
+               <input type="hidden" id="writer" name="id" value="${sessionScope.member.id}" maxlength="10">   
+               <center></center><!--  댓글 달리는곳 -->
+         </div>
+      </div>
+         <div style="text-align: center;">
+            <a href="freList" class="btnstyle">목록</a>
+         </div>
+      
+
+</div> --%>
+<!--책 리뷰 작성 끝  -->
+ </div>
+
+</div> 
 
 
 
@@ -377,7 +544,6 @@ function showDivs(n) {
   dots[slideIndex-1].className += " w3-opacity-off";
 }
 </script>
-
 
 	<!-- Footer Start -->
 		<%@ include file = "../common/footer.jsp" %>

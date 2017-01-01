@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +17,9 @@ import org.springframework.web.multipart.MultipartRequest;
 
 import com.choa.book.BookDTO;
 import com.choa.book.BookService;
+import com.choa.deal.DealDTO;
+import com.choa.deal.DealService;
+import com.choa.deposit.DepositDTO;
 import com.choa.freeboard.FreeboardService;
 import com.choa.member.MemberDTO;
 import com.choa.member.MemberService;
@@ -30,8 +34,63 @@ public class MemberController {
    private MemberService memberService;
    @Autowired
    private BookService bookService;
+   @Autowired
+   private DealService dealService;
    
-
+   
+   @ResponseBody
+	@RequestMapping(value="/seller/selectDelivery", method=RequestMethod.POST)
+	public DealDTO selectDelivery(@RequestParam int num, Model model){
+		DealDTO dealDTO = null;
+	   try {
+		   System.out.println("selectDelivery 들어왔다");
+		
+		   dealDTO = dealService.selectDelivery(num,model);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	   return dealDTO;
+	}
+   
+   
+   @RequestMapping(value="/buyer/depositFinish", method=RequestMethod.GET)
+   public String depositFinish(DealDTO dealDTO){
+	   try {
+		   System.out.println("디파짓피니시 컨트롤러");
+		  System.out.println(dealDTO.getNumBook());
+		  System.out.println(dealDTO.getProduct());
+		  System.out.println(dealDTO.getIdSeller());
+		  System.out.println(dealDTO.getIdBuyer());
+		  System.out.println(dealDTO.getName());
+		  System.out.println(dealDTO.getTel());
+		  System.out.println(dealDTO.getEmail());
+		  System.out.println(dealDTO.getAddress());
+		dealService.insertDeal(dealDTO);
+		
+		bookService.insertBBB(dealDTO);
+		/* bookService.myBuyList(dealDTO.getId_buyer(), model);*/
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	   
+	   return "redirect:/member/buyer/myBuyList?id="+dealDTO.getIdBuyer();
+   }
+   
+   
+   @RequestMapping(value="/buyer/depositWrite", method=RequestMethod.GET)
+   public String deposit(DepositDTO depositDTO, @RequestParam String id, Model model){ 
+      try {
+    	  System.out.println("디파짓라이트에 들어온다");
+         bookService.deposit(depositDTO, model);
+         bookService.sellBookView(depositDTO.getNum(), id, model);
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+      return "/member/buyer/depositWrite";
+   }
+   
+   
 
    @ResponseBody
    @RequestMapping(value="/seller/addPointBuyer")
@@ -56,8 +115,31 @@ public class MemberController {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
+  }
+   @ResponseBody
+   @RequestMapping(value="/seller/downPointBuyer")
+   public void downPointBuyer(@RequestParam int num, Model model){
+	   try {
+		memberService.downPointBuyer(num, model);
+		bookService.addPointSuccessSeller(num);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	   
    }
+   
+   @ResponseBody
+   @RequestMapping(value="/buyer/downPointSeller")
+   public void downPointseller(@RequestParam int num, Model model){
+	   try {
+		memberService.downPointSeller(num, model);
+		bookService.addPointSuccessBuyer(num);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+  } 
    
    @ResponseBody
    @RequestMapping(value="/buyer/confirm")
@@ -67,8 +149,16 @@ public class MemberController {
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
-   }
-   
+  }
+   @ResponseBody
+   @RequestMapping(value="/buyer/depositSuccess")
+   public void depositSuccess(@RequestParam int num){
+	   try {
+		bookService.depositSuccess(num); 
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+   }  
    @ResponseBody
 	@RequestMapping(value="/seller/delivery")
 	public void delivery(@RequestParam int num){
@@ -234,16 +324,6 @@ public class MemberController {
 
 
 
-   @RequestMapping(value="/buyer/depositWrite")
-   public String deposit(@RequestParam int num, String id,  Model model){
-
-      try {
-         bookService.deposit(num, id, model);
-      } catch (Exception e) {
-         e.printStackTrace();
-      }
-      return "/member/buyer/depositWrite";
-   }
    
    // ============================================================
 

@@ -10,6 +10,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.choa.deal.DealDTO;
+import com.choa.deposit.DepositDTO;
 import com.choa.member.MemberDTO;
 import com.choa.member.MemberLikeBooksDTO;
 import com.choa.util.PageMaker;
@@ -25,19 +27,32 @@ public class BookDAO {
 	private String namespace2="DealMapper.";
 	
 	
+	public int insertBBB(DealDTO dealDTO)throws Exception{
+		return sqlSession.insert(namespace+"insertBBB", dealDTO );
+	}
+	
+	
 	public int addPointSuccessBuyer(int num)throws Exception{
+		sqlSession.update(namespace2+"addPointSuccessBuyerDeal", num );
 		return sqlSession.update(namespace+"addPointSuccessBuyer", num);
 	}
 	public int addPointSuccessSeller(int num)throws Exception{
+		sqlSession.update(namespace2+"addPointSuccessSellerDeal", num );
 		return sqlSession.update(namespace+"addPointSuccessSeller", num);
 	}
 	
 	
 	//구매자가 택배 받아서 구매확정 버튼 누르면 책의 status 를 구매확정으로 바꾸기
 	public int confirm(int num)throws Exception{
-		sqlSession.update(namespace2+"confirmDeal", num);
+			sqlSession.update(namespace2+"confirmDeal", num);
 		return sqlSession.update(namespace+"confirm", num );
 	}
+	//결제완료로 바꾸기
+	public int depositSuccess(int num)throws Exception{
+		sqlSession.update(namespace2+"depositSuccessDeal", num);
+	return sqlSession.update(namespace+"depositSuccess", num );
+}
+	
 	
 	//판매자가 택배 보내고나서 배송완료 버튼 누르면 책의 status를 배송중으로 바꾸기
 	public int delivery(int num)throws Exception{
@@ -45,8 +60,11 @@ public class BookDAO {
 		return sqlSession.update(namespace+"delivery", num );
 	}
 	
-	public int statusDeposit(int num)throws Exception{
-		return sqlSession.update(namespace+"statusDeposit", num);
+	
+	//
+	public int statusDeposit(DepositDTO depositDTO)throws Exception{
+		
+		return sqlSession.update(namespace+"statusDeposit", depositDTO);
 	}
 	
 	//sellBookList에서 하트 보여주기

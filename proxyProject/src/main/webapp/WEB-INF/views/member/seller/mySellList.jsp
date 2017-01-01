@@ -79,7 +79,17 @@ tr, th {
 	float: right;
 	font-size: 10px;
 }
-
+.button_delivery{
+	margin-top: 10px;
+}
+.hide_tr{
+	display: none;
+}
+#hide_td2{
+		width: 70%;
+		height: 100%;
+		margin-left: 30%;
+}
 </style>
 </head>
 <body class="home">
@@ -129,13 +139,20 @@ tr, th {
 								<td id="td_status${list.num }">${list.status}</td>
 								<td id="td_status2${list.num }">
 									<!-- 입금대기중일때 -->
+									<c:if test="${member.id != list.id }">
 									<c:if test="${list.status =='입금대기중' }">
+										<button id="btn_info"  value="배송정보"></button>
 										<a href="deposit?id=${member.id}&price=${list.price}&num=${list.num}&id=${list.id}"><button id="deposit"> 입금하기 </button></a>
+									</c:if>
 									</c:if>
 									<!--구매자가 입금해서 책의 status가 '결제완료' 로 변경되면 아래의 배송완료 버튼이 판매자에게 생긴다.  -->
 									<c:if test="${list.status == '결제완료' }">
-										<button id="btn_delivery${list.num }" onclick="numclick(${list.num});">배송완료시 눌러주세요</button>
+										<button id="button_hide_td" onclick="selectDelivery(${list.num})">배송정보</button>
+										<button id="btn_delivery${list.num }" onclick="numclick(${list.num});" class="button_delivery">배송완료시 눌러주세요</button>
 									<!--배송완료 버튼을 누르면 book 테이블에 status가 배송중으로 바뀜.  -->	
+									
+										
+										
 										<script type="text/javascript">
 									
 											
@@ -157,13 +174,38 @@ tr, th {
 									
 											
 										</script>
+											<script type="text/javascript">
+												function selectDelivery(number){
+
+													$.ajax({
+														url:'selectDelivery',
+														type:'POST',
+														data:{num:number},
+														success:function(result){
+
+															$("#div1"+number).html("상품명 : "+ result.product);
+											 				$("#div2"+number).html("구매자 ID : "+ result.idBuyer);
+															$("#div3"+number).html("구매자 이름 : "+ result.name);
+															$("#div4"+number).html("구매자 전화번호 : "+ result.tel);
+															$("#div5"+number).html("구매자 주소 : " + result.address);
+															$("#hide_tr"+number).show();  
+														},
+														error:function(e){
+				                    						alert("실패했습니다. 새로고침 후 다시 버튼을 눌러주세요");
+				                    					}
+													});
+													
+
+												};
+												
+										</script>
 									</c:if>
 <!--status가 구매확정일 경우 상대방 평가하기  -->									
 									<c:if test="${list.status == '구매자 평가 완료' }">
 											<div id="span_thumb${list.num }">거래상대 평가</div>
 									<!--상대방 신용도 +1  -->
 											<div class="thumbs" id="thumb${list.num }"><img onclick="clickup(${list.num});" id="btn_img" class="img_thumb" src="${pageContext.request.contextPath}/resources/image/up.png">	</div>&nbsp;&nbsp;
-											
+											<div class="thumbs" id="thumb${list.num }"><img onclick="clickdown(${list.num});" id="btn_img" class="img_thumb" src="${pageContext.request.contextPath}/resources/image/down.png">	</div>
 											<script type="text/javascript">
 										
 											function clickup(number){
@@ -180,15 +222,40 @@ tr, th {
 			                    					}
 			                    				}); 
 											};
-									
+											function clickdown(number){
+											 	$.ajax({
+			                    					url:'downPointBuyer',
+			                    					type:'POST',
+			                    					data : {num:number}, 	
+			                    					success:function(result) {    //여기서 result는 ajax 실행했을때 컨트롤러에서 받는 리턴을 의미
+				                    					$("#td_status"+number).html("판매/평가 완료");
+				                    					$("#td_status2"+number).html("");
+			                    					},
+			                    					error:function(e){
+			                    						alert("실패했습니다");
+			                    					}
+			                    				}); 
+											};
 											
 										</script>
 									<!--상대방 신용도 -1  -->	
-											<div class="thumbs"><a href="deletePoint?num=${list.num }"><img class="img_thumb" src="${pageContext.request.contextPath}/resources/image/down.png"></a></div>
+											
 									</c:if>
 									
 								</td>
 								
+							</tr>
+							<tr id="hide_tr${list.num }" class="hide_tr">
+								<td id="hide_td" colspan="4">
+									<div id="hide_td2">
+										<div style="font-size: 20px; text-decoration: underline;">배송정보</div>
+										<div id="div1${list.num }"></div>
+										<div id="div2${list.num }"></div>
+										<div id="div3${list.num }"></div>
+										<div id="div4${list.num }"></div>
+										<div id="div5${list.num }"></div>
+										<div style="color:#ff3333; ">* 3일 이내 배송 후 '배송완료시 눌러주세요' 버튼을 눌러주세요!</div>
+								</div></td>
 							</tr>
 						</c:forEach>
 						</c:when>

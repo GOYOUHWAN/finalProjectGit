@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.choa.book.BookDAO;
 import com.choa.book.BookDTO;
@@ -21,7 +22,7 @@ import com.choa.freeboard.FreeboardDTO;
 @RequestMapping("/deposit")
 public class DepositController {
 
-	
+/*	
 	@Autowired
 	   private SqlSession sqlSession;
 	@Autowired
@@ -30,14 +31,14 @@ public class DepositController {
 		private DealService dealService;
 	
 	 //  글쓰기폼
-	   @RequestMapping("/DepositWriteForm")
-	   public String depositWriteForm(){
-	      
-	      return "buyer/deposit";
+	   @RequestMapping("/depositWriteForm")
+	   public String depositWriteForm(@RequestParam int num){
+		   System.out.println("여기 걸리나?");
+	      return "depositWrite";
 	   }
 	   
 	   //  글쓰기   
-	   @RequestMapping("/DepositWrite")
+	   @RequestMapping("/depositWrite")
 	   public String depositWrite(DepositDTO dto, DealDTO dealDTO, Model model){
 		   System.out.println("여기로 들어오는가");
 		   DepositDAO dao = sqlSession.getMapper(DepositDAO.class);
@@ -53,5 +54,5 @@ public class DepositController {
 		
 		   return "redirect:depositResult";
 	   }
-
+*/
 }

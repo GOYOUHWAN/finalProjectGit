@@ -3,10 +3,7 @@
     font-family: 'Daum_Regular';
     src: url(Daum_Regular.ttf) format('truetype');
 }
-body{
-	background-color: rgba(255,247,229,0.5);
-	
-}
+
 *{
 	margin-top:0px;
 	margin: 0;
@@ -135,6 +132,7 @@ background-color: rgba(110, 153, 7, 0.7);
 }
 body{
 	border-top: 0.1px solid white;
+	background-color: rgba(255,247,229,0.5);
 }
 
 #footer_wrap{
@@ -531,8 +529,10 @@ ul.tab li a:focus, .active {
 	color: gray;
 }	
 #p_price{
-	font-size: 27px;
+	font-size: 15px;
 	float: left;
+	color: gray;
+	text-decoration: line-through;
 }
 #tagisp{
 	width : 80%;

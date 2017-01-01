@@ -3,52 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html >
-<html lang="en">
+<html >
 <head>
-<style type="text/css">
-#submit{
-	width: 8%;
-	float: right;
-	background-color: #6e9907;
-	border: none;
-	color: white;
-	padding: 10px;
-}
-#submit:hover{
-	background-color: #7dad09;
-}
-#s_div1 {
-	width: 50%;
-	height: 300px;
-	margin-top: 350px;
-	border: 1px solid green;
-	margin-left: 350px;
-}
-
-#re1 {
-	padding: 88px 0 24px;
-    color: #1f1f1f;
-    font-size: 30px;
-}
-
-.review1 {
-	margin: 50px 50px 50px 50px;
-	padding: 20px 0 20px 20px;
-	background-color: #f8f8f8;
-	border-bottom: 1px solid #ececec;
-	
-}
-#review3 {
-	border: 1px solid black;
-	width: 100%;
-	height: 150px;
-}
-.comment{
-	padding: 20px 0 20px 16px;
-    border-bottom: 1px solid #ececec;
-}
-
-</style>
 <script type="text/javascript"
 	src="/proxyProject/resources/js/jquery-1.11.3.min.js"></script>
 <script
@@ -174,53 +130,107 @@
 		});
 	}
 </script>
+
+<style type="text/css">
+#submit{
+	width: 8%;
+	float: right;
+	background-color: #6e9907;
+	border: none;
+	color: white;
+	padding: 10px;
+}
+#submit:hover{
+	background-color: #7dad09;
+}
+#s_div1 {
+	width: 50%;
+	height: 300px;
+	margin-top: 350px;
+	border: 1px solid green;
+	margin-left: 350px;
+}
+
+#re1 {
+	padding: 88px 0 24px;
+    color: #1f1f1f;
+    font-size: 30px;
+}
+
+.review1 {
+	margin: 50px 50px 50px 50px;
+	padding: 20px 0 20px 20px;
+	background-color: #f8f8f8;
+	border-bottom: 1px solid #ececec;
+	
+}
+#review3 {
+	border: 1px solid black;
+	width: 100%;
+	height: 150px;
+}
+.comment{
+	padding: 20px 0 20px 16px;
+    border-bottom: 1px solid #ececec;
+}
+
+</style>
 <title>VIEW</title>
 </head>
 <body>
-	<div>
-<!-- Header Start -->
+	<!-- Header Start -->
 		<%@ include file = "../common/header.jsp" %>
 	<!-- Header End -->
-</div>
-	<section id="section">
+	<section id="section" style="border:2px solid black;">
+	
 	<table id="s_div1">
 		<tr>
 			<td id="title">${dto.title}</td>
 		</tr>
 		<tr>
 			<td id="content">${dto.content}</td>
-			<div id="tr2">
-			<td id="writer">작성자 :&nbsp;</td>
-			<td id="writer">${dto.id}</td><br>
-			<td id="date">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;날 짜 :&nbsp;</td>
-			<td id="date"><fmt:formatDate value="${dto.date2}"
-					pattern="yyyy/MM/dd hh:mm" /></td>
-			</div>
-		</tr>	
-			<c:if
-				test="${sessionScope.member.id eq dto.id || sessionScope.member.type eq '3'}">
+			<!-- <div id="tr2"> -->
+				<td id="writer">작성자 :&nbsp;</td>
+				<td id="writer">${dto.id}</td>
+				<td id="date">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;날 짜 :&nbsp;</td>
+				<td id="date">${dto.date2 }
+				<%-- <fmt:formatDate value="${dto.date2}"pattern="yyyy/MM/dd hh:mm" /> --%></td>
+			<!-- </div> -->
+		</tr>
+		<tr>
+			<td>	
+			<c:if test="${sessionScope.member.id eq dto.id || sessionScope.member.type eq '3'}">
 				<a href="freModifyForm?no=${dto.no}">수정</a>
-
 				<a href="freDelete?no=${dto.no}"
 					onclick="return confirm('정말 삭제하시겠습니까?')">삭제</a>
 			</c:if>
 
 			<a href="freList">목록</a>
-
+			</td>
 			<td><input type="hidden" value="${member.id}" id="id"></td>
+		</tr>	
+			<tr>
+				<td>
 			<table class="table table-condensed" align="center">
 				<tr>
+					<td>
 					<h2 id="re1">댓글</h2>
 					<h2 id="re2"></h2>
-				
+					</td>
 					<td>
 							<div class="form-group">
 								
 								 <input type="hidden" id="reviewno" name="reviewno" value="${dto.no}">
 							</div>		
 					</td>
+					
 				</tr>
+			
 			</table>
+			</td>
+			</tr>
+			<tr>
+			<td>
 			<textarea id="contents" placeholder="댓글입니다."></textarea>
 							<button type="button" id="submit">댓글등록</button>
 							<br>
@@ -229,7 +239,10 @@
 			<div id="div_review" class="review1">
 					<input type="hidden" id="writer" name="id" value="${sessionScope.member.id}" maxlength="10">	
 					<center></center><!--  댓글 달리는곳 -->
+				
 			</div>
+				</td>
+			</tr>
 	</table>
 	</section>
 	<!--==============================
