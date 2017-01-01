@@ -110,8 +110,9 @@ tr, th {
 		</div>
 	<div class="container">
 	<div id="div_container_2">
+	<p style="text-align: center; color:red;font-size: 20px;">**NH농협은행/예금주명:프록시/123-12345-1234로 입금바랍니다**</p>
 	<div id="div_container_3">
-		<div id="div_title"><h2>구매내역</h2></div>
+		<div id="div_title"><h2 style="width: 20%;">구매내역</h2></div>
 		
 	
 		

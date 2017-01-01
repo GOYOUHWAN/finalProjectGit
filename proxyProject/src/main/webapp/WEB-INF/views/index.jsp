@@ -148,7 +148,7 @@
 			</div>
 			<div class="s_div2">
 				<h3 class="class_text">신용도</h3>
-				<c:forEach begin="1" end="${listsizeT}">
+				<c:forEach begin="1" end="10">
 					<p class="p_text">${countT+1}위&nbsp; ${trust[countT].id}</p>
 						<c:set var="countT" value="${countT+1 }"/>
 				</c:forEach>

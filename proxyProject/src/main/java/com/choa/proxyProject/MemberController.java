@@ -194,6 +194,7 @@ public class MemberController {
       return "member/manager/manageSeller";
    }
    //판매자 신청 승인
+   @ResponseBody
    @RequestMapping(value = "/manager/upgrade", produces = "application/json; charset=utf-8")
    public void memberApprove(@RequestParam String id, HttpServletResponse response)throws Exception{
 	   String message="";

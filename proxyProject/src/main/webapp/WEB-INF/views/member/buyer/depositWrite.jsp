@@ -142,7 +142,7 @@ table tr, td {
 /* 	border: 1px solid #8C72FD; */
 	width: 30%;
 	height: 50px;
-	font-size: 30px;
+	font-size: 20px;
 	line-height: 1.33;
 	border-radius: 3px;
 	color: #fff;

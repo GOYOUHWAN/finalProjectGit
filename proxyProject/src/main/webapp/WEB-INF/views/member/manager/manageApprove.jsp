@@ -317,16 +317,16 @@ a {
 			<div>
 					<!-- 구매자 정보 -->
 					<c:forEach items="${approveInfo}" var="f">
-					
+						
 						<div class="mypage-item-wrapper ng-scope">
 							<div class="mypageodr-item-tel mypageodr-item-state-title ng-binding">${f.id }</div>
 							<div class="mypageodr-item-tel mypageodr-item-state-title ng-binding jump">
-								<p id="name1${f.id }" onclick="name1click(${f.id })" class="pictext">주민등록증</p>
+								<p id="name1${f.id }" onclick="name1click(${f.id });" class="pictext">주민등록증</p>
 							</div>
 							<div class="mypageodr-item-tel mypageodr-item-state-title ng-binding jump">
-								<p id="name2${f.id }" onclick="name2click(${f.id })" class="pictext">통장 사본</p>
+								<p id="name2${f.id }" onclick="name2click(${f.id });" class="pictext">통장 사본</p>
 							</div>
-							<div class="mypageodr-item-tel mypageodr-item-state-title ng-binding jump" id="approve${f.id }"><button onclick="memberApprove(${f.id })" class="ohho">승인</button></div>
+							<div class="mypageodr-item-tel mypageodr-item-state-title ng-binding jump" id="approve${f.id }"><button onclick="memberApprove('${f.id }')" class="ohho">승인</button></div>
 						</div>
 						<!-- 사진가져오기 -->
 						<div class="mypage-item-wrapper divhide" id="img1${f.id }">
@@ -351,7 +351,7 @@ a {
 						</c:forEach>
 						</c:if>
 						<c:if test="${paging.totalBlock==0 }">
-							<h4>아직 블랙리스트가 존재하지 않습니다.</h4>
+							<h4>아직 판매자 인증을 요청한 구매자가 존재하지 않습니다.</h4>
 						</c:if>
 						<c:if test="${paging.curBlock < paging.totalBlock}">
 							<a href="manageApprove?curPage=${paging.lastNum+1}&perPage=10" >다음</a>
@@ -372,9 +372,19 @@ a {
 $(function() {	
 	$(".mypage-page:eq(${totalBlock})").addClass("active");
 	$(".divhide").hide();
+
+	function name1click(memberid){
+		$("#img2"+memberid).hide();
+		$("#img1"+memberid).show();
+	}
+	function name2click(memberid){
+		$("#img1"+memberid).hide();
+		$("#img2"+memberid).show();
+	}
 });
 //판매자 승인 
 function memberApprove(memberid){
+	alert("판매자승인");
 	alert("memberid : "+memberid);
 $.ajax({
 	url:"upgrade",
@@ -390,13 +400,5 @@ $.ajax({
 });
 }
 
-function name1click(memberid){
-	$("#img2"+memberid).hide();
-	$("#img1"+memberid).show();
-}
-function name2click(memberid){
-	$("#img1"+memberid).hide();
-	$("#img2"+memberid).show();
-}
 </script>
 </html>
